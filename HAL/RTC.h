@@ -1,10 +1,3 @@
-/*
- * RTC.c
- *
- *  Created on: October 21, 2015
- *      Author: Bryce Salmi, KB1LQC
- */
-
 #ifndef RTC_H_
 #define RTC_H_
 

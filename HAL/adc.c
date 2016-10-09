@@ -1,10 +1,3 @@
-/*
- * adc.c
- *
- *  Created on: October 21, 2015
- *      Author: Bryce Salmi, KB1LQC
- */
-
 #include "../Faraday_Globals.h"
 #include "../REVA_Faraday.h"
 #include <msp430.h>

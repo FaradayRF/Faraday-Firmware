@@ -1,13 +1,3 @@
-/*
- * RTC.c
- *
- *  Created on: October 21, 2015
- *      Author: Bryce Salmi, KB1LQC
- */
-
-// To Do
-// comment code
-
 #include <msp430.h>
 #include "RTC.h"
 #include "GPS.h"
@@ -448,20 +438,3 @@ void Set_RTCA_Calender_Mode(void){
 	RTCCTL01 |= RTCMODE;		// RTC A Calender Mode
 }
 
-
-void GPS_Update_Calender_Time(void){
-	/*
-	 *     dateset[0] = 0x45;	//second
-    dateset[1] = 0x00;	//minute
-    dateset[2] = 0x00;	//hour
-    dateset[3] = 0x01;	//day
-    dateset[4] = 0x04;	//day of week
-    dateset[5] = 0x01;	//month
-    dateset[6] = 0x19;	//Year High
-    dateset[7] = 0x70;	//Year Low
-	 */
-	//GGA.Time
-	//dateset[0] = GGA.Time
-
-	//Set_RTCA_Calender_Time();
-}

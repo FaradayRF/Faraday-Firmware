@@ -1,14 +1,3 @@
-/*
- * gps.c
- *
- *  Created on: Nov 8, 2015
- *      Author: Brent
- *
- *      Updates
- *      12/8/2015 Bryce - added GGA and RMC parsing
- *      12/17/2015 Bryce - Removed GSV parsing, cleaned up
- */
-
 #include "gps.h"
 #include <string.h>
 #include <stdio.h>
@@ -105,36 +94,6 @@ void gps_get_nmea_string(volatile unsigned char *byte){
 		NMEA.flags &= ~BIT0;
 	}
 }
-
-///************************************************************
-//* Function: Save_GPS_string
-//*
-//* Description: Determines what type of NMEA string was received and parses it
-//*
-//* Inputs: unsigned char string[]
-//*
-//* Outputs: Nothing
-//*
-//*************************************************************/
-//void Save_GPS_string(volatile unsigned char *string){
-//	if(string[3] == 'G'){
-//		if(string[4] == 'G'){
-//			if(string[5] == 'A'){
-//				//initialize_GPS_structs();
-//				Parse_GGA(string);
-//				if(GGA.Fix_Quality[0] == 0x30){
-//					initialize_GPS_structs();
-//				}
-//			}
-//		}
-//	} else if (string[3] == 'R'){
-//		if (string[4] == 'M'){
-//			if(string[5] == 'C'){
-//				Parse_RMC(string);
-//			}
-//		}
-//	}
-//}
 
 /************************************************************
 * Function: Parse_GGA
