@@ -1,4 +1,4 @@
-Contributions made to the Faraday-Software project repository are
+Contributions made to the Faraday-Firmware project repository are
 understood to follow this license which includes the interface 
 exception following the GNUv3 license.
 
