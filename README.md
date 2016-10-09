@@ -17,4 +17,6 @@ Below are resources that are useful for programing, testing, and otherwise devel
 
 * [Code Composer Files - Source Control Information](http://processors.wiki.ti.com/index.php/Source_control_with_CCS)
   * Which files from a code composer studio project to include in a source control repository. Binaries and other files that may not be ideal for source control are specified.
+* [Git Ignore Templates](https://github.com/github/gitignore)
+* [Git Ignore Directories](http://stackoverflow.com/questions/343646/ignoring-directories-in-git-repos-on-windows)
 
