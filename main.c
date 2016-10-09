@@ -101,9 +101,8 @@ int main(void) {
 
     	if (buttonPressed)                      // Process a button press->transmit
 			{
-			__no_operation();
-			//Test the radio during manual push button operation
-			  buttonPressed = 0;                    // Re-enable button press
+				//Test the radio during manual push button operation
+				buttonPressed = 0;                    // Re-enable button press
 			}
     }
 
@@ -114,7 +113,6 @@ int main(void) {
 #pragma vector=AES_VECTOR
 __interrupt void AES_ISR(void)
 {
-	__no_operation();
 }
 
 //RTC_VECTOR
@@ -137,16 +135,13 @@ __interrupt void RTC_ISR(void)
 		RTC.year = RTCYEAR;
 		break;
 	case RTC_RTCTEVIFG:			//RTCTEVIFG
-		__no_operation();
 		break;
 	case RTC_RTCAIFG:			//RTCAIFG
 		application_update_RTC_calender_gps();			// Once per hour one minute after the hour set the RTC calender to GPS time
 		break;
 	case RTC_RT0PSIFG:			// RT0PSIFG
-		__no_operation();
 		break;
 	case RTC_RT1PSIFG:			// RT1PSIFG
-		__no_operation();
 		break;
     case 12: break;                         // Reserved
     case 14: break;                         // Reserved
@@ -164,7 +159,6 @@ __interrupt void LCD_B_ISR(void)
 #pragma vector=PORT2_VECTOR
 __interrupt void PORT2_ISR(void)
 {
- 	__no_operation();
 	//GPS UART TX
 	  switch(__even_in_range(P2IV,16))
 	  {
@@ -198,50 +192,25 @@ __interrupt void PORT2_ISR(void)
 #pragma vector=PORT1_VECTOR
 __interrupt void PORT1_ISR(void)
 {
-	__no_operation();
 	//P1IFG &= ~BIT7;                          // P1.4 IFG cleared
-	__no_operation();
 	  switch(__even_in_range(P1IV,16))
 	  {
 	    case 0:  break;                 // No Interrupt
-	    case 2:  __no_operation();      // P1.0
+	    case 2: 				        // P1.0
 	    	break;
 	    case 4:  break;                 // P1.1
 	    case 6:  break;                 // P1.2
 	    case 8:  break;                 // P1.3
 	    case 10: break;                 // P1.4
 	    case 12: 						// P1.5
-	    	/*
-
-	    	//Clear the P1.5 interrupt flag for GPIO (Software UART)
-	    	P1IFG &= ~UCA0RXD;
-
-	    	//Enable TimerA1 CCR1 - This timer is used to count the time between each bit of the UART data 'frame" byte
-	    	TA1CCTL1 = CCIE;
-
-	    	//Port interrupt triggered on edge of start bit, count half of bit to get "centered" onto the remaining bits
-	    	TA1CCR1 = TA1R + SOFTWARE_UART_HALF_BIT_TIME;
-
-	    	//Disable the port GPIO interrupt pin for the software UART pin completely. Will only be re-enabled after counting the remaining bits of "frame" when next data frame is expected
-	    	P1IE &= ~UCA0RXD; // Disable RX interrupt until Rx Done
-
-	    	//Reset the buffer byte/arrays as needed for software UART to ensure clean start
-	    	software_uart_char_buffer_rx = 0;	// clear the Rx buffer
-	    	software_uart_int_buffer_rx = 0;
-	    	software_uart_char_bit_count = SOFTWARE_UART_BIT_COUNT; // Set bit counter so that the remaining expected bits are "clocked" in
-	    	//GPS_UART_RX_UART_FG |= BIT1;	// Mark Rx flag
-
-*/
-
 	    	break;
 	    case 14: break;                 // P1.6
-	    case 16:  __no_operation();                // P1.7 (BUTTON_1)
+	    case 16:	                    // P1.7 (BUTTON_1)
 	    buttonPressed = 1;
 	    	//scratch_app_adc_get();
 	    break;
 	    default: break;
 	 }
-	__no_operation();                         // For debugger
 }
 //TIMER1_A1_VECTOR
 #pragma vector=TIMER1_A1_VECTOR
@@ -343,33 +312,24 @@ __interrupt void TIMER0_A1_ISR(void)
   switch(__even_in_range(TA0IV,14))
   {
     case 0:
-    	__no_operation();
     	break;
     case 2:  //TA1CCR1 += 16;                 // Add Offset to CCR1
-    	__no_operation();
     	housekeeping_bitmask_char |= BIT1; //BIT 1 for 1 second timer
     	TA0CCR1 += TIMER_HOUSEKEEP_CCR1;
              break;
     case 4:  //TA1CCR2 += 100;                // Add Offset to CCR2
-    	__no_operation();
              break;
     case 6:
-    	__no_operation();
     		break;                         // CCR3 not used
     case 8:
-    	__no_operation();
     		break;                         // CCR4 not used
     case 10:
-    	__no_operation();
     		break;                         // CCR5 not used
     case 12:
-    	__no_operation();
     		break;                         // Reserved not used
     case 14: //P1OUT ^= 0x01;                 // overflow
-    	__no_operation();
     		break;
     default:
-    	__no_operation();
     		break;
  }
 }
@@ -377,7 +337,6 @@ __interrupt void TIMER0_A1_ISR(void)
 #pragma vector=DMA_VECTOR
 __interrupt void DMA_ISR(void)
 {
-	__no_operation();
 }
 //CC1101_VECTOR
 #pragma vector=CC1101_VECTOR
@@ -417,37 +376,26 @@ __interrupt void ADC12_ISR(void)
 	switch(__even_in_range(ADC12IV,34))
 	  {
 	  case  ADC12IV_NONE:					// No Interrupt Pending
-		  __no_operation();
 		  break;
 	  case  ADC12IV_ADC12OVIFG:				// ADC Memory Overflow flag
-		  __no_operation();
 		  break;
 	  case  ADC12IV_ADC12TOVIFG:			// ADC Conversion Timeout flag
-		  __no_operation();
 		  break;
 	  case  ADC12IV_ADC12IFG0:				// ADC Memory Channel 0 Flag
-		  __no_operation();
 		  break;
 	  case  ADC12IV_ADC12IFG1:				// ADC Memory Channel 1 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG2:				// ADC Memory Channel 2 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG3:				// ADC Memory Channel 3 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG4:				// ADC Memory Channel 4 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG5:				// ADC Memory Channel 5 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG6:				// ADC Memory Channel 6 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG7:				// ADC Memory Channel 7 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG8:				// ADC Memory Channel 8 Flag
 		  // Move ADC data into a global array so it can be accessed by any other code
@@ -465,31 +413,24 @@ __interrupt void ADC12_ISR(void)
 		  ADC12IV &= ~ADC12IV_ADC12IFG8;	// Clear the flag manually
 		  break;
 	  case ADC12IV_ADC12IFG9:				// ADC Memory Channel 9 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG10:				// ADC Memory Channel 10 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG11:				// ADC Memory Channel 11 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG12:				// ADC Memory Channel 12 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG13:				// ADC Memory Channel 13 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG14:				// ADC Memory Channel 14 Flag
-		  __no_operation();
 		  break;
 	  case ADC12IV_ADC12IFG15:				// ADC Memory Channel 15 Flag
-		  __no_operation();
 		  break;
 	  default:								// Default Flag
-		  __no_operation();
 		  break;
 	  }
 }
+
 //USCI_B0_VECTOR
 /************************************************************
 * Function: #pragma vector=USCI_A0_VECTOR  USCI_A0 interrupt vector handler
@@ -507,7 +448,6 @@ __interrupt void ADC12_ISR(void)
 #pragma vector=USCI_B0_VECTOR
 __interrupt void USCI_B0_ISR(void)
 {
-	__no_operation();
 	switch(__even_in_range(UCB0IV,4))
 	{
 	case 0: break;                          // Vector 0 - no interrupt
@@ -545,11 +485,9 @@ __interrupt void USCI_A0_ISR(void)
   case 0:// Vector 0 - no interrupt
 	  break;
   case 2:// Vector 2 - RXIFG
-	  __no_operation();
 	  uart_datalink_rx_put_byte((volatile unsigned char)UCA0RXBUF);
 	  break;
   case 4:// Vector 4 - TXIFG
-	  __no_operation();
 	  uart_tx_datalink_isr();
 	  break;
 
@@ -563,15 +501,6 @@ __interrupt void USCI_A0_ISR(void)
 #pragma vector=WDT_VECTOR
 __interrupt void WDT_ISR(void)
 {
-	//Be careful! Will miss data and such if too long.
-	//This is a HIGH priority interrupt, be careful even in interrupt mode.
-	//check_housekeeping();
-	//P3OUT ^= LED_1 + LED_2;
-
-	//Set houskeeping bitmask general timer bit
-	//housekeeping_bitmask_char |= BIT0; //Must follow by running housekeeping bitmask check in MAIN!
-
-	//__no_operation();                         // For debugger
 }
 
 
@@ -579,23 +508,19 @@ __interrupt void WDT_ISR(void)
 #pragma vector=COMP_B_VECTOR
 __interrupt void COMP_B_ISR(void)
 {
-	__no_operation();
 }
 //UNMI_VECTOR
 #pragma vector=UNMI_VECTOR
 __interrupt void UNMI_ISR(void)
 {
-	__no_operation();
 }
 //SYSNMI_VECTOR
 #pragma vector=SYSNMI_VECTOR
 __interrupt void SYSNMI_ISR(void)
 {
-	__no_operation();
 }
 //RESET_VECTOR
 #pragma vector=RESET_VECTOR
 __interrupt void RESET_ISR(void)
 {
-	__no_operation();
 }
