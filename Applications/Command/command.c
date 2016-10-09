@@ -159,7 +159,6 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 		chksum_rx |= packet_parsed.error_detection_16[1];
 	}
 
-	__no_operation();
 	if((chksum == chksum_rx)){
 		switch (packet_parsed.command){
 			//Command = ECHO
@@ -169,6 +168,7 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 
 			//Command = READ_MEMORY
 			case 2:
+				__no_operation(); // Need this NOP here to avoid "declaration cannot have label" error. *BUG*
 				//read memory [mem_address_H, mem_address_L, length]
 				COMMAND_PACKET_READ_MEMORY_SEND_STRUCT read_memory_send_packet_struct;
 				unsigned int addr;

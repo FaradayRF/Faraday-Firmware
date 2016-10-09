@@ -58,7 +58,6 @@ volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LE
 /////////////////////////////////////////
 void init_radio_faraday(void){
 	// Increase PMMCOREV level to 2 for proper radio operation
-	init_rf_packet_buffers();
 	ResetRadioCore();
 	receiving = 1;
 
