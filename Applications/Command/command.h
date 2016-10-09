@@ -1,10 +1,3 @@
-/*
- * command.h
- *
- *  Created on: Apr 2, 2016
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_COMMAND_COMMAND_H_
 #define APPLICATIONS_COMMAND_COMMAND_H_
 

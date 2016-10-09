@@ -1,10 +1,3 @@
-/*
- * Applications.h
- *
- *  Created on: Oct 15, 2015
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_TELEMETRY_H_
 #define APPLICATIONS_TELEMETRY_H_
 
@@ -12,7 +5,6 @@ volatile extern unsigned char app_telem_uart_boot_bits;
 volatile extern unsigned char app_telem_rf_boot_bits;
 
 #define CHARSIZE 1
-//#define TELEM_PKT_3_LEN 94
 
 #define APP_TELEM_PACKET_LEN 123
 #define APP_TELEM_PACKET_PAYLOAD_LEN 118
@@ -101,7 +93,6 @@ typedef struct TELEMETRY_PACKET_3 {
 } TELEMETRY_PACKET_3_STRUCT;
 
 
-//volatile TELEMETRYDATA telem;
 volatile TELEMETRYDATA rftelem;
 
 void manual_telem_led_alert_5hz(void);
@@ -117,7 +108,6 @@ RF_APP_PACKET_STRUCT test_structtx;
 
 
 // RF Service
-//void app_telem_rf_rx_init_command(void);
 void app_telem_rf_rx_command_put(unsigned char *data_pointer, unsigned char length);
 // END RF Service
 

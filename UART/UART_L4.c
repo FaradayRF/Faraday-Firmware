@@ -1,17 +1,6 @@
-/*
- * UART_L4.c
- *
- *  Created on: Mar 14, 2016
- *      Author: Brent
- */
-
-
 #include "UART_L4.h"
 #include "UART_L2.h"
 #include "UART_Services.h"
-
-//Packet Struct
-//volatile UART_TRANSPORT_PACKET_STRUCT uart_tx_transport_pkt_struct;
 
 void uart_transport_create_packet(volatile UART_TRANSPORT_PACKET_STRUCT *buffer_struct, unsigned char service_number, unsigned char payload_length, unsigned char *payload){
 
@@ -40,7 +29,7 @@ unsigned char uart_transport_tx_packet(unsigned char service_number, unsigned ch
 	return status;
 }
 
-//May not be needed
+//May not be needed *UNEEDED*?
 void uart_transport_tx_housekeep(){
 	__no_operation();
 }

@@ -1,11 +1,3 @@
-/*
- * UART_L2.c
- *
- *  Created on: Mar 8, 2016
- *      Author: Brent
- */
-
-
 #include "UART_L2.h"
 #include "UART_L4.h"
 #include "../Faraday_HAL/Faraday_HAL.h"
@@ -14,16 +6,11 @@
 #include "../Ring_Buffers/FIFO.h"
 #include "../REVA_Faraday.h"
 
-
-
 //Packet Ring Buffer
 volatile fifo_state_machine uart_tx_bytes_state_machine;
 volatile unsigned char uart_data_tx_bytes_256[UART_TX_BUFFER_SIZE];
 volatile fifo_state_machine uart_rx_raw_bytes_state_machine;
 volatile unsigned char uart_data_rx_raw_bytes[64];
-
-//Packet Struct
-//volatile UART_DATALINK_PACKET_STRUCT uart_tx_datalink_pkt_struct;
 
 //ISR
 volatile UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT uart_tx_bytes_isr_buffer_struct;
@@ -57,7 +44,6 @@ void init_uart(void){
 }
 
 void uart_datalink_create_packet(volatile UART_DATALINK_PACKET_STRUCT *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload){
-
 	buffer_struct->packet_type = packet_type;
 	buffer_struct->packet_config = packet_config;
 	buffer_struct->payload_length = payload_length;
@@ -76,9 +62,11 @@ void uart_datalink_create_packet(volatile UART_DATALINK_PACKET_STRUCT *buffer_st
 
 unsigned char uart_datalink_put_tx(unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload){
 	UART_DATALINK_PACKET_STRUCT uart_tx_datalink_pkt_struct;
+
 	//Create packet
 	uart_datalink_create_packet(&uart_tx_datalink_pkt_struct, packet_type, packet_config, payload_length, payload);
 	unsigned char status;
+
 	//Place into buffer queue
 	status = put_fifo(&uart_tx_bytes_state_machine, &uart_data_tx_bytes_256, &uart_tx_datalink_pkt_struct);
 	return status;
@@ -104,13 +92,9 @@ void uart_datalink_tx_housekeep(void){
 	//Datalink TX
 	if((uart_tx_bytes_state_machine.inwaiting>0) && (uart_tx_bytes_isr_buffer_struct.uart_datalink_tx_rdy_flag == 0)){
 		__no_operation();
-		//__delay_cycles(500000); //Race condition? BUG - YES THERE IS A RACE CONDITION = 500000
 		uart_datalink_get_tx((unsigned char *)uart_tx_bytes_isr_buffer_struct.uart_datalink_tx_tx_pkt_buffer);
 		uart_tx_bytes_isr_buffer_struct.uart_datalink_tx_rdy_flag = 1;
 		hal_uart_set_uctxifg(); // Manually set interrupt TX flag to cause TX UART ISR to trigger if not already trigger.
-
-
-
 	}
 }
 
@@ -126,11 +110,6 @@ void uart_datalink_rx_housekeep(void){
 	}
 }
 
-//unsigned char uart_datlink_tx_startbyte_flag;
-//unsigned char uart_datlink_tx_stopbyte_flag;
-//unsigned char uart_datlink_tx_escape_flag;
-//unsigned char uart_datlink_tx_escape_buffer;
-
 void uart_tx_datalink_isr(void){
 	//////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Check if byte waiting to be transmitted, if so get it and move it into the UART TX buffer register
@@ -145,8 +124,10 @@ void uart_tx_datalink_isr(void){
 			/////////////////////////////////////
 		  if(uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_startbyte_flag == 1){
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_startbyte_flag = 0; //Reset startbyte framing flag to 0
+
 			  //Place first (start) data byte into uart TX buffer register
 			  UCA0TXBUF = uart_tx_bytes_isr_buffer_struct.uart_datalink_tx_tx_pkt_buffer[uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current];
+
 			  //Increment byte counter
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current++;
 		  }
@@ -155,8 +136,10 @@ void uart_tx_datalink_isr(void){
 			/////////////////////////////////////
 		  else if(uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_stopbyte_flag == 1){
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_stopbyte_flag = 0; //Reset startbyte framing flag to 0
+
 			  //Place stop byte into uart TX buffer register
 			  UCA0TXBUF = UART_DATALINK_FRAMING_STOP_BYTE;
+
 			  //Increment byte counter
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current++;
 		  }
@@ -165,8 +148,10 @@ void uart_tx_datalink_isr(void){
 			/////////////////////////////////////
 		  else if(uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_escape_flag == 1){
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_escape_flag = 0; //Reset startbyte framing flag to 0
+
 			  //Place escaped data byte into uart TX buffer register
 			  UCA0TXBUF = uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_escape_buffer;
+
 			  //Increment byte counter
 			  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current++;
 		  }
@@ -179,7 +164,6 @@ void uart_tx_datalink_isr(void){
 				  //First byte
 				  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_startbyte_flag = 1; //Set startbyte flag
 				  UCA0TXBUF = UART_DATALINK_FRAMING_START_BYTE;
-				  __no_operation();
 			  }
 			  //Frame - Insert stop byte
 			  else if(uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current == 127){
@@ -187,7 +171,6 @@ void uart_tx_datalink_isr(void){
 				  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_stopbyte_flag = 1; //Set startbyte flag
 				  //Place last databyte into UART tx buffer register, stopbyte will be sent after this last byte
 				  UCA0TXBUF = uart_tx_bytes_isr_buffer_struct.uart_datalink_tx_tx_pkt_buffer[uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current];
-				  __no_operation();
 			  }
 			  //Frame - Not START or STOP byte, check for data bytes needing escape character prepended
 			  else{
@@ -213,7 +196,6 @@ void uart_tx_datalink_isr(void){
 					  UCA0TXBUF = uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_escape_buffer;
 					  uart_tx_bytes_isr_buffer_struct.uart_datlink_tx_byte_current++;
 				  }
-
 			  }
 		  }
 	  }
@@ -228,11 +210,6 @@ void uart_tx_datalink_isr(void){
  * Receiver
  */
 
-
-//status = put_fifo(&uart_rx_raw_bytes_state_machine, &uart_data_rx_raw_bytes, &uart_tx_datalink_pkt_struct);
-//result = get_fifo(&uart_rx_raw_bytes_state_machine, uart_data_rx_raw_bytes, get_buffer_ptr);
-
-
 unsigned char uart_datalink_byte_isempty_rx(void){
 	if(uart_rx_raw_bytes_state_machine.inwaiting>0){
 		return 1;
@@ -243,22 +220,8 @@ unsigned char uart_datalink_byte_isempty_rx(void){
 }
 
 void uart_datalink_rx_put_byte(volatile unsigned char *data_byte){
-
-	//rx_byte = 0;
-	//data = 0x31;
-	//Place into buffer queue
-	//volatile unsigned char status;//,data,rx_byte;
 	put_fifo(&uart_rx_raw_bytes_state_machine, &uart_data_rx_raw_bytes, &data_byte);
-	//status = get_fifo(&uart_rx_raw_bytes_state_machine, &uart_data_rx_raw_bytes, &rx_byte);
-	//status = get_fifo(&uart_rx_raw_bytes_state_machine, &uart_data_rx_raw_bytes, &rx_byte);
-	//status = get_fifo(&uart_rx_raw_bytes_state_machine, &uart_data_rx_raw_bytes, &rx_byte);
 }
-
-//
-//#define UART_DATALINK_TX_START_BYTE 0x7b
-//#define UART_DATALINK_TX_STOP_BYTE 0x7c
-//#define UART_DATALINK_TX_ESC_BYTE 0x7d
-
 ///*
 // * UART Receive Byte Escaping
 // */
@@ -354,17 +317,21 @@ void uart_datalink_rx_frame_parser_state_start(unsigned char new_byte){
 	case UART_DATALINK_RX_START_BYTE:
 		//Clear for new framer parse
 		rx_datalink_byte_cnt = 0;
+
 		//New packet detected, advance state to "START" - Prior packet corrupted / not escaped properly
 		uart_datalink_rx_frame_parser_change_state(UART_DATALINK_RX_STATE_START);
 		break;
+
 	case UART_DATALINK_RX_STOP_BYTE:
 		//END of frame found, packet parse completed
 		uart_datalink_rx_frame_parser_change_state(UART_DATALINK_RX_STATE_STOP);
 		break;
+
 	case UART_DATALINK_RX_ESC_BYTE:
 		//Escape byte found
 		uart_datalink_rx_frame_parser_change_state(UART_DATALINK_RX_STATE_ESC);
 		break;
+
 	default:
 		//Databyte recevied, save databyte to buffer
 		if(rx_datalink_byte_cnt<128){
@@ -479,8 +446,6 @@ void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte){
 	default:
 		//STATE should never be here, reset to IDLE
 		uart_datalink_rx_frame_parser_change_state(UART_DATALINK_RX_STATE_IDLE);
-
-
 	}
 
 	//Check if a packet is completed (STATE = STOP)
@@ -490,7 +455,6 @@ void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte){
 		uart_datalink_rx_frame_parser_change_state(UART_DATALINK_RX_STATE_IDLE);
 
 		//Parse Datalink Packet
-		// [Packet type, Packet config, payload length, payload...]
 		//MAKE struct!
 		unsigned char packet_type;
 		unsigned char packet_config;
@@ -511,12 +475,8 @@ void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte){
 		else{
 			__no_operation(); //Shouldn't get here. Bad packet length, caught to avoid overflow.
 		}
-
-		__no_operation();
-
 		//Pass to higher layer
 		uart_datalink_rx_pass_higher_layer(payload_length, &payload);
-
 	}
 
 
@@ -525,10 +485,5 @@ void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte){
 void uart_datalink_rx_pass_higher_layer(unsigned char datagram_len, unsigned char *datagram){
 	//This function should abstract slightly the need to pass received data up to the next layer. This techically breaks layer isolation but does so in only
 	//one location for now.
-	__no_operation();
 	uart_transport_rx_packet(datagram_len, datagram);
-	__no_operation();
 }
-
-//volatile unsigned char rx_datalink_packet[128];
-//volatile unsigned char rx_datalink_byte_cnt;

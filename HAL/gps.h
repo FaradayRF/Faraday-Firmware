@@ -1,10 +1,3 @@
-/*
- * gps.h
- *
- *  Created on: Nov 8, 2015
- *      Author: Brent
- */
-
 #ifndef HAL_GPS_H_
 #define HAL_GPS_H_
 /*

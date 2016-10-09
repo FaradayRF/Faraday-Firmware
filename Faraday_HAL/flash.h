@@ -1,10 +1,3 @@
-/*
- * flash.h
- *
- *  Created on: Apr 3, 2016
- *      Author: Brent
- */
-
 #ifndef FARADAY_HAL_FLASH_H_
 #define FARADAY_HAL_FLASH_H_
 
@@ -28,7 +21,6 @@ void flash_erase_segment(long memory_loc);
 void flash_write_char(unsigned int address, unsigned char byte);
 void flash_write_info_c_segment_char(unsigned char offset, unsigned char byte);
 void flash_write_info_c_segment_int(unsigned char offset, unsigned int integer);
-//void flash_write_info_segment_char(unsigned int address unsigned char byte);
 void flash_write_buffer(unsigned int address, unsigned char *buff, unsigned int len);
 
 #endif /* FARADAY_HAL_FLASH_H_ */

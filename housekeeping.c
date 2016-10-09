@@ -62,10 +62,7 @@ void housekeeping_check_raw(){
 		//1 second timer bit
 		//Increment housekeeping timers
 		housekeeping_timer_count_1hz++;
-
 	}
-
-
 }
 
 
@@ -80,13 +77,8 @@ void housekeeping_check_1hz(){
 		//HAB Application
 		application_hab_housekeeping_interval();
 		application_hab_cutdown_event_check_state();
-
 	}
-
-
 }
-
-
 void housekeeping_setup(void){
 	housekeeping_bitmask_char = 0;
 	housekeeping_timer_count_1hz = 0;

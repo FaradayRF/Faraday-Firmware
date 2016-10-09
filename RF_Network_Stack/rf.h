@@ -1,14 +1,5 @@
-/*
- * rf.h
- *
- *  Created on: Feb 9, 2016
- *      Author: Brent
- */
-
 #ifndef RF_NETWORK_STACK_RF_H_
 #define RF_NETWORK_STACK_RF_H_
-
-//#include "../Ring_Buffers/Packet_Ring_Buffer.h"
 
 //RF Datalink PACKET Parse Definitions
 #define RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC 0
@@ -60,7 +51,6 @@ void radio_isr(void);
 void radio_housekeeping(void);
 void radio_tx(unsigned char *buffer, unsigned char buffer_len);
 
-void init_rf_packet_buffers(void);
 void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
 unsigned char rf_tx_inwait_packet_buffer(void);
 unsigned char rf_tx_get_packet_buffer(unsigned char *buffer);

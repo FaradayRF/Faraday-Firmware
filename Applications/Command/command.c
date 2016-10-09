@@ -1,13 +1,5 @@
-/*
- * command.c
- *
- *  Created on: Apr 2, 2016
- *      Author: Brent
- */
-
 #include "command.h"
 #include "../../UART/UART_Services.h"
-//#include "../../Ring_Buffers/FIFO.h"
 #include "../../Ring_Buffers/FIFO_SRAM.h"
 #include "string.h"
 #include "../../REVA_Faraday.h"
@@ -29,18 +21,7 @@
 #define CMD_FIFO_ELEMENT_CNT 1
 
 //Telemetry Application FIFO Packet Buffers
-//volatile fifo_state_machine command_state_machine;
 volatile fifo_sram_state_machine command_state_machine;
-//volatile unsigned char command_fifo_buffer[CMD_FIFO_SIZE*CMD_FIFO_ELEMENT_CNT];
-
-
-/////////////////////////////////////////
-// UART Service FIFO  Functions
-/////////////////////////////////////////
-
-/////////////////////////////////////////
-// RF Service FIFO  Functions
-/////////////////////////////////////////
 
 #define APP_COMMAND_RF_PACKET_PAYLOAD_LEN 42
 #define APP_COMMAND_RF_PACKET_FIFO_COUNT 2
@@ -52,18 +33,13 @@ unsigned char app_packet_buf_rx[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
 
 //Application FIFO Packet Buffers
 volatile fifo_sram_state_machine app_command_rf_tx_fifo_state_machine;
-//volatile fifo_state_machine app_command_rf_tx_fifo_state_machine;
-//volatile unsigned char app_command_rf_tx_fifo_buffer[APP_COMMAND_RF_PACKET_PAYLOAD_LEN*APP_COMMAND_RF_PACKET_FIFO_COUNT];
 
 //Application FIFO Packet Buffers
 volatile fifo_sram_state_machine app_command_rf_tx_rfconfig_fifo_state_machine;
-//volatile fifo_state_machine app_command_rf_tx_rfconfig_fifo_state_machine;
-//volatile unsigned char app_command_rf_tx_rfconfig_fifo_buffer[APP_COMMAND_RF_CONFIG_LEN*APP_COMMAND_RF_PACKET_FIFO_COUNT];
 
 //Application FIFO Packet Buffers
 volatile fifo_sram_state_machine app_command_rx_fifo_state_machine;
-//volatile fifo_state_machine app_command_rx_fifo_state_machine;
-//volatile unsigned char app_command_rf_rx_fifo_buffer[APP_COMMAND_RF_PACKET_PAYLOAD_LEN*1];
+
 //Application RF FIFO Buffer - RX
 volatile fifo_sram_state_machine app_command_rx_rf_fifo_state_machine;
 
@@ -71,12 +47,6 @@ volatile fifo_sram_state_machine app_command_rx_rf_fifo_state_machine;
 // RF Command Definitions
 /////////////////////////////////////////
 #define RF_PAYLOAD_MAX_LEN 42
-
-/////////////////////////////////////////
-// RF Service FIFO  Functions
-/////////////////////////////////////////
-
-//external Variables
 
 /////////////////////////////////////////
 // Command Packet Definitions
@@ -110,6 +80,7 @@ volatile fifo_sram_state_machine app_command_rx_rf_fifo_state_machine;
 #define CMD_DATAGRAM_COMMAND_PAYLOAD_LEN_LOC_RF 1
 #define CMD_DATAGRAM_PAYLOAD_LOC_RF 2
 #define CMD_DATAGRAM_ERRORDETECTION_LOC_RF 27
+
 /*
  * This funciton initializes any variables, structs, FIFO's, or hardware needed for operation
  */
@@ -118,16 +89,14 @@ void app_init_command(void){
 	fifo_sram_init(&command_state_machine, 5000, CMD_FIFO_SIZE, CMD_FIFO_ELEMENT_CNT);
 	fifo_sram_init(&app_command_rf_tx_rfconfig_fifo_state_machine, 5123, APP_COMMAND_RF_CONFIG_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
 
-
 	init_app_command_rf_fifo();
-
 }
+
 
 void init_app_command_rf_fifo(void){
 	//Application FIFO
 	fifo_sram_init(&app_command_rf_tx_fifo_state_machine, 5161, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
 	fifo_sram_init(&app_command_rx_fifo_state_machine, 5407, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
-
 }
 
 /*
@@ -135,7 +104,6 @@ void init_app_command_rf_fifo(void){
  * such as UART or RF. This funciton is called by those service routines when needing to interact with the application.
  */
 void app_command_put(unsigned char *data_pointer, unsigned char length){
-	//put_fifo(&command_state_machine, &command_fifo_buffer, data_pointer);
 	put_fifo_sram(&command_state_machine, data_pointer);
 	__no_operation();
 }
@@ -152,12 +120,9 @@ void app_command_put(unsigned char *data_pointer, unsigned char length){
 void app_command_housekeep(void){
 	if(command_state_machine.inwaiting>0){
 		static unsigned char temp_buffer[CMD_FIFO_SIZE];
-		//get_fifo(&command_state_machine, command_fifo_buffer, (unsigned char *)temp_buffer);
 		get_fifo_sram(&command_state_machine, temp_buffer);
-		__no_operation();
 		app_command_parse(temp_buffer, APP_CMD_SOURCE_LOCAL);
 		}
-
 	app_command_rf_housekeeping();
 }
 
@@ -194,17 +159,17 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 		chksum_rx |= packet_parsed.error_detection_16[1];
 	}
 
-	__no_operation();
 	if((chksum == chksum_rx)){
 		switch (packet_parsed.command){
 			//Command = ECHO
 			case 1:
 				uart_send(2, 62, packet_parsed.payload);
 				break;
+
 			//Command = READ_MEMORY
 			case 2:
+				__no_operation(); // Need this NOP here to avoid "declaration cannot have label" error. *BUG*
 				//read memory [mem_address_H, mem_address_L, length]
-				__no_operation();
 				COMMAND_PACKET_READ_MEMORY_SEND_STRUCT read_memory_send_packet_struct;
 				unsigned int addr;
 				unsigned char read_len;
@@ -226,65 +191,74 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 					//Error, length was too long. Send back error report?
 				}
 				break;
+
 			//Command = UPDATE RAM DEVICE PARAMETERS
 			case 4:
-				__no_operation();
 				app_device_config_update_ram_parameter(packet_parsed.payload[0], &packet_parsed.payload[1]);
 				break;
 
 			case 5:
-				__no_operation();
 				//app_command_led_toggle_test();
 				app_cmd_gpio(packet_parsed.payload);
 				break;
+
 			case 6:
-				__no_operation();
 				//app_command_led_toggle_test();
 				CC430_Program_Freq(packet_parsed.payload[0], packet_parsed.payload[1], packet_parsed.payload[2]);
 				break;
+
 			case 7: //Send local UART telemetry now
-				__no_operation();
 				//Report local telemetry now
 				application_telemetry_send_self();
 				break;
+
 			case 8: //Send RF telemetry now
 				telem_rf();
-				__no_operation();
 				break;
+
 			case 9: //Send Single RF Packet (Command)
 				app_cmd_rf_single_pkt(&packet_parsed.payload);
 				break;
+
 			case 10: //Update RF power setting
-				__no_operation();
 				Faraday_RF_PWR_Change(packet_parsed.payload[0]);
 				break;
+
 			case 11: //Device debug flash reset
 				app_device_config_device_debug_reset();
 				break;
+
 			case 12: //Send device debug telemetry packet UART
 				application_telemetry_send_device_debug_telem();
 				break;
+
 			case 13: //Send device settings telemetry packet UART
 				application_send_telemetry_packet_1();
 				break;
+
 			case 14:
 				//Activate HAB Application Cutdown Event (Will cancel active auto-cutdown timer)
 				application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_1);
 				break;
+
 			case 15:
 				//Reset HAB auto-cutdown timer
 				application_hab_auto_timer_set_state(HAB_AUTO_CUTDOWN_STATE_1);
 				break;
+
 			case 16:
 				//Disable HAB Auto-Cutdown timer
 				application_hab_auto_timer_set_state(HAB_AUTO_CUTDOWN_STATE_0);
 				break;
+
 			case 17: //Reset HAB Application Cutdown Event State Machine IDLE
 				application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_0);;
 				break;
+
 			case 18: //Basic RF packet forward command (Experimental/Debug use)
 				AppMessageExperimentalPut(packet_parsed.payload, packet_parsed.payload_len);
 				break;
+
 			case 255:
 				//Device Configuration
 				if(packet_parsed.payload_len <= MAX_CONFIGURATION_UPDATE_PACKET_LEN){
@@ -294,20 +268,15 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 					app_device_config_load_default();
 				}
 				break;
+
 			default:
-				__no_operation();
 				break;
 			}
 	}
 	else{
 		//Checksum failed
-		__no_operation();
 	}
-
-
-	__no_operation();
 }
-
 
 
 void app_command_led_toggle_test(void){
@@ -332,9 +301,7 @@ void app_cmd_gpio(unsigned char *cmd_gpio_packet){
 }
 
 
-
 void app_command_send_rf_packet(unsigned char *payload_buffer,	unsigned char payload_len,	unsigned char RF_L4_service_number,	char RF_L2_source_callsign[6], unsigned char RF_L2_source_callsign_len,	unsigned char RF_L2_source_indetifier,	char RF_L2_destination_callsign[6],unsigned char RF_L2_destination_callsign_len,	unsigned char RF_L2_destination_identifier,	unsigned char RF_L2_packet_type,	unsigned char RF_L2_packet_config){
-
 	unsigned char i;
 	APP_COMMAND_RF_PACKET_STRUCT packet_struct_app_command;
 	APP_COMMAND_PACKET_CONFIG_STRUCT packet_struct_app_command_config;
@@ -348,6 +315,7 @@ void app_command_send_rf_packet(unsigned char *payload_buffer,	unsigned char pay
 	packet_struct_app_command_config.RF_L2_destination_identifier = RF_L2_destination_identifier;
 	packet_struct_app_command_config.RF_L2_packet_config = RF_L2_packet_config;
 	packet_struct_app_command_config.RF_L2_packet_type = RF_L2_packet_type;
+
 	//Place source callsign into packet struct
 	for(i=0; i<6; i++){
 		packet_struct_app_command_config.RF_L2_source_callsign[i] = RF_L2_source_callsign[i];
@@ -369,9 +337,7 @@ void app_command_send_rf_packet(unsigned char *payload_buffer,	unsigned char pay
 
 	__no_operation();
 	put_fifo_sram(&app_command_rf_tx_fifo_state_machine, &packet_struct_app_command);
-	//put_fifo(&app_command_rf_tx_fifo_state_machine, &app_command_rf_tx_fifo_buffer, &packet_struct_app_command);
 	put_fifo_sram(&app_command_rf_tx_rfconfig_fifo_state_machine, &packet_struct_app_command_config);
-	//put_fifo(&app_command_rf_tx_rfconfig_fifo_state_machine, &app_command_rf_tx_rfconfig_fifo_buffer, &packet_struct_app_command_config);
 }
 
 void app_command_rf_housekeeping(void){
@@ -383,12 +349,10 @@ void app_command_rf_housekeeping(void){
 		unsigned char app_packet_buf[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
 		unsigned char app_packet_rf_config_buf[APP_COMMAND_RF_CONFIG_LEN];
 		APP_COMMAND_PACKET_CONFIG_STRUCT test_struct;
+
 		//GET() APPLICATION packet from APPLICATION UART FIFO
 		get_fifo_sram(&app_command_rf_tx_fifo_state_machine, app_packet_buf);
-		//get_fifo(&app_command_rf_tx_fifo_state_machine, app_command_rf_tx_fifo_buffer, (unsigned char *)app_packet_buf);
 		get_fifo_sram(&app_command_rf_tx_rfconfig_fifo_state_machine, app_packet_rf_config_buf);
-		//get_fifo(&app_command_rf_tx_rfconfig_fifo_state_machine, app_command_rf_tx_rfconfig_fifo_buffer, (unsigned char *)app_packet_rf_config_buf);
-		//get_fifo(&test_rf_tx_rfconfig_fifo_state_machine, test_rf_tx_rfconfig_fifo_buffer, (unsigned char *)app_packet_rf_config_buf);
 
 		//Parse RF config packet to place RF stack info into the RF transmit function
 		unsigned char i;
@@ -410,33 +374,23 @@ void app_command_rf_housekeeping(void){
 			RF_L2_destination_callsign[i] = app_packet_rf_config_buf[9+i];
 		}
 
-
 		//Transmit APPLICATION FIFO packet into RF stack
 		rf_service_tx(&app_packet_buf, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, RF_L4_service_number, &RF_L2_source_callsign , RF_L2_source_callsign_len, RF_L2_source_indetifier, &RF_L2_destination_callsign, RF_L2_destination_callsign_len, RF_L2_destination_identifier, RF_L2_packet_type, RF_L2_packet_config);
 	}
 	else{
 		//Nothing in FIFO
-		__no_operation();
 	}
 
 	if(app_command_rx_fifo_state_machine.inwaiting>0){
 		unsigned char app_packet_buf[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
 		get_fifo_sram(&app_command_rx_fifo_state_machine, app_packet_buf);
-		//get_fifo(&app_command_rx_fifo_state_machine, app_command_rf_rx_fifo_buffer, (unsigned char *)app_packet_buf);
 		app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
 	}
-
-
-	__no_operation();
 }
 
 void app_command_rf_rx_put(unsigned char *packet){
 	//Put into the same local command queue
 	put_fifo_sram(&app_command_rx_fifo_state_machine, packet);
-	//Put into RF command queue
-	//put_fifo_sram(&app_command_rx_rf_fifo_state_machine, packet);
-	//put_fifo(&app_command_rx_fifo_state_machine, &app_command_rf_rx_fifo_buffer, (unsigned char *)packet);
-	//__delay_cycles(500000); //BUG - Race condition again? Does it only do this on the first pass?
 }
 
 void app_cmd_rf_single_pkt(unsigned char *packet){
@@ -448,5 +402,4 @@ void app_cmd_rf_single_pkt(unsigned char *packet){
 	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
 
 	rf_service_tx(&rf_cmd_pkt.cmd_app_datagram_remote, RF_PAYLOAD_MAX_LEN, 2, &local_callsign , local_callsign_len, local_device_id, rf_cmd_pkt.dest_callsign, 6, rf_cmd_pkt.dest_device_id, 0, 0);
-	//telem_rf_send_rf_packet(packet_parsed.payload, RF_PAYLOAD_MAX_LEN, 2, local_callsign, local_callsign_len, local_device_id, "CQCQCQ", 6, 0, 0, 0);
 }

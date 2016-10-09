@@ -1,10 +1,3 @@
-/*
- * Misc_Functions.c
- *
- *  Created on: Oct 4, 2015
- *      Author: Brent
- */
-
 #include "Misc_Functions.h"
 
 void Basic_Delay(unsigned long count){

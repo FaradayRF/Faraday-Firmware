@@ -1,10 +1,3 @@
-/*
- * GPIO.h
- *
- *  Created on: Oct 26, 2015
- *      Author: Brent
- */
-
 #ifndef HAL_GPIO_H_
 #define HAL_GPIO_H_
 
@@ -38,11 +31,7 @@
 #define GPIO_SRAM_HOLD 0x1000 //0b000100000000000
 #define GPIO_PORT_SRAM_HOLD P5OUT
 
-//unsigned char gpio_ctnl_p3, gpio_p3_bitmask;
 
-
-//void gpio_update_p3(unsigned char update);
-//void gpio_bitmask_modify(unsigned char bitmask, unsigned char guard_mask);
 void gpio_update(unsigned char port, unsigned char pins, unsigned char command);
 void gpio_command_update(unsigned char *port, unsigned char channel, unsigned char command);
 

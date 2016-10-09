@@ -1,10 +1,3 @@
-/*
- * Faraday_HAL.h
- *
- *  Created on: Aug 17, 2015
- *      Author: Brent
- */
-
 #ifndef FARADAY_HAL_H_
 #define FARADAY_HAL_H_
 

@@ -1,10 +1,3 @@
-/*
- * ref.c
- *
- *  Created on: October 25, 2015
- *      Author: Bryce Salmi, KB1LQC
- */
-
 #include <msp430.h>
 
 void Enable_Reference(unsigned char set){
@@ -37,23 +30,6 @@ void Enable_Reference_External_Output(unsigned char set){
 	}
 }
 
-/*
-void Enable_Reference_Master(unsigned char set){
-	switch(set)
-	{
-	case 0:
-		REFCTL0 &= ~REFMSTR;	// Disable REFCTL0 register control (legacy mode)
-		break;
-	case 1:
-
-		break;
-	default:
-		__no_operation();
-		break;
-	}
-}
-
-*/
 
 void Set_Reference(unsigned char set){
 	switch(set)

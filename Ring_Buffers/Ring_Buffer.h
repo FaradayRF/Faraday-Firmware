@@ -1,10 +1,3 @@
-/*
- * Ring_Buffer.h
- *
- *  Created on: Aug 2, 2015
- *      Author: Brent
- */
-
 #ifndef RING_BUFFER_H_
 #define RING_BUFFER_H_
 
@@ -33,7 +26,6 @@ typedef struct RingBuffer_256{
 	volatile unsigned char debug;
 	unsigned char max_inwait;
 } ring_buffer_256;
-
 
 void init_64_char_ring_buffer(ring_buffer_64 *buffer_pointer);
 char put_char_ring_buffer_64(ring_buffer_64 *buffer_pointer, unsigned char char_item);

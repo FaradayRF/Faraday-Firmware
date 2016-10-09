@@ -1,10 +1,3 @@
-/*
- * ring.h
- *
- *  Created on: Mar 8, 2016
- *      Author: Brent
- */
-
 #ifndef RING_BUFFERS_FIFO_H_
 #define RING_BUFFERS_FIFO_H_
 
@@ -28,6 +21,5 @@ void uart_init(void);
 unsigned char put_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *data, unsigned char *char_item);
 unsigned char get_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *data, unsigned char *get_byte);
 unsigned char fifo_empty(fifo_state_machine *buffer_struct);
-//char put_char_ring_buffer(fifo_state_machine *buffer_struct, unsigned char char_item);
 
 #endif /* RING_BUFFERS_FIFO_H_ */

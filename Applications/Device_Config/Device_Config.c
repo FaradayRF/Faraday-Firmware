@@ -1,10 +1,3 @@
-/*
- * Device_Config.c
- *
- *  Created on: Apr 3, 2016
- *      Author: Brent
- */
-
 #include "Device_Config.h"
 #include "../../Faraday_HAL/flash.h"
 #include "../../RF_Network_Stack/rf.h"
@@ -14,10 +7,6 @@
 #include "../../Faraday_HAL/Faraday_HAL.h"
 
 #define CONFIG_CALLSIGN_OFFSET 0
-
-//External variables
-//volatile extern unsigned char app_telem_uart_boot_bits;
-//volatile extern unsigned char app_telem_rf_boot_bits;
 
 volatile unsigned char config_bitmask;
 volatile unsigned char local_callsign_len;
@@ -83,17 +72,8 @@ void app_device_config_write_buffer(unsigned char *data, unsigned char len){
 	//Read configuration memory in for editing
 	memcpy(&mem_buf, FLASH_MEM_ADR_INFO_D, FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE);
 	memcpy(&mem_buf, data, len);
-
 	flash_erase_segment(FLASH_MEM_ADR_INFO_D);
-
-
-	//////
-
 	flash_write_buffer(FLASH_MEM_ADR_INFO_D, &mem_buf, len);
-
-	//////
-
-	__no_operation();
 }
 
 
@@ -104,10 +84,6 @@ void app_device_config_load_default(void){
 
 	//Check if flash programmed correctly, if not then program defaults to have something in memory. This should ONLY occur if the device has never be used before or was completely ereased!
 	if((!check_bitmask(flash_programmed_bit, BIT0)) | (device_callsign_len>MAX_CALLSIGN_LENGTH)){
-		__no_operation();
-	//if((flash_programmed_bit != 1) || (device_callsign_len>10)){
-		//Device improperly programmed
-
 		//Basic Configuration
 		default_flash_config_struct program_config_boot_struct;
 		program_config_boot_struct.flash_config_bitmask = BIT0;
@@ -151,7 +127,7 @@ void app_device_config_load_default(void){
 	//Set initial radio frequency on boot
 	radio_load_defaults(boot_freq[2], boot_freq[1], boot_freq[0]); //Update RFSettings struct for boot initialization. NOTE: This function follows standard CC430 library from MSB first, i.e [FREQ2, FREQ1, FREQ0]
 	CC430_Program_Freq(boot_freq[2], boot_freq[1], boot_freq[0]); // Program radio frequency (may not need if writing at boot prior to radio init)
-	//CC430_Program_Freq(78, 44, 35); // Program radio frequency (may not need if writing at boot prior to radio init)
+
 	//Update RF Power on configuration
 	Faraday_RF_PWR_Change(boot_rf_PATABLE);
 }
@@ -169,8 +145,6 @@ void app_device_config_read_defaults(void){
 	//RF
 	memcpy(&boot_freq,CONFIG_RF_DEFAULT_FREQ_ADDR,RF_FREQ_LEN); //Note: This will read into an array Freq0:2 and the array will follow, i.e. Array[0]= freq0 which is frequency LSB
 	memcpy(&boot_rf_PATABLE,CONFIG_RF_DEFAULT_PATABLE_ADDR,1);
-
-
 
 	//GPS
 	memcpy(&default_lattitde,CONFIG_GPS_DEFAULT_LATTITUDE_ADDR,GPS_LATTITUDE_LEN);
@@ -194,20 +168,28 @@ void app_device_config_update_ram_parameter(unsigned char parameter, unsigned ch
 		memcpy(&local_callsign, &payload[1], MAX_CALLSIGN_LENGTH);
 		memcpy(&local_device_id, &payload[10], 1);
 		break;
+
 	case 1: //
 		break;
+
 	case 2: //GPIO
 		break;
+
 	case 3: //GPS Location Data
 		break;
+
 	case 4: //GPS Boot Bitmask
 		break;
+
 	case 5: //Telemetry Bitmask
 		break;
+
 	case 6: //Telemetry Interval
 		break;
+
 	default:
 		break;
+
 	}
 }
 
@@ -218,12 +200,10 @@ void app_device_config_device_debug_reset(void){
 	for(i=0;i<128;i++){
 		buf_info_c[i] = 0;
 	}
+
 	//Save incremented bootup counter
 	flash_erase_segment(FLASH_MEM_ADR_INFO_C);
 	flash_write_buffer(FLASH_MEM_ADR_INFO_C, buf_info_c, 128);
-	//flash_write_info_c_segment_char(CONFIG_DEBUG_BOOT_COUNT_INDEX, bootcnt);
-	//flash_write_info_c_segment_int(CONFIG_DEBUG_BOOT_COUNT_INDEX, bootcnt);
-	//flash_write_char(FLASH_MEM_ADR_INFO_C + CONFIG_DEBUG_BOOT_COUNT_INDEX, bootcnt)
 }
 
 
@@ -232,50 +212,56 @@ void app_device_config_device_debug_update(unsigned char param, unsigned char co
 	switch(param){
 		case 0: //Boot up
 			app_device_config_device_debug_increment_int(CONFIG_DEBUG_BOOT_COUNT_INDEX);
-			/*
-			memcpy(&bootcnt, FLASH_MEM_ADR_INFO_C + CONFIG_DEBUG_BOOT_COUNT_INDEX, 2);
-			bootcnt += 1; //Increment counter
-			//Save incremented bootup counter
-			flash_write_info_c_segment_int(CONFIG_DEBUG_BOOT_COUNT_INDEX, bootcnt);
-			*/
 			break;
+
 		case 1:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_RESET_COUNT_INDEX);
 			break;
+
 		case 2:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_BOR_INDEX);
 			break;
+
 		case 3:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_RSTNMI_INDEX); // A HARD reset in debugger will trigger this too!
 			break;
+
 		case 4:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_SVSL_INDEX);
 			break;
+
 		case 5:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_SVSH_INDEX);
 			break;
+
 		case 6:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_SVML_OVP_INDEX);
 			break;
+
 		case 7:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_SVMH_OVP_INDEX);
 			break;
+
 		case 8:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_WDT_TIMEOUT_INDEX);
 			break;
+
 		case 9:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_FLASHKEY_INDEX);
 			break;
+
 		case 10:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_FLL_UNLOCK_INDEX);
 			break;
+
 		case 11:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_PERIPH_CONFIG_INDEX);
 			break;
+
 		case 12:
 			app_device_config_device_debug_increment_char(CONFIG_DEBUG_BOOT_SYSRSTIV_SYSUNIV_ACCVIFG_INDEX);
-
 			break;
+
 		default:
 			break;
 	}

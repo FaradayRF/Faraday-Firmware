@@ -1,10 +1,3 @@
-/*
- * adc.h
- *
- *  Created on: October 21, 2015
- *      Author: Bryce Salmi, KB1LQC
- */
-
 #ifndef ADC_H_
 #define ADC_H_
 

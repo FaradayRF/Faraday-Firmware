@@ -1,10 +1,3 @@
-/*
- * Misc_Functions.h
- *
- *  Created on: Oct 5, 2015
- *      Author: Brent
- */
-
 #ifndef FARADAY_HAL_MISC_FUNCTIONS_H_
 #define FARADAY_HAL_MISC_FUNCTIONS_H_
 
