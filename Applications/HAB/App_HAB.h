@@ -1,15 +1,5 @@
-/*
- * App_HAB.h
- *
- *  Created on: Jul 27, 2016
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_HAB_APP_HAB_H_
 #define APPLICATIONS_HAB_APP_HAB_H_
-
-
-
 
 #define HAB_AUTO_CUTDOWN_STATE_0 0 //Idle
 #define HAB_AUTO_CUTDOWN_STATE_1 1 //Start Timer
@@ -20,7 +10,6 @@
 
 typedef struct HAB_AUTO_CUTDOWN_TIMER_SM {
 	unsigned char uChar_state;
-	//const unsigned int uInt_app_hab_timer_cutdown;
 	unsigned int uInt_app_hab_timer;
 } HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT;
 
@@ -47,6 +36,7 @@ typedef struct HAB_TELEMETRY_PACKET {
 } HAB_TELEMETRY_PACKET_STRUCT;
 
 void application_hab_housekeeping_interval(void);
+
 //Auto-Cutdown
 void application_hab_auto_timer_set_state(unsigned char state);
 void application_hab_auto_timer_check_state(void);
@@ -54,6 +44,7 @@ void application_hab_auto_timer_state_0(void);
 void application_hab_auto_timer_state_1(void);
 void application_hab_auto_timer_state_2(void);
 void application_hab_auto_timer_state_3(void);
+
 //Cutdown Event
 void application_hab_cutdown_event_set_state(unsigned char state);
 void application_hab_cutdown_event_check_state(void);

@@ -1,10 +1,3 @@
-/*
- * MSG.c
- *
- *  Created on: Jun 11, 2016
- *      Author: Brent
- */
-
 #include "MSG.h"
 #include "../../Ring_Buffers/FIFO_SRAM.h"
 #include "../../RF_Network_Stack/rf_transport.h"
@@ -54,7 +47,6 @@ void app_msg_put(unsigned char *data_pointer, unsigned char length){
 }
 
 void app_msg_rf_rx_put(unsigned char *data_pointer, unsigned char length){
-	//put_fifo(&rf_rx_telem_state_machine, &rf_rx_telem_fifo_buffer, data_pointer);
 	put_fifo_sram(&msg_RF_rx_state_machine, data_pointer);
 }
 
@@ -63,7 +55,6 @@ void app_msg_housekeeping(void){
 	if(msg_UART_rx_state_machine.inwaiting > 0){
 		volatile unsigned char msg_uart_buffer[APP_MSG_DATA_LEN];
 		//GET() APPLICATION packet from FIFO
-		//get_fifo(&app_telem_state_machine, app_telem_state_machine_fifo_buffer, (unsigned char *)app_packet_buf);
 		get_fifo_sram(&msg_UART_rx_state_machine, msg_uart_buffer);
 		__no_operation();
 		app_msg_uart_parse(msg_uart_buffer);
@@ -76,7 +67,6 @@ void app_msg_housekeeping(void){
 	if(msg_RF_rx_state_machine.inwaiting>0){
 		unsigned char msg_rf_buffer[APP_MSG_DATA_LEN];
 		//GET() APPLICATION packet from FIFO
-		//get_fifo(&app_telem_state_machine, app_telem_state_machine_fifo_buffer, (unsigned char *)app_packet_buf);
 		get_fifo_sram(&msg_RF_rx_state_machine, msg_rf_buffer);
 		__no_operation();
 		//Put message into UART TX for reception

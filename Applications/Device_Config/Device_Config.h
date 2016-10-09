@@ -1,10 +1,3 @@
-/*
- * Device_Config.h
- *
- *  Created on: Apr 3, 2016
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_DEVICE_CONFIG_DEVICE_CONFIG_H_
 #define APPLICATIONS_DEVICE_CONFIG_DEVICE_CONFIG_H_
 
@@ -93,11 +86,6 @@
 //Telemetry Boot Bitmask
 #define UART_BEACON_BOOT_ENABLE BIT0
 #define RF_BEACON_BOOT_ENABLE BIT1
-
-//extern volatile unsigned char device_callsign[6];
-//extern volatile unsigned char device_callsign_len;
-//extern volatile unsigned char device_id;
-//extern volatile unsigned char device_boot_freq[3];
 
 extern volatile unsigned char config_bitmask;
 extern volatile unsigned char local_callsign_len;

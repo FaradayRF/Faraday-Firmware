@@ -1,10 +1,3 @@
-/*
- * MSG.h
- *
- *  Created on: Jun 11, 2016
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_MSG_MSG_H_
 #define APPLICATIONS_MSG_MSG_H_
 

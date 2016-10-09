@@ -1,10 +1,3 @@
-/*
- * telem_rf.h
- *
- *  Created on: Mar 30, 2016
- *      Author: Brent
- */
-
 #ifndef APPLICATIONS_telem_rf_telem_rf_H_
 #define APPLICATIONS_telem_rf_telem_rf_H_
 
