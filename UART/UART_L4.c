@@ -8,6 +8,7 @@
 
 #include "UART_L4.h"
 #include "UART_L2.h"
+#include "UART_Services.h"
 
 //Packet Struct
 //volatile UART_TRANSPORT_PACKET_STRUCT uart_tx_transport_pkt_struct;
@@ -42,4 +43,28 @@ unsigned char uart_transport_tx_packet(unsigned char service_number, unsigned ch
 //May not be needed
 void uart_transport_tx_housekeep(){
 	__no_operation();
+}
+unsigned char uart_transport_rx_packet(unsigned char datagram_len, unsigned char *datagram){
+	//Parse transport layer packet
+	unsigned char service_number;
+	unsigned char payload_len;
+	unsigned char payload[UART_L4_PAYLOAD_LENGTH];
+
+	service_number = datagram[0];
+	payload_len = datagram[1];
+
+	unsigned char i;
+	if(payload_len<=UART_L4_PAYLOAD_LENGTH){
+		//Parse payload into new buffer. Probably inefficient, should just pass pointer?
+		for(i=2; i<payload_len+2; i++){
+			payload[i-2] = datagram[i];
+		}
+		//Pass to UART Service function for program IO using Uart.
+		uart_stack_rx(service_number, payload, payload_len);
+		return 1;
+	}
+	else{
+		__no_operation(); //Shouldn't get here. Bad packet length, caught to avoid overflow.
+		return 0;
+	}
 }

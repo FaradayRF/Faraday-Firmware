@@ -19,6 +19,8 @@
 #define APP_MSG_UART_FIFO_COUNT 5
 #define APP_MSG_RF_FIFO_COUNT 5
 
+#define MSG_PACKET_MAX_LEN 42 //Should be max size of RF packet
+
 //Telemetry Application FIFO Packet Buffers
 volatile fifo_sram_state_machine msg_rx_state_machine;
 volatile fifo_sram_state_machine msg_UART_rx_state_machine;
@@ -43,7 +45,12 @@ void init_app_msg(void){
  */
 void app_msg_put(unsigned char *data_pointer, unsigned char length){
 	//put_fifo(&rf_rx_telem_state_machine, &rf_rx_telem_fifo_buffer, data_pointer);
-	put_fifo_sram(&msg_UART_rx_state_machine, data_pointer);
+	if(length<=MSG_PACKET_MAX_LEN){
+		put_fifo_sram(&msg_UART_rx_state_machine, data_pointer);
+	}
+	else{
+		//None
+	}
 }
 
 void app_msg_rf_rx_put(unsigned char *data_pointer, unsigned char length){
@@ -99,12 +106,18 @@ void app_msg_uart_parse(unsigned char *packet){
 	uart_msg_packet.dest_id = packet[10];
 	uart_msg_packet.data_len = packet[11];
 	memcpy(&uart_msg_packet.data,&packet[12],42);
-	if(uart_msg_packet.data[0] == 255){
+
+	if(uart_msg_packet.data[0] == 255){//Needed?
 		__no_operation();
 	}
 	//Send message over RF (Should create a RF FIFO interface eventually)
+	//BUG: THIS FUNCTION ONLY SUPPORTS 6 LETER CALLSIGNS. SHOULD FIX
 	rf_service_tx(&uart_msg_packet.data, uart_msg_packet.data_len, 3, local_callsign , local_callsign_len, local_device_id, &uart_msg_packet.dest_callsign, 6, uart_msg_packet.dest_id, 0, 0);
 
 	__no_operation();
 }
 
+void AppMessageExperimentalPut(unsigned char *packet, unsigned char length){
+	//Message packet should already be in the correct packet format for TX parsing
+	app_msg_uart_parse(packet);
+	}

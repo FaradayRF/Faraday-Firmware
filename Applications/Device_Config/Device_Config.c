@@ -116,6 +116,7 @@ void app_device_config_load_default(void){
 		program_config_boot_struct.local_device_id = 0;
 		program_config_boot_struct.default_gpio_p3_bitmask = 0x00;
 		program_config_boot_struct.default_gpio_p4_bitmask = 0x00;
+		program_config_boot_struct.default_gpio_p5_bitmask = 0x00;
 
 		//RF
 		//Default frequency is 914.5MHz
@@ -135,11 +136,11 @@ void app_device_config_load_default(void){
 		program_config_boot_struct.gps_boot_bitmask = 1;
 
 		//Telemetry
-		program_config_boot_struct.telem_boot_bitmask = BIT0 + BIT1;
+		program_config_boot_struct.telem_boot_bitmask = BIT0; //Default RF OFF since invalid callsign
 		//int_to_byte_array(&program_config_boot_struct.telem_default_uart_interval, 10);
 		program_config_boot_struct.telem_default_uart_interval = 1;
 		//int_to_byte_array(&program_config_boot_struct.telem_default_rf_interval, 5);
-		program_config_boot_struct.telem_default_rf_interval = 5;
+		program_config_boot_struct.telem_default_rf_interval = 0; //Default RF OFF since invalid callsign
 
 		app_device_config_write_buffer(&program_config_boot_struct.flash_config_bitmask, CONFIG_PACKET_LEN);
 	}

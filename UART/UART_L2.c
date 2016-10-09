@@ -7,6 +7,7 @@
 
 
 #include "UART_L2.h"
+#include "UART_L4.h"
 #include "../Faraday_HAL/Faraday_HAL.h"
 #include <msp430.h>
 #include "UART_Services.h"
@@ -522,25 +523,10 @@ void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte){
 }
 
 void uart_datalink_rx_pass_higher_layer(unsigned char datagram_len, unsigned char *datagram){
-	//This function should abstract slightly the need to pass received data up to the next layer.
+	//This function should abstract slightly the need to pass received data up to the next layer. This techically breaks layer isolation but does so in only
+	//one location for now.
 	__no_operation();
-	unsigned char service_number;
-	unsigned char payload_len;
-	unsigned char payload[123];
-
-	service_number = datagram[0];
-	payload_len = datagram[1];
-
-	unsigned char i;
-	if(payload_len<=123){//MAKE CONSTANT
-		for(i=2; i<payload_len+2; i++){
-			payload[i-2] = datagram[i];
-		}
-		uart_stack_rx(service_number, payload, payload_len);
-	}
-	else{
-		__no_operation(); //Shouldn't get here. Bad packet length, caught to avoid overflow.
-	}
+	uart_transport_rx_packet(datagram_len, datagram);
 	__no_operation();
 }
 

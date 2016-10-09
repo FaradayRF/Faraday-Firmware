@@ -15,7 +15,7 @@ void Basic_Delay(unsigned long count){
 }
 
 unsigned char check_bitmask(unsigned char bitmask_byte, unsigned char bit_location){
-	return bitmask_byte && bit_location;
+	return bitmask_byte & bit_location;
 }
 
 //Bit shift an integer into a 2 byte array. Bit shifting ensures portability between platforms.

@@ -25,6 +25,8 @@
 #define CONFIG_BASIC_P3_GPIO_INDEX 12
 #define CONFIG_BASIC_P4_GPIO_ADDR 6157
 #define CONFIG_BASIC_P4_GPIO_INDEX 13
+#define CONFIG_BASIC_P5_GPIO_ADDR 6158
+#define CONFIG_BASIC_P5_GPIO_INDEX 14
 
 #define CONFIG_RF_DEFAULT_FREQ_ADDR 6168
 #define CONFIG_RF_DEFAULT_FREQ_INDEX 24
@@ -129,7 +131,8 @@ typedef struct default_config{
 			unsigned char local_device_id;
 			unsigned char default_gpio_p3_bitmask;
 			unsigned char default_gpio_p4_bitmask;
-			unsigned char padding_basic[10];
+			unsigned char default_gpio_p5_bitmask;
+			unsigned char padding_basic[9];
 			unsigned char boot_freq[3];
 			unsigned char PATable;
 			unsigned char padding_rf[21];

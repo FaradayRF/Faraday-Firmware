@@ -445,15 +445,24 @@ void application_telemetry_send_device_debug_telem(void){
 //}
 
 void application_telemetry_uart_housekeeping_interval(void){
-	if((check_bitmask(telem_boot_bitmask,UART_BEACON_BOOT_ENABLE)) && ((telemetry_interval_counter_int>=telem_default_uart_interval) || telem_default_uart_interval == 1)){
-		//Reset counter
-		telemetry_interval_counter_int = 0;
-		//send uart local telemetry
-		application_telemetry_send_self();
+	//Check if bitmask allows UART telemetry OR if telemetry interval == 0 (if 0 then disable telemetry UART actions)
+	if(check_bitmask(telem_boot_bitmask,UART_BEACON_BOOT_ENABLE) && (telem_default_uart_interval != 0)){
+		//Check if interval counter reached
+		if((telemetry_interval_counter_int>=telem_default_uart_interval) || (telem_default_uart_interval == 1)){
+			//Reset counter
+			telemetry_interval_counter_int = 0;
+			//send uart local telemetry
+			application_telemetry_send_self();
+		}
+		else{
+			telemetry_interval_counter_int++;
+		}
 	}
+
 	else{
-		telemetry_interval_counter_int++;
+		//Nothing
 	}
+
 }
 
 #endif /* APPLICATIONS_APPLICATIONS_C_ */

@@ -359,7 +359,7 @@ void app_telem_rf_pkt_1_state_machine(unsigned char *packet){
 }
 
 void app_telem_rf_housekeeping_interval(void){
-	if((check_bitmask(telem_boot_bitmask,RF_BEACON_BOOT_ENABLE)) && ((rf_telemetry_interval_counter_int>=telem_default_rf_interval) || telem_default_rf_interval == 1)){
+	if((check_bitmask(telem_boot_bitmask,RF_BEACON_BOOT_ENABLE)) && ((rf_telemetry_interval_counter_int>=telem_default_rf_interval) || telem_default_rf_interval == 1) && (telem_default_rf_interval != 0)){
 		//Reset counter
 		rf_telemetry_interval_counter_int = 0;
 		//send uart local telemetry

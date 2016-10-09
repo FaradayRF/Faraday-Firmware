@@ -46,12 +46,6 @@ void check_housekeeping(void){
 	//Check housekeeping Timers
 	housekeeping_check_raw();
 	housekeeping_check_1hz();
-
-
-
-
-
-
 }
 
 void housekeeping_check_raw(){

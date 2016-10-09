@@ -20,6 +20,9 @@
 #include "RF_Network_Stack/rf.h"
 #include "UART/UART_L2.h"
 #include "Ring_Buffers/FIFO_SRAM.h"
+#include "Applications/Device_Config/Device_Config.h"
+#include "Faraday_HAL/Misc_Functions.h"
+
 
 void faraday_main_intialize(void){
     init_UCS();
@@ -390,10 +393,19 @@ void init_RTCA_Counter_Mode(void){
 *
 *************************************************************/
 void init_GPS(void){
-	Faraday_GPS_Reset_Enable();
-	__delay_cycles(15000);			//MCLK delay 15,000 cycles (about 500us)
-	Faraday_GPS_Reset_Disable();
-	Faraday_GPS_Standby_Disable();	//Active low, this will allow GPS to leave standby mode
+	//Enable GPS on boot
+	if(check_bitmask(gps_boot_bitmask, GPS_BOOT_ENABLE)){
+		Faraday_GPS_Reset_Enable();
+		__delay_cycles(15000);			//MCLK delay 15,000 cycles (about 500us)
+		Faraday_GPS_Reset_Disable();
+		Faraday_GPS_Standby_Disable();	//Active low, this will allow GPS to leave standby mode
+	}
+	//Disable GPS boot by default (power save)
+	else{
+		Faraday_GPS_Reset_Disable();
+		Faraday_GPS_Standby_Disable();	//Active low, this will allow GPS to leave standby mode
+	}
+
 }
 
 /************************************************************

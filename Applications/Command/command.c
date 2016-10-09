@@ -20,6 +20,7 @@
 #include "../../HAL/GPIO.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
 #include "../HAB/App_HAB.h"
+#include "../MSG/MSG.h"
 
 /////////////////////////////////////////
 // UART Service FIFO DEFINITIONS
@@ -280,6 +281,9 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 				break;
 			case 17: //Reset HAB Application Cutdown Event State Machine IDLE
 				application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_0);;
+				break;
+			case 18: //Basic RF packet forward command (Experimental/Debug use)
+				AppMessageExperimentalPut(packet_parsed.payload, packet_parsed.payload_len);
 				break;
 			case 255:
 				//Device Configuration

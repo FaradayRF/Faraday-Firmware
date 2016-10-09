@@ -22,5 +22,6 @@ typedef struct UART_L4_PACKET {
 void uart_transport_create_packet(volatile UART_TRANSPORT_PACKET_STRUCT *buffer_struct, unsigned char service_number, unsigned char payload_length, unsigned char *payload); //Change from void!
 unsigned char uart_transport_tx_packet(unsigned char service_number, unsigned char payload_length, unsigned char *payload);
 void uart_transport_tx_housekeep();
+unsigned char uart_transport_rx_packet(unsigned char datagram_len, unsigned char *datagram);
 
 #endif /* UART_UART_L4_H_ */
