@@ -16,30 +16,17 @@
 #define HOUSEKEEPING_TIMER_COUNT_5SEC 2525		// Timer A0 ACLK = 32.768KHz = 1.98ms
 
 
-
-
 //Create housekeeping bitmask
 unsigned char housekeeping_bitmask_char;
-unsigned int housekeeping_timer_count_5hz;
 unsigned int housekeeping_timer_count_1hz;
-unsigned int housekeeping_timer_count_60sec;
-unsigned int housekeeping_timer_count_10sec;
-unsigned int housekeeping_timer_count_5sec;
 
+//Functions
 void main_housekeeping_routine(void);
 void housekeeping_setup(void);
 void check_housekeeping(void);
 void housekeeping_check_raw();
-void housekeeping_check_5hz();
 void housekeeping_check_1hz();
-void housekeeping_check_5sec();
-void housekeeping_check_10sec();
-void housekeeping_check_60sec();
 void housekeeping_routine_UART(void);
 void housekeeping_routine_applications(void);
-
-
-
-
 
 #endif /* HOUSEKEEPING_H_ */

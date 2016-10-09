@@ -1,10 +1,3 @@
-/*
- * init.c
- *
- *  Created on: Jul 10, 2015
- *      Author: Brenton Salmi, KB1LQD
- */
-
 #include "Faraday_Init.h"
 #include <msp430.h>
 #include "REVA_Faraday.h"
@@ -32,8 +25,6 @@ void faraday_main_intialize(void){
     init_RTCA_Calender_Mode();
     init_usci_A0_UART();
     init_SPI();
-    //init_DMA();
-    //init_timer_A0();
     init_REF();
     init_software_uart();
     init_radio_faraday();
@@ -160,14 +151,6 @@ void init_UCS(void){
 	P5SEL |= 0x03;                            // Select XT1
 	UCSCTL6 |= XCAP_0;                        // Internal load cap
 
-
-
-	///////////////////////////////
-	// BSALMI - 10-6-2015
-	/* REV1 - OSC Fault trigger with LFXTL
-	 * REVA - OSC Boots good! Need to get capacitances correct
-	 */
-	/////////////////////////////
 	// Loop until XT1 fault flag is cleared
 	/* ** OSC FAULT - Can't boot up!**/
 	do
@@ -177,11 +160,6 @@ void init_UCS(void){
 
 
 	//UCSCTL4 |= SELA__XT1CLK ;              // Set ACLK = VLFO (**OSC Xt1 FAULT CANNOT BOOT!**)
-
-	/*
-	* Bryce - 10-30-2015
-	* Setting up for 16MHz operation with 8MHz FLL.
-	*/
 
 	__bis_SR_register(SCG0);			// Disable the FLL control loop
 	UCSCTL0 = 0x0000;                   // Set lowest possible DCOx, MODx
@@ -243,28 +221,11 @@ void init_usci_A0_UART(void){
 	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
 	UCA0IFG &= ~UCTXIFG;					  // Clear TX IFG, will be SET HIGH on init
 	UCA0IE |= UCRXIE + UCTXIE;                // Enable USCI_A0 RX interrupt,Enable USCI_A0 TX interrupt
-	/*
-	UCA0CTL1 |= UCSWRST;                      // **Put state machine in reset**
-	UCA0CTL1 |= UCSSEL_2;                     // SMCLK
-	UCA0BR0 = 0x45;                           // 8MHz 115200 (see User's Guide)
-	UCA0BR1 = 0x00;                           // 8MHz 115200
-	UCA0MCTL |= UCBRS_4 + UCBRF_0;            // Modulation UCBRSx=4, UCBRFx=0
-	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
-	UCA0IE |= UCRXIE;                         // Enable USCI_A0 RX interrupt
-	*/
 }
 
 
 void init_DMA(void){
-//	DMACTL0 = DMA0TSEL_16;                    // USCI_A0 RXIFG trigger
-//	__data16_write_addr((unsigned short) &DMA0SA,(unsigned long) &UCA0RXBUF);
-//	                                          // Source block address
-//	__data16_write_addr((unsigned short) &DMA0DA,(unsigned long) &TxString);
-//	                                            // Destination single address
-//	DMA0SZ = 1;                               // Block size
-//	DMA0CTL = DMASRCINCR_0+DMASBDB+DMALEVEL;  // No increment, source byte to destination byte, level sensistive trigger select
-//	DMA0CTL |= DMAEN;                         // DMA0 Enable
-
+// To be created
 }
 
 /************************************************************
@@ -328,11 +289,13 @@ void init_timer_A1(void){
 *
 *************************************************************/
 void init_RTCA_Calender_Mode(void){
+	// Real-Time-Clock 0 and 1 control
+	// RTC Event interrupt enable, RTC Ready interrupt enable
+	// RTC hold (calender stopped)
+	// RTC Calender mode enable
 	RTCCTL01 |= RTCTEVIE + RTCRDYIE + RTCHOLD + RTCMODE;
-																// Real-Time-Clock 0 and 1 control
-																// RTC Event interrupt enable, RTC Ready interrupt enable
-																// RTC hold (calender stopped)
-																// RTC Calender mode enable
+
+	//Setup default
 	RTCSEC	= 0x00;
 	RTCMIN	= 0x00;
 	RTCHOUR	= 0x00;
@@ -359,9 +322,6 @@ void init_RTCA_Calender_Mode(void){
 *
 *************************************************************/
 void init_RTCA_Counter_Mode(void){
-
-	//BSALMI 1-3-16 *** THIS IS CAUSING ERRORS WITH UART OPERATION? Resource Hog? Init issues? ***
-
 	//This can be changed to purely div 32768/256/128
 	RTCCTL01 = 0;							// Clear RTCCTL01 settings
 	RTCPS0CTL = 0;							// Clear RTC Prescaler 0 settings
@@ -518,16 +478,15 @@ void init_ADC(void){
 void init_SPI(void){
 	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
 	UCB0CTL0 |= UCMST+UCSYNC+UCCKPH+UCMSB;    // 3-pin, 8-bit SPI master +UCCKPL
-											// Clock polarity high, MSB
+											  // Clock polarity high, MSB
 	UCB0CTL1 |= UCSSEL_2;                     // SMCLK
 	UCB0BR0 = 0x02;                           // /2
 	UCB0BR1 = 0;                              //
-	//UCB0MCTL = 0;                             // No modulation
 	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
-	//UCB0IE |= UCRXIE | UCTXIE;              // Enable USCI_A0 RX interrupt WARNING: Don't use interrupts if using any respective While(*) waiting on the flags, it'll hang potentially!
 
 	//Disable HOLD (Active LOW)
 	Faraday_SRAM_Hold_Disable();
+
 	//Disable Chip Select (CS) (Active Low)
 	Faraday_SRAM_CS_Disable();
 }
@@ -548,26 +507,6 @@ void init_software_uart(void){
 	//Initialize software UART timer module. This is used to time each bit after the start bit edge port trigger
 	init_timer_A1();
 }
-
-
-//void InitRadio(void)
-//{
-//  // Set the High-Power Mode Request Enable bit so LPM3 can be entered
-//  // with active radio enabled
-//  PMMCTL0_H = 0xA5;
-//  PMMCTL0_L |= PMMHPMRE_L;
-//  PMMCTL0_H = 0x00;
-//
-//  WriteRfSettings(&rfSettings);
-//
-//  WriteSinglePATable(PATABLE_VAL);
-//}
-
-
-
-
-
-
 
 /************************************************************
 * Function: reset_identification(void)
@@ -637,8 +576,9 @@ void reset_identification(void){
 	   }
 
 }
-//
-///************************************************************
+
+
+//************************************************************
 //* Function: reset_identification_2(void)
 //*
 //* Description: This functional is used to determine hardware/software reset conditions on boot-up
@@ -672,8 +612,9 @@ void reset_identification(void){
 			   default: break;
 			}
 	}
-//
-//	/************************************************************
+
+
+//	************************************************************
 //	* Function: reset_identification_3(void)
 //	*
 //	* Description: This functional is used to determine hardware/software reset conditions on boot-up

@@ -1,10 +1,3 @@
-/*
- * housekeeping.c
- *
- *  Created on: Aug 5, 2015
- *      Author: Brent
- */
-
 #include <msp430.h>
 #include "REVA_Faraday.h"
 #include "housekeeping.h" //OK to include OWN header? Get declarations issue otherwise due to ordering of functions below...
@@ -54,12 +47,10 @@ void housekeeping_check_raw(){
 
 	uart_datalink_rx_housekeep();
 
-
 	//RF
 	rf_housekeeping();
 
 	//Applications
-
 	app_telem_housekeeping();
 	app_telem_rf_housekeeping();
 	app_command_housekeep();
@@ -69,7 +60,6 @@ void housekeeping_check_raw(){
 	if(housekeeping_bitmask_char & BIT1){
 		housekeeping_bitmask_char &= ~BIT1; //Disable general housekeeping bit
 		//1 second timer bit
-
 		//Increment housekeeping timers
 		housekeeping_timer_count_1hz++;
 
@@ -83,7 +73,6 @@ void housekeeping_check_1hz(){
 	if(housekeeping_timer_count_1hz >= HOUSEKEEPING_TIMER_COUNT_1HZ){
 		// Clear housekeeping 1 second timer count
 		housekeeping_timer_count_1hz=0;
-		//P3OUT ^= LED_2;
 
 		application_telemetry_uart_housekeeping_interval();
 		app_telem_rf_housekeeping_interval();
@@ -100,10 +89,6 @@ void housekeeping_check_1hz(){
 
 void housekeeping_setup(void){
 	housekeeping_bitmask_char = 0;
-//	housekeeping_timer_count_60sec = 0;
-//	housekeeping_timer_count_10sec = 0;
-//	housekeeping_timer_count_5sec = 0;
 	housekeeping_timer_count_1hz = 0;
-//	housekeeping_timer_count_5hz = 0;
 }
 

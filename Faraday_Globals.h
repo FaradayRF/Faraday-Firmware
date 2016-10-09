@@ -1,10 +1,3 @@
-/*
- * Faraday_Globals.h
- *
- *  Created on: Sep 1, 2015
- *      Author: Brent
- */
-
 #ifndef FARADAY_REVA_RF_MERGE_FARADAY_GLOBALS_H_
 #define FARADAY_REVA_RF_MERGE_FARADAY_GLOBALS_H_
 

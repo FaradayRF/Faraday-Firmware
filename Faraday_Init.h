@@ -1,10 +1,3 @@
-/*
- * init.h
- *
- *  Created on: Jul 10, 2015
- *      Author: Brent
- */
-
 #ifndef INIT_H_
 #define INIT_H_
 

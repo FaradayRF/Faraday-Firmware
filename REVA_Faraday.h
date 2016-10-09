@@ -1,10 +1,3 @@
-/*
- * Faraday_Port_Mapping.h
- *
- *  Created on: Jul 10, 2015
- *      Author: Brent
- */
-
 #ifndef FARADAY_PORT_MAPPING_H_
 #define FARADAY_PORT_MAPPING_H_
 
