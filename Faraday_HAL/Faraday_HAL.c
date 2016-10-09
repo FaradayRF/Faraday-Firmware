@@ -1,10 +1,3 @@
-/*
- * Faraday_HAL.c
- *
- *  Created on: Aug 17, 2015
- *      Author: Brent
- */
-
 #include <msp430.h>
 #include "../REVA_Faraday.h"
 #include "Faraday_HAL.h"
@@ -57,8 +50,6 @@ unsigned char hal_uart_return_tx(void){
 *
 *************************************************************/
 void Faraday_LED_bitmask_enable(unsigned char ledmask){
-	//BIT0 = LED1
-	//BIT1 = LED2
 	if(ledmask & BIT0){
 		P3OUT |= LED_1;
 	}
@@ -80,8 +71,6 @@ void Faraday_LED_bitmask_enable(unsigned char ledmask){
 *
 *************************************************************/
 void Faraday_LED_bitmask_disable(unsigned char ledmask){
-	//BIT0 = LED1
-	//BIT1 = LED2
 	if(ledmask & BIT0){
 		P3OUT &= ~LED_1;
 	}
