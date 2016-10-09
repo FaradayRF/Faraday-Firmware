@@ -1,10 +1,3 @@
-/*
- * Packet_Ring_Buffer.h
- *
- *  Created on: Jan 13, 2016
- *      Author: Brent
- */
-
 #ifndef RING_BUFFERS_PACKET_RING_BUFFER_H_
 #define RING_BUFFERS_PACKET_RING_BUFFER_H_
 
@@ -20,12 +13,6 @@ typedef struct Packet_RingBuffer_64{
 	unsigned char debug;
 	unsigned char max_inwait;
 } packet_ring_buffer_64;
-
-
-
-//Create ring buffer RX
-//volatile packet_ring_buffer_64 *packet_ring_buffer_64_ptr;
-//static packet_ring_buffer_64 packet_ring_buffer_64_struct;
 
 void init_packet_buffers(void);
 void init_char_packet_ring_buffer_64(packet_ring_buffer_64 *buffer_struct);

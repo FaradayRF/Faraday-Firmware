@@ -1,10 +1,3 @@
-/*
- * SRAM.h
- *
- *  Created on: Oct 13, 2015
- *      Author: Brent
- */
-
 #ifndef SRAM_SRAM_H_
 #define SRAM_SRAM_H_
 
@@ -38,10 +31,4 @@ void Faraday_SRAM_Init_Page_Mode(void);
 void Faraday_SRAM_Write_Sequential_Bytes(unsigned int count, unsigned int sram_address, unsigned char *buffer_address);
 void Faraday_SRAM_Read_Sequential_Bytes(unsigned int count, unsigned int sram_address, unsigned char *buffer_address);
 
-//Functions
-/*
-void init_sram_ring_buffer(ring_buffer_SRAM *buffer_struct, unsigned int start, unsigned int length);
-void create_sram_ring_buffer(void);
-unsigned char put_char_ring_buffer_sram(ring_buffer_SRAM *buffer_struct, unsigned char char_item);
-*/
 #endif /* SRAM_SRAM_H_ */
