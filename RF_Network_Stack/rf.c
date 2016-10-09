@@ -1,17 +1,8 @@
-/*
- * rf.c
- *
- *  Created on: Feb 9, 2016
- *      Author: Brent
- */
-
 #include <msp430.h>
 #include "rf.h"
 #include "../HAL/RF1A.h"
 #include "../HAL/hal_pmm.h"
-//#include "../Faraday_Simple_Transport/Services.h"
 #include "../HAL/GPIO.h"
-//#include "../UART_L2_Datalink/UART_Datalink_Services.h"
 #include "rf_transport.h"
 #include "../Ring_Buffers/FIFO.h"
 #include "string.h"
@@ -65,15 +56,8 @@ volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LE
 /////////////////////////////////////////
 // END RF FIFO UART DEFINITIONS
 /////////////////////////////////////////
-
-//Packet Ring Buffer
-//volatile packet_ring_buffer_64 rf_rx_packet_ring_buffer_64_struct;
-//Telemetry Application FIFO Packet Buffers
-
-
 void init_radio_faraday(void){
 	// Increase PMMCOREV level to 2 for proper radio operation
-	//SetVCore(2);
 	init_rf_packet_buffers();
 	ResetRadioCore();
 	receiving = 1;
@@ -83,11 +67,7 @@ void init_radio_faraday(void){
 	PMMCTL0_H = 0xA5;
 	PMMCTL0_L |= PMMHPMRE_L;
 	PMMCTL0_H = 0x00;
-
-	//radio_load_defaults();
-
 	WriteRfSettings(&rfSettings);
-
 	WriteSinglePATable(boot_rf_PATABLE);
 
 	//Calibrate initial boot manually
@@ -98,19 +78,13 @@ void init_radio_faraday(void){
 	radio_manual_idle();
 	radio_manual_calibration_idle();
 	radio_manual_idle();
-
 	TransmitOn();
 	radio_manual_idle();
 	radio_manual_calibration_idle();
-
 	ReceiveOn();
+
 	//Init FIFO buffers
 	init_rf_fifo();
-
-	//Set initial RF configuart MAC
-	//memcpy(mycall, "TEST-2", 6);
-
-
 }
 
 // radio_load_defaults overwrites the RFSettings structure with the default RF frequency for boot writting the entire radio settings
@@ -154,8 +128,6 @@ void radio_manual_calibration_idle(void){
 void radio_manual_idle(void){
 	//Calibration Initial
 	Strobe( RF_SIDLE );
-	//Strobe( RF_SCAL );
-	//__delay_cycles(10000000); //This can be optimized shorter
 }
 
 
@@ -163,13 +135,10 @@ void Transmit(unsigned char *buffer, unsigned char length)
 {
 
 	TransmitOn();
-
 	RF1AIES |= BIT9;
 	RF1AIFG &= ~BIT9;                         // Clear pending interrupts
 	RF1AIE |= BIT9;                           // Enable TX end-of-packet interrupt
-
 	WriteBurstReg(RF_TXFIFOWR, buffer, length);
-
 	Strobe( RF_STX );                         // Strobe STX
 
 }
@@ -180,34 +149,24 @@ void TransmitOn(void)
 	//Setup CC1190 to LNA
 	CC1190_LNA_Disable();
 	CC1190_PA_Enable();
-	//CC1190_HGM_Disable();
 	CC1190_HGM_Enable();
-
 	receiving = 0;
 	transmitting = 1;
 }
 
 void ReceiveOn(void)
 {
-
-
-	//radio_manual_calibration_idle();
-
 	//Setup CC1190 to LNA
 	CC1190_PA_Disable();
 	CC1190_LNA_Enable();
-	//CC1190_HGM_Disable();
 	CC1190_HGM_Enable();
 
 	//Setup RF interrupts
 	RF1AIES |= BIT9;                          // Falling edge of RFIFG9
 	RF1AIFG &= ~BIT9;                         // Clear a pending interrupt
 	RF1AIE  |= BIT9;                          // Enable the interrupt
-
 	transmitting = 0;
 	receiving = 1;
-
-	//radio_manual_idle();
 
 	// Radio is in IDLE following a TX, so strobe SRX to enter Receive Mode
 	Strobe( RF_SRX );
@@ -228,9 +187,7 @@ void ReceiveOff(void)
 void radio_isr(void){
 	if(receiving)			    // RX end of packet
 	  {
-		//WARNING: 2/24/16 - BSALMI: BUG No current method to block new interrupt from overwriting RxBuffer during parsing if another packet arrives!
 		// Read the length byte from the FIFO
-		//gpio_update(3, LED_1, 1);
 		RxBufferLength = ReadSingleReg( RXBYTES ); // WARNING: If this ever becomes variable length you MUST check it's validity or risk buffer overrun!
 		ReadBurstReg(RF_RXFIFORD, rf_rx_datalink_buffer, RxBufferLength);
 
@@ -242,53 +199,38 @@ void radio_isr(void){
 		unsigned char crc_bit;
 
 		rssi = rf_rx_datalink_buffer[RX_PACKET_LEN];
-		//crc_bit = rf_tx_datalink_buffer[RX_PACKET_LEN+1]<<7;
-		//crc_bit = crc_bit>>7;
 		crc_bit = (rf_rx_datalink_buffer[RF_DATALINK_PKT_LQI_LOC] & BIT7)>>7;
 		lqi = (rf_rx_datalink_buffer[RF_DATALINK_PKT_LQI_LOC] & 0x7f);
 
 		//DEBUG - Disable CRC bit check (see Errata)
 		crc_bit = 1;
 		if(crc_bit == 1){
-
 			//Put into RX packet buffer
 			put_fifo(&rf_datalink_rx_fifo_state_machine, &rf_datalink_rx_fifo_buffer, rf_rx_datalink_buffer);
 		}
+
 		else{
 			__no_operation(); //Bad CRC = corrupt data, discard.
 		}
 		ReceiveOn();
-		//gpio_update(3, LED_1, 0);
-
-		// Check the CRC results
-		//if(RxBuffer[CRC_LQI_IDX] & CRC_OK)
-		  //P1OUT ^= BIT0;                    // Toggle LED1
 	  }
 	  else if(transmitting)		    // TX end of packet
 	  {
-		  __no_operation();
-
-		//P3OUT &= ~BIT6;                     // Turn off LED after Transmit
 		if(rf_check_tx_fifo()){
 			//Packet waiting to be transmitted
-			__no_operation();
 			radio_manual_idle(); //Why IDLE here? Self Calibration?
 			RF1AIE &= ~BIT9;                    // Disable TX end-of-packet interrupt
 			rf_get_next_tx_fifo();
 		}
 		else{
 			//No packets remain to transmit
-			//transmitting = 0;
 			RF1AIE &= ~BIT9;                    // Disable TX end-of-packet interrupt
-			//radio_manual_calibration_idle();
 			radio_manual_idle(); // Goto IDLE first to force self calibration
 			ReceiveOn();
 		}
 
 	  }
 	  else{
-		  //RX == 0 & TX == 0 : This is very bad and should never happen.
-		  //while(1); 			    // trap
 		  //Default to Receive
 		  receiving = 1;
 		  transmitting = 0;
@@ -308,16 +250,8 @@ void radio_tx(unsigned char *buffer, unsigned char buffer_len){
 		tx_buffer[i] = 0xff;
 	}
 
-	//Transmit((unsigned char *)buffer, buffer_len);
-
 	Transmit((unsigned char *)tx_buffer, TX_PACKET_LEN);
 
-}
-
-void init_rf_packet_buffers(void){
-	//Create ring buffer RX
-	//init_char_packet_ring_buffer_64(&rf_tx_packet_ring_buffer_64_struct);
-	//init_char_packet_ring_buffer_64(&rf_rx_packet_ring_buffer_64_struct);
 }
 
 void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length){
@@ -325,87 +259,54 @@ void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char l
 	put_fifo(&rf_datalink_tx_fifo_state_machine, &rf_datalink_tx_fifo_buffer, packet_data_pointer);
 }
 
-unsigned char rf_tx_inwait_packet_buffer(void){
-	//return isempty_packet_ring_buffer_64(&rf_tx_packet_ring_buffer_64_struct);
-}
-
-unsigned char rf_tx_get_packet_buffer(unsigned char *buffer){
-	unsigned char status;
-	//status = get_char_packet_ring_buffer_64(&rf_tx_packet_ring_buffer_64_struct, buffer);
-	return status;
-}
-
-
 
 void rf_get_next_tx_fifo(void){
 	get_fifo(&rf_datalink_tx_fifo_state_machine, rf_datalink_tx_fifo_buffer, (unsigned char *)rf_tx_datalink_buffer);
-	//status = rf_tx_get_packet_buffer((unsigned char *)rf_tx_datalink_buffer);
-	__no_operation();
-	//__delay_cycles(500000);
 	//Transmit packet from queue
-	//radio_tx(&rf_tx_datalink_buffer,TX_PACKET_LEN);
 	Transmit(&rf_tx_datalink_buffer,TX_PACKET_LEN);
-
 }
 
 unsigned char rf_check_tx_fifo(void){
 	if(rf_datalink_tx_fifo_state_machine.inwaiting>0){
-
 		return 1;
 	}
+
 	else{
 		return 0;
 	}
-
 }
 
 void rf_housekeeping(void){
 	__no_operation();
-	//if(rf_datalink_tx_fifo_state_machine.inwaiting>0 && !transmitting){
 	if(rf_check_tx_fifo() && !transmitting){
 		ReceiveOff();
-		//receiving = 0;
-		//transmitting = 1;
-
-		//get_fifo(&rf_datalink_tx_fifo_state_machine, rf_datalink_tx_fifo_buffer, (unsigned char *)rf_tx_datalink_buffer);
-		//status = rf_tx_get_packet_buffer((unsigned char *)rf_tx_datalink_buffer);
-		__no_operation();
 		rf_get_next_tx_fifo();
-		//__delay_cycles(500000);
-		//Transmit packet from queue
-		//radio_tx(&rf_tx_datalink_buffer,TX_PACKET_LEN);
-		//Transmit(&rf_tx_datalink_buffer,TX_PACKET_LEN);
 		}
 	else if(rf_datalink_rx_fifo_state_machine.inwaiting>0){
-		__no_operation();
 		//Get packet from queue
 		status = get_fifo(&rf_datalink_rx_fifo_state_machine, &rf_datalink_rx_fifo_buffer, rf_rx_datalink_buffer);
+
 		//Parse received packet
 		rf_datalink_parse(&rf_rx_datalink_buffer);
 
 		//Determine destination of RX'd packet
-		//local_callsign, local_callsign_len, local_device_id
 		if(strstr((char *)rf_datalink_packet_rx_struct.destination_callsign, (char *)local_callsign) != NULL){
 			if(rf_datalink_packet_rx_struct.destination_identifier == local_device_id){
-				__no_operation(); //This device!
+				//__no_operation(); //This device!
 				rf_transport_parse((unsigned char *)rf_datalink_packet_rx_struct.payload, 0);
 			}
 		}
 
 		else if(*strstr((char *)rf_datalink_packet_rx_struct.destination_callsign, (char *)"CQCQCQ")){
-			__no_operation(); //Broadcast
+			//__no_operation(); //Broadcast
 				rf_transport_parse((unsigned char *)rf_datalink_packet_rx_struct.payload, 1);
 		}
 
 		else{
-			__no_operation(); //All others
+			//__no_operation(); //All others
 		}
-		//Transport layer state machine
-		//rf_transport_rx_state_machine();
-		__no_operation();
 	}
 	else{
-		__no_operation();
 	}
 }
 
@@ -474,8 +375,6 @@ unsigned char rf_tx_datalink_packet(
 	else{
 		return 0; //An argument is too large: ERROR
 	}
-
-
 }
 
 void rf_rawpacket_tx(RF_DATALINK_PACKET_STRUCT *packet_data_pointer){
@@ -491,9 +390,7 @@ void rf_datalink_parse(unsigned char *packet){
 	for(i=RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC; i<RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC_LEN; i++){
 		rf_datalink_packet_rx_struct.source_callsign[(i-RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC)] = packet[i];
 	}
-	//strcpy(rf_datalink_packet_rx_struct.source_callsign,"KB1LQD");
 	rf_datalink_packet_rx_struct.source_indetifier = packet[RF_DATALINK_PKT_SOURCE_CALLSIGN_ID_LOC];
-	//strcpy(rf_datalink_packet_rx_struct.destination_callsign,"CQCQCQ");
 	for(i=RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC; i<(RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC+RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC_LEN); i++){
 		rf_datalink_packet_rx_struct.destination_callsign[(i-RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC)] = packet[i];
 	}
@@ -505,6 +402,7 @@ void rf_datalink_parse(unsigned char *packet){
 	rf_datalink_packet_rx_struct.packet_config = packet[RF_DATALINK_PKT_PKT_CONFIG_LOC];
 	rf_datalink_packet_rx_struct.payload_length = packet[RF_DATALINK_PKT_PKT_LEN_LOC];
 	rf_datalink_packet_rx_struct.rssi = packet[RF_DATALINK_PKT_RSSI_LOC]; // RSSI only for RX
+
 	//LQI is only bits 0-6
 	rf_datalink_packet_rx_struct.lqi = packet[RF_DATALINK_PKT_LQI_LOC]; //LQI only for RX
 	rf_datalink_packet_rx_struct.lqi = (rf_datalink_packet_rx_struct.lqi & 0x7f);
@@ -537,6 +435,5 @@ void CC430_Program_Freq(unsigned char freq2, unsigned char freq1, unsigned char 
 
 	//Strobe the RF core no operation (not sure if really needed..)
 	Strobe(RF_SNOP);
-	//Strobe(RF_SRX);
 }
 

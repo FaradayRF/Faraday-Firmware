@@ -1,14 +1,5 @@
-/*
- * rf_transport.h
- *
- *  Created on: Feb 25, 2016
- *      Author: Brent
- */
-
 #ifndef RF_NETWORK_STACK_RF_TRANSPORT_H_
 #define RF_NETWORK_STACK_RF_TRANSPORT_H_
-
-//#include "../Ring_Buffers/Packet_Ring_Buffer.h"
 
 #define RF_TRANPORT_PACKET_LEN 44
 #define RF_TRANPORT_PAYLOAD_MAX_LEN 42
@@ -43,16 +34,6 @@ typedef struct RF_TRANSPORT_TX_STATE_MACHINE {
 	unsigned char count;
 
 } RF_TRANSPORT_TRANSMIT_STATE_MACHINE;
-
-//Packet Ring Buffer
-//volatile RF_TRANSPORT_PACKET_STRUCT rf_transport_packet_rx_struct;
-
-//Transmit state machine
-//volatile RF_TRANSPORT_TRANSMIT_STATE_MACHINE rf_transport_transmit_state_machine_struct;
-//volatile RF_TRANSPORT_TRANSMIT_STATE_MACHINE rf_transport_receive_state_machine_struct;
-
-//Packet Ring Buffer
-//volatile packet_ring_buffer_64 rf_transport_fragment_test_struct;
 
 void rf_service_tx(unsigned char *L4_payload_buffer,
 		unsigned char L4_payload_len,

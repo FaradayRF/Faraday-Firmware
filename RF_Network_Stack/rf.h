@@ -1,14 +1,5 @@
-/*
- * rf.h
- *
- *  Created on: Feb 9, 2016
- *      Author: Brent
- */
-
 #ifndef RF_NETWORK_STACK_RF_H_
 #define RF_NETWORK_STACK_RF_H_
-
-//#include "../Ring_Buffers/Packet_Ring_Buffer.h"
 
 //RF Datalink PACKET Parse Definitions
 #define RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC 0

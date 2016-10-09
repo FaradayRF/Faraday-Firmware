@@ -1,10 +1,3 @@
-/*
- * rfregsettings.h
- *
- *  Created on: Feb 9, 2016
- *      Author: Brent
- */
-
 #ifndef RF_NETWORK_STACK_RFREGSETTINGS_H_
 #define RF_NETWORK_STACK_RFREGSETTINGS_H_
 
