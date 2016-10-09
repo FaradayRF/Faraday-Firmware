@@ -2,22 +2,15 @@
 #include <msp430.h>
 #include "Faraday_Init.h"
 #include "REVA_Faraday.h"
-//#include "UART_L2_Datalink/UART_Datalink_Protocol.h"
-//#include "UART_L2_Datalink/UART_Datalink_Services.h"
 #include "housekeeping.h"
-//#include "UART_L2_Datalink/app_uart_datalink_echo.h"
-//#include "Faraday_HAL/Self_Test.h"
 #include "HAL/hal_pmm.h"
 #include "HAL/adc.h"
 #include "HAL/rtc.h"
 #include "Scratch/bryce.h"
-//#include "Scratch/Scratch_Brent.h"
 #include "HAL/gps.h"
-//#include "UART_L2_Datalink/UART_Datalink_TX_Bytes.h"
 #include "RF_Network_Stack/rf.h"
 #include "RF_Network_Stack/rf_service.h"
 #include "UART/UART_L2.h"
-//#include "Applications/telem_rf/telem_rf2.h"
 #include "Applications/Telemetry/Telemetry.h"
 #include "Applications/Telemetry/Telem_RF.h"
 
@@ -29,35 +22,12 @@
 #include "Scratch/scratch_sram.h"
 #include "Faraday_HAL/Faraday_HAL.h"
 #include "Applications/HAB/App_HAB.h"
-//4-2-16
-//#include "RF_Network_Stack/rf_service.h"
-/*
- * main.c
- */
 
 #define TIMER_HOUSEKEEP_CCR0 65 //Housekeeping timer raw interrupt count value. 65 with 32768 clock is ~1.98ms
 #define TIMER_HOUSEKEEP_CCR1 8192
 unsigned char buttonPressed;
 
 
-
-
-
-///////////////////////////////////////////
-//Create GLOBAL Variables (Be minimal here!)
-///////////////////////////////////////////
-
-
-/************************************************************
-* Function:
-*
-* Description:
-*
-* Inputs: None
-*
-* Outputs: None
-*
-*************************************************************/
 int main(void) {
 	/*
 	 * Watchdog Timer
@@ -66,8 +36,7 @@ int main(void) {
 
 	housekeeping_setup();
 
-	// Increase PMMCOREV level to 2 for proper radio operation
-	SetVCoreUp(2);
+	SetVCoreUp(2); // Increase PMMCOREV level to 2 for proper radio operation
 	app_device_config_load_default(); //Load defaults from flash
 	faraday_main_intialize();
 	init_GPS();
@@ -77,12 +46,9 @@ int main(void) {
 
     //Applications
 	application_telemetry_initialize();
-	//app_telem_rf_rx_init_command();
 	app_init_command();
 	init_app_msg();
 	init_app_telem_rf_fifo();
-	// Flash device debug
-	//app_device_config_device_debug_reset();
 	application_hab_auto_timer_set_state(HAB_AUTO_CUTDOWN_STATE_0); //0 IDLE - This should get updated for flash memory integration control
 	application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_0); //Set cutdown event duration timer to IDLE
 
@@ -101,7 +67,6 @@ int main(void) {
 
 	radio_manual_idle(); // Goto IDLE first to force self calibration
 	ReceiveOn();
-	//Initialize_RTC_Alarm_Time(RTC);
 	RTC.alarm[0] = 1;
 	RTC.alarm[1] = 0;
 	RTC.alarm[2] = 0;
@@ -110,10 +75,10 @@ int main(void) {
 	Enable_RTCA_Calender_Alarm();
 
 
-	//Check for RESET Faults on boot
-    reset_identification();
-    reset_identification_2();
-    //reset_identification_3();
+	//Check for RESET Faults on boot (Leave commented by default)
+    //reset_identification();
+    //reset_identification_2();
+
 
     //Enable interrupts
     __bis_SR_register(GIE);       // Enter LPM3, interrupts enabled

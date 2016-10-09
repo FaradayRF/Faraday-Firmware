@@ -1,19 +1,19 @@
-# Faraday Firmware Readme
+# Faraday Firmware
 
-This repository holds the main firmware for the CC430 base Farady digital radio. This main repository contains the most up-to-date and feature rich variant of the codebase. Smaller repositories may exist that focus on more specific optimizations or uses of the digital radio.
+This repository holds the main firmware for the CC430 base Faraday digital radio. This main repository contains the most up-to-date and feature rich variant of the code-base. Smaller repositories may exist that focus on more specific optimizations or uses of the digital radio.
 
 ## Firmware Operation Overview
 
-TBD - Information overviewing the functions of the firmware.
+TBD - Information over-viewing the functions and operation of the firmware.
 
 ## Texas Instruments Code Composer Studio
 
-Initial developement is being performed in the Code Composer Studio IDE provided by Texas Instruments. At initial release the proprietary compiler is being used although a significant goal for the project is to move the codebase to the open source GCC base MSP430 compiler. This should be simple but will require proper setup of linking and other configurations to ensure the program compiles efficiently without unneeded or redundantly linked files causes the binary to become extreamly large.
+Initial development is being performed in the Code Composer Studio IDE provided by Texas Instruments. At initial release the proprietary compiler is being used although a significant goal for the project is to move the code-base to the open source GCC base MSP430 compiler. This should be simple but will require proper setup of linking and other configurations to ensure the program compiles efficiently without unneeded or redundantly linked files causes the binary to become extremely large.
 
 
 ## Licensing
 
-The Faraday digital radio firmware is licensed under GPLv3 with a few minor additions specified. Please read the licensing informition provided in the repository for details.
+The Faraday digital radio firmware is licensed under GPLv3 with a few minor additions specified. Please read the licensing information provided in the repository for details.
 
 #Resources
 Below are resources that are useful for programing, testing, and otherwise developing the embedded C code for the Faraday digital radio.
