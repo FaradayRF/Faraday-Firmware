@@ -1,6 +1,21 @@
-#include "App_HAB.h"
-#include "../../REVA_Faraday.h"
+/** @file App_HAB.c
+ *  @brief High altitude balloon program(s) for Faraday
+ *
+ *  These functions provide basic support to use Faraday
+ *  as a platform for high altitude balloon (HAB) telemetry,
+ *  commanding, and computing.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include <msp430.h>
+#include "App_HAB.h"
+
+/* faraday hardware allocations */
+#include "../../REVA_Faraday.h"
+
 
 volatile HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT struct_hab_auto_cutdown_state;
 volatile HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT struct_hab_cutdown_event_state;
@@ -11,9 +26,11 @@ void application_hab_housekeeping_interval(void){
 	application_hab_auto_timer_check_state();
 }
 
+
 void application_hab_auto_timer_set_state(unsigned char state){
 	struct_hab_auto_cutdown_state.uChar_state = state;
 }
+
 
 void application_hab_auto_timer_check_state(void){
 	switch(struct_hab_auto_cutdown_state.uChar_state){
@@ -39,10 +56,12 @@ void application_hab_auto_timer_check_state(void){
 	}
 }
 
+
 void application_hab_auto_timer_state_0(void){
 	//Idle
 	__no_operation(); //Trap here until code or command sets the state to start timer
 }
+
 
 void application_hab_auto_timer_state_1(void){
 	//Start timer
@@ -50,6 +69,7 @@ void application_hab_auto_timer_state_1(void){
 	//Set state to increment timer
 	application_hab_auto_timer_set_state(HAB_AUTO_CUTDOWN_STATE_2);
 }
+
 
 void application_hab_auto_timer_state_2(void){
 	//Increment timer
@@ -63,6 +83,7 @@ void application_hab_auto_timer_state_2(void){
 	}
 }
 
+
 void application_hab_auto_timer_state_3(void){
 	//Cutdown event
 	//Active cutdown event action state machine
@@ -72,9 +93,11 @@ void application_hab_auto_timer_state_3(void){
 	application_hab_auto_timer_set_state(HAB_AUTO_CUTDOWN_STATE_0);
 }
 
+
 void application_hab_cutdown_event_set_state(unsigned char state){
 	struct_hab_cutdown_event_state.uChar_state = state;
 }
+
 
 void application_hab_cutdown_event_check_state(void){
 	__no_operation();
@@ -102,11 +125,14 @@ void application_hab_cutdown_event_check_state(void){
 	}
 }
 
+
 void application_hab_cutdown_event_state_0(void){
 	//Idle trap until commanded
 	//Continuously assert MOSFET OFF
 	P5OUT &= ~MOSFET_CNTL;
 }
+
+
 void application_hab_cutdown_event_state_1(void){
 	//Reset Timer
 	struct_hab_cutdown_event_state.uInt_app_hab_timer = 0;
@@ -114,6 +140,7 @@ void application_hab_cutdown_event_state_1(void){
 	//Set state cutdown actions
 	application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_2);
 }
+
 
 void application_hab_cutdown_event_state_2(void){
 	//Cutdown action iterations
@@ -130,6 +157,8 @@ void application_hab_cutdown_event_state_2(void){
 		struct_hab_cutdown_event_state.uInt_app_hab_timer++;
 	}
 }
+
+
 void application_hab_cutdown_event_state_3(void){
 	//Post cutdown actions
 	//Try turning MOSFET OFF again, just because.
@@ -142,18 +171,19 @@ void application_hab_cutdown_event_state_3(void){
 	application_hab_cutdown_event_set_state(HAB_CUTDOWN_EVENT_STATE_255);
 }
 
+
 void application_hab_cutdown_event_state_255(void){
 	//This is an IDLE for post cutdown to show in telemetry the HAS FIRED state
 	//Idle trap until commanded
 	__no_operation();
 }
 
+
 unsigned char application_hab_create_telem_3_pkt(unsigned char *packet){
 	//Create temporary structs for packets
 	volatile HAB_TELEMETRY_PACKET_STRUCT struct_telem_pkt;
 
 	//Clear old data
-	//memset(&struct_telem_pkt, 0, 7);
 
 	struct_telem_pkt.uChar_auto_cutdown_timer_state_status = struct_hab_auto_cutdown_state.uChar_state;
 	struct_telem_pkt.uChar_cutdown_event_state_status = struct_hab_cutdown_event_state.uChar_state;
