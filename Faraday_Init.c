@@ -103,7 +103,6 @@ void init_GPIO(void){
 	P2IES	|= GPS_UART_TX;				// GPS TX UART Hi/Lo edge interrupt
 	P2IFG	&= ~GPS_UART_TX;			// GPS TX UART IFG cleared
 
-	P3DIR	&= ~GPS_FIX_INDICATOR;			// GPS Fix P3.5 set as input
 	P3OUT	&= ~GPS_RESET + ~GPS_STANDBY; 	// GPS reset and standby default low
 	P3OUT	|= GPS_RESET + GPS_STANDBY; 	// GPS reset and standby default low
 	P3DIR	|= GPS_RESET + GPS_STANDBY;		// GPS reset P3.3 and GPS standby P3.4 set as outputs
@@ -118,6 +117,10 @@ void init_GPIO(void){
 	// SRAM IC SPI configuration
 	P5OUT	&= ~SRAM_CS + ~SRAM_HOLD;					// Set default SRAM CS and SRAM Hold to 0
 	P5DIR 	|= SRAM_CS + SRAM_HOLD;						// Set SRAm CS and SRAM Hold to output
+
+	//Flash IC SPI Configuration
+	P3DIR	|= FLASH_SPI_CS;							// FLASH_SPI_CS set as output
+	P5DIR   |= FLASH_HOLD;								// FLASH_HOLD set as output
 
 	////////////////////////////////////
 	// UART

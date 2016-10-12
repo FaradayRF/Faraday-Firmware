@@ -23,6 +23,9 @@
 #include "Faraday_HAL/Faraday_HAL.h"
 #include "Applications/HAB/App_HAB.h"
 
+//DELETE ME
+#include "scratch_flash.h"
+
 #define TIMER_HOUSEKEEP_CCR0 65 //Housekeeping timer raw interrupt count value. 65 with 32768 clock is ~1.98ms
 #define TIMER_HOUSEKEEP_CCR1 8192
 unsigned char buttonPressed;
@@ -92,6 +95,10 @@ int main(void) {
     //Or enable Housekeeping flag, disable LPM, run through while(1) loop
     //and then reenable LPM?
 	///////////////////////////////////////////
+
+
+    //Scratch testing
+    flash_test(); // FLASH
 
     //Note: Per Errata bug the LPM iterrupt return will corrupt the PC, disable LPM when debugging and let the loop loose!
      while(1){

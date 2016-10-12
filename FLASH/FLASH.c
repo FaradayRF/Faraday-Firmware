@@ -12,7 +12,8 @@
 #include <msp430.h>
 
 /* faraday hardware allocations */
-#include "../../REVA_Faraday.h"
+#include "../REVA_Faraday.h"
+//#include "../Faraday_HAL/SPI.h"
 
 
 
