@@ -1,4 +1,4 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "REVA_Faraday.h"
 #include "housekeeping.h" //OK to include OWN header? Get declarations issue otherwise due to ordering of functions below...
 #include "Faraday_HAL/Faraday_HAL.h"

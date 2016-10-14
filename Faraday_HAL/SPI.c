@@ -1,4 +1,4 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "SPI.h"
 
 void spi_tx(unsigned char tx){

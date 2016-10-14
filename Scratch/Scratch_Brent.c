@@ -6,7 +6,7 @@
  */
 
 #include "Scratch_Brent.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 
 #include "../Applications/Telemetry/Telemetry.h"
 #include "../HAL/GPIO.h"

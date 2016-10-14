@@ -3689,7 +3689,15 @@ SFR_16BIT(TA0CCTL2);                          /* Timer0_A5 Capture/Compare Contr
 SFR_16BIT(TA0CCTL3);                          /* Timer0_A5 Capture/Compare Control 3 */
 SFR_16BIT(TA0CCTL4);                          /* Timer0_A5 Capture/Compare Control 4 */
 SFR_16BIT(TA0R);                              /* Timer0_A5 */
-SFR_16BIT(TA0CCR0);                           /* Timer0_A5 Capture/Compare 0 */
+SFR_16BIT(TA0CCR0);                           /*   // Internal timer output (10.5 kHz) to Radio TX
+  // NOTE: SMARTF_CC430 IOCFG0 should = 0x2E. When IOCFG0 = 0x2D,
+  // asynchronous data into the radio is taken from GDO0 and not the timer.
+  TA1CCR0 = 50;
+  TA1CCR1 = 50;
+
+  TA1CCTL0 = OUTMOD_4;
+  TA1CCTL1 = OUTMOD_4;
+  TA1CTL = TASSEL__SMCLK + MC_1 + TACLR; Capture/Compare 0 */
 SFR_16BIT(TA0CCR1);                           /* Timer0_A5 Capture/Compare 1 */
 SFR_16BIT(TA0CCR2);                           /* Timer0_A5 Capture/Compare 2 */
 SFR_16BIT(TA0CCR3);                           /* Timer0_A5 Capture/Compare 3 */

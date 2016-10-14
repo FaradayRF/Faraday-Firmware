@@ -1,5 +1,5 @@
 #include "Faraday_Globals.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "Faraday_Init.h"
 #include "REVA_Faraday.h"
 #include "housekeeping.h"

@@ -1,4 +1,4 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "../REVA_Faraday.h"
 #include "Faraday_HAL.h"
 #include "../HAL/RF1A.h"

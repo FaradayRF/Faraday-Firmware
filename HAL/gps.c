@@ -1,7 +1,7 @@
 #include "gps.h"
 #include <string.h>
 #include <stdio.h>
-#include <msp430.h>
+#include "cc430f6137.h"
 
 void initialize_GPS_structs(void){
 

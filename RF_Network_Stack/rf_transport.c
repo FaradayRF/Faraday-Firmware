@@ -4,7 +4,7 @@
 #include "rf.h"
 #include "../REVA_Faraday.h"
 #include "../HAL/GPIO.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 
 void rf_service_tx(unsigned char *L4_payload_buffer,
 		unsigned char L4_payload_len,

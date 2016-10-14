@@ -11,7 +11,7 @@
 #include "scratch_flash.h"
 #include "FLASH/FLASH.h"
 #include "Faraday_HAL/SPI.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 
 void flash_test(void){
 

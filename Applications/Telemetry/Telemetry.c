@@ -2,7 +2,7 @@
 #define APPLICATIONS_APPLICATIONS_C_
 
 #include "Telemetry.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "../../Faraday_Globals.h"
 #include "../../Faraday_HAL/Faraday_HAL.h"
 #include "../../HAL/gps.h"
