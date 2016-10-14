@@ -1,4 +1,4 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 
 void Enable_Reference(unsigned char set){
 	switch(set)

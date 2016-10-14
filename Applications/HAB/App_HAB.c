@@ -10,7 +10,7 @@
 /* -- Includes -- */
 
 /* standard includes */
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "App_HAB.h"
 
 /* faraday hardware allocations */

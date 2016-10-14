@@ -54,7 +54,7 @@ Release/
 
 # Kernel Module Compile Results
 *.mod*
-*.cmd
+# *.cmd #KB1LQD 10-14-2016 - Need this for proper linking in CCS (cc430f6137.cmd)
 modules.order
 Module.symvers
 Mkfile.old

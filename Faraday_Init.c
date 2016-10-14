@@ -1,5 +1,5 @@
 #include "Faraday_Init.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "REVA_Faraday.h"
 #include "HAL/hal_pmm.h"
 #include "Faraday_HAL/Faraday_HAL.h"

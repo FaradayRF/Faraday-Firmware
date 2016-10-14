@@ -4,7 +4,7 @@
 #include "string.h"
 #include "../../REVA_Faraday.h"
 #include "../Device_Config/Device_Config.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "../Telemetry/Telemetry.h"
 #include "../Telemetry/Telem_RF.h"
 #include "../../RF_Network_Stack/rf.h"

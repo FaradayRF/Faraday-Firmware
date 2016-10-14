@@ -9,7 +9,7 @@
 /* -- Includes -- */
 
 /* standard includes */
-#include <msp430.h>
+#include "cc430f6137.h"
 
 /* faraday hardware allocations */
 #include "../REVA_Faraday.h"
