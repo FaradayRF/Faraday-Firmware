@@ -49,5 +49,39 @@ void Faraday_FLASH_Hold_Enable(void);
 void Faraday_FLASH_Hold_Disable(void);
 /** @}*/
 
+/** @brief FLASH Memory Chip Enable SPI
+ *
+ * 	Common function used to enable SPI operation by
+ * 	setting the SPI chip select and other GPIO.
+ *
+ * 	@bug This is a potentially dangerous operation since it is sharing the SPI bus with other SPI IC(s) and not cordinated.
+ *
+@{**/
+void Faraday_FLASH_SPI_Enable(void);
+/** @}*/
+
+
+/** @brief FLASH Memory Chip Disable SPI
+ *
+ * 	Common function used to disable SPI operation by
+ * 	setting the SPI chip select and other GPIO.
+ *
+ * 	@bug This is a potentially dangerous operation since it is sharing the SPI bus with other SPI IC(s) and not cordinated.
+ *
+@{**/
+void Faraday_FLASH_SPI_Disable(void);
+/** @}*/
+
+
+/** @brief FLASH Memory Manufacture and Device ID
+ *
+ * 	This function accepts a byte array and returns into the byte array
+ * 	the FLASH manufacturing ID and Device ID bytes from the onboard
+ * 	SPI FLASH device.
+ *
+ *	@bug Is the correct returned number of bytes 3 or 4? This is unclear
+@{**/
+void Faraday_FLASH_Get_ID(unsigned char * id_data);
+/** @}*/
 
 #endif /* FLASH_FLASH_H_ */
