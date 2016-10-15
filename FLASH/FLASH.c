@@ -50,6 +50,7 @@ void Faraday_FLASH_SPI_Disable(void){
 }
 
 void Faraday_FLASH_Get_ID(unsigned char * id_data){
+	//Enable device SPI
 	Faraday_FLASH_SPI_Enable();
 
 	//Send the READ command
@@ -70,4 +71,28 @@ void Faraday_FLASH_Get_ID(unsigned char * id_data){
 
 	//Release the device chip SPI select/enable
 	Faraday_FLASH_SPI_Disable();
+}
+
+
+unsigned char Faraday_FLASH_Get_Status(void){
+	//Create function variables
+	unsigned char uChar_status;
+
+	//Enable device SPI
+	Faraday_FLASH_SPI_Enable();
+
+	//Send the RDSR command
+	spi_tx(0x05);
+
+	//Send 1 dummy byte
+	spi_tx(0x00);
+
+	//Get status byte
+	uChar_status = UCB0RXBUF;
+
+	//Release the device chip SPI select/enable
+	Faraday_FLASH_SPI_Disable();
+
+	//Return status byte
+	return uChar_status;
 }

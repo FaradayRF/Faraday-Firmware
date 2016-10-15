@@ -15,8 +15,13 @@
 
 void flash_test(void){
 
-	volatile unsigned char flashID[4];
-	Faraday_FLASH_Get_ID(flashID);
+	//Device and manufacture ID
+	//volatile unsigned char flashID[4];
+	//Faraday_FLASH_Get_ID(flashID);
+
+	//Device Status
+	volatile unsigned char status;
+	status = Faraday_FLASH_Get_Status();
 
 	__no_operation();
 //

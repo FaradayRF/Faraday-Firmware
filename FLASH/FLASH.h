@@ -79,9 +79,22 @@ void Faraday_FLASH_SPI_Disable(void);
  * 	the FLASH manufacturing ID and Device ID bytes from the onboard
  * 	SPI FLASH device.
  *
+ * 	@param id_data Pointer to a passed by reference array of size 4 that will be updated with the 4 manufacture and device ID bytes
+ *
  *	@bug Is the correct returned number of bytes 3 or 4? This is unclear
 @{**/
 void Faraday_FLASH_Get_ID(unsigned char * id_data);
+/** @}*/
+
+
+/** @brief Get FLASH Status
+ *
+ * 	This function returns the current FLASH device status byte.
+ *
+ * 	@return Returns the current status byte
+ *
+@{**/
+unsigned char Faraday_FLASH_Get_Status(void);
 /** @}*/
 
 #endif /* FLASH_FLASH_H_ */
