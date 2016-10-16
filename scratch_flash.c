@@ -29,30 +29,39 @@ void flash_test(void){
 	//Faraday_FLASH_Get_ID(flashID);
 
 	//Enable device SPI
-	//Faraday_FLASH_Hold_Disable();
-	Faraday_FLASH_Hold_Enable();
+	Faraday_FLASH_SPI_Disable(); //Ensure device reset
+	Faraday_FLASH_Hold_Disable();
+	__delay_cycles(500);
+	//Faraday_FLASH_Hold_Enable();
 	Faraday_FLASH_SPI_Enable();
-	__delay_cycles(50);
+	__delay_cycles(500);
 
 	//Device Status
 	volatile unsigned char status;
 	status = Faraday_FLASH_Get_Status();
-	__delay_cycles(50);
+	__delay_cycles(500);
 
-	//Faraday_FLASH_SPI_Disable();
+	Faraday_FLASH_SPI_Disable();
 
 	__no_operation();
 
 	//Write Enable
-	//Faraday_FLASH_SPI_Enable();
-	__delay_cycles(50);
+	Faraday_FLASH_SPI_Enable();
+	__delay_cycles(500);
 	Faraday_FLASH_Write_Enable();
-	__delay_cycles(50);
-	//Faraday_FLASH_SPI_Disable();
-	//Faraday_FLASH_SPI_Enable();
-	__delay_cycles(50);
+	__delay_cycles(500);
+	Faraday_FLASH_SPI_Disable();
+	Faraday_FLASH_SPI_Enable();
+	__delay_cycles(500);
 	status = Faraday_FLASH_Get_Status();
-	__delay_cycles(50);
+	__delay_cycles(500);
+	Faraday_FLASH_SPI_Disable();
+	Faraday_FLASH_SPI_Enable();
+	Faraday_FLASH_Write_Disable();
+	__delay_cycles(500);
+	Faraday_FLASH_SPI_Disable();
+	Faraday_FLASH_SPI_Enable();
+	status = Faraday_FLASH_Get_Status();
 
 	__no_operation();
 

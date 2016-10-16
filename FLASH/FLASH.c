@@ -79,6 +79,8 @@ unsigned char Faraday_FLASH_Get_Status(void){
 	//Send 1 dummy byte
 	spi_tx(0x00);
 
+	__delay_cycles(500);
+
 	//Get status byte
 	uChar_status = UCB0RXBUF;
 
@@ -90,5 +92,10 @@ unsigned char Faraday_FLASH_Get_Status(void){
 void Faraday_FLASH_Write_Enable(void){
 	//Send the WLEN command
 	spi_tx(0x06);
+}
 
+
+void Faraday_FLASH_Write_Disable(void){
+	//Send the WLEN command
+	spi_tx(0x04);
 }

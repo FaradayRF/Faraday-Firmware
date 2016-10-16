@@ -109,4 +109,7 @@ unsigned char Faraday_FLASH_Get_Status(void);
 void Faraday_FLASH_Write_Enable(void);
 /** @}*/
 
+
+void Faraday_FLASH_Write_Disable(void);
+
 #endif /* FLASH_FLASH_H_ */
