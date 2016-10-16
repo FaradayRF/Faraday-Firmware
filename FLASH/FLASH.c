@@ -41,8 +41,8 @@ void Faraday_FLASH_Hold_Disable(void){
 
 void Faraday_FLASH_SPI_Enable(void){
 	Faraday_FLASH_CE_Enable();
-	Faraday_FLASH_Hold_Disable();
-	__delay_cycles(50);
+	//Faraday_FLASH_Hold_Disable();
+	__delay_cycles(5000);
 }
 
 void Faraday_FLASH_SPI_Disable(void){
@@ -50,8 +50,6 @@ void Faraday_FLASH_SPI_Disable(void){
 }
 
 void Faraday_FLASH_Get_ID(unsigned char * id_data){
-	//Enable device SPI
-	Faraday_FLASH_SPI_Enable();
 
 	//Send the READ command
 	spi_tx(0x90);
@@ -68,18 +66,12 @@ void Faraday_FLASH_Get_ID(unsigned char * id_data){
 		__delay_cycles(50); //  This delay should be optimized out
 		id_data[i] = UCB0RXBUF;
 	}
-
-	//Release the device chip SPI select/enable
-	Faraday_FLASH_SPI_Disable();
 }
 
 
 unsigned char Faraday_FLASH_Get_Status(void){
 	//Create function variables
 	unsigned char uChar_status;
-
-	//Enable device SPI
-	Faraday_FLASH_SPI_Enable();
 
 	//Send the RDSR command
 	spi_tx(0x05);
@@ -90,9 +82,13 @@ unsigned char Faraday_FLASH_Get_Status(void){
 	//Get status byte
 	uChar_status = UCB0RXBUF;
 
-	//Release the device chip SPI select/enable
-	Faraday_FLASH_SPI_Disable();
-
 	//Return status byte
 	return uChar_status;
+}
+
+
+void Faraday_FLASH_Write_Enable(void){
+	//Send the WLEN command
+	spi_tx(0x06);
+
 }

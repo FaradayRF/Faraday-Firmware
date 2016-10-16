@@ -15,15 +15,51 @@
 
 void flash_test(void){
 
+	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
+	UCB0CTL0 |= UCMST+UCSYNC+UCCKPH+UCMSB;    // 3-pin, 8-bit SPI master +UCCKPL
+	//UCB0CTL0 |= UCMST+UCSYNC+UCMSB;    // 3-pin, 8-bit SPI master +UCCKPL
+											  // Clock polarity high, MSB
+	UCB0CTL1 |= UCSSEL_2;                     // SMCLK
+	UCB0BR0 = 0x02;                           // /2
+	UCB0BR1 = 0;                              //
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+
 	//Device and manufacture ID
 	//volatile unsigned char flashID[4];
 	//Faraday_FLASH_Get_ID(flashID);
 
+	//Enable device SPI
+	//Faraday_FLASH_Hold_Disable();
+	Faraday_FLASH_Hold_Enable();
+	Faraday_FLASH_SPI_Enable();
+	__delay_cycles(50);
+
 	//Device Status
 	volatile unsigned char status;
 	status = Faraday_FLASH_Get_Status();
+	__delay_cycles(50);
+
+	//Faraday_FLASH_SPI_Disable();
 
 	__no_operation();
+
+	//Write Enable
+	//Faraday_FLASH_SPI_Enable();
+	__delay_cycles(50);
+	Faraday_FLASH_Write_Enable();
+	__delay_cycles(50);
+	//Faraday_FLASH_SPI_Disable();
+	//Faraday_FLASH_SPI_Enable();
+	__delay_cycles(50);
+	status = Faraday_FLASH_Get_Status();
+	__delay_cycles(50);
+
+	__no_operation();
+
+	//Release the device chip SPI select/enable
+	Faraday_FLASH_SPI_Disable();
+
+
 //
 //	///////// Read Status Register
 //

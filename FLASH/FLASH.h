@@ -97,4 +97,16 @@ void Faraday_FLASH_Get_ID(unsigned char * id_data);
 unsigned char Faraday_FLASH_Get_Status(void);
 /** @}*/
 
+
+/** @brief FLASH Write Enable
+ *
+ * 	This function enables the WLEN (Write Enable) bit in the device status
+ * 	register. The WLEN bit must be set HIGH before each write operation,
+ * 	including erase.
+ *
+ *
+@{**/
+void Faraday_FLASH_Write_Enable(void);
+/** @}*/
+
 #endif /* FLASH_FLASH_H_ */
