@@ -1,7 +1,7 @@
 #include "UART_L2.h"
 #include "UART_L4.h"
 #include "../Faraday_HAL/Faraday_HAL.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "UART_Services.h"
 #include "../Ring_Buffers/FIFO.h"
 #include "../REVA_Faraday.h"

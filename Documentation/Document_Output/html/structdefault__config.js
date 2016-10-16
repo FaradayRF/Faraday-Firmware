@@ -1,0 +1,26 @@
+var structdefault__config =
+[
+    [ "boot_freq", "structdefault__config.html#ace9efb404283e9bfd8f2bd9cacceeb57", null ],
+    [ "default_altitude", "structdefault__config.html#a8e4197e2fac4c96b992a1cfdc2cda238", null ],
+    [ "default_altitude_units", "structdefault__config.html#a905ad52539b43ab498621cdca41c4538", null ],
+    [ "default_gpio_p3_bitmask", "structdefault__config.html#a560e24e16d2d782f508a9aba15665679", null ],
+    [ "default_gpio_p4_bitmask", "structdefault__config.html#a4d40c9e261d02bd88d469b3809f5e31f", null ],
+    [ "default_gpio_p5_bitmask", "structdefault__config.html#a575d3a466fbe8a1f8434d6a236dea7d4", null ],
+    [ "default_lattitde", "structdefault__config.html#ae6aaf893929d76c1cd5358a3c627e00b", null ],
+    [ "default_lattitude_dir", "structdefault__config.html#a3f9079e1d326f9772c479dcce1bb61bc", null ],
+    [ "default_longitude", "structdefault__config.html#a43bf6347d9f279854f8bba14ebb2056d", null ],
+    [ "default_longitude_dir", "structdefault__config.html#aeb1f5dd5028065ce29dfa115e1ec9c49", null ],
+    [ "flash_config_bitmask", "structdefault__config.html#a25db1e02f189b244d5cb7a0aa0e4108f", null ],
+    [ "gps_boot_bitmask", "structdefault__config.html#a6c1664f7824ab2c1a8eb6e99bc1ffae1", null ],
+    [ "local_callsign", "structdefault__config.html#a50705cef394d6140a04082c31cf3bbf1", null ],
+    [ "local_callsign_len", "structdefault__config.html#ac6caa2c8aca784515940848684cfdcb1", null ],
+    [ "local_device_id", "structdefault__config.html#aaf55d69cb33e67418ef777d72e7f001b", null ],
+    [ "padding_basic", "structdefault__config.html#a1c5297717efffa6bde5517abd6210be7", null ],
+    [ "padding_gps", "structdefault__config.html#a1436d5570fa4bcd49c88a31b210ae55d", null ],
+    [ "padding_rf", "structdefault__config.html#aa31e306ced13fa5b5192cd6d79aae2b3", null ],
+    [ "padding_telemetry", "structdefault__config.html#a3abc0c0cae02c06f75780f3c69995f11", null ],
+    [ "PATable", "structdefault__config.html#aa1a41e1d15ce2e3b750a24a137f759ac", null ],
+    [ "telem_boot_bitmask", "structdefault__config.html#a8228a824de0defea0b5e24e584f063e1", null ],
+    [ "telem_default_rf_interval", "structdefault__config.html#a5f081fa246cff213563c305adae5c8f2", null ],
+    [ "telem_default_uart_interval", "structdefault__config.html#a52b789ea97b2c02c9de6ae8b549eae1a", null ]
+];

@@ -1,7 +1,7 @@
 #ifndef SELF_TEST_SELF_TEST_H_
 #define SELF_TEST_SELF_TEST_H_
 
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "Misc_Functions.h"
 #include "Faraday_HAL.h"
 

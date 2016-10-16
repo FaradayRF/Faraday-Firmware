@@ -1,6 +1,6 @@
 #include "../Faraday_Globals.h"
 #include "../REVA_Faraday.h"
-#include <msp430.h>
+#include "cc430f6137.h"
 
 /************************************************************
 * Function: Clear ADC12 Memory Control Register

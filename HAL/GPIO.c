@@ -1,10 +1,10 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "GPIO.h"
 #include "../REVA_Faraday.h"
 
 volatile unsigned char gpio_p3_guard = GPS_RESET + GPS_STANDBY + LED_1 + LED_2;
 volatile unsigned char gpio_p4_guard = GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7;
-volatile unsigned char gpio_p5_guard = ARDUINO_IO_8 + ARDUINO_IO_9 + P5_7_UNUSED; //Don't allow MOSFET_CNTL to be manually toggled due to nicrowire fire risk
+volatile unsigned char gpio_p5_guard = ARDUINO_IO_8 + ARDUINO_IO_9; //Don't allow MOSFET_CNTL to be manually toggled due to nicrowire fire risk
 
 
 //GPIO Commanding

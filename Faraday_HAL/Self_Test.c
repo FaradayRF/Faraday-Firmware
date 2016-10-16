@@ -1,4 +1,4 @@
-#include <msp430.h>
+#include "cc430f6137.h"
 #include "Self_Test.h"
 #include "../REVA_Faraday.h"
 #include "../SRAM/SRAM.h"

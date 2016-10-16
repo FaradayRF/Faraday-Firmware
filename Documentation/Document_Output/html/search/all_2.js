@@ -1,20 +1,8 @@
 var searchData=
 [
-  ['hab_5fauto_5fcutdown_5fstate_5f0',['HAB_AUTO_CUTDOWN_STATE_0',['../_app___h_a_b_8h.html#a2917413fb370719ef6c07bc587d076ce',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f1',['HAB_AUTO_CUTDOWN_STATE_1',['../_app___h_a_b_8h.html#a23bd887a3cce01cf6bf344db0e8158e4',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f2',['HAB_AUTO_CUTDOWN_STATE_2',['../_app___h_a_b_8h.html#a57f4270ddd200f13b654d7c2e5a37a93',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f3',['HAB_AUTO_CUTDOWN_STATE_3',['../_app___h_a_b_8h.html#a9996f0594778f22e8630565b3d563d4d',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5ftimer_5fsm',['HAB_AUTO_CUTDOWN_TIMER_SM',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html',1,'']]],
-  ['hab_5fauto_5fcutdown_5ftimer_5fsm_5fstruct',['HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT',['../_app___h_a_b_8h.html#a54909d23da26061adb1a3f6421d32759',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f0',['HAB_CUTDOWN_EVENT_STATE_0',['../_app___h_a_b_8h.html#a11547ecff2e96e53f97621a1626a8949',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f1',['HAB_CUTDOWN_EVENT_STATE_1',['../_app___h_a_b_8h.html#a099023609d292b07a386cc4e98c5bd53',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f2',['HAB_CUTDOWN_EVENT_STATE_2',['../_app___h_a_b_8h.html#a8b720feea0c88957e5a0d4ab8c82d154',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f255',['HAB_CUTDOWN_EVENT_STATE_255',['../_app___h_a_b_8h.html#ad490472e16ddd8a2c4b476bf18ce1c37',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f3',['HAB_CUTDOWN_EVENT_STATE_3',['../_app___h_a_b_8h.html#a82bf4e9c46eabe2893a78c4341b03f9a',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5ftimer_5fcount_5fseconds',['HAB_CUTDOWN_EVENT_TIMER_COUNT_SECONDS',['../_app___h_a_b_8h.html#adda9f897d33e223d29aab682ee590179',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5ftimer_5fsm',['HAB_CUTDOWN_EVENT_TIMER_SM',['../struct_h_a_b___c_u_t_d_o_w_n___e_v_e_n_t___t_i_m_e_r___s_m.html',1,'']]],
-  ['hab_5fcutdown_5fevent_5ftimer_5fsm_5fstruct',['HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT',['../_app___h_a_b_8h.html#a28b9c09787ba5ab676e67882bddc95b2',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5ftimer_5fcount_5fseconds',['HAB_CUTDOWN_TIMER_COUNT_SECONDS',['../_app___h_a_b_8h.html#a648c1c67f180e3ec86bcc3378fc2f9d4',1,'App_HAB.h']]],
-  ['hab_5ftelemetry_5fpacket',['HAB_TELEMETRY_PACKET',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html',1,'']]],
-  ['hab_5ftelemetry_5fpacket_5fstruct',['HAB_TELEMETRY_PACKET_STRUCT',['../_app___h_a_b_8h.html#a92d7e60c94842a9dd82568a6ff47f738',1,'App_HAB.h']]]
+  ['command_5fpacket',['COMMAND_PACKET',['../struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html',1,'']]],
+  ['command_5fpacket_5fecho',['COMMAND_PACKET_ECHO',['../struct_c_o_m_m_a_n_d___p_a_c_k_e_t___e_c_h_o.html',1,'']]],
+  ['command_5fpacket_5fread_5fmemory_5fget',['COMMAND_PACKET_READ_MEMORY_GET',['../struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___g_e_t.html',1,'']]],
+  ['command_5fpacket_5fread_5fmemory_5fsend',['COMMAND_PACKET_READ_MEMORY_SEND',['../struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d.html',1,'']]],
+  ['contributor_20guidelines',['Contributor Guidelines',['../md__c_1__users__brent__documents__faraday__github__firmware-_master__faraday-_firmware__c_o_n_t_r_i_b_u_t_i_n_g.html',1,'']]]
 ];
