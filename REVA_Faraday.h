@@ -1,3 +1,13 @@
+/** @file REVA_Faraday.h
+ * 	@brief Hardware GPIO Allocations
+ *
+ * 	This file contains definitions that allocate GPIO pins to Faraday
+ * 	functionality.
+ *
+ *
+ */
+
+
 #ifndef FARADAY_PORT_MAPPING_H_
 #define FARADAY_PORT_MAPPING_H_
 
@@ -5,17 +15,19 @@
 //Define Faraday port connections
 /////////////////////////////////
 
-//Port 1
-/*
-P1.0	GPS_PPS	GPS	Interrupt Enabled	GPS PPS
-P1.1	UCB0CS1	SPI	Interrupt Enabled	3V3 to 5V
-P1.2	UCB0_SOMI_SCL	SPI	Interrupt Enabled	3V3 to 5V
-P1.3	UCB0_SIMO_SDA	SPI	Interrupt Enabled	3V3 to 5V
-P1.4	UCB0CLK	SPI	Interrupt Enabled	3V3 to 5V
-P1.5	UCA0RXD	UART	Interrupt Enabled
-P1.6	UCA0TXD	UART	Interrupt Enabled
-P1.7	BUTTON_1	IO/BTN	Interrupt Enabled
- */
+
+/** @name PORT 1
+* 	@brief Definitions for the CC430 PORT 1
+*
+* 	- P1.0	GPS_PPS	GPS	Interrupt Enabled	GPS PPS
+*   - P1.1	UCB0CS1	SPI	Interrupt Enabled	3V3 to 5V
+*   - P1.2	UCB0_SOMI_SCL	SPI	Interrupt Enabled	3V3 to 5V
+*   - P1.3	UCB0_SIMO_SDA	SPI	Interrupt Enabled	3V3 to 5V
+*   - P1.4	UCB0CLK	SPI	Interrupt Enabled	3V3 to 5V
+*   - P1.5	UCA0RXD	UART	Interrupt Enabled
+*   - P1.6	UCA0TXD	UART	Interrupt Enabled
+*   - P1.7	BUTTON_1	IO/BTN	Interrupt Enabled
+@{**/
 #define GPS_PPS BIT0
 #define UCB0CS1 BIT1
 #define UCB0_SOMI_SCL BIT2
@@ -24,19 +36,21 @@ P1.7	BUTTON_1	IO/BTN	Interrupt Enabled
 #define UCA0RXD BIT5
 #define UCA0TXD BIT6
 #define BUTTON_1 BIT7
+/** @}*/
 
-//Port 2
-/*
-P2.0	GPS_UART_TX	GPS	Interrupt Enabled	GPS TX
-P2.1	ADC_6	CC430_ADC	Interrupt Enabled	VCC Monitor
-P2.2	ADC_5	CC430_ADC/GPS	Interrupt Enabled	GPS_UART_RX
-P2.3	ADC_4	CC430_ADC	Interrupt Enabled
-P2.4	ADC_3	CC430_ADC	Interrupt Enabled
-P2.5	ADC_2	CC430_ADC	Interrupt Enabled
-P2.6	ADC_1	CC430_ADC	Interrupt Enabled
-P2.7	ADC_0	CC430_ADC	Interrupt Enabled
 
- */
+/** @name PORT 2
+* 	@brief Definitions for the CC430 PORT 2
+*
+*   - P2.0	GPS_UART_TX	GPS	Interrupt Enabled	GPS TX
+*   - P2.1	ADC_6	CC430_ADC	Interrupt Enabled	VCC Monitor
+*   - P2.2	ADC_5	CC430_ADC/GPS	Interrupt Enabled	GPS_UART_RX
+*   - P2.3	ADC_4	CC430_ADC	Interrupt Enabled
+*   - P2.4	ADC_3	CC430_ADC	Interrupt Enabled
+*   - P2.5	ADC_2	CC430_ADC	Interrupt Enabled
+*   - P2.6	ADC_1	CC430_ADC	Interrupt Enabled
+*   - P2.7	ADC_0	CC430_ADC	Interrupt Enabled
+@{**/
 #define ADC_0 BIT7
 #define ADC_1 BIT6
 #define ADC_2 BIT5
@@ -45,19 +59,21 @@ P2.7	ADC_0	CC430_ADC	Interrupt Enabled
 #define ADC_5 BIT2
 #define ADC_6 BIT1 //Not wired to external header!
 #define GPS_UART_TX BIT0 //Not wired to external header!
+/** @}*/
 
-//Port 3
-/*
-P3.0	PA_ENABLE	RF
-P3.1	LNA_ENABLE	RF
-P3.2	HGM_SELECT	RF
-P3.3	GPS_RESET	GPS
-P3.4	GPS_STANDBY	GPS
-P3.5	FLASH_SPI_CS FLASH
-P3.6	LED_1	Indicator
-P3.7	LED_2	Indicator
 
- */
+/** @name PORT 3
+* 	@brief Definitions for the CC430 PORT 3
+*
+*   - P3.0	PA_ENABLE	RF
+*   - P3.1	LNA_ENABLE	RF
+*   - P3.2	HGM_SELECT	RF
+*   - P3.3	GPS_RESET	GPS
+*   - P3.4	GPS_STANDBY	GPS
+*   - P3.5	FLASH_SPI_CS FLASH
+*   - P3.6	LED_1	Indicator
+*   - P3.7	LED_2	Indicator
+@{**/
 #define PA_ENABLE BIT0
 #define LNA_ENABLE BIT1
 #define HGM_SELECT BIT2
@@ -66,18 +82,21 @@ P3.7	LED_2	Indicator
 #define FLASH_SPI_CS BIT5
 #define LED_1 BIT6
 #define LED_2 BIT7
+/** @}*/
 
-//Port4
-/*
-P4.0	GPIO_7	IO		3V3 to 5V
-P4.1	GPIO_6	IO		3V3 to 5V
-P4.2	GPIO_5	IO		3V3 to 5V
-P4.3	GPIO_4	IO		3V3 to 5V
-P4.4	GPIO_3	IO		3V3 to 5V
-P4.5	GPIO_2	IO		3V3 to 5V
-P4.6	GPIO_1	IO		3V3 to 5V
-P4.7	GPIO_0	IO		3V3 to 5V
- */
+
+/** @name PORT 4
+* 	@brief Definitions for the CC430 PORT 4
+*
+*   - P4.0	GPIO_7	IO		3V3 to 5V
+*   - P4.1	GPIO_6	IO		3V3 to 5V
+*   - P4.2	GPIO_5	IO		3V3 to 5V
+*   - P4.3	GPIO_4	IO		3V3 to 5V
+*   - P4.4	GPIO_3	IO		3V3 to 5V
+*   - P4.5	GPIO_2	IO		3V3 to 5V
+*   - P4.6	GPIO_1	IO		3V3 to 5V
+*   - P4.7	GPIO_0	IO		3V3 to 5V
+@{**/
 #define GPIO_7 BIT0
 #define GPIO_6 BIT1
 #define GPIO_5 BIT2
@@ -86,19 +105,22 @@ P4.7	GPIO_0	IO		3V3 to 5V
 #define GPIO_2 BIT5
 #define GPIO_1 BIT6
 #define GPIO_0 BIT7
+/** @}*/
 
-//Port5
-/*
-P5.0	CC430_WATCH_XTAL_0	XTAL	32.768KHz	XIN
-P5.1	CC430_WATCH_XTAL_1	XTAL	32.768KHz	XOUT
-P5.2	ARDUINO_IO_8	IO	5V Conversion	3V3 to 5V
-P5.3	ARDUINO_IO_9	IO	5V Conversion	3V3 to 5V
-P5.4	MOSFET_CNTL	Actuation
-P5.5	SRAM_CS	SRAM
-P5.6	SRAM_HOLD	SRAM
-P5.7	FLASH_HOLD	FLASH
 
- */
+
+/** @name PORT 5
+* 	@brief Definitions for the CC430 PORT 5
+*
+*   - P5.0	CC430_WATCH_XTAL_0	XTAL	32.768KHz	XIN
+*   - P5.1	CC430_WATCH_XTAL_1	XTAL	32.768KHz	XOUT
+*   - P5.2	ARDUINO_IO_8	IO	5V Conversion	3V3 to 5V
+*   - P5.3	ARDUINO_IO_9	IO	5V Conversion	3V3 to 5V
+*   - P5.4	MOSFET_CNTL	Actuation
+*   - P5.5	SRAM_CS	SRAM
+*   - P5.6	SRAM_HOLD	SRAM
+*   - P5.7	FLASH_HOLD	FLASH
+@{**/
 #define CC430_WATCH_XTAL_0 BIT0
 #define CC430_WATCH_XTAL_1 BIT1
 #define ARDUINO_IO_8 BIT2
@@ -107,16 +129,28 @@ P5.7	FLASH_HOLD	FLASH
 #define SRAM_CS BIT5
 #define SRAM_HOLD BIT6
 #define FLASH_HOLD BIT7
+/** @}*/
 
 
 
-// SPI SRAM Definitions
+
+
+/** @name SPI SRAM Definitions
+* 	@brief Definitions for the SPI SRAM IC
+*
+@{**/
 #define SRAM_READ 0x03
 #define SRAM_WRITE 0x02
 #define SRAM_RDSR 0x05
 #define SRAM_WRSR 0x01
+/** @}*/
 
-//CC430 Flash Factory Calibration/Information
+
+//
+/** @name CC430 Flash Factory Calibration/Information
+* 	@brief Definitions for the CC430 Flash Factory Calibration/Information stored on the device
+*
+@{**/
 #define INFO_LEN 0x01A00
 #define DEVICE_ID_A 0x01A04
 #define DEVICE_ID_B 0x01A05
@@ -131,6 +165,8 @@ P5.7	FLASH_HOLD	FLASH
 #define REF_CAL_TAG 0x01A26
 #define REF_CAL_LENGTH 0x01A27
 #define REF_CAL_2_5_V_FACTOR 0x01A2C
+/** @}*/
+
 
 
 
