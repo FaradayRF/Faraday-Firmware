@@ -109,7 +109,28 @@ unsigned char Faraday_FLASH_Get_Status(void);
 void Faraday_FLASH_Write_Enable(void);
 /** @}*/
 
-
+/** @brief FLASH Write Disable
+ *
+ * 	This function disables the WLEN (Write Enable) bit in the device status
+ * 	register. The WLEN bit must be set HIGH before each write operation,
+ * 	including erase. Disabling allows protection from inadvertent write operations.
+ *
+ *
+@{**/
 void Faraday_FLASH_Write_Disable(void);
+/** @}*/
+
+
+/** @brief FLASH Toggle Chip Enable
+ *
+ * 	This function disables and then enables the chip enable pin on the FLASH
+ * 	IC. Due to a quirk of the FLASH IC found this seems to be needed prior
+ * 	to any "new" command.
+ *
+ *
+@{**/
+void Faraday_FLASH_Toggle_Chip_Enable(void);
+/** @}*/
+
 
 #endif /* FLASH_FLASH_H_ */

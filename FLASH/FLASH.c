@@ -41,8 +41,6 @@ void Faraday_FLASH_Hold_Disable(void){
 
 void Faraday_FLASH_SPI_Enable(void){
 	Faraday_FLASH_CE_Enable();
-	//Faraday_FLASH_Hold_Disable();
-	__delay_cycles(5000);
 }
 
 void Faraday_FLASH_SPI_Disable(void){
@@ -50,6 +48,8 @@ void Faraday_FLASH_SPI_Disable(void){
 }
 
 void Faraday_FLASH_Get_ID(unsigned char * id_data){
+	//Toggle Chip Enable
+	Faraday_FLASH_Toggle_Chip_Enable();
 
 	//Send the READ command
 	spi_tx(0x90);
@@ -70,6 +70,9 @@ void Faraday_FLASH_Get_ID(unsigned char * id_data){
 
 
 unsigned char Faraday_FLASH_Get_Status(void){
+	//Toggle Chip Enable
+	Faraday_FLASH_Toggle_Chip_Enable();
+
 	//Create function variables
 	unsigned char uChar_status;
 
@@ -90,12 +93,25 @@ unsigned char Faraday_FLASH_Get_Status(void){
 
 
 void Faraday_FLASH_Write_Enable(void){
+	//Toggle Chip Enable
+	Faraday_FLASH_Toggle_Chip_Enable();
+
 	//Send the WLEN command
 	spi_tx(0x06);
+	__delay_cycles(50); //Delay for IC to process
 }
 
 
 void Faraday_FLASH_Write_Disable(void){
+	//Toggle Chip Enable
+	Faraday_FLASH_Toggle_Chip_Enable();
+
 	//Send the WLEN command
 	spi_tx(0x04);
+	__delay_cycles(50); //Delay for IC to process
+}
+
+void Faraday_FLASH_Toggle_Chip_Enable(void){
+	Faraday_FLASH_CE_Disable();
+	Faraday_FLASH_CE_Enable();
 }
