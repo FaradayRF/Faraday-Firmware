@@ -82,14 +82,14 @@ $(document).ready(function(){initNavTree('_faraday___globals_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">Faraday_Globals.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Header file for global variables and definitions.  
+<a href="#details">More...</a></p>
 
 <p><a href="_faraday___globals_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -100,6 +100,11 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Software UART Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Definitions that define the configuration/timing of bits expected to decode a UART bitstream from a GPIO pin</p>
+<p>Definitions that define the configuration/timing of bits expected to decode a UART bitstream from a GPIO pin. This is primarally used to decode the GPS module UART data.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>This should be moved into a specific software uart header file</dd></dl>
+</div></td></tr>
 <tr class="memitem:a1bc3b2bd1c8a5e7a6906d0b93606e129"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#a1bc3b2bd1c8a5e7a6906d0b93606e129">SOFTWARE_UART_BIT_TIME</a>&#160;&#160;&#160;1667</td></tr>
 <tr class="separator:a1bc3b2bd1c8a5e7a6906d0b93606e129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4d4ee74763e5105f7404bfbba73c72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#adc4d4ee74763e5105f7404bfbba73c72">SOFTWARE_UART_HALF_BIT_TIME</a>&#160;&#160;&#160;833</td></tr>
@@ -113,23 +118,47 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Real Time Clock Structure</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>RTC structure definition</p>
+<p>This structure is used to hold the current real time clock information as queried.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>This should be moved into a specific RTC header file</dd></dl>
+</div></td></tr>
 <tr class="memitem:ad8059c0d2e9eec5da94b0ae1e7281600"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_r_t_c___a.html">RTC_A</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#ad8059c0d2e9eec5da94b0ae1e7281600">RTC_A</a></td></tr>
 <tr class="separator:ad8059c0d2e9eec5da94b0ae1e7281600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">ADC Global Variables</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Global variables that are used to support the ADC functionallity</p>
+<p>This byte array is used to hold the saved "current" values of the ADC during an ADC query.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>This should be moved into a specific ADC header file</dd></dl>
+</div></td></tr>
 <tr class="memitem:ab2d261be5368589df9a64d38a8e61ec7"><td class="memItemLeft" align="right" valign="top">volatile unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#ab2d261be5368589df9a64d38a8e61ec7">ADC_Data</a> [9]</td></tr>
 <tr class="separator:ab2d261be5368589df9a64d38a8e61ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">RTC_A global structure</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Initialize <a class="el" href="struct_r_t_c___a.html">RTC_A</a> global structure</p>
+<p>This global variable is used by other program/routines to query the latest real time clock information.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>This should be moved into a specific RTC header file</dd></dl>
+</div></td></tr>
 <tr class="memitem:adc44f3e2bb7b422a98e94e63df250089"><td class="memItemLeft" align="right" valign="top">volatile struct <a class="el" href="struct_r_t_c___a.html">RTC_A</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#adc44f3e2bb7b422a98e94e63df250089">RTC</a></td></tr>
 <tr class="separator:adc44f3e2bb7b422a98e94e63df250089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Software UART global variables</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Global variables used by the software UART</p>
+<p>Global variables used by the software UART.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>This should be moved into a specific software uart header file</dd></dl>
+</div></td></tr>
+<tr class="memitem:a393197bc2e8323b0a134ae4514f89dcc"><td class="memItemLeft" align="right" valign="top">volatile unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#a393197bc2e8323b0a134ae4514f89dcc">software_uart_int_buffer_rx</a></td></tr>
+<tr class="separator:a393197bc2e8323b0a134ae4514f89dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a685fed94227b53d4178e7cb4ae1f5806"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#a685fed94227b53d4178e7cb4ae1f5806">software_uart_char_buffer_rx</a></td></tr>
 <tr class="separator:a685fed94227b53d4178e7cb4ae1f5806"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33afedce68b9bdfe5da0131d03fb48b4"><td class="memItemLeft" align="right" valign="top">volatile char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#a33afedce68b9bdfe5da0131d03fb48b4">software_uart_char_bit_count</a></td></tr>
 <tr class="separator:a33afedce68b9bdfe5da0131d03fb48b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a393197bc2e8323b0a134ae4514f89dcc"><td class="memItemLeft" align="right" valign="top">volatile unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___globals_8h.html#a393197bc2e8323b0a134ae4514f89dcc">software_uart_int_buffer_rx</a></td></tr>
-<tr class="separator:a393197bc2e8323b0a134ae4514f89dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for global variables and definitions. </p>
+<p>This header file defines the global varaibles and definitions used in Faraday.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Globals are bad, lets move these to specific header files and say this never existed ;)</dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ac90ced70de5d808fa137d76ac604214d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac90ced70de5d808fa137d76ac604214d">&sect;&nbsp;</a></span>SOFTWARE_UART_BIT_COUNT</h2>
 
@@ -141,6 +170,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Software UART bit count (including framing bit(s) </p>
 
 </div>
 </div>
@@ -155,6 +185,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>(Clock frequency/baud) - i.e. 16MHZ/9600 baud </p>
 
 </div>
 </div>
@@ -169,6 +200,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>(Clock frequency/baud)/2 - i.e. (16MHZ/9600)/2 baud </p>
 
 </div>
 </div>
@@ -183,6 +215,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Software UART STARTBIT bitmask </p>
 
 </div>
 </div>
@@ -197,6 +230,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Software UART STOPBIT bitmask </p>
 
 </div>
 </div>

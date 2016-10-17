@@ -82,19 +82,21 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l2_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">UART_L2.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_u_a_r_t___l2_8h_source.html">UART_L2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_u_a_r_t___l4_8h_source.html">UART_L4.h</a>&quot;</code><br />
+
+<p>Faraday UART Network Stack - Layer 2 Protocol.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_u_a_r_t___l2_8h_source.html">UART_L2.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_faraday___h_a_l_8h_source.html">../Faraday_HAL/Faraday_HAL.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_u_a_r_t___l4_8h_source.html">UART_L4.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___services_8h_source.html">UART_Services.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -151,6 +153,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Packet FIFO Buffer Variables</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>FIFO structure and byte array declarations</p>
+<p>FIFO structure and byte array declarations that provide buffering for the fast incoming and outgoing UART data. These FIFO's are packet based and also use the internal RAM of the CC430 for maximum speed. </p>
+</div></td></tr>
 <tr class="memitem:a7fdc378de86e697af6d56eb31386e89c"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a7fdc378de86e697af6d56eb31386e89c">uart_tx_bytes_state_machine</a></td></tr>
 <tr class="separator:a7fdc378de86e697af6d56eb31386e89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80ea969cd013f06134ea63f313eea350"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a80ea969cd013f06134ea63f313eea350">uart_data_tx_bytes_256</a> [<a class="el" href="_u_a_r_t___l2_8h.html#a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</a>]</td></tr>
@@ -159,8 +165,17 @@ Variables</h2></td></tr>
 <tr class="separator:a46e24cd10cce34b7779c5f3b2f242ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f979812dea613dee0173576c35962f0"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a5f979812dea613dee0173576c35962f0">uart_data_rx_raw_bytes</a> [64]</td></tr>
 <tr class="separator:a5f979812dea613dee0173576c35962f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 2 Transmit Framing Structure</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>UART layer 2 transmit framing structure declaration</p>
+<p>UART layer 2 transmit framing structure declaration that is used to control the detection, byte escaping, and parsing of the layer 2 protocol frame. </p>
+</div></td></tr>
 <tr class="memitem:ac9afd4d4c944f4460af29b7cea9b6dba"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5">UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac9afd4d4c944f4460af29b7cea9b6dba">uart_tx_bytes_isr_buffer_struct</a></td></tr>
 <tr class="separator:ac9afd4d4c944f4460af29b7cea9b6dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Receive Frame State Machine Variables</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Receive frame state machine variable declarations</p>
+<p>UART layer 2 receive frame state machine variable declarations that control the parsing of layer 2 frames.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>This should become a structure for clarity</dd></dl>
+</div></td></tr>
 <tr class="memitem:ac1247c865c4e1f79a6871e98a46939c5"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac1247c865c4e1f79a6871e98a46939c5">uart_datalink_frame_rx_state</a> = <a class="el" href="_u_a_r_t___l2_8h.html#aee5e9357cbd40f30ab04e9d7ab627142">UART_DATALINK_RX_STATE_IDLE</a></td></tr>
 <tr class="separator:ac1247c865c4e1f79a6871e98a46939c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae70ea4a0b884949048c814256ab1ddc6"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ae70ea4a0b884949048c814256ab1ddc6">rx_datalink_packet</a> [128]</td></tr>
@@ -168,7 +183,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ad2f3cc5120db6fb46b5eb0d7ce7402d4"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ad2f3cc5120db6fb46b5eb0d7ce7402d4">rx_datalink_byte_cnt</a></td></tr>
 <tr class="separator:ad2f3cc5120db6fb46b5eb0d7ce7402d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Faraday UART Network Stack - Layer 2 Protocol. </p>
+<p>This source file provides the layer 2 (datalink) layer protocol of the Faraday UART network stack. This layer provides byte framing between the CC430 hardware UART and defines a layer 2 protocol. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ac7b3df0fa68526d64c732d5f916e34b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac7b3df0fa68526d64c732d5f916e34b1">&sect;&nbsp;</a></span>init_uart()</h2>
 

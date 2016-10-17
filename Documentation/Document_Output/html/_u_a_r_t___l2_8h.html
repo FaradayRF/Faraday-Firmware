@@ -83,7 +83,6 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l2_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -91,17 +90,26 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l2_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Faraday UART Network Stack - Layer 2 Protocol.  
+<a href="#details">More...</a></p>
+
 <p><a href="_u_a_r_t___l2_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_u_a_r_t___l2___p_a_c_k_e_t.html">UART_L2_PACKET</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Layer 2 Packet Definiton Structure.  <a href="struct_u_a_r_t___l2___p_a_c_k_e_t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html">UART_L2_PACKET_MSP430_BUFFER</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Layer 2 Transmit Framing State Machine.  <a href="struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 2 Receive Framing Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>UART layer 2 protocol receive framing definitions</p>
+<p>These definitions define the constants used to define the layer 2 receive frame used in the layer 2 protocol. Constants such as start, stop, and escape bytes are defined. </p>
+</div></td></tr>
 <tr class="memitem:aee5e9357cbd40f30ab04e9d7ab627142"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#aee5e9357cbd40f30ab04e9d7ab627142">UART_DATALINK_RX_STATE_IDLE</a>&#160;&#160;&#160;0x00</td></tr>
 <tr class="separator:aee5e9357cbd40f30ab04e9d7ab627142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9e8e98b3a1b163151a6b35d8655fb05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#ad9e8e98b3a1b163151a6b35d8655fb05">UART_DATALINK_RX_STATE_START</a>&#160;&#160;&#160;0x01</td></tr>
@@ -116,12 +124,20 @@ Macros</h2></td></tr>
 <tr class="separator:a66de5275deafb24d531a959600a12f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90db6b3ebc6f2bce86eec1f080ebbfab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#a90db6b3ebc6f2bce86eec1f080ebbfab">UART_DATALINK_RX_ESC_BYTE</a>&#160;&#160;&#160;0x7d</td></tr>
 <tr class="separator:a90db6b3ebc6f2bce86eec1f080ebbfab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 2 Transmit Framing Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>UART layer 2 protocol transmit framing definitions</p>
+<p>These definitions define the constants used to define the layer 2 transmit frame used in the layer 2 protocol. Constants such as start, stop, and escape bytes are defined. </p>
+</div></td></tr>
 <tr class="memitem:ae14d4bed55e863c40e70094249cbe1ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#ae14d4bed55e863c40e70094249cbe1ac">UART_DATALINK_FRAMING_START_BYTE</a>&#160;&#160;&#160;0x7b</td></tr>
 <tr class="separator:ae14d4bed55e863c40e70094249cbe1ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2252b0f8428124b84eb325d640b0d8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#ac2252b0f8428124b84eb325d640b0d8c">UART_DATALINK_FRAMING_STOP_BYTE</a>&#160;&#160;&#160;0x7c</td></tr>
 <tr class="separator:ac2252b0f8428124b84eb325d640b0d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad060e7a35921b7f17d8f6471b030d426"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#ad060e7a35921b7f17d8f6471b030d426">UART_DATALINK_FRAMING_ESC_BYTE</a>&#160;&#160;&#160;0x7d</td></tr>
 <tr class="separator:ad060e7a35921b7f17d8f6471b030d426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 2 Protocol Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>UART layer 2 protocol definitions that implement the higher level portions of the layer and packet structure</p>
+<p>UART layer 2 protocol definitions that implement the higher level portions of the layer and packet structure. The default packet configuration and buffer sizes are defined here. </p>
+</div></td></tr>
 <tr class="memitem:a05f5d709605c6317c97e4974bec3402a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</a>&#160;&#160;&#160;128*3</td></tr>
 <tr class="separator:a05f5d709605c6317c97e4974bec3402a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0ea160058c920ece859620a0e10f9c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#aa0ea160058c920ece859620a0e10f9c2">UART_L2_PACKET_LENGTH</a>&#160;&#160;&#160;128</td></tr>
@@ -140,8 +156,10 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:adcf7a574c5d9de1ceb93d5b1a97ee547"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_u_a_r_t___l2___p_a_c_k_e_t.html">UART_L2_PACKET</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547">UART_DATALINK_PACKET_STRUCT</a></td></tr>
+<tr class="memdesc:adcf7a574c5d9de1ceb93d5b1a97ee547"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Layer 2 Packet Definiton Structure.  <a href="#adcf7a574c5d9de1ceb93d5b1a97ee547">More...</a><br /></td></tr>
 <tr class="separator:adcf7a574c5d9de1ceb93d5b1a97ee547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac53614c0c475db20de3fff04fb01b3c5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html">UART_L2_PACKET_MSP430_BUFFER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5">UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT</a></td></tr>
+<tr class="memdesc:ac53614c0c475db20de3fff04fb01b3c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Layer 2 Transmit Framing State Machine.  <a href="#ac53614c0c475db20de3fff04fb01b3c5">More...</a><br /></td></tr>
 <tr class="separator:ac53614c0c475db20de3fff04fb01b3c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -197,7 +215,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a80a393448695d1ec96dce4f9094a783a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8h.html#a80a393448695d1ec96dce4f9094a783a">uart_datalink_rx_pass_higher_layer</a> (unsigned char datagram_len, unsigned char *datagram)</td></tr>
 <tr class="separator:a80a393448695d1ec96dce4f9094a783a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Faraday UART Network Stack - Layer 2 Protocol. </p>
+<p>This source file provides the layer 2 (datalink) layer protocol of the Faraday UART network stack. This layer provides byte framing between the CC430 hardware UART and defines a layer 2 protocol. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ad060e7a35921b7f17d8f6471b030d426"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad060e7a35921b7f17d8f6471b030d426">&sect;&nbsp;</a></span>UART_DATALINK_FRAMING_ESC_BYTE</h2>
 
@@ -209,6 +230,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Escape Byte </p>
 
 </div>
 </div>
@@ -223,6 +245,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Start Byte </p>
 
 </div>
 </div>
@@ -237,6 +260,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Stop Byte </p>
 
 </div>
 </div>
@@ -251,6 +275,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Escape Byte </p>
 
 </div>
 </div>
@@ -265,6 +290,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Start Byte </p>
 
 </div>
 </div>
@@ -279,6 +305,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Escape Byte Received State </p>
 
 </div>
 </div>
@@ -293,6 +320,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Idle State </p>
 
 </div>
 </div>
@@ -307,6 +335,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Start Byte Received State </p>
 
 </div>
 </div>
@@ -321,6 +350,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Stop Byte Received State </p>
 
 </div>
 </div>
@@ -335,6 +365,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Stop Byte </p>
 
 </div>
 </div>
@@ -449,6 +480,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>UART Layer 2 Transmit Framing State Machine. </p>
+<p>This structure defines the structure used to maintain the state machine that controls the byte framing of the Layer 2 UART transmit protocol. </p>
+
 </div>
 </div>
 <a id="adcf7a574c5d9de1ceb93d5b1a97ee547"></a>
@@ -462,6 +496,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>UART Layer 2 Packet Definiton Structure. </p>
+<p>A structure that defines the layer 2 packet used by the Faraday UART network stack. This structure is used to directly make the packet and place into the transmit routine(s). </p>
 
 </div>
 </div>
