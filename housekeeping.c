@@ -9,7 +9,7 @@
 
 /* standard includes */
 #include "cc430f6137.h"
-#include "App_HAB.h"
+#include "Applications/HAB/App_HAB.h"
 #include "housekeeping.h"
 
 /* faraday hardware allocations */
