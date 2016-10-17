@@ -1,3 +1,13 @@
+/** @file Faraday_Globals.h
+ * 	@brief Header file for global variables and definitions
+ *
+ * 	This header file defines the global varaibles and definitions used in Faraday.
+ *
+ *
+ * 	@todo Globals are bad, lets move these to specific header files and say this never existed ;)
+ *
+ */
+
 #ifndef FARADAY_REVA_RF_MERGE_FARADAY_GLOBALS_H_
 #define FARADAY_REVA_RF_MERGE_FARADAY_GLOBALS_H_
 
