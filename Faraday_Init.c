@@ -1,19 +1,45 @@
-#include "Faraday_Init.h"
+/** @file Faraday_Init.c
+ *  @brief Device Initializations
+ *
+ *  These functions provide a default boot configuration for
+ *  the peripheral and software functionallity of Faraday.
+ *
+ */
+
+
+/* standard includes */
 #include "cc430f6137.h"
+
+
+/* faraday hardware allocations */
 #include "REVA_Faraday.h"
-#include "HAL/hal_pmm.h"
+#include "Faraday_Globals.h"
+
+/* hardware abstraction */
 #include "Faraday_HAL/Faraday_HAL.h"
-#include "SRAM/SRAM.h"
+#include "HAL/hal_pmm.h"
+#include "HAL/hal_pmm.h"
+#include "HAL/hal_UCS.h"
 #include "HAL/rtc.h"
 #include "HAL/adc.h"
 #include "HAL/ref.h"
-#include "HAL/hal_pmm.h"
-#include "HAL/hal_UCS.h"
-#include "Faraday_Globals.h"
-#include "RF_Network_Stack/rf.h"
-#include "UART/UART_L2.h"
+
+/*  sram */
+#include "SRAM/SRAM.h"
+
+/* fifo - sram */
 #include "Ring_Buffers/FIFO_SRAM.h"
+
+/* faraday rf network stack */
+#include "RF_Network_Stack/rf.h"
+
+/* faraday uart network stack */
+#include "UART/UART_L2.h"
+
+/* faraday device configuration application */
 #include "Applications/Device_Config/Device_Config.h"
+
+/* faraday miscellaneous functions */
 #include "Faraday_HAL/Misc_Functions.h"
 
 

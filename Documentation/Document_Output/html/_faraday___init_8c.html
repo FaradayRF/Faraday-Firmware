@@ -87,20 +87,22 @@ $(document).ready(function(){initNavTree('_faraday___init_8c.html','');});
 <div class="title">Faraday_Init.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_faraday___init_8h_source.html">Faraday_Init.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+
+<p>Device Initializations.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">REVA_Faraday.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hal__pmm_8h_source.html">HAL/hal_pmm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_faraday___globals_8h_source.html">Faraday_Globals.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_faraday___h_a_l_8h_source.html">Faraday_HAL/Faraday_HAL.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_r_a_m_8h_source.html">SRAM/SRAM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hal__pmm_8h_source.html">HAL/hal_pmm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="hal___u_c_s_8h_source.html">HAL/hal_UCS.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_t_c_8h_source.html">HAL/rtc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="adc_8h_source.html">HAL/adc.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ref_8h_source.html">HAL/ref.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="hal___u_c_s_8h_source.html">HAL/hal_UCS.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_faraday___globals_8h_source.html">Faraday_Globals.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_r_a_m_8h_source.html">SRAM/SRAM.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_f_i_f_o___s_r_a_m_8h_source.html">Ring_Buffers/FIFO_SRAM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="rf_8h_source.html">RF_Network_Stack/rf.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___l2_8h_source.html">UART/UART_L2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_f_i_f_o___s_r_a_m_8h_source.html">Ring_Buffers/FIFO_SRAM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_device___config_8h_source.html">Applications/Device_Config/Device_Config.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_misc___functions_8h_source.html">Faraday_HAL/Misc_Functions.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -139,7 +141,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a9edaa468a93ff83b916afa45c5be48d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a9edaa468a93ff83b916afa45c5be48d8">reset_identification_2</a> (void)</td></tr>
 <tr class="separator:a9edaa468a93ff83b916afa45c5be48d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Device Initializations. </p>
+<p>These functions provide a default boot configuration for the peripheral and software functionallity of Faraday. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="acaf2f24107ea0a9c3a77f64fb7ceb9c4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acaf2f24107ea0a9c3a77f64fb7ceb9c4">&sect;&nbsp;</a></span>faraday_main_intialize()</h2>
 

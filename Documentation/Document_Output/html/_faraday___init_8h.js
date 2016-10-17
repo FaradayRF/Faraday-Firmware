@@ -14,8 +14,6 @@ var _faraday___init_8h =
     [ "init_timer_A1", "_faraday___init_8h.html#a0999882823a66543c08ae0c8429b30b5", null ],
     [ "init_UCS", "_faraday___init_8h.html#a5d7763ace1ada6ee2aa1cd78e0959e28", null ],
     [ "init_usci_A0_UART", "_faraday___init_8h.html#a23c31f0be7a2e76b374bcb1691df9b26", null ],
-    [ "InitRadio", "_faraday___init_8h.html#a8f6c8c239636325ab4493e79950c17d4", null ],
-    [ "InitTimer_0A1", "_faraday___init_8h.html#a386298eec144177450325eedf56fad4e", null ],
     [ "reset_identification", "_faraday___init_8h.html#aa6aeb124e20348c7e39245e3317d426b", null ],
     [ "reset_identification_2", "_faraday___init_8h.html#a9edaa468a93ff83b916afa45c5be48d8", null ],
     [ "reset_identification_3", "_faraday___init_8h.html#aea4ecae408b5732a66c2ac1389e6b25d", null ]

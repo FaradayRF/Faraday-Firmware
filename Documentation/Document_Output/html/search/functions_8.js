@@ -26,8 +26,6 @@ var searchData=
   ['init_5fucs',['init_UCS',['../_faraday___init_8c.html#a5d7763ace1ada6ee2aa1cd78e0959e28',1,'init_UCS(void):&#160;Faraday_Init.c'],['../_faraday___init_8h.html#a5d7763ace1ada6ee2aa1cd78e0959e28',1,'init_UCS(void):&#160;Faraday_Init.c']]],
   ['init_5fusci_5fa0_5fuart',['init_usci_A0_UART',['../_faraday___init_8c.html#a23c31f0be7a2e76b374bcb1691df9b26',1,'init_usci_A0_UART(void):&#160;Faraday_Init.c'],['../_faraday___init_8h.html#a23c31f0be7a2e76b374bcb1691df9b26',1,'init_usci_A0_UART(void):&#160;Faraday_Init.c']]],
   ['initialize_5fgps_5fstructs',['initialize_GPS_structs',['../gps_8c.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c'],['../gps_8h.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c']]],
-  ['initradio',['InitRadio',['../_faraday___init_8h.html#a8f6c8c239636325ab4493e79950c17d4',1,'Faraday_Init.h']]],
-  ['inittimer_5f0a1',['InitTimer_0A1',['../_faraday___init_8h.html#a386298eec144177450325eedf56fad4e',1,'Faraday_Init.h']]],
   ['int_5fto_5fbyte_5farray',['int_to_byte_array',['../_misc___functions_8c.html#acdd47bbebcaa4c0c9e767400f2c521b6',1,'int_to_byte_array(unsigned char *byte_array, int integer):&#160;Misc_Functions.c'],['../_misc___functions_8h.html#acdd47bbebcaa4c0c9e767400f2c521b6',1,'int_to_byte_array(unsigned char *byte_array, int integer):&#160;Misc_Functions.c']]],
   ['isempty_5fpacket_5fring_5fbuffer_5f64',['isempty_packet_ring_buffer_64',['../_packet___ring___buffer_8h.html#afc59b96b0b19396adbf5819a50121918',1,'Packet_Ring_Buffer.h']]]
 ];
