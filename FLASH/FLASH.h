@@ -133,4 +133,23 @@ void Faraday_FLASH_Toggle_Chip_Enable(void);
 /** @}*/
 
 
+/** @brief FLASH
+ *
+ *
+ *
+ *
+@{**/
+void Faraday_FLASH_Read_Data(unsigned char address_2, unsigned char address_1, unsigned char address_0, unsigned int length, unsigned char * ptr_receive_data);
+/** @}*/
+
+
+/** @brief FLASH
+ *
+ *
+ *
+ *
+@{**/
+void Faraday_FLASH_Sector_Erase(unsigned char address_2, unsigned char address_1, unsigned char address_0);
+/** @}*/
+
 #endif /* FLASH_FLASH_H_ */

@@ -42,15 +42,25 @@ void flash_test(void){
 	status = Faraday_FLASH_Get_Status();
 
 	//Write disable
-	Faraday_FLASH_Write_Disable();
+	//Faraday_FLASH_Write_Disable();
 
 	//Get status
-	status = Faraday_FLASH_Get_Status();
+	//status = Faraday_FLASH_Get_Status();
 
 	__no_operation();
 
-	//Release the device chip SPI select/enable
-	Faraday_FLASH_SPI_Disable();
+	//Sector Erase
+	Faraday_FLASH_Sector_Erase(0x00, 0x00, 0x00);
+
+
+
+	//READ Memory
+	unsigned char test[10];
+	Faraday_FLASH_Read_Data(0x00, 0x00, 0x00, 10, &test);
+
+	//Get status
+	status = Faraday_FLASH_Get_Status();
+	__no_operation();
 
 
 //
