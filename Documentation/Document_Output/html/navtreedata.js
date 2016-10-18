@@ -1,9 +1,9 @@
 var NAVTREE =
 [
   [ "Faraday-Firmware", "index.html", [
-    [ "Contributor Guidelines", "md__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
-    [ "LICENSE", "md__l_i_c_e_n_s_e.html", null ],
-    [ "Faraday Firmware", "md__r_e_a_d_m_e.html", null ],
+    [ "Contributor Guidelines", "md__c_1__users__brent__documents__faraday__github__firmware-_master__faraday-_firmware__c_o_n_t_r_i_b_u_t_i_n_g.html", null ],
+    [ "LICENSE", "md__c_1__users__brent__documents__faraday__github__firmware-_master__faraday-_firmware__l_i_c_e_n_s_e.html", null ],
+    [ "Faraday Firmware", "md__c_1__users__brent__documents__faraday__github__firmware-_master__faraday-_firmware__r_e_a_d_m_e.html", null ],
     [ "Todo List", "todo.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Data Structures", "annotated.html", [

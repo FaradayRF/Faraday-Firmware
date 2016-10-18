@@ -243,13 +243,6 @@ unsigned char uart_datalink_rx_frame_parser_check_state(void);
 void uart_datalink_rx_frame_parser_change_state(unsigned char state);
 
 
-/**@brief
- *
- *
- *
- */
-void uart_datalink_rx_frame_parser_state_idle(unsigned char new_byte);
-
 
 /**@brief UART layer 2 receiver frame parser IDLE state routine
  *
@@ -264,7 +257,8 @@ void uart_datalink_rx_frame_parser_state_idle(unsigned char new_byte);
  *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
-void uart_datalink_rx_frame_parser_state_start(unsigned char new_byte);
+void uart_datalink_rx_frame_parser_state_idle(unsigned char new_byte);
+
 
 
 /**@brief UART layer 2 receiver frame parser START state routine
@@ -281,10 +275,23 @@ void uart_datalink_rx_frame_parser_state_start(unsigned char new_byte);
  *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
+void uart_datalink_rx_frame_parser_state_start(unsigned char new_byte);
+
+
+/**@brief UART layer 2 receiver frame parser STOP state routine
+ *
+ *  This is the STOP state state machine routing that contains the operations executed
+ *	during STOP state on each received byte. In STOP state the frame is complete and
+ *	ready to be passed to the higher layer interface. The parser uart_datalink_rx_framer_parser_parse_byte()
+ *	actually handles the removal and passing of payload data to the higher layer. This STOP state simply
+ *	needs to change the state machine to IDLE state since all STOP actions are complete when the state
+ *	machine operates the STOP routine (parser already performed STOP state actions immediately after rescieving STOP).
+ *
+ */
 void uart_datalink_rx_frame_parser_state_stop(void);
 
 
-/**@briefUART layer 2 receiver frame parser ESCAPE state routine
+/**@brief UART layer 2 receiver frame parser ESCAPE state routine
  *
  *	This is the ESCAPE state state machine routing that contains the operations executed
  *	during ESCAPE state on each received byte. In ESCAPE state the next byte will be a

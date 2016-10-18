@@ -13,6 +13,9 @@
 
 /* faraday hardware allocations */
 #include "REVA_Faraday.h"
+#include "Faraday_Init.h"
+
+/* faraday global variables */
 #include "Faraday_Globals.h"
 
 /* hardware abstraction */

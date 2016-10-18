@@ -359,5 +359,5 @@ var searchData=
   ['lqi',['lqi',['../struct_r_f___l2___p_a_c_k_e_t.html#a21036977cef7bf696438db4357c15424',1,'RF_L2_PACKET::lqi()'],['../cc430f6137_8h.html#a78336b0d46d50c8312a6b29044554ab3',1,'LQI():&#160;cc430f6137.h']]],
   ['lverr',['LVERR',['../cc430f6137_8h.html#a433ddc806e75ccd93c3319660a675ce4',1,'cc430f6137.h']]],
   ['lverr_5fl',['LVERR_L',['../cc430f6137_8h.html#a80921d61f27699626c7ceba86a2413eb',1,'cc430f6137.h']]],
-  ['license',['LICENSE',['../md__l_i_c_e_n_s_e.html',1,'']]]
+  ['license',['LICENSE',['../md__c_1__users__brent__documents__faraday__github__firmware-_master__faraday-_firmware__l_i_c_e_n_s_e.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: Faraday_Init.c File Reference</title>
+<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Faraday_Init.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(document).ready(function(){initNavTree('_faraday___init_8c.html','');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Faraday_Init.c File Reference</div>  </div>
+<div class="title">C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Faraday_Init.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('_faraday___init_8c.html','');});
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">REVA_Faraday.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_faraday___init_8h_source.html">Faraday_Init.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_faraday___globals_8h_source.html">Faraday_Globals.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_faraday___h_a_l_8h_source.html">Faraday_HAL/Faraday_HAL.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="hal__pmm_8h_source.html">HAL/hal_pmm.h</a>&quot;</code><br />
@@ -109,36 +110,52 @@ $(document).ready(function(){initNavTree('_faraday___init_8c.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:acaf2f24107ea0a9c3a77f64fb7ceb9c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#acaf2f24107ea0a9c3a77f64fb7ceb9c4">faraday_main_intialize</a> (void)</td></tr>
+<tr class="memdesc:acaf2f24107ea0a9c3a77f64fb7ceb9c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main summary of initialization tasks on boot.  <a href="#acaf2f24107ea0a9c3a77f64fb7ceb9c4">More...</a><br /></td></tr>
 <tr class="separator:acaf2f24107ea0a9c3a77f64fb7ceb9c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92da5727d9a24141d77c8acb1fc776d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a92da5727d9a24141d77c8acb1fc776d0">init_GPIO</a> (void)</td></tr>
+<tr class="memdesc:a92da5727d9a24141d77c8acb1fc776d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">General Purpose Input/Output boot configuration.  <a href="#a92da5727d9a24141d77c8acb1fc776d0">More...</a><br /></td></tr>
 <tr class="separator:a92da5727d9a24141d77c8acb1fc776d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d7763ace1ada6ee2aa1cd78e0959e28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a5d7763ace1ada6ee2aa1cd78e0959e28">init_UCS</a> (void)</td></tr>
+<tr class="memdesc:a5d7763ace1ada6ee2aa1cd78e0959e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">CC430 Internal Clock Configuration.  <a href="#a5d7763ace1ada6ee2aa1cd78e0959e28">More...</a><br /></td></tr>
 <tr class="separator:a5d7763ace1ada6ee2aa1cd78e0959e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23c31f0be7a2e76b374bcb1691df9b26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a23c31f0be7a2e76b374bcb1691df9b26">init_usci_A0_UART</a> (void)</td></tr>
+<tr class="memdesc:a23c31f0be7a2e76b374bcb1691df9b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the USCI A0 into UART mode.  <a href="#a23c31f0be7a2e76b374bcb1691df9b26">More...</a><br /></td></tr>
 <tr class="separator:a23c31f0be7a2e76b374bcb1691df9b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad553401ae5a4618bb84e35590f609d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#aad553401ae5a4618bb84e35590f609d4">init_DMA</a> (void)</td></tr>
+<tr class="memdesc:aad553401ae5a4618bb84e35590f609d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initalize direct memory access on the CC430.  <a href="#aad553401ae5a4618bb84e35590f609d4">More...</a><br /></td></tr>
 <tr class="separator:aad553401ae5a4618bb84e35590f609d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace540db62a5fedff3ea34bac404e0bef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#ace540db62a5fedff3ea34bac404e0bef">init_timer_A0</a> (void)</td></tr>
+<tr class="memdesc:ace540db62a5fedff3ea34bac404e0bef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes timer A0 for use.  <a href="#ace540db62a5fedff3ea34bac404e0bef">More...</a><br /></td></tr>
 <tr class="separator:ace540db62a5fedff3ea34bac404e0bef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0999882823a66543c08ae0c8429b30b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a0999882823a66543c08ae0c8429b30b5">init_timer_A1</a> (void)</td></tr>
+<tr class="memdesc:a0999882823a66543c08ae0c8429b30b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes timer A1 for use.  <a href="#a0999882823a66543c08ae0c8429b30b5">More...</a><br /></td></tr>
 <tr class="separator:a0999882823a66543c08ae0c8429b30b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9802282e260bf660ef49928c79af2342"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a9802282e260bf660ef49928c79af2342">init_RTCA_Calender_Mode</a> (void)</td></tr>
+<tr class="memdesc:a9802282e260bf660ef49928c79af2342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Real Time Clock A into Calender Mode.  <a href="#a9802282e260bf660ef49928c79af2342">More...</a><br /></td></tr>
 <tr class="separator:a9802282e260bf660ef49928c79af2342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d63826fbd13148ab654c8eb6dac2a2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a8d63826fbd13148ab654c8eb6dac2a2b">init_RTCA_Counter_Mode</a> (void)</td></tr>
+<tr class="memdesc:a8d63826fbd13148ab654c8eb6dac2a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Real Time Clock A into Counter Mode.  <a href="#a8d63826fbd13148ab654c8eb6dac2a2b">More...</a><br /></td></tr>
 <tr class="separator:a8d63826fbd13148ab654c8eb6dac2a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4150bc034dbbc255a40a3c476f6dc0bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a4150bc034dbbc255a40a3c476f6dc0bd">init_GPS</a> (void)</td></tr>
+<tr class="memdesc:a4150bc034dbbc255a40a3c476f6dc0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the on-board GPS to the post boot state.  <a href="#a4150bc034dbbc255a40a3c476f6dc0bd">More...</a><br /></td></tr>
 <tr class="separator:a4150bc034dbbc255a40a3c476f6dc0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1418010c7a0d63e1950ee88a36d1796d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a1418010c7a0d63e1950ee88a36d1796d">init_REF</a> (void)</td></tr>
+<tr class="memdesc:a1418010c7a0d63e1950ee88a36d1796d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intialize the CC430 internal voltage reference peripheral.  <a href="#a1418010c7a0d63e1950ee88a36d1796d">More...</a><br /></td></tr>
 <tr class="separator:a1418010c7a0d63e1950ee88a36d1796d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02abbc989354bd33cece255dc3452b8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a02abbc989354bd33cece255dc3452b8c">init_ADC</a> (void)</td></tr>
+<tr class="memdesc:a02abbc989354bd33cece255dc3452b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the analog to digital converter.  <a href="#a02abbc989354bd33cece255dc3452b8c">More...</a><br /></td></tr>
 <tr class="separator:a02abbc989354bd33cece255dc3452b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d0cd383ca4d1fe1bb381cf3b09ed5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a42d0cd383ca4d1fe1bb381cf3b09ed5e">init_SPI</a> (void)</td></tr>
+<tr class="memdesc:a42d0cd383ca4d1fe1bb381cf3b09ed5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the SPI (Serial Peripheral Interface)  <a href="#a42d0cd383ca4d1fe1bb381cf3b09ed5e">More...</a><br /></td></tr>
 <tr class="separator:a42d0cd383ca4d1fe1bb381cf3b09ed5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12a5110f11d0ae37d8b3e57ff412113c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a12a5110f11d0ae37d8b3e57ff412113c">init_software_uart</a> (void)</td></tr>
+<tr class="memdesc:a12a5110f11d0ae37d8b3e57ff412113c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the software UART for GPS.  <a href="#a12a5110f11d0ae37d8b3e57ff412113c">More...</a><br /></td></tr>
 <tr class="separator:a12a5110f11d0ae37d8b3e57ff412113c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6aeb124e20348c7e39245e3317d426b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#aa6aeb124e20348c7e39245e3317d426b">reset_identification</a> (void)</td></tr>
+<tr class="memdesc:aa6aeb124e20348c7e39245e3317d426b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device reset debug checks #10.  <a href="#aa6aeb124e20348c7e39245e3317d426b">More...</a><br /></td></tr>
 <tr class="separator:aa6aeb124e20348c7e39245e3317d426b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9edaa468a93ff83b916afa45c5be48d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_faraday___init_8c.html#a9edaa468a93ff83b916afa45c5be48d8">reset_identification_2</a> (void)</td></tr>
+<tr class="memdesc:a9edaa468a93ff83b916afa45c5be48d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device reset debug checks #2.  <a href="#a9edaa468a93ff83b916afa45c5be48d8">More...</a><br /></td></tr>
 <tr class="separator:a9edaa468a93ff83b916afa45c5be48d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -161,6 +178,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>The main summary of initialization tasks on boot. </p>
+<p>This function is used to call all the needed boot initializations. </p>
+
 </div>
 </div>
 <a id="a02abbc989354bd33cece255dc3452b8c"></a>
@@ -178,6 +198,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize the analog to digital converter. </p>
+<p>This function initializes the analog to digital converter in the CC430. </p>
 
 </div>
 </div>
@@ -197,6 +220,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initalize direct memory access on the CC430. </p>
+<p>This function initializes DMA that allows specific memory tasks to be performed independant of the CC430 processor. When used this can greatly improve data throughput. </p>
+
 </div>
 </div>
 <a id="a92da5727d9a24141d77c8acb1fc776d0"></a>
@@ -214,6 +240,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>General Purpose Input/Output boot configuration. </p>
+<p>The function sets up all GPIO pins to their boot states as currently defined for the hardware/software intent. </p>
 
 </div>
 </div>
@@ -233,6 +262,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize the on-board GPS to the post boot state. </p>
+<p>This function configures the GPS to the intended post boot state. The GPS contains many functions to reduce power and the main use of this setup is to determine if the default state is to enable or "sleep" the GPS for power savings. </p>
+
 </div>
 </div>
 <a id="a1418010c7a0d63e1950ee88a36d1796d"></a>
@@ -250,6 +282,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Intialize the CC430 internal voltage reference peripheral. </p>
+<p>Intialize the CC430 internal voltage reference peripheral that is used to provide other peripherals such as the ADC with a precise voltage reference. </p>
 
 </div>
 </div>
@@ -269,6 +304,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize Real Time Clock A into Calender Mode. </p>
+<p>Initialize Real Time Clock A into Calender Mode. This mode performs as advertised by providing an internal incrementing calender to provide both date/time awareness and alarm functionallity. </p>
+
 </div>
 </div>
 <a id="a8d63826fbd13148ab654c8eb6dac2a2b"></a>
@@ -286,6 +324,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize Real Time Clock A into Counter Mode. </p>
+<p>Initialize the Real Time Clock A into Counter Mode which provides a flexible incrementing counter that can be used for interval triggering functionallity. </p>
 
 </div>
 </div>
@@ -305,6 +346,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize the software UART for GPS. </p>
+<p>This function intializes the onboard software UART used to interface with with the on-board GPS module. </p>
+
 </div>
 </div>
 <a id="a42d0cd383ca4d1fe1bb381cf3b09ed5e"></a>
@@ -322,6 +366,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize the SPI (Serial Peripheral Interface) </p>
+<p>Initialize the SPI (Serial Peripheral Interface) in the CC430 to the intended configuration post boot. This is the default SPI settings that allow communications with critical on-board peripherals such as the SPI SRAM and FLASH. </p>
 
 </div>
 </div>
@@ -341,6 +388,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes timer A0 for use. </p>
+<p>This function initializes timer A0 into the configuration desired to provide interrupt based timing functionality.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Describe configuration</dd></dl>
+
 </div>
 </div>
 <a id="a0999882823a66543c08ae0c8429b30b5"></a>
@@ -358,6 +409,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes timer A1 for use. </p>
+<p>This function initializes timer A1 into the configuration desired to provide interrupt based timing functionality.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>Describe configuration</dd></dl>
 
 </div>
 </div>
@@ -377,6 +432,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>CC430 Internal Clock Configuration. </p>
+<p>This function initializes the UCS on the CC430. At boot the CC430 is operating in a "safe" 1MHz clock rate and this is increased to ~16MHz using the on-board crystal(s). Auxiliary clock(s) are also initialized.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Changing the frequency of clocks will may have downstream effects on certain functionallity. </dd></dl>
+
 </div>
 </div>
 <a id="a23c31f0be7a2e76b374bcb1691df9b26"></a>
@@ -394,6 +453,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configure the USCI A0 into UART mode. </p>
+<p>This function initializes the USCI A0 hardware peripheral into UART mode and configures into the intended Faraday settings. </p>
 
 </div>
 </div>
@@ -413,6 +475,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Device reset debug checks #10. </p>
+<p>This function is used to debug reset events by polling boot runtime registers that contain relavent information. This is the #10 set of checks. </p>
+
 </div>
 </div>
 <a id="a9edaa468a93ff83b916afa45c5be48d8"></a>
@@ -430,6 +495,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Device reset debug checks #2. </p>
+<p>This function is used to debug reset events by polling boot runtime registers that contain relavent information. This is the #2 set of checks. </p>
 
 </div>
 </div>
