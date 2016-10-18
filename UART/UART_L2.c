@@ -89,6 +89,7 @@ void init_uart(void){
 	uart_rx_raw_bytes_state_machine.buffer_size = 64;
 }
 
+
 void uart_datalink_create_packet(volatile UART_DATALINK_PACKET_STRUCT *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload){
 	buffer_struct->packet_type = packet_type;
 	buffer_struct->packet_config = packet_config;
@@ -118,6 +119,7 @@ unsigned char uart_datalink_put_tx(unsigned char packet_type, unsigned char pack
 	return status;
 
 }
+
 
 unsigned char uart_datalink_get_tx(unsigned char *get_buffer_ptr){
 	unsigned char status;

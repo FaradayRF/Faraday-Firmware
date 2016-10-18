@@ -83,7 +83,6 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l4_8h.html','');});
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -91,15 +90,23 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l4_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Faraday UART Network Stack - Layer 4 Protocol.  
+<a href="#details">More...</a></p>
+
 <p><a href="_u_a_r_t___l4_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_u_a_r_t___l4___p_a_c_k_e_t.html">UART_L4_PACKET</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure that defines the UART layer 4 packet This structure contains all the information and fields regarding the UART layer 4 protocol packet. After filling the structure fields with information the structure itself can directly be used as a packet.  <a href="struct_u_a_r_t___l4___p_a_c_k_e_t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 4 Protocol Constant Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Definitions for the UART layer 4 protocol</p>
+<p>These definitions define the constants used to define the layer 4 packets and packet parsing functions. </p>
+</div></td></tr>
 <tr class="memitem:a4b518cd48c5ad37aa0a429428d03791b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a4b518cd48c5ad37aa0a429428d03791b">UART_L4_TX_BUFFER_SIZE</a>&#160;&#160;&#160;125</td></tr>
 <tr class="separator:a4b518cd48c5ad37aa0a429428d03791b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5501afeaba670ad76a6d767e95c96774"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a5501afeaba670ad76a6d767e95c96774">UART_L4_PACKET_LENGTH</a>&#160;&#160;&#160;125</td></tr>
@@ -110,20 +117,31 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a365764a0f9e14a0f756db7236bce672e"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_u_a_r_t___l4___p_a_c_k_e_t.html">UART_L4_PACKET</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a365764a0f9e14a0f756db7236bce672e">UART_TRANSPORT_PACKET_STRUCT</a></td></tr>
+<tr class="memdesc:a365764a0f9e14a0f756db7236bce672e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A structure that defines the UART layer 4 packet This structure contains all the information and fields regarding the UART layer 4 protocol packet. After filling the structure fields with information the structure itself can directly be used as a packet.  <a href="#a365764a0f9e14a0f756db7236bce672e">More...</a><br /></td></tr>
 <tr class="separator:a365764a0f9e14a0f756db7236bce672e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad84d3a97b692c4a838fbac73bc454bbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#ad84d3a97b692c4a838fbac73bc454bbf">uart_transport_create_packet</a> (volatile <a class="el" href="_u_a_r_t___l4_8h.html#a365764a0f9e14a0f756db7236bce672e">UART_TRANSPORT_PACKET_STRUCT</a> *buffer_struct, unsigned char service_number, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:ad84d3a97b692c4a838fbac73bc454bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a UART layer 4 packet.  <a href="#ad84d3a97b692c4a838fbac73bc454bbf">More...</a><br /></td></tr>
 <tr class="separator:ad84d3a97b692c4a838fbac73bc454bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03c92ebd43aa4ace3c979f81887329d3"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a03c92ebd43aa4ace3c979f81887329d3">uart_transport_tx_packet</a> (unsigned char service_number, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:a03c92ebd43aa4ace3c979f81887329d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit data over a UART layer 4 service port.  <a href="#a03c92ebd43aa4ace3c979f81887329d3">More...</a><br /></td></tr>
 <tr class="separator:a03c92ebd43aa4ace3c979f81887329d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5931d8882f301fe325fa4d6f86c97c03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a5931d8882f301fe325fa4d6f86c97c03">uart_transport_tx_housekeep</a> ()</td></tr>
-<tr class="separator:a5931d8882f301fe325fa4d6f86c97c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a527ac7e31d4b514521f9d2a82ffb30e1"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l4_8h.html#a527ac7e31d4b514521f9d2a82ffb30e1">uart_transport_rx_packet</a> (unsigned char datagram_len, unsigned char *datagram)</td></tr>
+<tr class="memdesc:a527ac7e31d4b514521f9d2a82ffb30e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for lower network layer.  <a href="#a527ac7e31d4b514521f9d2a82ffb30e1">More...</a><br /></td></tr>
 <tr class="separator:a527ac7e31d4b514521f9d2a82ffb30e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Faraday UART Network Stack - Layer 4 Protocol. </p>
+<p>This header file provides the layer 4 (TRANSPORT) layer protocol of the Faraday UART network stack. The primary purpose of the network layer is to provide a method for higher lever layers/applications to interact with only data intended for a specific "service port." Registering a service port to an application/layer allows that application/layer interface to receive/send data without having to deal with data intended for other applications/layers. This is very much like a TCP/UDP port.</p>
+<p><b><b>UART</b> Layer 4 Key Points<b></b></b></p>
+<p><b><b></p><ul>
+<li>UART layer 4 is a fixed length protocol</li>
+<li>This layer is unreliable (not error detected/corrected) and interacts with packets only </li>
+</ul>
+<p></b></b></p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a5501afeaba670ad76a6d767e95c96774"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5501afeaba670ad76a6d767e95c96774">&sect;&nbsp;</a></span>UART_L4_PACKET_LENGTH</h2>
 
@@ -179,6 +197,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A structure that defines the UART layer 4 packet This structure contains all the information and fields regarding the UART layer 4 protocol packet. After filling the structure fields with information the structure itself can directly be used as a packet. </p>
+<dl class="section warning"><dt>Warning</dt><dd>When using structure data directly as a packet be careful of memory alignment issues! </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -220,6 +241,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Create a UART layer 4 packet. </p>
+<p>This function creates a UART layer 4 packet with the supplied function arguments.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to a UART_TRANSPORT_PACKET_STRUCT structure that will be filled with the packet information provides in other arguments. This is the packet created after function completion. </td></tr>
+    <tr><td class="paramname">service_number</td><td>An unsigned char that defines the "service port" that the UART layer 4 packet will be assigned to. This acts much like a TCP/UCP "port" and usually used to assign a packet to an application directly </td></tr>
+    <tr><td class="paramname">payload_length</td><td>Length of the payload data supplied in the arguement "payload" </td></tr>
+    <tr><td class="paramname">payload</td><td>The data to be encapsulated in the layer 4 packet </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a527ac7e31d4b514521f9d2a82ffb30e1"></a>
@@ -248,22 +281,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a5931d8882f301fe325fa4d6f86c97c03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5931d8882f301fe325fa4d6f86c97c03">&sect;&nbsp;</a></span>uart_transport_tx_housekeep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void uart_transport_tx_housekeep </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Interface for lower network layer. </p>
+<p>This function provides an interface for a lower layer in the network stack to pass a UART layer 4 packet into the receive buffer of UART layer 4. This packet will then be parsed and handled accordingly. This is an interface between the two layers and a layer 4 packet will be encapsulated as "payload" data in a lower layer packet.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datagram_len</td><td>Length of the datagram supplied in the arguement "datagram" </td></tr>
+    <tr><td class="paramname">datagram</td><td>A pointer to the UART layer 4 datagram (packet) byte array</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This should be replaced with a function pointer interface to avoid having to "include" this header file in lower layer source files to maintain OSI layer insulation.</dd></dl>
 
 </div>
 </div>
@@ -298,6 +325,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Transmit data over a UART layer 4 service port. </p>
+<p>This is a high level function that uses multiple functions to create a UART layer 4 packet and place the packet into the correct buffers for further transmission over UART. This data supplied will be encapsulated in a packet assigned the supplied service port number and eventually passed to the lower layer interface in the UART network stack.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>An unsigned char that defines the "service port" that the UART layer 4 packet will be assigned to. This acts much like a TCP/UCP "port" and usually used to assign a packet to an application directly </td></tr>
+    <tr><td class="paramname">payload_length</td><td>Length of the payload data supplied in the arguement "payload" </td></tr>
+    <tr><td class="paramname">payload</td><td>The data to be encapsulated in the layer 4 packet </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

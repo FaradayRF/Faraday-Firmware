@@ -68,6 +68,9 @@ typedef struct HAB_CUTDOWN_EVENT_TIMER_SM {
  * - Current cutdown (active) event state
  * - Automatic timed cutdown trigger count (seconds)
  * - Current automatic timed cutdown count (seconds)
+ *
+ * @warning When using structure data directly as a packet be careful of memory alignment issues!
+ *
  */
 typedef struct HAB_TELEMETRY_PACKET {
 	unsigned char uChar_auto_cutdown_timer_state_status;

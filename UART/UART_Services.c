@@ -1,4 +1,17 @@
+/** @file UART_Services.c
+ *  @brief Faraday UART Network Stack - Layer 4 Services
+ *
+ *  This source file provides the layer 4 (TRANSPORT) layer protocol services. Providing service functions
+ *  allows the protocol to be interacted with in an abstracted method that better suites layer isolation
+ *  and layer modularity.
+ *
+ *
+ */
+
+/* standard includes */
 #include "UART_Services.h"
+
+/* faraday uart layer 4 */
 #include "UART_L4.h"
 
 #define RF_SERVICE_ELEMENT_COUNT 8

@@ -103,12 +103,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ac7b3df0fa68526d64c732d5f916e34b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac7b3df0fa68526d64c732d5f916e34b1">init_uart</a> (void)</td></tr>
 <tr class="memdesc:ac7b3df0fa68526d64c732d5f916e34b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize UART Layer 2 TX/RX State Machines.  <a href="#ac7b3df0fa68526d64c732d5f916e34b1">More...</a><br /></td></tr>
 <tr class="separator:ac7b3df0fa68526d64c732d5f916e34b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a63c4d64ae4f2bd7e735cd4f4004263c5">uart_datalink_create_packet</a> (volatile <a class="el" href="_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547">UART_DATALINK_PACKET_STRUCT</a> *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
-<tr class="memdesc:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create UART Layer 2 Packet.  <a href="#a63c4d64ae4f2bd7e735cd4f4004263c5">More...</a><br /></td></tr>
-<tr class="separator:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc559fd267d9d8c575be67bd3e265351"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#abc559fd267d9d8c575be67bd3e265351">uart_datalink_put_tx</a> (unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
-<tr class="memdesc:abc559fd267d9d8c575be67bd3e265351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and transmit UART layer 2 packet.  <a href="#abc559fd267d9d8c575be67bd3e265351">More...</a><br /></td></tr>
-<tr class="separator:abc559fd267d9d8c575be67bd3e265351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f4ea313a52dd3e9b9f680429024e54a"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a7f4ea313a52dd3e9b9f680429024e54a">uart_datalink_get_tx</a> (unsigned char *get_buffer_ptr)</td></tr>
 <tr class="memdesc:a7f4ea313a52dd3e9b9f680429024e54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a UART layer 2 packet from receive buffer.  <a href="#a7f4ea313a52dd3e9b9f680429024e54a">More...</a><br /></td></tr>
 <tr class="separator:a7f4ea313a52dd3e9b9f680429024e54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,6 +122,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad87829b6d6ba48eb341034a0ba17c5f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if UART Layer 2 receive buffer is empty.  <a href="#ad87829b6d6ba48eb341034a0ba17c5f1">More...</a><br /></td></tr>
 <tr class="separator:ad87829b6d6ba48eb341034a0ba17c5f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a642642befe890ebd6eff7d8ccb003a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a642642befe890ebd6eff7d8ccb003a4f">uart_datalink_rx_put_byte</a> (volatile unsigned char *data_byte)</td></tr>
+<tr class="memdesc:a642642befe890ebd6eff7d8ccb003a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place a byte into the receive buffer for uart layer 2.  <a href="#a642642befe890ebd6eff7d8ccb003a4f">More...</a><br /></td></tr>
 <tr class="separator:a642642befe890ebd6eff7d8ccb003a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a35d37b82cc1e3975df2f13a3779904"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a6a35d37b82cc1e3975df2f13a3779904">uart_datalink_rx_frame_parser_check_state</a> (void)</td></tr>
 <tr class="memdesc:a6a35d37b82cc1e3975df2f13a3779904"><td class="mdescLeft">&#160;</td><td class="mdescRight"><hr/>
@@ -160,6 +155,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a80a393448695d1ec96dce4f9094a783a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a80a393448695d1ec96dce4f9094a783a">uart_datalink_rx_pass_higher_layer</a> (unsigned char datagram_len, unsigned char *datagram)</td></tr>
 <tr class="memdesc:a80a393448695d1ec96dce4f9094a783a"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART layer 2 receiver higher OSI layer interface.  <a href="#a80a393448695d1ec96dce4f9094a783a">More...</a><br /></td></tr>
 <tr class="separator:a80a393448695d1ec96dce4f9094a783a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a63c4d64ae4f2bd7e735cd4f4004263c5">uart_datalink_create_packet</a> (volatile <a class="el" href="_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547">UART_DATALINK_PACKET_STRUCT</a> *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create UART Layer 2 Packet.  <a href="#a63c4d64ae4f2bd7e735cd4f4004263c5">More...</a><br /></td></tr>
+<tr class="separator:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc559fd267d9d8c575be67bd3e265351"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#abc559fd267d9d8c575be67bd3e265351">uart_datalink_put_tx</a> (unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:abc559fd267d9d8c575be67bd3e265351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and transmit UART layer 2 packet.  <a href="#abc559fd267d9d8c575be67bd3e265351">More...</a><br /></td></tr>
+<tr class="separator:abc559fd267d9d8c575be67bd3e265351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -290,17 +292,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create UART Layer 2 Packet. </p>
-<p>This function creates a Layer 2 UART Packet for transmission. The function accepts several parameters that define the packet type, configuration bits, and other information.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer_struct</td><td>Pointer to a UART_DATALINK_PACKET_STRUCT structure that will be filled with the supplied parameters/data </td></tr>
-    <tr><td class="paramname">packet_type</td><td>A byte that describes the packet type which indicates how to parse the packet when received </td></tr>
-    <tr><td class="paramname">packet_config</td><td>Configuration bytes to support link communication and flag sharing. Not yet implemented </td></tr>
-    <tr><td class="paramname">payload_length</td><td>Length of the payload data in bytes </td></tr>
-    <tr><td class="paramname">payload</td><td>A pointer to the byte/array of data to be packed into the packet </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>group_transmit The uart layer 2 transmit group This is the uart layer 2 transmit group of functions </p>
 
 </div>
 </div>
@@ -656,6 +648,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Place a byte into the receive buffer for uart layer 2. </p>
+<p>This function allows you to place a received uart byte into the recieve buffer for further parsing.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_byte</td><td>A pointer to the byte that will be placed into the receive byte buffer </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
