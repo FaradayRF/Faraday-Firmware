@@ -1,7 +1,7 @@
 /** @file UART_L2.h
  *  @brief Faraday UART Network Stack - Layer 2 Protocol
  *
- *  This source file provides the layer 2 (datalink) layer protocol of the Faraday
+ *  This header file provides the layer 2 (datalink) layer protocol of the Faraday
  *  UART network stack. This layer provides byte framing between the CC430 hardware UART
  *  and defines a layer 2 protocol.
  *
@@ -102,6 +102,12 @@ typedef struct UART_L2_PACKET_MSP430_BUFFER {
 void init_uart(void);
 
 
+/** @degroup group_transmit The uart layer 2 transmit group
+*   This is the uart layer 2 transmit group of functions
+*   @{
+*
+*/
+
 /**@brief Create UART Layer 2 Packet
  *
  *  This function creates a Layer 2 UART Packet for transmission. The function accepts several parameters
@@ -175,18 +181,7 @@ unsigned char uart_datalink_isempty_tx(void);
 void uart_datalink_tx_housekeep(void);
 
 
-/**@brief UART layer 2 receive housekeeping
- *
- *  UART layer 2 receive housekeeping routine that performs actions needed on a reoccuring basis to enable the
- *  layer 2 protocol functionality. Actions such a checking for new data waiting to be retrieve are performed.
- *
- *  The receive housekeeping actions retrieve a waiting UART packet from the buffer if available and then parses
- *  it. When the parsing routine is complete it moves the parsed packet to the network layer above.
- *
- *  @note A while() loop is used to retrieve, parse, and move data to the next highest network layer continuously until the receive buffer is empty.
- *
- */
-void uart_datalink_rx_housekeep(void);
+
 
 
 /**@brief UART layer 2 transmit interrupt service routine
@@ -199,6 +194,7 @@ void uart_datalink_rx_housekeep(void);
  */
 void uart_tx_datalink_isr(void);
 
+/** @} */ // End of group_transmit
 
 /**@brief Check if UART Layer 2 receive buffer is empty
  *
@@ -212,12 +208,29 @@ void uart_tx_datalink_isr(void);
 unsigned char uart_datalink_byte_isempty_rx(void);
 
 
-/**@brief
+/**@brief Place a byte into the receive buffer for uart layer 2
  *
+ *	This function allows you to place a received uart byte into the recieve buffer for further
+ *	parsing.
  *
+ *	@param data_byte A pointer to the byte that will be placed into the receive byte buffer
  *
  */
 void uart_datalink_rx_put_byte(volatile unsigned char *data_byte);
+
+/**@brief UART layer 2 receive housekeeping
+ *
+ *  UART layer 2 receive housekeeping routine that performs actions needed on a reoccuring basis to enable the
+ *  layer 2 protocol functionality. Actions such a checking for new data waiting to be retrieve are performed.
+ *
+ *  The receive housekeeping actions retrieve a waiting UART packet from the buffer if available and then parses
+ *  it. When the parsing routine is complete it moves the parsed packet to the network layer above.
+ *
+ *  @note A while() loop is used to retrieve, parse, and move data to the next highest network layer continuously until the receive buffer is empty.
+ *
+ */
+void uart_datalink_rx_housekeep(void);
+
 
 //////////////////
 //RX Byte Escaping
