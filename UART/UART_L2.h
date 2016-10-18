@@ -135,11 +135,11 @@ unsigned char uart_datalink_put_tx(unsigned char packet_type, unsigned char pack
 
 /**@brief Get a UART layer 2 packet from receive buffer
  *
- *	This function is used to retrieve a waiting UART layer 2 packet in the UART receive buffer if present.
+ *	This function is used to retrieve a waiting UART layer 2 byte in the UART receive buffer if present.
  *
- *	@param get_buffer_ptr Pointer to an array that will be filled with the received packet if present in the receive buffer
+ *	@param get_buffer_ptr Pointer to an array that will be filled with the received byte if present in the receive buffer
  *
- *	@retval status The function returns the status of the receive buffer Get() routine. If (status == 1) then retrieval of a packet was successful.
+ *	@retval status The function returns the status of the receive buffer Get() routine. If (status == 1) then retrieval of a byte was successful.
  *
  */
 unsigned char uart_datalink_get_tx(unsigned char *get_buffer_ptr);
@@ -147,9 +147,9 @@ unsigned char uart_datalink_get_tx(unsigned char *get_buffer_ptr);
 
 /**@brief Check if UART Layer 2 transmit buffer is empty
  *
- *	This function is used to check if the transmit buffer is empty or contains at least 1 packet waiting for
+ *	This function is used to check if the transmit buffer is empty or contains at least 1 byte waiting for
  *	retrieval. This is a very useful function to create higher level "checks" to determine if there is waiting
- *	data to be retrieved without actually "poping" the data out of the FIFO.
+ *	data to be retrieved without actually "popping" the data out of the FIFO.
  *
  *	@retval Returns 1 if buffer is empty. Returns 0 if buffer NOT empty.
  *
@@ -162,7 +162,7 @@ unsigned char uart_datalink_isempty_tx(void);
  *  UART layer 2 transmit housekeeping routine that performs actions needed on a reoccuring basis to enable the
  *  layer 2 protocol functionality. Actions such a checking for new data waiting to be transmitted are performed.
  *
- *  The transmit UART houskeeping retrieves a waiting packet to be transmitted over UART into a global structure
+ *  The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure
  *  and intializes control flags used for transmission. The hal_uart_set_uctxifg() function sets the UART controller
  *  transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will
  *  cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that
@@ -196,16 +196,17 @@ void uart_datalink_rx_housekeep(void);
  * if available. The ISR routine checks if another byte is waiting for be transmitted and transmits it if so, otherwise
  * the ISR stops the transmit "wheel" from turning and enters an inactive state.
  *
- *
- *
  */
 void uart_tx_datalink_isr(void);
 
 
-//Receiver
-/**@brief
+/**@brief Check if UART Layer 2 receive buffer is empty
  *
+ *	This function is used to check if the receive buffer is empty or contains at least 1 packet waiting for
+ *	retrieval. This is a very useful function to create higher level "checks" to determine if there is waiting
+ *	data to be retrieved without actually "popping" the data out of the FIFO.
  *
+ *	@retval Returns 1 if buffer is empty. Returns 0 if buffer NOT empty.
  *
  */
 unsigned char uart_datalink_byte_isempty_rx(void);
@@ -218,19 +219,25 @@ unsigned char uart_datalink_byte_isempty_rx(void);
  */
 void uart_datalink_rx_put_byte(volatile unsigned char *data_byte);
 
-
+//////////////////
 //RX Byte Escaping
-/**@brief
+//////////////////
+
+/**@brief Check the current UART receiver byte frame parser state machine state
  *
+ *  This function checks and returns the current state of the state machine responsible for
+ *  parsing received bytes into frames that contain UART layer 2 packets. The UART layer 2
+ *  implements a simple byte escape framing protocol.
  *
+ *  @retval uart_datalink_frame_rx_state Returns the current state of the receive byte frame parsing state machine
  *
  */
 unsigned char uart_datalink_rx_frame_parser_check_state(void);
 
 
-/**@brief
+/**@brief Change the current state of the receive byte frame parser state machine
  *
- *
+ *	This function allows you to change the current state of the receive byte frame parser state machine.
  *
  */
 void uart_datalink_rx_frame_parser_change_state(unsigned char state);
@@ -244,41 +251,75 @@ void uart_datalink_rx_frame_parser_change_state(unsigned char state);
 void uart_datalink_rx_frame_parser_state_idle(unsigned char new_byte);
 
 
-/**@brief
+/**@brief UART layer 2 receiver frame parser IDLE state routine
  *
+ *	This is the IDLE state state machine routine that contains the operations executed
+ *	during IDLE state on each received byte. In IDLE the state machine searches for the START
+ *	byte.
  *
+ *	If the START byte is found then the following bytes contain a new packet. The reception
+ *	of an IDLE byte resets the packet saving buffers and sets the state machine into the next
+ *	state (Start)
+ *
+ *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
 void uart_datalink_rx_frame_parser_state_start(unsigned char new_byte);
 
 
-/**@brief
+/**@brief UART layer 2 receiver frame parser START state routine
  *
+ *	This is the START state state machine routing that contains the operations executed
+ *	during START state on each received byte. In START state each byte is expected to be part of
+ *	a packet. The START state searches for new data bytes, ESCAPE byte, STOP byte, and START
+ *	bytes.
  *
+ *	- START byte: If a START byte is received a new frame is assumed to have started and all prior data will be reset
+ *	- STOP byte: If a STOP byte is received this indicates the end of a frame and the state machine will tranfer the parsed frame contents to the appropriate functions for further parsing of layer 2 packets
+ *	- ESCAPE byte: If an ESCAPE byte is recieved this indicates that the following byte is a START/STOP/ESCAPE byte but is actually a portion of the data and should be treat accordingly
+ *
+ *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
 void uart_datalink_rx_frame_parser_state_stop(void);
 
 
-/**@brief
+/**@briefUART layer 2 receiver frame parser ESCAPE state routine
  *
+ *	This is the ESCAPE state state machine routing that contains the operations executed
+ *	during ESCAPE state on each received byte. In ESCAPE state the next byte will be a
+ *	START/STOP/ESCAPE byte but is actually a portion of data to be parsed and saved. If
+ *	the next byte is not a START/STOP/ESCAPE byte then corruption has occured and is an
+ *	error (no error indication provided).
  *
+ *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
 void uart_datalink_rx_frame_parser_state_esc(unsigned char new_byte);
 
 
-/**@brief
+/**@brief UART layer 2 receiver high level state machine parser
  *
+ *	This function is the high level parser routine that when executed checks the current
+ *	state machine state and operates the respective state routine to properly parse the
+ *	received framing/data byte.
  *
+ *	@param new_byte The byte to be parsed by the receive byte escape state machine
  *
  */
 void uart_datalink_rx_framer_parser_parse_byte(unsigned char new_byte);
 
 
-/**@brief
+/**@brief UART layer 2 receiver higher OSI layer interface
  *
+ *	This function is used to pass the parsed UART layer 2 packet data payload into the next higher OSI layer in the network stack.
+ *	This is the only location in the UART layer 2 protocol that must know about and interact with the next higher OSI layer
+ *	services.
  *
+ *	@param datagram_len The length of the supplied datagram (packet) in bytes
+ *	@param datagram A pointer to the byte array containing the UART layer 2 data payload which is actually a higher layer packet
+ *
+ *	@todo Update this interface with a function pointer based interface that can be dynamically "registered" like the UART Layer 4 service ports. This will remove the need to include layer 4 header files and function calls.
  *
  */
 void uart_datalink_rx_pass_higher_layer(unsigned char datagram_len, unsigned char *datagram);
