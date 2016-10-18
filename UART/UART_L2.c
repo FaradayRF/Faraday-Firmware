@@ -120,9 +120,9 @@ unsigned char uart_datalink_put_tx(unsigned char packet_type, unsigned char pack
 }
 
 unsigned char uart_datalink_get_tx(unsigned char *get_buffer_ptr){
-	unsigned char result;
-	result = get_fifo(&uart_tx_bytes_state_machine, uart_data_tx_bytes_256, get_buffer_ptr);
-	return result;
+	unsigned char status;
+	status = get_fifo(&uart_tx_bytes_state_machine, uart_data_tx_bytes_256, get_buffer_ptr);
+	return status;
 }
 
 unsigned char uart_datalink_isempty_tx(void){
