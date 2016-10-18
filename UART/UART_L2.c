@@ -1,25 +1,71 @@
-#include "UART_L2.h"
-#include "UART_L4.h"
-#include "../Faraday_HAL/Faraday_HAL.h"
+/** @file UART_L2.c
+ *  @brief Faraday UART Network Stack - Layer 2 Protocol
+ *
+ *  This source file provides the layer 2 (datalink) layer protocol of the Faraday
+ *  UART network stack. This layer provides byte framing between the CC430 hardware UART
+ *  and defines a layer 2 protocol.
+ *
+ */
+
+/* standard includes */
 #include "cc430f6137.h"
-#include "UART_Services.h"
-#include "../Ring_Buffers/FIFO.h"
+#include "UART_L2.h"
+
+/* faraday hardware allocations */
 #include "../REVA_Faraday.h"
 
-//Packet Ring Buffer
-volatile fifo_state_machine uart_tx_bytes_state_machine;
-volatile unsigned char uart_data_tx_bytes_256[UART_TX_BUFFER_SIZE];
-volatile fifo_state_machine uart_rx_raw_bytes_state_machine;
-volatile unsigned char uart_data_rx_raw_bytes[64];
+/* faraday hardware abstraction */
+#include "../Faraday_HAL/Faraday_HAL.h"
 
-//ISR
-volatile UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT uart_tx_bytes_isr_buffer_struct;
+/* faraday uart network stack layer 4 (transport) */
+#include "UART_L4.h"
+#include "UART_Services.h"
 
-//RX Frame State Machine
-volatile unsigned char uart_datalink_frame_rx_state = UART_DATALINK_RX_STATE_IDLE;
-volatile unsigned char rx_datalink_packet[128];
-volatile unsigned char rx_datalink_byte_cnt;
+/* fifo buffers */
+#include "../Ring_Buffers/FIFO.h"
 
+
+/** @name UART Packet FIFO Buffer Variables
+* 	@brief FIFO structure and byte array declarations
+*
+* 	FIFO structure and byte array declarations that provide buffering for
+* 	the fast incoming and outgoing UART data. These FIFO's are packet based
+* 	and also use the internal RAM of the CC430 for maximum speed.
+*
+*
+@{**/
+volatile fifo_state_machine uart_tx_bytes_state_machine; //**<  UART transmit FIFO state machine structure */
+volatile unsigned char uart_data_tx_bytes_256[UART_TX_BUFFER_SIZE]; //**<  UART transmit FIFO buffer byte array */
+volatile fifo_state_machine uart_rx_raw_bytes_state_machine; //**<  UART receive FIFO state machine structure */
+volatile unsigned char uart_data_rx_raw_bytes[64]; //**<  UART receive FIFO buffer byte array */
+/** @}*/
+
+
+
+/** @name UART Layer 2 Transmit Framing Structure
+* 	@brief UART layer 2 transmit framing structure declaration
+*
+* 	UART layer 2 transmit framing structure declaration that is used to control the detection, byte escaping,
+* 	and parsing of the layer 2 protocol frame.
+*
+@{**/
+volatile UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT uart_tx_bytes_isr_buffer_struct; //**< UART transmit packet framing state machine structure */
+/** @}*/
+
+
+/** @name Receive Frame State Machine Variables
+* 	@brief Receive frame state machine variable declarations
+*
+* 	UART layer 2 receive frame state machine variable declarations that control
+* 	the parsing of layer 2 frames.
+*
+* 	@todo This should become a structure for clarity
+*
+@{**/
+volatile unsigned char uart_datalink_frame_rx_state = UART_DATALINK_RX_STATE_IDLE; //**< UART receive packet framing state machine structure */
+volatile unsigned char rx_datalink_packet[128]; //**< UART transmit packet framing buffer byte array */
+volatile unsigned char rx_datalink_byte_cnt; //**< UART transmit packet framing byte counter */
+/** @}*/
 
 void init_uart(void){
 	//UART TX FIFO
@@ -74,9 +120,9 @@ unsigned char uart_datalink_put_tx(unsigned char packet_type, unsigned char pack
 }
 
 unsigned char uart_datalink_get_tx(unsigned char *get_buffer_ptr){
-	unsigned char result;
-	result = get_fifo(&uart_tx_bytes_state_machine, uart_data_tx_bytes_256, get_buffer_ptr);
-	return result;
+	unsigned char status;
+	status = get_fifo(&uart_tx_bytes_state_machine, uart_data_tx_bytes_256, get_buffer_ptr);
+	return status;
 }
 
 unsigned char uart_datalink_isempty_tx(void){

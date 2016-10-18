@@ -1,0 +1,28 @@
+var _faraday___h_a_l_8h =
+[
+    [ "Faraday_GPIO_Bitmask_Cntl", "_faraday___h_a_l_8h.html#a7b7296e03b1985d7c7ca69aa5049f771", null ],
+    [ "Faraday_GPIO_Off", "_faraday___h_a_l_8h.html#a1626e0b5c3eef773074408ded0d81a2b", null ],
+    [ "Faraday_GPIO_On", "_faraday___h_a_l_8h.html#a28977953065c6c30dbc443ea8ebf5413", null ],
+    [ "Faraday_GPS_Reset_Disable", "_faraday___h_a_l_8h.html#adf749c820c2deb232fb825791f6c6854", null ],
+    [ "Faraday_GPS_Reset_Enable", "_faraday___h_a_l_8h.html#aa50e823811d3049bd6145ea76a85c0ea", null ],
+    [ "Faraday_GPS_Standby_Disable", "_faraday___h_a_l_8h.html#a8338b0446e10cbbfa6c7645581ed4768", null ],
+    [ "Faraday_GPS_Standby_Enable", "_faraday___h_a_l_8h.html#a3e96a607a1772fd7be15d9e7a5810450", null ],
+    [ "Faraday_HGM_Disable", "_faraday___h_a_l_8h.html#a6146e016f475ee01f39c242a6f1dfaf3", null ],
+    [ "Faraday_HGM_Enable", "_faraday___h_a_l_8h.html#a7d3a36ff180dd180a2f129d3bb4fdac0", null ],
+    [ "Faraday_LED_1_Disable", "_faraday___h_a_l_8h.html#a04451206eecd3c77f38bea4cf964e398", null ],
+    [ "Faraday_LED_1_Enable", "_faraday___h_a_l_8h.html#aa8f49fa793e83202ac76805ee3ee72e2", null ],
+    [ "Faraday_LED_1_Toggle", "_faraday___h_a_l_8h.html#adeeddb9f9f305fb45e974d00c393ab5d", null ],
+    [ "Faraday_LED_2_Disable", "_faraday___h_a_l_8h.html#abc9f02e7b63ff15543efe214bb724c64", null ],
+    [ "Faraday_LED_2_Enable", "_faraday___h_a_l_8h.html#ae4175c88db5b6dec70b32fafbd6c3798", null ],
+    [ "Faraday_LED_bitmask_disable", "_faraday___h_a_l_8h.html#a4863e4809b932e39e25602c25629300c", null ],
+    [ "Faraday_LED_bitmask_enable", "_faraday___h_a_l_8h.html#ac6980d73e1de42b13212389246c5ae74", null ],
+    [ "Faraday_LNA_Disable", "_faraday___h_a_l_8h.html#adde84232da76f93cf87f03c26b05c7f3", null ],
+    [ "Faraday_LNA_Enable", "_faraday___h_a_l_8h.html#a649406d2e044b741070e74d40584c871", null ],
+    [ "Faraday_MOSFET_Off", "_faraday___h_a_l_8h.html#ab4cf7cc93adc4efcb8288eb0d315898d", null ],
+    [ "Faraday_MOSFET_On", "_faraday___h_a_l_8h.html#a0c380aeb963e8e4a56a0aa53a56a4b00", null ],
+    [ "Faraday_PA_Disable", "_faraday___h_a_l_8h.html#a37e138c70d025d49806c11264fae8865", null ],
+    [ "Faraday_PA_Enable", "_faraday___h_a_l_8h.html#a17ff1b3ed3c9f276417c4ba81b13610d", null ],
+    [ "Faraday_RF_PWR_Change", "_faraday___h_a_l_8h.html#aaab74e7f3b2aa59a36ead175e14255ff", null ],
+    [ "hal_uart_return_tx", "_faraday___h_a_l_8h.html#a7f8af36103286c473fdacc58500f9587", null ],
+    [ "hal_uart_set_uctxifg", "_faraday___h_a_l_8h.html#afd8af7f055c15f75feddf75285d664ec", null ]
+];

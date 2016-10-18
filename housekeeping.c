@@ -1,16 +1,43 @@
+/** @file housekeeping.c
+ *  @brief General Faraday housekeeping routines
+ *
+ *  These functions provide basic "housekeeping" functions that
+ *  allow the gathering, processing, and general use of data input
+ *  and output to operate.
+ *
+ */
+
+/* standard includes */
 #include "cc430f6137.h"
+#include "Applications/HAB/App_HAB.h"
+#include "housekeeping.h"
+
+/* faraday hardware allocations */
 #include "REVA_Faraday.h"
-#include "housekeeping.h" //OK to include OWN header? Get declarations issue otherwise due to ordering of functions below...
 #include "Faraday_HAL/Faraday_HAL.h"
+
+/* faraday global variables */
 #include "Faraday_Globals.h"
+
+/* faraday rf network stack */
 #include "RF_Network_Stack/rf.h"
 #include "RF_Network_Stack/rf_transport.h"
+
+/* faraday uart network stack*/
 #include "UART/UART_L2.h"
 #include "UART/UART_L4.h"
+
+/* faraday application - telemetry */
 #include "Applications/Telemetry/Telemetry.h"
+
+/* faraday application - command */
 #include "Applications/Command/command.h"
 #include "Applications/Telemetry/Telem_RF.h"
+
+/* faraday application - message */
 #include "Applications/MSG/MSG.h"
+
+/* faraday application - high altitude balloon */
 #include "Applications/HAB/App_HAB.h"
 
 void main_housekeeping_routine(void){
@@ -22,24 +49,14 @@ void main_housekeeping_routine(void){
 	}
 }
 
-/************************************************************
-* Function: void check_housekeeping(void)
-*
-* Description: This function is the high level housekeeping function that is run to perform
-*              a housekeeping "check" operation and any resulting actions. This should be kept
-*              clean by using function calls to more specific housekeeping sub-routine checks.
-*
-* Inputs: None
-*
-* Outputs: None
-*
-*************************************************************/
+
 void check_housekeeping(void){
 
 	//Check housekeeping Timers
 	housekeeping_check_raw();
 	housekeeping_check_1hz();
 }
+
 
 void housekeeping_check_raw(){
 	//UART
