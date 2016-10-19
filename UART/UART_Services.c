@@ -5,7 +5,6 @@
  *  allows the protocol to be interacted with in an abstracted method that better suites layer isolation
  *  and layer modularity.
  *
- *
  */
 
 /* standard includes */
@@ -14,9 +13,9 @@
 /* faraday uart layer 4 */
 #include "UART_L4.h"
 
-#define RF_SERVICE_ELEMENT_COUNT 8
 
-volatile void (*srvc_open_func_ptrs[RF_SERVICE_ELEMENT_COUNT]) (unsigned char *data_pointer, unsigned char data_length);
+
+volatile void (*srvc_open_func_ptrs[UART_SERVICE_ELEMENT_COUNT]) (unsigned char *data_pointer, unsigned char data_length);
 
 void uart_send(unsigned char service_number, unsigned char payload_length, unsigned char *payload){
 	uart_transport_tx_packet(service_number,payload_length, payload);
