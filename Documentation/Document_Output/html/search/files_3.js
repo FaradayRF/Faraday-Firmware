@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['device_5fconfig_2ec',['Device_Config.c',['../_device___config_8c.html',1,'']]],
-  ['device_5fconfig_2eh',['Device_Config.h',['../_device___config_8h.html',1,'']]]
+  ['reva_5ffaraday_2eh',['REVA_Faraday.h',['../_r_e_v_a___faraday_8h.html',1,'']]]
 ];

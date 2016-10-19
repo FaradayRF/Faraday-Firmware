@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Applications/HAB/App_HAB.c File Reference</title>
+<title>Faraday-Firmware: Applications/HAB/App_HAB.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('_app___h_a_b_8c.html','');});
 
 <p>High altitude balloon program(s) for Faraday.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_app___h_a_b_8h_source.html">App_HAB.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../../REVA_Faraday.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -145,9 +145,11 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa6006b75a2957f502b342b257671c11e"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_app___h_a_b_8h.html#a54909d23da26061adb1a3f6421d32759">HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_app___h_a_b_8c.html#aa6006b75a2957f502b342b257671c11e">struct_hab_auto_cutdown_state</a></td></tr>
+<tr class="memitem:aa6006b75a2957f502b342b257671c11e"><td class="memItemLeft" align="right" valign="top"><a id="aa6006b75a2957f502b342b257671c11e"></a>
+volatile <a class="el" href="_app___h_a_b_8h.html#a54909d23da26061adb1a3f6421d32759">HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>struct_hab_auto_cutdown_state</b></td></tr>
 <tr class="separator:aa6006b75a2957f502b342b257671c11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96abec7fcfe57afe3ed6d515f9c4d117"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_app___h_a_b_8h.html#a28b9c09787ba5ab676e67882bddc95b2">HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_app___h_a_b_8c.html#a96abec7fcfe57afe3ed6d515f9c4d117">struct_hab_cutdown_event_state</a></td></tr>
+<tr class="memitem:a96abec7fcfe57afe3ed6d515f9c4d117"><td class="memItemLeft" align="right" valign="top"><a id="a96abec7fcfe57afe3ed6d515f9c4d117"></a>
+volatile <a class="el" href="_app___h_a_b_8h.html#a28b9c09787ba5ab676e67882bddc95b2">HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>struct_hab_cutdown_event_state</b></td></tr>
 <tr class="separator:a96abec7fcfe57afe3ed6d515f9c4d117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -522,35 +524,6 @@ Variables</h2></td></tr>
 <p>HAB application housekeeping actions routine. </p>
 <p>This function defines the actions that need to be perfomed or states checked during each housekeeping cycle. This is the main function that allows for continuously updating timers/states/etc...</p>
 <dl class="section warning"><dt>Warning</dt><dd>This function expects a 1 second housekeeping cycle! </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="aa6006b75a2957f502b342b257671c11e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6006b75a2957f502b342b257671c11e">&sect;&nbsp;</a></span>struct_hab_auto_cutdown_state</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="_app___h_a_b_8h.html#a54909d23da26061adb1a3f6421d32759">HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT</a> struct_hab_auto_cutdown_state</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a96abec7fcfe57afe3ed6d515f9c4d117"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96abec7fcfe57afe3ed6d515f9c4d117">&sect;&nbsp;</a></span>struct_hab_cutdown_event_state</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="_app___h_a_b_8h.html#a28b9c09787ba5ab676e67882bddc95b2">HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT</a> struct_hab_cutdown_event_state</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/UART/UART_L2.c File Reference</title>
+<title>Faraday-Firmware: UART/UART_L2.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,19 +90,25 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l2_8c.html','');});
 
 <p>Faraday UART Network Stack - Layer 2 Protocol.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___l2_8h_source.html">UART_L2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_faraday___h_a_l_8h_source.html">../Faraday_HAL/Faraday_HAL.h</a>&quot;</code><br />
+<code>#include &quot;../Faraday_HAL/Faraday_HAL.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___l4_8h_source.html">UART_L4.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___services_8h_source.html">UART_Services.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
+<code>#include &quot;../Ring_Buffers/FIFO.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac7b3df0fa68526d64c732d5f916e34b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac7b3df0fa68526d64c732d5f916e34b1">init_uart</a> (void)</td></tr>
 <tr class="memdesc:ac7b3df0fa68526d64c732d5f916e34b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize UART Layer 2 TX/RX State Machines.  <a href="#ac7b3df0fa68526d64c732d5f916e34b1">More...</a><br /></td></tr>
 <tr class="separator:ac7b3df0fa68526d64c732d5f916e34b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a63c4d64ae4f2bd7e735cd4f4004263c5">uart_datalink_create_packet</a> (volatile <a class="el" href="_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547">UART_DATALINK_PACKET_STRUCT</a> *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create UART Layer 2 Packet.  <a href="#a63c4d64ae4f2bd7e735cd4f4004263c5">More...</a><br /></td></tr>
+<tr class="separator:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc559fd267d9d8c575be67bd3e265351"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#abc559fd267d9d8c575be67bd3e265351">uart_datalink_put_tx</a> (unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:abc559fd267d9d8c575be67bd3e265351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and transmit UART layer 2 packet.  <a href="#abc559fd267d9d8c575be67bd3e265351">More...</a><br /></td></tr>
+<tr class="separator:abc559fd267d9d8c575be67bd3e265351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f4ea313a52dd3e9b9f680429024e54a"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a7f4ea313a52dd3e9b9f680429024e54a">uart_datalink_get_tx</a> (unsigned char *get_buffer_ptr)</td></tr>
 <tr class="memdesc:a7f4ea313a52dd3e9b9f680429024e54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a UART layer 2 packet from receive buffer.  <a href="#a7f4ea313a52dd3e9b9f680429024e54a">More...</a><br /></td></tr>
 <tr class="separator:a7f4ea313a52dd3e9b9f680429024e54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,13 +161,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a80a393448695d1ec96dce4f9094a783a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a80a393448695d1ec96dce4f9094a783a">uart_datalink_rx_pass_higher_layer</a> (unsigned char datagram_len, unsigned char *datagram)</td></tr>
 <tr class="memdesc:a80a393448695d1ec96dce4f9094a783a"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART layer 2 receiver higher OSI layer interface.  <a href="#a80a393448695d1ec96dce4f9094a783a">More...</a><br /></td></tr>
 <tr class="separator:a80a393448695d1ec96dce4f9094a783a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a63c4d64ae4f2bd7e735cd4f4004263c5">uart_datalink_create_packet</a> (volatile <a class="el" href="_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547">UART_DATALINK_PACKET_STRUCT</a> *buffer_struct, unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
-<tr class="memdesc:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create UART Layer 2 Packet.  <a href="#a63c4d64ae4f2bd7e735cd4f4004263c5">More...</a><br /></td></tr>
-<tr class="separator:a63c4d64ae4f2bd7e735cd4f4004263c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc559fd267d9d8c575be67bd3e265351"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#abc559fd267d9d8c575be67bd3e265351">uart_datalink_put_tx</a> (unsigned char packet_type, unsigned char packet_config, unsigned char payload_length, unsigned char *payload)</td></tr>
-<tr class="memdesc:abc559fd267d9d8c575be67bd3e265351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create and transmit UART layer 2 packet.  <a href="#abc559fd267d9d8c575be67bd3e265351">More...</a><br /></td></tr>
-<tr class="separator:abc559fd267d9d8c575be67bd3e265351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -169,30 +168,38 @@ Variables</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>FIFO structure and byte array declarations</p>
 <p>FIFO structure and byte array declarations that provide buffering for the fast incoming and outgoing UART data. These FIFO's are packet based and also use the internal RAM of the CC430 for maximum speed. </p>
 </div></td></tr>
-<tr class="memitem:a7fdc378de86e697af6d56eb31386e89c"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a7fdc378de86e697af6d56eb31386e89c">uart_tx_bytes_state_machine</a></td></tr>
+<tr class="memitem:a7fdc378de86e697af6d56eb31386e89c"><td class="memItemLeft" align="right" valign="top"><a id="a7fdc378de86e697af6d56eb31386e89c"></a>
+volatile <a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart_tx_bytes_state_machine</b></td></tr>
 <tr class="separator:a7fdc378de86e697af6d56eb31386e89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80ea969cd013f06134ea63f313eea350"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a80ea969cd013f06134ea63f313eea350">uart_data_tx_bytes_256</a> [<a class="el" href="_u_a_r_t___l2_8h.html#a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</a>]</td></tr>
+<tr class="memitem:a80ea969cd013f06134ea63f313eea350"><td class="memItemLeft" align="right" valign="top"><a id="a80ea969cd013f06134ea63f313eea350"></a>
+volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>uart_data_tx_bytes_256</b> [UART_TX_BUFFER_SIZE]</td></tr>
 <tr class="separator:a80ea969cd013f06134ea63f313eea350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e24cd10cce34b7779c5f3b2f242ddc"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a46e24cd10cce34b7779c5f3b2f242ddc">uart_rx_raw_bytes_state_machine</a></td></tr>
+<tr class="memitem:a46e24cd10cce34b7779c5f3b2f242ddc"><td class="memItemLeft" align="right" valign="top"><a id="a46e24cd10cce34b7779c5f3b2f242ddc"></a>
+volatile <a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart_rx_raw_bytes_state_machine</b></td></tr>
 <tr class="separator:a46e24cd10cce34b7779c5f3b2f242ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f979812dea613dee0173576c35962f0"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#a5f979812dea613dee0173576c35962f0">uart_data_rx_raw_bytes</a> [64]</td></tr>
+<tr class="memitem:a5f979812dea613dee0173576c35962f0"><td class="memItemLeft" align="right" valign="top"><a id="a5f979812dea613dee0173576c35962f0"></a>
+volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>uart_data_rx_raw_bytes</b> [64]</td></tr>
 <tr class="separator:a5f979812dea613dee0173576c35962f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">UART Layer 2 Transmit Framing Structure</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>UART layer 2 transmit framing structure declaration</p>
 <p>UART layer 2 transmit framing structure declaration that is used to control the detection, byte escaping, and parsing of the layer 2 protocol frame. </p>
 </div></td></tr>
-<tr class="memitem:ac9afd4d4c944f4460af29b7cea9b6dba"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5">UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac9afd4d4c944f4460af29b7cea9b6dba">uart_tx_bytes_isr_buffer_struct</a></td></tr>
+<tr class="memitem:ac9afd4d4c944f4460af29b7cea9b6dba"><td class="memItemLeft" align="right" valign="top"><a id="ac9afd4d4c944f4460af29b7cea9b6dba"></a>
+volatile <a class="el" href="_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5">UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><b>uart_tx_bytes_isr_buffer_struct</b></td></tr>
 <tr class="separator:ac9afd4d4c944f4460af29b7cea9b6dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Receive Frame State Machine Variables</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Receive frame state machine variable declarations</p>
 <p>UART layer 2 receive frame state machine variable declarations that control the parsing of layer 2 frames.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>This should become a structure for clarity</dd></dl>
 </div></td></tr>
-<tr class="memitem:ac1247c865c4e1f79a6871e98a46939c5"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ac1247c865c4e1f79a6871e98a46939c5">uart_datalink_frame_rx_state</a> = <a class="el" href="_u_a_r_t___l2_8h.html#aee5e9357cbd40f30ab04e9d7ab627142">UART_DATALINK_RX_STATE_IDLE</a></td></tr>
+<tr class="memitem:ac1247c865c4e1f79a6871e98a46939c5"><td class="memItemLeft" align="right" valign="top"><a id="ac1247c865c4e1f79a6871e98a46939c5"></a>
+volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>uart_datalink_frame_rx_state</b> = <a class="el" href="_u_a_r_t___l2_8h.html#aee5e9357cbd40f30ab04e9d7ab627142">UART_DATALINK_RX_STATE_IDLE</a></td></tr>
 <tr class="separator:ac1247c865c4e1f79a6871e98a46939c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70ea4a0b884949048c814256ab1ddc6"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ae70ea4a0b884949048c814256ab1ddc6">rx_datalink_packet</a> [128]</td></tr>
+<tr class="memitem:ae70ea4a0b884949048c814256ab1ddc6"><td class="memItemLeft" align="right" valign="top"><a id="ae70ea4a0b884949048c814256ab1ddc6"></a>
+volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>rx_datalink_packet</b> [128]</td></tr>
 <tr class="separator:ae70ea4a0b884949048c814256ab1ddc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2f3cc5120db6fb46b5eb0d7ce7402d4"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___l2_8c.html#ad2f3cc5120db6fb46b5eb0d7ce7402d4">rx_datalink_byte_cnt</a></td></tr>
+<tr class="memitem:ad2f3cc5120db6fb46b5eb0d7ce7402d4"><td class="memItemLeft" align="right" valign="top"><a id="ad2f3cc5120db6fb46b5eb0d7ce7402d4"></a>
+volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>rx_datalink_byte_cnt</b></td></tr>
 <tr class="separator:ad2f3cc5120db6fb46b5eb0d7ce7402d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -292,7 +299,17 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create UART Layer 2 Packet. </p>
-<p>group_transmit The uart layer 2 transmit group This is the uart layer 2 transmit group of functions </p>
+<p>This function creates a Layer 2 UART Packet for transmission. The function accepts several parameters that define the packet type, configuration bits, and other information.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>Pointer to a UART_DATALINK_PACKET_STRUCT structure that will be filled with the supplied parameters/data </td></tr>
+    <tr><td class="paramname">packet_type</td><td>A byte that describes the packet type which indicates how to parse the packet when received </td></tr>
+    <tr><td class="paramname">packet_config</td><td>Configuration bytes to support link communication and flag sharing. Not yet implemented </td></tr>
+    <tr><td class="paramname">payload_length</td><td>Length of the payload data in bytes </td></tr>
+    <tr><td class="paramname">payload</td><td>A pointer to the byte/array of data to be packed into the packet </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -678,7 +695,7 @@ Variables</h2></td></tr>
 
 <p>UART layer 2 transmit housekeeping. </p>
 <p>UART layer 2 transmit housekeeping routine that performs actions needed on a reoccuring basis to enable the layer 2 protocol functionality. Actions such a checking for new data waiting to be transmitted are performed.</p>
-<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The <a class="el" href="_faraday___h_a_l_8c.html#afd8af7f055c15f75feddf75285d664ec">hal_uart_set_uctxifg()</a> function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
+<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The hal_uart_set_uctxifg() function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
 <p>If data is continuously loaded into the buffer the transmissions will continously occure until new data is no longer placed into the buffer and the buffer empties. </p>
 
 </div>
@@ -701,119 +718,6 @@ Variables</h2></td></tr>
 
 <p>UART layer 2 transmit interrupt service routine. </p>
 <p>This function contains all the needed actions that are to be performed when a UART transmit interrupt occures. Transmit interrupts occur when a prior byte has completed transmission and the device is ready for the next byte if available. The ISR routine checks if another byte is waiting for be transmitted and transmits it if so, otherwise the ISR stops the transmit "wheel" from turning and enters an inactive state. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ad2f3cc5120db6fb46b5eb0d7ce7402d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2f3cc5120db6fb46b5eb0d7ce7402d4">&sect;&nbsp;</a></span>rx_datalink_byte_cnt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char rx_datalink_byte_cnt</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae70ea4a0b884949048c814256ab1ddc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae70ea4a0b884949048c814256ab1ddc6">&sect;&nbsp;</a></span>rx_datalink_packet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char rx_datalink_packet[128]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f979812dea613dee0173576c35962f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f979812dea613dee0173576c35962f0">&sect;&nbsp;</a></span>uart_data_rx_raw_bytes</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char uart_data_rx_raw_bytes[64]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a80ea969cd013f06134ea63f313eea350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80ea969cd013f06134ea63f313eea350">&sect;&nbsp;</a></span>uart_data_tx_bytes_256</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char uart_data_tx_bytes_256[<a class="el" href="_u_a_r_t___l2_8h.html#a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac1247c865c4e1f79a6871e98a46939c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1247c865c4e1f79a6871e98a46939c5">&sect;&nbsp;</a></span>uart_datalink_frame_rx_state</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile unsigned char uart_datalink_frame_rx_state = <a class="el" href="_u_a_r_t___l2_8h.html#aee5e9357cbd40f30ab04e9d7ab627142">UART_DATALINK_RX_STATE_IDLE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a46e24cd10cce34b7779c5f3b2f242ddc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46e24cd10cce34b7779c5f3b2f242ddc">&sect;&nbsp;</a></span>uart_rx_raw_bytes_state_machine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> uart_rx_raw_bytes_state_machine</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac9afd4d4c944f4460af29b7cea9b6dba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9afd4d4c944f4460af29b7cea9b6dba">&sect;&nbsp;</a></span>uart_tx_bytes_isr_buffer_struct</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5">UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT</a> uart_tx_bytes_isr_buffer_struct</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7fdc378de86e697af6d56eb31386e89c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fdc378de86e697af6d56eb31386e89c">&sect;&nbsp;</a></span>uart_tx_bytes_state_machine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> uart_tx_bytes_state_machine</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

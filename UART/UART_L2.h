@@ -102,11 +102,7 @@ typedef struct UART_L2_PACKET_MSP430_BUFFER {
 void init_uart(void);
 
 
-/** @degroup group_transmit The uart layer 2 transmit group
-*   This is the uart layer 2 transmit group of functions
-*   @{
-*
-*/
+
 
 /**@brief Create UART Layer 2 Packet
  *
@@ -194,7 +190,7 @@ void uart_datalink_tx_housekeep(void);
  */
 void uart_tx_datalink_isr(void);
 
-/** @} */ // End of group_transmit
+
 
 /**@brief Check if UART Layer 2 receive buffer is empty
  *

@@ -9,7 +9,7 @@
  *  intended for other applications/layers. This is very much like a TCP/UDP port.
  *
  *
- *  \b <UART Layer 4 Key Points>
+ *  \b <b>UART Layer 4 Key Points</b>
  *
  *  - UART layer 4 is a fixed length protocol
  *  - This layer is unreliable (not error detected/corrected) and interacts with packets only
