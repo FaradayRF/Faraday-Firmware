@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/UART/UART_Services.h File Reference</title>
+<title>Faraday-Firmware: UART/UART_Services.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,22 +88,39 @@ $(document).ready(function(){initNavTree('_u_a_r_t___services_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Faraday UART Network Stack - Layer 4 Services.  
+<a href="#details">More...</a></p>
+
 <p><a href="_u_a_r_t___services_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">UART Layer 4 Service Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Definitions that control the services of the UART layer 4 protocol. Specifically defined here are buffer and other counts that are used throughout the source file. </p>
+</div></td></tr>
+<tr class="memitem:a8b04c8a562161fa9c84a644ea9ad0280"><td class="memItemLeft" align="right" valign="top"><a id="a8b04c8a562161fa9c84a644ea9ad0280"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>UART_SERVICE_ELEMENT_COUNT</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a8b04c8a562161fa9c84a644ea9ad0280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac39388932b5ac795d3d6ff998e97080b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#ac39388932b5ac795d3d6ff998e97080b">uart_send</a> (unsigned char service_number, unsigned char payload_length, unsigned char *payload)</td></tr>
+<tr class="memdesc:ac39388932b5ac795d3d6ff998e97080b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service used to send a payload over the UART layer 4 protocol.  <a href="#ac39388932b5ac795d3d6ff998e97080b">More...</a><br /></td></tr>
 <tr class="separator:ac39388932b5ac795d3d6ff998e97080b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8598fdf03ca84b48ee24478d013d0f2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#a8598fdf03ca84b48ee24478d013d0f2d">uart_service_open</a> (unsigned char service_number, void(*func_ptr)())</td></tr>
-<tr class="separator:a8598fdf03ca84b48ee24478d013d0f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c0d24d8d457c63470ffbb2db2c442a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#a3c0d24d8d457c63470ffbb2db2c442a0">uart_service_open</a> (unsigned char service_number, void(*func_ptr)(void))</td></tr>
+<tr class="memdesc:a3c0d24d8d457c63470ffbb2db2c442a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register an application receive FIFO.  <a href="#a3c0d24d8d457c63470ffbb2db2c442a0">More...</a><br /></td></tr>
+<tr class="separator:a3c0d24d8d457c63470ffbb2db2c442a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06339d570ae0dbedeac4241dc829fc4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#a06339d570ae0dbedeac4241dc829fc4d">uart_service_close</a> (unsigned char service_number)</td></tr>
+<tr class="memdesc:a06339d570ae0dbedeac4241dc829fc4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister an application receive FIFO.  <a href="#a06339d570ae0dbedeac4241dc829fc4d">More...</a><br /></td></tr>
 <tr class="separator:a06339d570ae0dbedeac4241dc829fc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d0f89e938740383d906a0e348ab01f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#a00d0f89e938740383d906a0e348ab01f">uart_service_app_put</a> (unsigned char service_number, unsigned char *data)</td></tr>
-<tr class="separator:a00d0f89e938740383d906a0e348ab01f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2be40b37b3a664e9774ab390399c64df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_u_a_r_t___services_8h.html#a2be40b37b3a664e9774ab390399c64df">uart_stack_rx</a> (unsigned char service_number, unsigned char *data, unsigned char payload_len)</td></tr>
+<tr class="memdesc:a2be40b37b3a664e9774ab390399c64df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place data into an application receive FIFO.  <a href="#a2be40b37b3a664e9774ab390399c64df">More...</a><br /></td></tr>
 <tr class="separator:a2be40b37b3a664e9774ab390399c64df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Faraday UART Network Stack - Layer 4 Services. </p>
+<p>This header file provides the layer 4 (TRANSPORT) layer protocol services. Providing service functions allows the protocol to be interacted with in an abstracted method that better suites layer isolation and layer modularity. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ac39388932b5ac795d3d6ff998e97080b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac39388932b5ac795d3d6ff998e97080b">&sect;&nbsp;</a></span>uart_send()</h2>
 
@@ -136,33 +153,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a00d0f89e938740383d906a0e348ab01f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00d0f89e938740383d906a0e348ab01f">&sect;&nbsp;</a></span>uart_service_app_put()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void uart_service_app_put </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>service_number</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Service used to send a payload over the UART layer 4 protocol. </p>
+<p>A generic service used to send data over UART layer 4 protocol. This should be used as the main interface for the UART layer 4 protocol to send data.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Adhere to maximum transmissible unit limits </dd></dl>
 
 </div>
 </div>
@@ -182,10 +175,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Unregister an application receive FIFO. </p>
+<p>This function removes an application receive FIFO from the assigned UART "service port" as assigned in <a class="el" href="_u_a_r_t___services_8h.html#ac39388932b5ac795d3d6ff998e97080b" title="Service used to send a payload over the UART layer 4 protocol. ">uart_send()</a>. </p>
+
 </div>
 </div>
-<a id="a8598fdf03ca84b48ee24478d013d0f2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8598fdf03ca84b48ee24478d013d0f2d">&sect;&nbsp;</a></span>uart_service_open()</h2>
+<a id="a3c0d24d8d457c63470ffbb2db2c442a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c0d24d8d457c63470ffbb2db2c442a0">&sect;&nbsp;</a></span>uart_service_open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +195,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void(*)()&#160;</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
           <td class="paramname"><em>func_ptr</em>&#160;</td>
         </tr>
         <tr>
@@ -209,6 +205,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Register an application receive FIFO. </p>
+<p>This function creates a function pointer to an application function refering to a specific UART "service port" when used and allows the UART layer 4 to place received data packets into the application FIFO without the UART layer 4 service having to include or know about the application!</p>
+<dl class="section warning"><dt>Warning</dt><dd>Be sure that the function pointed to in the application adheres to the defined function expected per documentation. Unreliable operation may occure if this is not followed.</dd></dl>
+<p>//expected function example: // void command_put(unsigned char *data_pointer, unsigned char length){ // put_fifo(&amp;command_state_machine, &amp;command_fifo_buffer, data_pointer); // __no_operation(); // } </p>
 
 </div>
 </div>
@@ -243,6 +244,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Place data into an application receive FIFO. </p>
+<p>This is the main UART layer 4 service function that queries the registered applications in the function pointer array and if the UART "service port" has an assigned application the supplied data is placed into the applications FIFO.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Be sure that the function pointed to in the application adheres to the defined function expected per documentation. Unreliable operation may occure if this is not followed. </dd></dl>
 
 </div>
 </div>
