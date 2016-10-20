@@ -1,5 +1,19 @@
+/** @file FIFO_SRAM.c
+ *  @brief FIFO circular buffer implementation using SPI SRAM IC
+ *
+ *  These functions create a FIFO circular buffer using the onboard SPI SRAM IC. The SRAM IC provides significantly
+ *  more memory than the onboard RAM of the CC430. The circular buffers defined below are written as generic as
+ *  possible to allow varying element lengths, counts, etc...
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
 #include "FIFO_SRAM.h"
-#include "msp430.h"
+
+/* sram driver include */
 #include "../SRAM/SRAM.h"
 
 void fifo_sram_init(fifo_sram_state_machine *buffer_struct, const unsigned int sram_address, const unsigned int element_size, const unsigned char element_count){
@@ -8,7 +22,7 @@ void fifo_sram_init(fifo_sram_state_machine *buffer_struct, const unsigned int s
 	buffer_struct->element_size = element_size;
 	buffer_struct->head = 0;
 	buffer_struct->inwaiting = 0;
-	buffer_struct->length = 0;
+	//buffer_struct->length = 0;
 	buffer_struct->max_inwait = 0;
 	buffer_struct->tail = 0;
 	buffer_struct->buffer_size = element_size*element_count;

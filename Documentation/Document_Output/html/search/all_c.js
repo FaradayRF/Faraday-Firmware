@@ -1,10 +1,19 @@
 var searchData=
 [
-  ['s_5frf_5fsettings',['S_RF_SETTINGS',['../struct_s___r_f___s_e_t_t_i_n_g_s.html',1,'']]],
-  ['software_5fuart_5fbit_5fcount',['SOFTWARE_UART_BIT_COUNT',['../_faraday___globals_8h.html#ac90ced70de5d808fa137d76ac604214d',1,'Faraday_Globals.h']]],
-  ['software_5fuart_5fbit_5ftime',['SOFTWARE_UART_BIT_TIME',['../_faraday___globals_8h.html#a1bc3b2bd1c8a5e7a6906d0b93606e129',1,'Faraday_Globals.h']]],
-  ['software_5fuart_5fhalf_5fbit_5ftime',['SOFTWARE_UART_HALF_BIT_TIME',['../_faraday___globals_8h.html#adc4d4ee74763e5105f7404bfbba73c72',1,'Faraday_Globals.h']]],
-  ['software_5fuart_5fstartbit_5fmask',['SOFTWARE_UART_STARTBIT_MASK',['../_faraday___globals_8h.html#a8f23d1978a1e33a07510c3a580f5dc00',1,'Faraday_Globals.h']]],
-  ['software_5fuart_5fstopbit_5fmask',['SOFTWARE_UART_STOPBIT_MASK',['../_faraday___globals_8h.html#ac3098fedadd9cfa676178293ac183fb1',1,'Faraday_Globals.h']]],
-  ['srvc_5fopen_5ffunc_5fptrs',['srvc_open_func_ptrs',['../_u_a_r_t___services_8c.html#a0d630b625198aeaa78ea7a63ec72f4b3',1,'UART_Services.c']]]
+  ['reset_5fidentification',['reset_identification',['../_faraday___init_8c.html#aa6aeb124e20348c7e39245e3317d426b',1,'Faraday_Init.c']]],
+  ['reset_5fidentification_5f2',['reset_identification_2',['../_faraday___init_8c.html#a9edaa468a93ff83b916afa45c5be48d8',1,'Faraday_Init.c']]],
+  ['reva_5ffaraday_2eh',['REVA_Faraday.h',['../_r_e_v_a___faraday_8h.html',1,'']]],
+  ['rf_5fapp_5fpacket',['RF_APP_PACKET',['../struct_r_f___a_p_p___p_a_c_k_e_t.html',1,'']]],
+  ['rf_5fcommand_5fpacket',['RF_COMMAND_PACKET',['../struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html',1,'']]],
+  ['rf_5fl2_5fpacket',['RF_L2_PACKET',['../struct_r_f___l2___p_a_c_k_e_t.html',1,'']]],
+  ['rf_5ftelemetry_5fpacket_5f1',['RF_TELEMETRY_PACKET_1',['../struct_r_f___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t__1.html',1,'']]],
+  ['rf_5ftelemetry_5fpacket_5f2',['RF_TELEMETRY_PACKET_2',['../struct_r_f___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t__2.html',1,'']]],
+  ['rf_5ftelemetry_5fpacket_5f3',['RF_TELEMETRY_PACKET_3',['../struct_r_f___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t__3.html',1,'']]],
+  ['rf_5ftelemetry_5fpacket_5fdatagram',['RF_TELEMETRY_PACKET_DATAGRAM',['../struct_r_f___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t___d_a_t_a_g_r_a_m.html',1,'']]],
+  ['rf_5ftransport_5fpacket',['RF_TRANSPORT_PACKET',['../struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html',1,'']]],
+  ['rf_5ftransport_5ftx_5fstate_5fmachine',['RF_TRANSPORT_TX_STATE_MACHINE',['../struct_r_f___t_r_a_n_s_p_o_r_t___t_x___s_t_a_t_e___m_a_c_h_i_n_e.html',1,'']]],
+  ['ringbuffer_5f256',['RingBuffer_256',['../struct_ring_buffer__256.html',1,'']]],
+  ['ringbuffer_5f64',['RingBuffer_64',['../struct_ring_buffer__64.html',1,'']]],
+  ['rmc_5fdata',['RMC_Data',['../struct_r_m_c___data.html',1,'']]],
+  ['rtc_5fa',['RTC_A',['../struct_r_t_c___a.html',1,'']]]
 ];

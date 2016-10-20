@@ -29,7 +29,6 @@ var annotated_dup =
     [ "RF_TRANSPORT_TX_STATE_MACHINE", "struct_r_f___t_r_a_n_s_p_o_r_t___t_x___s_t_a_t_e___m_a_c_h_i_n_e.html", "struct_r_f___t_r_a_n_s_p_o_r_t___t_x___s_t_a_t_e___m_a_c_h_i_n_e" ],
     [ "RingBuffer_256", "struct_ring_buffer__256.html", "struct_ring_buffer__256" ],
     [ "RingBuffer_64", "struct_ring_buffer__64.html", "struct_ring_buffer__64" ],
-    [ "RingBuffer_SRAM", "struct_ring_buffer___s_r_a_m.html", "struct_ring_buffer___s_r_a_m" ],
     [ "RMC_Data", "struct_r_m_c___data.html", "struct_r_m_c___data" ],
     [ "RTC_A", "struct_r_t_c___a.html", "struct_r_t_c___a" ],
     [ "S_RF_SETTINGS", "struct_s___r_f___s_e_t_t_i_n_g_s.html", "struct_s___r_f___s_e_t_t_i_n_g_s" ],

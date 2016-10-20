@@ -11,7 +11,6 @@ var searchData=
   ['rf_5ftransport_5ftx_5fstate_5fmachine',['RF_TRANSPORT_TX_STATE_MACHINE',['../struct_r_f___t_r_a_n_s_p_o_r_t___t_x___s_t_a_t_e___m_a_c_h_i_n_e.html',1,'']]],
   ['ringbuffer_5f256',['RingBuffer_256',['../struct_ring_buffer__256.html',1,'']]],
   ['ringbuffer_5f64',['RingBuffer_64',['../struct_ring_buffer__64.html',1,'']]],
-  ['ringbuffer_5fsram',['RingBuffer_SRAM',['../struct_ring_buffer___s_r_a_m.html',1,'']]],
   ['rmc_5fdata',['RMC_Data',['../struct_r_m_c___data.html',1,'']]],
   ['rtc_5fa',['RTC_A',['../struct_r_t_c___a.html',1,'']]]
 ];
