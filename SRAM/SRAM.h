@@ -1,19 +1,18 @@
+/** @file SRAM.h
+ *  @brief SPI SRAM IC Driver
+ *
+ *  These functions provide basic support to use the onboard SPI SRAM IC. This module
+ *  allows a large amount of RAM to be used external to the CC430.
+ *
+ */
+
 #ifndef SRAM_SRAM_H_
 #define SRAM_SRAM_H_
 
-typedef struct RingBuffer_SRAM{
-	unsigned int data_address;
-	unsigned int inwaiting;
-	unsigned int length;
-	unsigned int head;
-	unsigned int tail;
-	unsigned char debug;
-	unsigned int max_inwait;
-} ring_buffer_SRAM;
 
-//Create ring buffer RX
-static ring_buffer_SRAM *uart_datalink_rx_ring_buffer_sram_ptr;
-static ring_buffer_SRAM uart_datalink_rx_ring_buffer_sram_struct;
+
+
+
 
 void Faraday_SRAM_CS_Enable(void);
 void Faraday_SRAM_CS_Disable(void);

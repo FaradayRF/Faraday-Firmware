@@ -1,6 +1,12 @@
 #ifndef FIFO_SRAM_H_
 #define FIFO_SRAM_H_
 
+/** @brief SPI SRAM FIFO structure
+ *
+ * A structure to hold all the FIFO circular buffer variables needed for operation. Variables
+ * contained include buffer sizes, header, footer, etc...
+ *
+ */
 typedef struct FIFO_SRAM_Buffer_State_Machine{
 	unsigned int sram_start_address;
 	unsigned int buffer_size;

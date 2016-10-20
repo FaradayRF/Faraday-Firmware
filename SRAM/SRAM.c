@@ -1,6 +1,21 @@
+/** @file SRAM.c
+ *  @brief SPI SRAM IC Driver
+ *
+ *  These functions provide basic support to use the onboard SPI SRAM IC. This module
+ *  allows a large amount of RAM to be used external to the CC430.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
-#include "../REVA_Faraday.h"
 #include "SRAM.h"
+
+/* faraday hardware allocations */
+#include "../REVA_Faraday.h"
+
+/* spi driver*/
 #include "../Faraday_HAL/SPI.h"
 
 void Faraday_SRAM_CS_Enable(void){
