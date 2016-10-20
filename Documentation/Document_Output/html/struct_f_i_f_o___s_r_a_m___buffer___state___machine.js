@@ -5,7 +5,6 @@ var struct_f_i_f_o___s_r_a_m___buffer___state___machine =
     [ "element_size", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ae4d21d9bcec7a17129ac21131eda7f4b", null ],
     [ "head", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc", null ],
     [ "inwaiting", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93", null ],
-    [ "length", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac8d42bcd4a44e078047ccd7291059238", null ],
     [ "max_inwait", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757", null ],
     [ "sram_start_address", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac7f8c18a2ee6290721f54434cff25d25", null ],
     [ "tail", "struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a947ccf15729dbb29683dfc0800c0a4db", null ]

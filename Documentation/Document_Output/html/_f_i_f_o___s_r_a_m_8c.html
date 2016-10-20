@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Ring_Buffers/FIFO_SRAM.c File Reference</title>
+<title>Faraday-Firmware: Ring_Buffers/FIFO_SRAM.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,20 +87,29 @@ $(document).ready(function(){initNavTree('_f_i_f_o___s_r_a_m_8c.html','');});
 <div class="title">FIFO_SRAM.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_f_i_f_o___s_r_a_m_8h_source.html">FIFO_SRAM.h</a>&quot;</code><br />
-<code>#include &quot;msp430.h&quot;</code><br />
+
+<p>FIFO circular buffer implementation using SPI SRAM IC.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_f_i_f_o___s_r_a_m_8h_source.html">FIFO_SRAM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_r_a_m_8h_source.html">../SRAM/SRAM.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a23748a514440d2028fbef02cad52c06e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8c.html#a23748a514440d2028fbef02cad52c06e">fifo_sram_init</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, const unsigned int sram_address, const unsigned int element_size, const unsigned char element_count)</td></tr>
+<tr class="memdesc:a23748a514440d2028fbef02cad52c06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for a SRAM FIFO.  <a href="#a23748a514440d2028fbef02cad52c06e">More...</a><br /></td></tr>
 <tr class="separator:a23748a514440d2028fbef02cad52c06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bde7c80b8286598571ee73d9af32e1e"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8c.html#a8bde7c80b8286598571ee73d9af32e1e">put_fifo_sram</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, unsigned char *char_item)</td></tr>
+<tr class="memdesc:a8bde7c80b8286598571ee73d9af32e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a new data element into the FIFO buffer.  <a href="#a8bde7c80b8286598571ee73d9af32e1e">More...</a><br /></td></tr>
 <tr class="separator:a8bde7c80b8286598571ee73d9af32e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a534d280192e45b3ad827b375ac8ffa45"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8c.html#a534d280192e45b3ad827b375ac8ffa45">get_fifo_sram</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, unsigned char *get_byte_addr)</td></tr>
+<tr class="memdesc:a534d280192e45b3ad827b375ac8ffa45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a new data element from the FIFO buffer.  <a href="#a534d280192e45b3ad827b375ac8ffa45">More...</a><br /></td></tr>
 <tr class="separator:a534d280192e45b3ad827b375ac8ffa45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>FIFO circular buffer implementation using SPI SRAM IC. </p>
+<p>These functions create a FIFO circular buffer using the onboard SPI SRAM IC. The SRAM IC provides significantly more memory than the onboard RAM of the CC430. The circular buffers defined below are written as generic as possible to allow varying element lengths, counts, etc... </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a23748a514440d2028fbef02cad52c06e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23748a514440d2028fbef02cad52c06e">&sect;&nbsp;</a></span>fifo_sram_init()</h2>
 
@@ -139,6 +148,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialization routine for a SRAM FIFO. </p>
+<p>This function is used by an application/program to initialize a fifo_sram_state_machine structure with needed configuration data. </p>
+
 </div>
 </div>
 <a id="a534d280192e45b3ad827b375ac8ffa45"></a>
@@ -157,7 +169,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>get_byte_addr</em>&#160;</td>
+          <td class="paramname"><em>get_byte</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,6 +178,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a new data element from the FIFO buffer. </p>
+<p>This function is used to retrieve a waiting item (element) from the FIFO buffer. Supplying the fifo_sram_state_machine structure variable of the respective SRAM FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to retrieve data from </td></tr>
+    <tr><td class="paramname">get_byte</td><td>A pointer to the data byte/element that the SRAM FIFO will place the retrieved element into. If the SRAM FIFO element size is larger than a byte the function will automatically retrieve the number of bytes an element is defined in the fifo_sram_state_machine supplied</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o___s_r_a_m_8h.html#ac07d7acb0e868b710d8bc71bd393e9f3" title="Get a new data element from the FIFO buffer. ">get_fifo_sram()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -194,6 +222,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Put a new data element into the FIFO buffer. </p>
+<p>This function is used to place a new item (element) into the FIFO buffer. Supplying the fifo_sram_state_machine structure variable of the respective SRAM FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to place the data element into </td></tr>
+    <tr><td class="paramname">char_item</td><td>A pointer to the data byte/element that will be placed into the SRAM FIFO. If the SRAM FIFO element size is larger than a byte the function will automatically retrieve the number of bytes an element is defined in the fifo_sram_state_machine supplied</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a8bde7c80b8286598571ee73d9af32e1e" title="Put a new data element into the FIFO buffer. ">put_fifo_sram()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

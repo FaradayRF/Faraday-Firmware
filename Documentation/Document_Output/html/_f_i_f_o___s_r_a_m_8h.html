@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Ring_Buffers/FIFO_SRAM.h File Reference</title>
+<title>Faraday-Firmware: Ring_Buffers/FIFO_SRAM.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,28 +90,39 @@ $(document).ready(function(){initNavTree('_f_i_f_o___s_r_a_m_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>FIFO circular buffer implementation using SPI SRAM IC.  
+<a href="#details">More...</a></p>
+
 <p><a href="_f_i_f_o___s_r_a_m_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html">FIFO_SRAM_Buffer_State_Machine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI SRAM FIFO structure.  <a href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a2b243c99b78f32a05aa87dc93f773026"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html">FIFO_SRAM_Buffer_State_Machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a></td></tr>
+<tr class="memdesc:a2b243c99b78f32a05aa87dc93f773026"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI SRAM FIFO structure.  <a href="#a2b243c99b78f32a05aa87dc93f773026">More...</a><br /></td></tr>
 <tr class="separator:a2b243c99b78f32a05aa87dc93f773026"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a23748a514440d2028fbef02cad52c06e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a23748a514440d2028fbef02cad52c06e">fifo_sram_init</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, const unsigned int sram_address, const unsigned int element_size, const unsigned char element_count)</td></tr>
+<tr class="memdesc:a23748a514440d2028fbef02cad52c06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for a SRAM FIFO.  <a href="#a23748a514440d2028fbef02cad52c06e">More...</a><br /></td></tr>
 <tr class="separator:a23748a514440d2028fbef02cad52c06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bde7c80b8286598571ee73d9af32e1e"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a8bde7c80b8286598571ee73d9af32e1e">put_fifo_sram</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, unsigned char *char_item)</td></tr>
+<tr class="memdesc:a8bde7c80b8286598571ee73d9af32e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put a new data element into the FIFO buffer.  <a href="#a8bde7c80b8286598571ee73d9af32e1e">More...</a><br /></td></tr>
 <tr class="separator:a8bde7c80b8286598571ee73d9af32e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac07d7acb0e868b710d8bc71bd393e9f3"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o___s_r_a_m_8h.html#ac07d7acb0e868b710d8bc71bd393e9f3">get_fifo_sram</a> (<a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026">fifo_sram_state_machine</a> *buffer_struct, unsigned char *get_byte)</td></tr>
+<tr class="memdesc:ac07d7acb0e868b710d8bc71bd393e9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a new data element from the FIFO buffer.  <a href="#ac07d7acb0e868b710d8bc71bd393e9f3">More...</a><br /></td></tr>
 <tr class="separator:ac07d7acb0e868b710d8bc71bd393e9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>FIFO circular buffer implementation using SPI SRAM IC. </p>
+<p>These functions create a FIFO circular buffer using the onboard SPI SRAM IC. The SRAM IC provides significantly more memory than the onboard RAM of the CC430. The circular buffers defined below are written as generic as possible to allow varying element lengths, counts, etc... </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a2b243c99b78f32a05aa87dc93f773026"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b243c99b78f32a05aa87dc93f773026">&sect;&nbsp;</a></span>fifo_sram_state_machine</h2>
 
@@ -123,6 +134,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>SPI SRAM FIFO structure. </p>
+<p>A structure to hold all the FIFO circular buffer variables needed for operation. Variables contained include buffer sizes, header, footer, etc...</p>
+<dl class="section note"><dt>Note</dt><dd>This structure should be used for each FIFO created. Create a structure using this definition and initialize the configuration information such as memory address and sizes.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Be careful when defining memory addresses for the FIFO element! Check with the documentation supplied to ensure you do not overlap pre-assigned memory.</dd>
+<dd>
+Be careful with element and buffer size. The buffer size in bytes should equal a multiple of the element size and thus define an element count </dd></dl>
 
 </div>
 </div>
@@ -165,6 +183,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialization routine for a SRAM FIFO. </p>
+<p>This function is used by an application/program to initialize a fifo_sram_state_machine structure with needed configuration data. </p>
+
 </div>
 </div>
 <a id="ac07d7acb0e868b710d8bc71bd393e9f3"></a>
@@ -193,6 +214,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get a new data element from the FIFO buffer. </p>
+<p>This function is used to retrieve a waiting item (element) from the FIFO buffer. Supplying the fifo_sram_state_machine structure variable of the respective SRAM FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to retrieve data from </td></tr>
+    <tr><td class="paramname">get_byte</td><td>A pointer to the data byte/element that the SRAM FIFO will place the retrieved element into. If the SRAM FIFO element size is larger than a byte the function will automatically retrieve the number of bytes an element is defined in the fifo_sram_state_machine supplied</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o___s_r_a_m_8h.html#ac07d7acb0e868b710d8bc71bd393e9f3" title="Get a new data element from the FIFO buffer. ">get_fifo_sram()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a8bde7c80b8286598571ee73d9af32e1e"></a>
@@ -220,6 +257,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Put a new data element into the FIFO buffer. </p>
+<p>This function is used to place a new item (element) into the FIFO buffer. Supplying the fifo_sram_state_machine structure variable of the respective SRAM FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to place the data element into </td></tr>
+    <tr><td class="paramname">char_item</td><td>A pointer to the data byte/element that will be placed into the SRAM FIFO. If the SRAM FIFO element size is larger than a byte the function will automatically retrieve the number of bytes an element is defined in the fifo_sram_state_machine supplied</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o___s_r_a_m_8h.html#a8bde7c80b8286598571ee73d9af32e1e" title="Put a new data element into the FIFO buffer. ">put_fifo_sram()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

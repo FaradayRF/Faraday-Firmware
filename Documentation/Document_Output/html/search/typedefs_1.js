@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['uart_5fdatalink_5fpacket_5fmsp430_5fbuffer_5fstruct',['UART_DATALINK_PACKET_MSP430_BUFFER_STRUCT',['../_u_a_r_t___l2_8h.html#ac53614c0c475db20de3fff04fb01b3c5',1,'UART_L2.h']]],
-  ['uart_5fdatalink_5fpacket_5fstruct',['UART_DATALINK_PACKET_STRUCT',['../_u_a_r_t___l2_8h.html#adcf7a574c5d9de1ceb93d5b1a97ee547',1,'UART_L2.h']]],
-  ['uart_5ftransport_5fpacket_5fstruct',['UART_TRANSPORT_PACKET_STRUCT',['../_u_a_r_t___l4_8h.html#a365764a0f9e14a0f756db7236bce672e',1,'UART_L4.h']]]
+  ['hab_5fauto_5fcutdown_5ftimer_5fsm_5fstruct',['HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT',['../_app___h_a_b_8h.html#a54909d23da26061adb1a3f6421d32759',1,'App_HAB.h']]],
+  ['hab_5fcutdown_5fevent_5ftimer_5fsm_5fstruct',['HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT',['../_app___h_a_b_8h.html#a28b9c09787ba5ab676e67882bddc95b2',1,'App_HAB.h']]],
+  ['hab_5ftelemetry_5fpacket_5fstruct',['HAB_TELEMETRY_PACKET_STRUCT',['../_app___h_a_b_8h.html#a92d7e60c94842a9dd82568a6ff47f738',1,'App_HAB.h']]]
 ];

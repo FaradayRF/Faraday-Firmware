@@ -16,10 +16,16 @@
 /* faraday hardware allocations */
 #include "../../REVA_Faraday.h"
 
-
+/** @name State Machine Structure Variables
+* 	@brief structures that contain the needed members that operate the state machine operations
+*
+* 	These structures are global and allow the high altitude balloon state machine functionality.
+*
+*
+@{**/
 volatile HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT struct_hab_auto_cutdown_state;
 volatile HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT struct_hab_cutdown_event_state;
-
+/** @}*/
 
 void application_hab_housekeeping_interval(void){
 	//Auto-cutdown timer

@@ -42,7 +42,7 @@ void uart_service_open(unsigned char service_number, void (*func_ptr)(void)){
 }
 
 void uart_service_close(unsigned char service_number){
-	if((service_number <RF_SERVICE_ELEMENT_COUNT) && srvc_open_func_ptrs[service_number] != 0){
+	if((service_number <UART_SERVICE_ELEMENT_COUNT) && srvc_open_func_ptrs[service_number] != 0){
 		srvc_open_func_ptrs[service_number] = 0;
 	}
 	else{
@@ -57,7 +57,7 @@ void uart_service_close(unsigned char service_number){
 void uart_stack_rx(unsigned char service_number, unsigned char *data, unsigned char payload_len){
 	//Recieved a new uart packet from external device
 	//ALL APPLICATIONS MUST BUFFER AS FULL UART HIGH LEVEL FRAME
-	if((service_number <RF_SERVICE_ELEMENT_COUNT) && (srvc_open_func_ptrs[service_number] != 0)){
+	if((service_number <UART_SERVICE_ELEMENT_COUNT) && (srvc_open_func_ptrs[service_number] != 0)){
 			(*srvc_open_func_ptrs[service_number]) (data, service_number);
 		}
 	else{

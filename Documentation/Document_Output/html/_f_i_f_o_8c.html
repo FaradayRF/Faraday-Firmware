@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Ring_Buffers/FIFO.c File Reference</title>
+<title>Faraday-Firmware: Ring_Buffers/FIFO.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,19 +87,28 @@ $(document).ready(function(){initNavTree('_f_i_f_o_8c.html','');});
 <div class="title">FIFO.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">FIFO.h</a>&quot;</code><br />
-<code>#include &quot;msp430.h&quot;</code><br />
+
+<p>FIFO circular buffer implementation using CC430 RAM.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">FIFO.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a11afb91e399f43fb1a853d3cd8c633ca"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#a11afb91e399f43fb1a853d3cd8c633ca">put_fifo</a> (<a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *buffer_struct, volatile unsigned char *data, unsigned char *char_item)</td></tr>
-<tr class="separator:a11afb91e399f43fb1a853d3cd8c633ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3500b45ee91f3dafcf0152b4ac5d7196"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#a3500b45ee91f3dafcf0152b4ac5d7196">get_fifo</a> (<a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *buffer_struct, volatile unsigned char *data, unsigned char *get_byte_addr)</td></tr>
-<tr class="separator:a3500b45ee91f3dafcf0152b4ac5d7196"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad55127878e8aa95260e003865765eb70"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#ad55127878e8aa95260e003865765eb70">fifo_empty</a> (<a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *buffer_struct)</td></tr>
+<tr class="memitem:ad6b4e3e49b5248674b948edaac915c9c"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#ad6b4e3e49b5248674b948edaac915c9c">put_fifo</a> (<a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *buffer_struct, volatile unsigned char *buffer, unsigned char *char_item)</td></tr>
+<tr class="memdesc:ad6b4e3e49b5248674b948edaac915c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialization routine for a CC430 RAM FIFO.  <a href="#ad6b4e3e49b5248674b948edaac915c9c">More...</a><br /></td></tr>
+<tr class="separator:ad6b4e3e49b5248674b948edaac915c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e652e643bffe40efb1a11e39fab79c0"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#a1e652e643bffe40efb1a11e39fab79c0">get_fifo</a> (<a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *buffer_struct, volatile unsigned char *buffer, unsigned char *char_item)</td></tr>
+<tr class="memdesc:a1e652e643bffe40efb1a11e39fab79c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a new data element from the CC430 RAM FIFO buffer.  <a href="#a1e652e643bffe40efb1a11e39fab79c0">More...</a><br /></td></tr>
+<tr class="separator:a1e652e643bffe40efb1a11e39fab79c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad55127878e8aa95260e003865765eb70"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_f_i_f_o_8c.html#ad55127878e8aa95260e003865765eb70">fifo_empty</a> (<a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *buffer_struct)</td></tr>
+<tr class="memdesc:ad55127878e8aa95260e003865765eb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if FIFO is empty.  <a href="#ad55127878e8aa95260e003865765eb70">More...</a><br /></td></tr>
 <tr class="separator:ad55127878e8aa95260e003865765eb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>FIFO circular buffer implementation using CC430 RAM. </p>
+<p>These functions create a FIFO circular buffer using the onboard CC430 RAM. The circular buffers defined below are written as generic as possible to allow varying element lengths, counts, etc... </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ad55127878e8aa95260e003865765eb70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad55127878e8aa95260e003865765eb70">&sect;&nbsp;</a></span>fifo_empty()</h2>
 
@@ -109,17 +118,32 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">unsigned char fifo_empty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *&#160;</td>
           <td class="paramname"><em>buffer_struct</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check if FIFO is empty. </p>
+<p>This function is a simple method to check if the FIFO contains a waiting item to be retrieved.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to check for a waiting FIFO item to retrieve</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating if the CC430 RAM FIFO supplied contains a waiting item to retrieve. Returns 1 if empty, 0 if item(s) waiting in FIFO. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a3500b45ee91f3dafcf0152b4ac5d7196"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3500b45ee91f3dafcf0152b4ac5d7196">&sect;&nbsp;</a></span>get_fifo()</h2>
+<a id="a1e652e643bffe40efb1a11e39fab79c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e652e643bffe40efb1a11e39fab79c0">&sect;&nbsp;</a></span>get_fifo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,48 +151,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">unsigned char get_fifo </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *&#160;</td>
           <td class="paramname"><em>buffer_struct</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">volatile unsigned char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>get_byte_addr</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a11afb91e399f43fb1a853d3cd8c633ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11afb91e399f43fb1a853d3cd8c633ca">&sect;&nbsp;</a></span>put_fifo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char put_fifo </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_f_i_f_o_8h.html#a45cf7cc4ea0a907d6663efdf0689476b">fifo_state_machine</a> *&#160;</td>
-          <td class="paramname"><em>buffer_struct</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">volatile unsigned char *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
+          <td class="paramname"><em>buffer</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -183,6 +173,75 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Get a new data element from the CC430 RAM FIFO buffer. </p>
+<p>This function is used to retrieve a new item (element) from the CC430 RAM FIFO buffer. Supplying the fifo_state_machine structure variable of the respective FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to retrieve the FIFO item from </td></tr>
+    <tr><td class="paramname">buffer</td><td>A pointer to the buffer byte array used by the CC430 RAM FIFO </td></tr>
+    <tr><td class="paramname">char_item</td><td>A pointer to the data byte/element that will be placed into the CC430 RAM FIFO.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o_8h.html#a1e652e643bffe40efb1a11e39fab79c0" title="Get a new data element from the CC430 RAM FIFO buffer. ">get_fifo()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6b4e3e49b5248674b948edaac915c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b4e3e49b5248674b948edaac915c9c">&sect;&nbsp;</a></span>put_fifo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char put_fifo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a> *&#160;</td>
+          <td class="paramname"><em>buffer_struct</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile unsigned char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>char_item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialization routine for a CC430 RAM FIFO. </p>
+<p>This function is used by an application/program to initialize a fifo_state_machine structure with needed configuration dataPut a new data element into the CC430 RAM FIFO buffer</p>
+<p>This function is used to place a new item (element) into the CC430 RAM FIFO buffer. Supplying the fifo_state_machine structure variable of the respective FIFO is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_struct</td><td>A pointer to the fifo_sram_state_machine FIFO structure element containing the configuration data of the SRAM FIFO to place the data byte into </td></tr>
+    <tr><td class="paramname">buffer</td><td>A pointer to the buffer byte array used by the RAM CC430 FIFO </td></tr>
+    <tr><td class="paramname">char_item</td><td>A pointer to the data byte/element that will be placed into the CC430 RAM FIFO.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">The</td><td>function returns a status byte indicating a successful <a class="el" href="_f_i_f_o_8h.html#ad6b4e3e49b5248674b948edaac915c9c" title="Initialization routine for a CC430 RAM FIFO. ">put_fifo()</a> operation. Returns 1 if success, 0 if fail (likley an overflow). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
