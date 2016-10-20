@@ -17,7 +17,7 @@ var searchData=
   ['hab_5fcutdown_5ftimer_5fcount_5fseconds',['HAB_CUTDOWN_TIMER_COUNT_SECONDS',['../_app___h_a_b_8h.html#a648c1c67f180e3ec86bcc3378fc2f9d4',1,'App_HAB.h']]],
   ['hab_5ftelemetry_5fpacket',['HAB_TELEMETRY_PACKET',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html',1,'']]],
   ['hab_5ftelemetry_5fpacket_5fstruct',['HAB_TELEMETRY_PACKET_STRUCT',['../_app___h_a_b_8h.html#a92d7e60c94842a9dd82568a6ff47f738',1,'App_HAB.h']]],
-  ['head',['head',['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc',1,'FIFO_SRAM_Buffer_State_Machine']]],
+  ['head',['head',['../struct_f_i_f_o___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc',1,'FIFO_Buffer_State_Machine::head()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc',1,'FIFO_SRAM_Buffer_State_Machine::head()']]],
   ['housekeeping_2ec',['housekeeping.c',['../housekeeping_8c.html',1,'']]],
   ['housekeeping_2eh',['housekeeping.h',['../housekeeping_8h.html',1,'']]],
   ['housekeeping_5fbitmask_5fchar',['housekeeping_bitmask_char',['../housekeeping_8h.html#a9160643f7969be217aa0b46e42ed7c21',1,'housekeeping.h']]],

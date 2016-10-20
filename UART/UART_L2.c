@@ -73,7 +73,7 @@ void init_uart(void){
 	uart_tx_bytes_state_machine.element_size = 128;
 	uart_tx_bytes_state_machine.head = 0;
 	uart_tx_bytes_state_machine.inwaiting = 0;
-	uart_tx_bytes_state_machine.length = 0;
+	//uart_tx_bytes_state_machine.length = 0;
 	uart_tx_bytes_state_machine.max_inwait = 0;
 	uart_tx_bytes_state_machine.tail = 0;
 	uart_tx_bytes_state_machine.buffer_size = UART_TX_BUFFER_SIZE;
@@ -83,7 +83,7 @@ void init_uart(void){
 	uart_rx_raw_bytes_state_machine.element_size = 1;
 	uart_rx_raw_bytes_state_machine.head = 0;
 	uart_rx_raw_bytes_state_machine.inwaiting = 0;
-	uart_rx_raw_bytes_state_machine.length = 0;
+	//uart_rx_raw_bytes_state_machine.length = 0;
 	uart_rx_raw_bytes_state_machine.max_inwait = 0;
 	uart_rx_raw_bytes_state_machine.tail = 0;
 	uart_rx_raw_bytes_state_machine.buffer_size = 64;

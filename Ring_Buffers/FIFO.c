@@ -1,7 +1,19 @@
-#include "FIFO.h"
-#include "msp430.h"
+/** @file FIFO.c
+ *  @brief FIFO circular buffer implementation using CC430 RAM
+ *
+ *  These functions create a FIFO circular buffer using the onboard CC430 RAM. The circular buffers defined below are written as generic as
+ *  possible to allow varying element lengths, counts, etc...
+ *
+ */
 
-unsigned char put_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *data, unsigned char *char_item){
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
+#include "FIFO.h"
+
+
+unsigned char put_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *buffer, unsigned char *char_item){
 	//Check if buffer is full!
 	if((buffer_struct->inwaiting*buffer_struct->element_size) >= buffer_struct->buffer_size){
 		//Set debut overflow bit
@@ -16,7 +28,7 @@ unsigned char put_fifo(fifo_state_machine *buffer_struct, volatile unsigned char
 		unsigned char i;
 		for(i=0;i<buffer_struct->element_size;i++){
 			//Insert value into the FIFO ring buffer in next avaliable location (head)
-			data[buffer_struct->head+i] = char_item[i];
+			buffer[buffer_struct->head+i] = char_item[i];
 		}
 
 		//Increment head location of ring buffer, modulus allows easy "wrapping" (circle)
@@ -36,7 +48,7 @@ unsigned char put_fifo(fifo_state_machine *buffer_struct, volatile unsigned char
 	}
 }
 
-unsigned char get_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *data, unsigned char *get_byte_addr){
+unsigned char get_fifo(fifo_state_machine *buffer_struct, volatile unsigned char *buffer, unsigned char *char_item){
 	//Check if buffer is empty!
 	if(buffer_struct->inwaiting == 0){
 		//Set debut overflow bit
@@ -49,7 +61,7 @@ unsigned char get_fifo(fifo_state_machine *buffer_struct, volatile unsigned char
 		unsigned char i;
 		for(i=0;i<buffer_struct->element_size;i++){
 			//Copy value of the FIFO ring buffer tail into the get_byte pointer
-			get_byte_addr[i]= data[buffer_struct->tail+i];
+			char_item[i]= buffer[buffer_struct->tail+i];
 		}
 
 		//Increment head location of ring buffer, modulus allows easy "wrapping" (circle)

@@ -100,7 +100,7 @@ void init_rf_fifo(void){
 	rf_datalink_tx_fifo_state_machine.element_size = RF_DATALINK_PACKET_PAYLOAD_LEN;
 	rf_datalink_tx_fifo_state_machine.head = 0;
 	rf_datalink_tx_fifo_state_machine.inwaiting = 0;
-	rf_datalink_tx_fifo_state_machine.length = 0;
+	//rf_datalink_tx_fifo_state_machine.length = 0;
 	rf_datalink_tx_fifo_state_machine.max_inwait = 0;
 	rf_datalink_tx_fifo_state_machine.tail = 0;
 	rf_datalink_tx_fifo_state_machine.buffer_size = RF_DATALINK_PACKET_PAYLOAD_LEN*5;
@@ -110,7 +110,7 @@ void init_rf_fifo(void){
 	rf_datalink_rx_fifo_state_machine.element_size = RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN;
 	rf_datalink_rx_fifo_state_machine.head = 0;
 	rf_datalink_rx_fifo_state_machine.inwaiting = 0;
-	rf_datalink_rx_fifo_state_machine.length = 0;
+	//rf_datalink_rx_fifo_state_machine.length = 0;
 	rf_datalink_rx_fifo_state_machine.max_inwait = 0;
 	rf_datalink_rx_fifo_state_machine.tail = 0;
 	rf_datalink_rx_fifo_state_machine.buffer_size = (RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN)*RF_DATALINK_PACKET_FIFO_COUNT;
