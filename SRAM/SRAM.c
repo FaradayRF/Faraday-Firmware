@@ -86,27 +86,9 @@ unsigned char Faraday_SRAM_Read_Byte(unsigned int address){
 	__delay_cycles(50); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
 	Faraday_SRAM_CS_Disable();
 
-	unsigned char test2;
-	test2 = UCB0RXBUF;
-	return test2;
-}
-
-void Faraday_SRAM_Read_Multiple_Bytes(unsigned int count, unsigned int sram_address, unsigned char *buffer_address){
-	unsigned int i;
-
-	for(i=0;i<count;i++){
-		buffer_address[i] = Faraday_SRAM_Read_Byte(sram_address);
-		sram_address++;
-	}
-}
-
-void Faraday_SRAM_Write_Multiple_Bytes(unsigned int count, unsigned int sram_address, unsigned char *buffer_address){
-	unsigned int i;
-
-	for(i=0;i<count;i++){
-		Faraday_SRAM_Write_Byte(buffer_address[i],sram_address);
-		sram_address++;
-	}
+	unsigned char rx_byte;
+	rx_byte = UCB0RXBUF;
+	return rx_byte;
 }
 
 unsigned char Faraday_SRAM_Read_Settings(void){
