@@ -1,5 +1,10 @@
 var searchData=
 [
   ['reset_5fidentification',['reset_identification',['../_faraday___init_8c.html#aa6aeb124e20348c7e39245e3317d426b',1,'Faraday_Init.c']]],
-  ['reset_5fidentification_5f2',['reset_identification_2',['../_faraday___init_8c.html#a9edaa468a93ff83b916afa45c5be48d8',1,'Faraday_Init.c']]]
+  ['reset_5fidentification_5f2',['reset_identification_2',['../_faraday___init_8c.html#a9edaa468a93ff83b916afa45c5be48d8',1,'Faraday_Init.c']]],
+  ['rf_5frx_5fservice_5fbroadcast_5frule_5fget',['rf_rx_service_broadcast_rule_get',['../rf__service_8c.html#a823669d314564592061239cf450588ab',1,'rf_rx_service_broadcast_rule_get(service_number):&#160;rf_service.c'],['../rf__service_8h.html#a823669d314564592061239cf450588ab',1,'rf_rx_service_broadcast_rule_get(service_number):&#160;rf_service.c']]],
+  ['rf_5frx_5fservice_5fbroadcast_5frule_5fopen',['rf_rx_service_broadcast_rule_open',['../rf__service_8c.html#aae844dd20e7336abd3385a8785181d2e',1,'rf_rx_service_broadcast_rule_open(service_number):&#160;rf_service.c'],['../rf__service_8h.html#aae844dd20e7336abd3385a8785181d2e',1,'rf_rx_service_broadcast_rule_open(service_number):&#160;rf_service.c']]],
+  ['rf_5frx_5fservice_5fclose',['rf_rx_service_close',['../rf__service_8c.html#a6122ae03c06807f4b0211ce4309e2e29',1,'rf_rx_service_close(unsigned char service_number):&#160;rf_service.c'],['../rf__service_8h.html#a6122ae03c06807f4b0211ce4309e2e29',1,'rf_rx_service_close(unsigned char service_number):&#160;rf_service.c']]],
+  ['rf_5frx_5fservice_5fopen',['rf_rx_service_open',['../rf__service_8c.html#a6f8df97ab2a725bf5a0083ff3e00ca68',1,'rf_rx_service_open(unsigned char service_number, void(*func_ptr)(void), unsigned char broadcast_rx_allowed):&#160;rf_service.c'],['../rf__service_8h.html#a6f8df97ab2a725bf5a0083ff3e00ca68',1,'rf_rx_service_open(unsigned char service_number, void(*func_ptr)(void), unsigned char broadcast_rx_allowed):&#160;rf_service.c']]],
+  ['rf_5frx_5fstack_5frx',['rf_rx_stack_rx',['../rf__service_8c.html#ae0ee68548ec91d71d668ac270de9203e',1,'rf_rx_stack_rx(unsigned char service_number, unsigned char *data, unsigned char payload_len):&#160;rf_service.c'],['../rf__service_8h.html#ae0ee68548ec91d71d668ac270de9203e',1,'rf_rx_stack_rx(unsigned char service_number, unsigned char *data, unsigned char payload_len):&#160;rf_service.c']]]
 ];

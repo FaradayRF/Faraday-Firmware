@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/RF_Network_Stack/rf_service.c File Reference</title>
+<title>Faraday-Firmware: RF_Network_Stack/rf_service.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,49 +82,48 @@ $(document).ready(function(){initNavTree('rf__service_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">rf_service.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Services for the layer 4 RF experimental protocol.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="rf__service_8h_source.html">rf_service.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3f26a3387e213436578226ec33a970a4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#a3f26a3387e213436578226ec33a970a4">RF_SERVICE_ELEMENT_COUNT</a>&#160;&#160;&#160;8</td></tr>
+<tr><td colspan="2"><div class="groupHeader">RF Layer 4 Service Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Definitions that control the services of the RF layer 4 experimental protocol. Specifically defined here are buffer and other counts that are used throughout the source file. </p>
+</div></td></tr>
+<tr class="memitem:a3f26a3387e213436578226ec33a970a4"><td class="memItemLeft" align="right" valign="top"><a id="a3f26a3387e213436578226ec33a970a4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RF_SERVICE_ELEMENT_COUNT</b>&#160;&#160;&#160;8</td></tr>
 <tr class="separator:a3f26a3387e213436578226ec33a970a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6f8df97ab2a725bf5a0083ff3e00ca68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#a6f8df97ab2a725bf5a0083ff3e00ca68">rf_rx_service_open</a> (unsigned char service_number, void(*func_ptr)(void), unsigned char broadcast_rx_allowed)</td></tr>
+<tr class="memdesc:a6f8df97ab2a725bf5a0083ff3e00ca68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register an application receive FIFO.  <a href="#a6f8df97ab2a725bf5a0083ff3e00ca68">More...</a><br /></td></tr>
 <tr class="separator:a6f8df97ab2a725bf5a0083ff3e00ca68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6122ae03c06807f4b0211ce4309e2e29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#a6122ae03c06807f4b0211ce4309e2e29">rf_rx_service_close</a> (unsigned char service_number)</td></tr>
+<tr class="memdesc:a6122ae03c06807f4b0211ce4309e2e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregister an application receive FIFO.  <a href="#a6122ae03c06807f4b0211ce4309e2e29">More...</a><br /></td></tr>
 <tr class="separator:a6122ae03c06807f4b0211ce4309e2e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ee68548ec91d71d668ac270de9203e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#ae0ee68548ec91d71d668ac270de9203e">rf_rx_stack_rx</a> (unsigned char service_number, unsigned char *data, unsigned char payload_len)</td></tr>
+<tr class="memdesc:ae0ee68548ec91d71d668ac270de9203e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place data into an application receive FIFO.  <a href="#ae0ee68548ec91d71d668ac270de9203e">More...</a><br /></td></tr>
 <tr class="separator:ae0ee68548ec91d71d668ac270de9203e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae844dd20e7336abd3385a8785181d2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#aae844dd20e7336abd3385a8785181d2e">rf_rx_service_broadcast_rule_open</a> (service_number)</td></tr>
+<tr class="memdesc:aae844dd20e7336abd3385a8785181d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a service port to allow a "broadcast" address packet (at MAC layer) to be parsed.  <a href="#aae844dd20e7336abd3385a8785181d2e">More...</a><br /></td></tr>
 <tr class="separator:aae844dd20e7336abd3385a8785181d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a823669d314564592061239cf450588ab"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__service_8c.html#a823669d314564592061239cf450588ab">rf_rx_service_broadcast_rule_get</a> (service_number)</td></tr>
+<tr class="memdesc:a823669d314564592061239cf450588ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a service port is allows to receive broadcast addressed packets (at MAC layer)  <a href="#a823669d314564592061239cf450588ab">More...</a><br /></td></tr>
 <tr class="separator:a823669d314564592061239cf450588ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3f26a3387e213436578226ec33a970a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f26a3387e213436578226ec33a970a4">&sect;&nbsp;</a></span>RF_SERVICE_ELEMENT_COUNT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RF_SERVICE_ELEMENT_COUNT&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Services for the layer 4 RF experimental protocol. </p>
+<p>These functions provide services for the RF layer 4 (transport) protocol. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a823669d314564592061239cf450588ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a823669d314564592061239cf450588ab">&sect;&nbsp;</a></span>rf_rx_service_broadcast_rule_get()</h2>
 
@@ -140,6 +139,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Check if a service port is allows to receive broadcast addressed packets (at MAC layer) </p>
+<p>This is a simple function that returns a value indicating the service port is or is not allowed to parse a broadcast (at MAC layer) packet. Broadcast is an address that all units will receive and parse as if it was address to the local device unless otherwise programed. This allows programs like broadcast telemetry and directed commands to exist together.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>The service port number of the layer 4 protocol packet</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>rx_service_port_broadcast_rule_array[service_number] which is 1 if allowed to parse a broadcast address MAC layer packet, 0 if not.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Placing this functionallity at the layer 4 service is convientient but breaks the OSI layer isolation. This should probably get moved to layer 2 where MAC is handled.</dd></dl>
 
 </div>
 </div>
@@ -159,6 +174,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Register a service port to allow a "broadcast" address packet (at MAC layer) to be parsed. </p>
+<p>Broadcast packets are addressed to all device in the local area. This functionality allows the protocol to allow/disallow broadcast addressed packets from executing on the local device since this may be dangerous. Example: A command sent with the broadcast address that could execute on ALL devices in the area instead of a specifically address device.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>The service port number of the layer 4 protocol packet</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Placing this functionallity at the layer 4 service is convientient but breaks the OSI layer isolation. This should probably get moved to layer 2 where MAC is handled.</dd></dl>
+
 </div>
 </div>
 <a id="a6122ae03c06807f4b0211ce4309e2e29"></a>
@@ -176,6 +201,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unregister an application receive FIFO. </p>
+<p>This function removes an application receive FIFO from the assigned RF "service port" as assigned in <a class="el" href="rf__service_8h.html#a6f8df97ab2a725bf5a0083ff3e00ca68" title="Register an application receive FIFO. ">rf_rx_service_open()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>The service port number of the layer 4 protocol packet </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -211,6 +245,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Register an application receive FIFO. </p>
+<p>This function creates a function pointer to an application function refering to a specific RF "service port" when used and allows the RF layer 4 recevie protocol to place received data packets into the application FIFO without the RF layer 4 service having to include or know about the application!</p>
+<dl class="section warning"><dt>Warning</dt><dd>Be sure that the function pointed to in the application adheres to the defined function expected per documentation. Unreliable operation may occure if this is not followed.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>The service port number of the layer 4 protocol packet </td></tr>
+    <tr><td class="paramname">(*func_ptr)(void)</td><td>A function pointer to the external program's FIFO "Put()" function </td></tr>
+    <tr><td class="paramname">broadcast_rx_allowed</td><td>1 if this port and program registration is allowed to receive MAC layer packets addressed to broadcast, 0 if not allowed.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>//expected function example: // void command_put(unsigned char *data_pointer, unsigned char length){ // put_fifo(&amp;command_state_machine, &amp;command_fifo_buffer, data_pointer); // __no_operation(); // } </p>
+
 </div>
 </div>
 <a id="ae0ee68548ec91d71d668ac270de9203e"></a>
@@ -244,6 +291,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Place data into an application receive FIFO. </p>
+<p>This is the main RF layer 4 service function that queries the registered applications in the function pointer array and if the RF "service port" has an assigned application the supplied data is placed into the applications FIFO.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">service_number</td><td>The service port number of the layer 4 protocol packet </td></tr>
+    <tr><td class="paramname">data</td><td>A pointer to the data packet to be placed into the appropriate program FIFO </td></tr>
+    <tr><td class="paramname">payload_len</td><td>The length of the data that is to be placed into the appropriate program FIFO</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Be sure that the function pointed to in the application adheres to the defined function expected per documentation. Unreliable operation may occure if this is not followed. </dd></dl>
 
 </div>
 </div>

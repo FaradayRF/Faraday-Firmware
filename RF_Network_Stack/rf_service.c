@@ -1,10 +1,33 @@
+/** @file rf_service.c
+ * 	@brief Services for the layer 4 RF experimental protocol
+ *
+ * 	These functions provide services for the RF layer 4 (transport) protocol.
+ *
+ *
+ */
+
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "rf_service.h"
+
+/* FIFO Includes */
 #include "../Ring_Buffers/FIFO.h"
 
+/** @name RF Layer 4 Service Definitions
+* 	@brief Definitions that control the services of the RF layer 4 experimental protocol. Specifically defined here
+* 	are buffer and other counts that are used throughout the source file.
+@{**/
 #define RF_SERVICE_ELEMENT_COUNT 8
+/** @}*/
 
+/** @name Initializing RF Receive Service Port Function Pointer Array Variables
+    @{ **/
 static volatile void (*srvc_open_func_ptrs[RF_SERVICE_ELEMENT_COUNT]) (unsigned char *data_pointer, unsigned char data_length);
 static volatile unsigned char rx_service_port_broadcast_rule_array[RF_SERVICE_ELEMENT_COUNT];
+/** @} */
+
 
 void rf_rx_service_open(unsigned char service_number, void (*func_ptr)(void), unsigned char broadcast_rx_allowed){
 	if(srvc_open_func_ptrs[service_number] == 0){
@@ -19,14 +42,10 @@ void rf_rx_service_open(unsigned char service_number, void (*func_ptr)(void), un
 	else{
 		__no_operation(); //Service Number already in use!
 	}
-
-//expected function example:
-//	void command_put(unsigned char *data_pointer, unsigned char length){
-//		put_fifo(&command_state_machine, &command_fifo_buffer, data_pointer);
-//		__no_operation();
-//	}
-
 }
+
+
+
 
 void rf_rx_service_close(unsigned char service_number){
 	if((service_number <RF_SERVICE_ELEMENT_COUNT) && srvc_open_func_ptrs[service_number] != 0){
@@ -35,14 +54,9 @@ void rf_rx_service_close(unsigned char service_number){
 	}
 	else{
 		__no_operation(); //Service Number was not in use!
+	}
 }
 
-//expected function example:
-//	void command_put(unsigned char *data_pointer, unsigned char length){
-//		put_fifo(&command_state_machine, &command_fifo_buffer, data_pointer);
-//		__no_operation();
-//	}
-}
 
 void rf_rx_stack_rx(unsigned char service_number, unsigned char *data, unsigned char payload_len){
 	//Recieved a new uart packet from external device
@@ -55,9 +69,12 @@ void rf_rx_stack_rx(unsigned char service_number, unsigned char *data, unsigned 
 	}
 }
 
+
 void rf_rx_service_broadcast_rule_open(service_number){
 	rx_service_port_broadcast_rule_array[service_number] = 1;
 }
+
+
 
 unsigned char rf_rx_service_broadcast_rule_get(service_number){
 	return rx_service_port_broadcast_rule_array[service_number];
