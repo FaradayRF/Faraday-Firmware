@@ -49,7 +49,7 @@ void uart_service_open(unsigned char service_number, void (*func_ptr)(void));
 
 /** @brief Unregister an application receive FIFO
  *
- *	This function removes an application receive FIFO from the assigned UART "service port" as assigned in uart_send().
+ *	This function removes an application receive FIFO from the assigned UART "service port" as assigned in uart_service_open().
  *
  */
 void uart_service_close(unsigned char service_number);

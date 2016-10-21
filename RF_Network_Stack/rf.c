@@ -1,13 +1,41 @@
+/** @file rf.c
+ * 	@brief The layer 2 RF experimental protocol
+ *
+ * 	These functions create the experimental RF layer 2 (datalink) protocol. The protocol is a fixed length protocol and provides
+ * 	no error detection. Packet fragmentation is not supported.
+ *
+ * 	The current implementation of the protocol utilizes the CC430 packet handling hardware that limits the packet to 64 bytes. Updates
+ * 	are known through CC430 application notes that all unlimited packet size as well as handling all packet functions in firmware for
+ * 	maximum flexability. These updates would greatly increase throughput.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
 #include "rf.h"
+#include "string.h"
+
+/* faraday rf layer 4 include */
+#include "rf_transport.h"
+
+/* cc430 radio module hardware abstraction include */
 #include "../HAL/RF1A.h"
 #include "../HAL/hal_pmm.h"
+
+/* faraday hardware abstraction */
 #include "../HAL/GPIO.h"
-#include "rf_transport.h"
-#include "../Ring_Buffers/FIFO.h"
-#include "string.h"
-#include "../Applications/Device_Config/Device_Config.h"
+
+/* faraday hardware allocation */
 #include "../REVA_Faraday.h"
+
+/* faraday fifo include */
+#include "../Ring_Buffers/FIFO.h"
+
+/* faraday device configuration application include */
+#include "../Applications/Device_Config/Device_Config.h"
+
 
 #define  PACKET_LEN         (0x05)			// PACKET_LEN <= 61
 #define  RSSI_IDX           (PACKET_LEN)    // Index of appended RSSI
