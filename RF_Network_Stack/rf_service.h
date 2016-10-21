@@ -7,14 +7,13 @@
  */
 
 
-
 #ifndef RF_NETWORK_STACK_RF_SERVICE_H_
 #define RF_NETWORK_STACK_RF_SERVICE_H_
 
 /** @name Automatic Cutdown Event State Machine Definitions
 * 	@brief Definitions for the state machine based function that performs automatic timed based cutdown of a HAB used the Faraday MOSFET as control.
 @{**/
-#define RF_SERVICE_ELEMENT_COUNT 8
+#define RF_SERVICE_ELEMENT_COUNT 8 /**< The number of allowable service ports. This determines the number of function pointers in the function pointer array*/
 /** @}*/
 
 

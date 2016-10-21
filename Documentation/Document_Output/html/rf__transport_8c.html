@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/RF_Network_Stack/rf_transport.c File Reference</title>
+<title>Faraday-Firmware: RF_Network_Stack/rf_transport.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,24 +87,34 @@ $(document).ready(function(){initNavTree('rf__transport_8c.html','');});
 <div class="title">rf_transport.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="rf__transport_8h_source.html">rf_transport.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
+
+<p>The layer 4 RF experimental protocol.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="rf__transport_8h_source.html">rf_transport.h</a>&quot;</code><br />
+<code>#include &quot;rf.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="rf__service_8h_source.html">rf_service.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="rf_8h_source.html">rf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_g_p_i_o_8h_source.html">../HAL/GPIO.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+<code>#include &quot;../HAL/GPIO.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a35176a5270dfcea1b086af5845de60ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__transport_8c.html#a35176a5270dfcea1b086af5845de60ad">rf_service_tx</a> (unsigned char *L4_payload_buffer, unsigned char L4_payload_len, unsigned char L4_service_number, char *L2_src_callsign, unsigned char L2_src_callsign_len, unsigned char L2_src_callsign_id, char *L2_dest_callsign, unsigned char L2_dest_callsign_len, unsigned char L2_dest_callsign_id, unsigned char L2_packet_type, unsigned char L2_packet_config)</td></tr>
+<tr class="memdesc:a35176a5270dfcea1b086af5845de60ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">High level function used to transmit a full RF packet.  <a href="#a35176a5270dfcea1b086af5845de60ad">More...</a><br /></td></tr>
 <tr class="separator:a35176a5270dfcea1b086af5845de60ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a14a6bd847f934421998f39e8387dad7f"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__transport_8c.html#a14a6bd847f934421998f39e8387dad7f">rf_transport_tx_create_packet</a> (unsigned char *payload_buffer, unsigned char payload_len, unsigned char service_number, <a class="el" href="rf__transport_8h.html#ab4d95df5bea29a3a0b42a600fc55a35f">RF_TRANSPORT_PACKET_STRUCT</a> *packet_struct)</td></tr>
+<tr class="memdesc:a14a6bd847f934421998f39e8387dad7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a layer 4 (transport) packet.  <a href="#a14a6bd847f934421998f39e8387dad7f">More...</a><br /></td></tr>
 <tr class="separator:a14a6bd847f934421998f39e8387dad7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a388551997dd706a29873c06b6ee7ae3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf__transport_8c.html#a388551997dd706a29873c06b6ee7ae3c">rf_transport_parse</a> (unsigned char *packet, unsigned char broadcast_status)</td></tr>
+<tr class="memdesc:a388551997dd706a29873c06b6ee7ae3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a layer 4 (transport) packet.  <a href="#a388551997dd706a29873c06b6ee7ae3c">More...</a><br /></td></tr>
 <tr class="separator:a388551997dd706a29873c06b6ee7ae3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The layer 4 RF experimental protocol. </p>
+<p>These functions create the experimental RF layer 4 (transport) protocol. The protocol is a fixed length protocol and provides no error detection. Packet fragmentation is not supported and therefor the layer 4 protocol packets much be equal to or smaller than the maximum transmissible unit of the lower layers.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Are all of these headers actually used?</dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a35176a5270dfcea1b086af5845de60ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35176a5270dfcea1b086af5845de60ad">&sect;&nbsp;</a></span>rf_service_tx()</h2>
 
@@ -185,6 +195,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>High level function used to transmit a full RF packet. </p>
+<p>High level function used to transmit a full RF packet using all network layers in one function.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">L4_payload_buffer</td><td>Pointer to the Layer 4 (transport) payload to be transmitted </td></tr>
+    <tr><td class="paramname">L4_payload_len</td><td>Layer 4 (transport) payload length in bytes </td></tr>
+    <tr><td class="paramname">L4_service_number</td><td>Layer 4 (transport) service port number that will be assigned to the layer 4 packet </td></tr>
+    <tr><td class="paramname">L2_src_callsign</td><td>Layer 2 (datalink) source callsign (local device - for identification purpose) </td></tr>
+    <tr><td class="paramname">L2_src_callsign_len</td><td>Layer 2 (datalink) source callsign length in bytes (local device - for identification purpose) </td></tr>
+    <tr><td class="paramname">L2_src_callsign_id</td><td>Layer 2 (datalink) source device ID number (local device - for identification purpose) </td></tr>
+    <tr><td class="paramname">L2_dest_callsign</td><td>Layer 2 (datalink) destination callsign to address MAC layer packet to </td></tr>
+    <tr><td class="paramname">L2_dest_callsign_len</td><td>Layer 2 (datalink) destination callsign length in bytes </td></tr>
+    <tr><td class="paramname">L2_dest_callsign_id</td><td>Layer 2 (datalink) destination device ID to address MAC layer packet to </td></tr>
+    <tr><td class="paramname">L2_packet_type</td><td>Layer 2 (datalink) packet type identifier (for handling and parsing multiple packet types - see packet documentation) </td></tr>
+    <tr><td class="paramname">L2_packet_config</td><td>Layer 2 (datalink) packet configuration bitmask</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>This should be simplified in the layer 4 source and service moved to the service source file. Layer isolation should be improved.</dd></dl>
+
 </div>
 </div>
 <a id="a388551997dd706a29873c06b6ee7ae3c"></a>
@@ -212,6 +242,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parse a layer 4 (transport) packet. </p>
+<p>This function is used to parse a layer 4 transport layer packet into a defined structure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>Pointer to the Layer 4 (transport) payload to be parsed into a structure </td></tr>
+    <tr><td class="paramname">broadcast_status</td><td>MAC layer broadcast allowance status. 1 if service port number is allowed to accept a broadcast addressed packet, 0 if not. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -252,6 +292,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create a layer 4 (transport) packet. </p>
+<p>This function is used to create a layer 4 transport layer packet.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">payload_buffer</td><td>Pointer to the Layer 4 (transport) payload to be transmitted </td></tr>
+    <tr><td class="paramname">payload_len</td><td>Layer 4 (transport) payload length in bytes </td></tr>
+    <tr><td class="paramname">service_number</td><td>Layer 4 (transport) service port number that will be assigned to the layer 4 packet </td></tr>
+    <tr><td class="paramname">packet_struct</td><td>A pointer to a RF_TRANSPORT_PACKET_STRUCT that will be filled with layer 4 packet information using supplied function arguments</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">1</td><td>if packet successfully create, 0 if packet create FAIL (due to payload data being too long) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

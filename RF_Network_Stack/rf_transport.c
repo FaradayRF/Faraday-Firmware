@@ -1,10 +1,35 @@
-#include "rf_transport.h"
-#include "../Ring_Buffers/FIFO.h"
-#include "rf_service.h"
-#include "rf.h"
-#include "../REVA_Faraday.h"
-#include "../HAL/GPIO.h"
+/** @file rf_transport.c
+ * 	@brief The layer 4 RF experimental protocol
+ *
+ * 	These functions create the experimental RF layer 4 (transport) protocol. The protocol is a fixed length protocol and provides
+ * 	no error detection. Packet fragmentation is not supported and therefor the layer 4 protocol packets much be equal to or smaller
+ * 	than the maximum transmissible unit of the lower layers.
+ *
+ * 	@todo Are all of these headers actually used?
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
+#include "rf_transport.h"
+
+/* faraday rf layer 2 include */
+#include "rf.h"
+
+/* faraday rf layer 4 service include */
+#include "rf_service.h"
+
+/* faraday fifo include */
+#include "../Ring_Buffers/FIFO.h"
+
+/* faraday hardware allocation include */
+#include "../REVA_Faraday.h"
+
+/* faraday gpio hardware abstraction functions */
+#include "../HAL/GPIO.h"
+
 
 void rf_service_tx(unsigned char *L4_payload_buffer,
 		unsigned char L4_payload_len,
@@ -20,7 +45,7 @@ void rf_service_tx(unsigned char *L4_payload_buffer,
 			RF_TRANSPORT_PACKET_STRUCT rf_transport_packet_tx_struct;
 			rf_transport_tx_create_packet((unsigned char *)L4_payload_buffer, L4_payload_len, L4_service_number, &rf_transport_packet_tx_struct);
 			__no_operation();
-			rf_tx_datalink_packet(L2_src_callsign, L2_src_callsign_len,	L2_src_callsign_id, L2_dest_callsign, L2_dest_callsign_len, L2_dest_callsign_id, L2_packet_type, L2_packet_config, TX_DATALINK_LAYER_PAYLOAD_MTU, &rf_transport_packet_tx_struct);
+			rf_tx_datalink_packet(L2_src_callsign, L2_src_callsign_len,	L2_src_callsign_id, L2_dest_callsign, L2_dest_callsign_len, L2_dest_callsign_id, L2_packet_type, L2_packet_config, RF_TRANPORT_PACKET_LEN, &rf_transport_packet_tx_struct);
 			__no_operation();
 			}
 

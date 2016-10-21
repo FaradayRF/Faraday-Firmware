@@ -87,19 +87,70 @@ $(document).ready(function(){initNavTree('struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c
 <div class="title">RF_TRANSPORT_PACKET Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>RF layer 4 transport packet structure.  
+ <a href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="rf__transport_8h_source.html">rf_transport.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afb70208d345a35655a0e9afcbfd1321d"><td class="memItemLeft" align="right" valign="top"><a id="afb70208d345a35655a0e9afcbfd1321d"></a>
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>payload_length</b></td></tr>
+<tr class="memitem:afb70208d345a35655a0e9afcbfd1321d"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#afb70208d345a35655a0e9afcbfd1321d">payload_length</a></td></tr>
 <tr class="separator:afb70208d345a35655a0e9afcbfd1321d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64631e73380bc62145283befd759032a"><td class="memItemLeft" align="right" valign="top"><a id="a64631e73380bc62145283befd759032a"></a>
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>payload</b> [RF_TRANPORT_PAYLOAD_MAX_LEN]</td></tr>
+<tr class="memitem:a64631e73380bc62145283befd759032a"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#a64631e73380bc62145283befd759032a">payload</a> [<a class="el" href="rf__transport_8h.html#a73d44f48577fc77f8c444c2c2552730f">RF_TRANPORT_PAYLOAD_MAX_LEN</a>]</td></tr>
 <tr class="separator:a64631e73380bc62145283befd759032a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32e53686a2134d530a43104cde3208d0"><td class="memItemLeft" align="right" valign="top"><a id="a32e53686a2134d530a43104cde3208d0"></a>
-unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>service_number</b></td></tr>
+<tr class="memitem:a32e53686a2134d530a43104cde3208d0"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#a32e53686a2134d530a43104cde3208d0">service_number</a></td></tr>
 <tr class="separator:a32e53686a2134d530a43104cde3208d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>RF layer 4 transport packet structure. </p>
+<p>A structure that defines and holds the layer 4 (transport) packet fields. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a64631e73380bc62145283befd759032a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64631e73380bc62145283befd759032a">&sect;&nbsp;</a></span>payload</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char payload[<a class="el" href="rf__transport_8h.html#a73d44f48577fc77f8c444c2c2552730f">RF_TRANPORT_PAYLOAD_MAX_LEN</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An array that contains the payload data </p>
+
+</div>
+</div>
+<a id="afb70208d345a35655a0e9afcbfd1321d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb70208d345a35655a0e9afcbfd1321d">&sect;&nbsp;</a></span>payload_length</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char payload_length</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The length of the payload data contained within the packet in bytes </p>
+
+</div>
+</div>
+<a id="a32e53686a2134d530a43104cde3208d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32e53686a2134d530a43104cde3208d0">&sect;&nbsp;</a></span>service_number</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char service_number</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The layer 4 (transport) service port number </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>RF_Network_Stack/<a class="el" href="rf__transport_8h_source.html">rf_transport.h</a></li>
 </ul>

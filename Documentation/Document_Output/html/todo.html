@@ -96,21 +96,23 @@ $(document).ready(function(){initNavTree('todo.html','');});
 <dd>Describe configuration </dd>
 <dt><a class="anchor" id="_todo000003"></a>Module <a class="el" href="_faraday___globals_8h.html#amgrp24b18129d06932d6208f38dc587ba81a">Real Time Clock Structure</a>  </dt>
 <dd>This should be moved into a specific RTC header file </dd>
-<dt><a class="anchor" id="_todo000011"></a>Module <a class="el" href="_u_a_r_t___l2_8c.html#amgrp5f8261c8b1c460c6a496cb1478a16c45">Receive Frame State Machine Variables</a>  </dt>
+<dt><a class="anchor" id="_todo000012"></a>Module <a class="el" href="_u_a_r_t___l2_8c.html#amgrp5f8261c8b1c460c6a496cb1478a16c45">Receive Frame State Machine Variables</a>  </dt>
 <dd>This should become a structure for clarity </dd>
 <dt><a class="anchor" id="_todo000010"></a>Global <a class="el" href="rf__service_8h.html#a823669d314564592061239cf450588ab">rf_rx_service_broadcast_rule_get</a>  (service_number)</dt>
 <dd>Placing this functionallity at the layer 4 service is convientient but breaks the OSI layer isolation. This should probably get moved to layer 2 where MAC is handled. </dd>
 <dt><a class="anchor" id="_todo000009"></a>Global <a class="el" href="rf__service_8h.html#aae844dd20e7336abd3385a8785181d2e">rf_rx_service_broadcast_rule_open</a>  (service_number)</dt>
 <dd>Placing this functionallity at the layer 4 service is convientient but breaks the OSI layer isolation. This should probably get moved to layer 2 where MAC is handled. </dd>
+<dt><a class="anchor" id="_todo000011"></a>File <a class="el" href="rf__transport_8c.html">rf_transport.c</a>  </dt>
+<dd>Are all of these headers actually used? </dd>
 <dt><a class="anchor" id="_todo000004"></a>Module <a class="el" href="_faraday___globals_8h.html#amgrpc83882af6cffe4c2186af31c60882b34">RTC_A global structure</a>  </dt>
 <dd>This should be moved into a specific RTC header file </dd>
 <dt><a class="anchor" id="_todo000005"></a>Module <a class="el" href="_faraday___globals_8h.html#amgrpf9c1488cb230fa48ebe93c310bab2b39">Software UART Definitions</a>  </dt>
 <dd>This should be moved into a specific software uart header file </dd>
 <dt><a class="anchor" id="_todo000006"></a>Module <a class="el" href="_faraday___globals_8h.html#amgrp318bbf3f5021765ba443268647729ffc">Software UART global variables</a>  </dt>
 <dd>This should be moved into a specific software uart header file </dd>
-<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="_u_a_r_t___l2_8h.html#a80a393448695d1ec96dce4f9094a783a">uart_datalink_rx_pass_higher_layer</a>  (unsigned char datagram_len, unsigned char *datagram)</dt>
+<dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="_u_a_r_t___l2_8h.html#a80a393448695d1ec96dce4f9094a783a">uart_datalink_rx_pass_higher_layer</a>  (unsigned char datagram_len, unsigned char *datagram)</dt>
 <dd>Update this interface with a function pointer based interface that can be dynamically "registered" like the UART Layer 4 service ports. This will remove the need to include layer 4 header files and function calls. </dd>
-<dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="_u_a_r_t___l4_8h.html#a527ac7e31d4b514521f9d2a82ffb30e1">uart_transport_rx_packet</a>  (unsigned char datagram_len, unsigned char *datagram)</dt>
+<dt><a class="anchor" id="_todo000014"></a>Global <a class="el" href="_u_a_r_t___l4_8h.html#a527ac7e31d4b514521f9d2a82ffb30e1">uart_transport_rx_packet</a>  (unsigned char datagram_len, unsigned char *datagram)</dt>
 <dd>This should be replaced with a function pointer interface to avoid having to "include" this header file in lower layer source files to maintain OSI layer insulation.</dd>
 </dl>
 </div></div><!-- contents -->
