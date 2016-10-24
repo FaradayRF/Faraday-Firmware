@@ -82,7 +82,7 @@ void init_radio_faraday(void);
 
 
 /**@brief Load default CC430 frequency
- *  Load default CC430 frequency into frequency registers from the device configuration variables.
+ *  Update the CC430 HAL "RfSettings" frequency registers definitions with supplied values.
  *  Reference the CC430 users guide for more information about the CC430 radio registers.
  *
  *  @param freq2 MSB index of the 3 byte radio module register
@@ -185,46 +185,71 @@ void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char l
 /**@brief
  *
  */
-unsigned char rf_tx_inwait_packet_buffer(void);
+//unsigned char rf_tx_inwait_packet_buffer(void);
 
 
 /**@brief
  *
  */
-unsigned char rf_tx_get_packet_buffer(unsigned char *buffer);
+//unsigned char rf_tx_get_packet_buffer(unsigned char *buffer);
 
 
 /**@brief
  *
  */
-void rf_rx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
+//void rf_rx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
 
 
 /**@brief
  *
  */
-unsigned char rf_rx_get_packet_buffer(unsigned char *buffer);
+//unsigned char rf_rx_get_packet_buffer(unsigned char *buffer);
 
 
-/**@brief
+/**@brief Gets the next packet in the transmit FIFO and transmits it
+ *
+ * This function is used to retrieve a waiting packet from the transmit FIFO buffer and transmit it using
+ * the CC430 packet handling hardware.
  *
  */
 void rf_get_next_tx_fifo(void);
 
 
-/**@brief
+/**@brief Check if a packet is waiting in the transmit FIFO
+ *
+ *  Check if a packet is waiting in the transmit FIFO to be transmited.
+ *
+ *  @retval Returns 1 if 1 or more packets are waiting in the FIFO to be transmitted. Returns 0 if no packets are waiting.
  *
  */
 unsigned char rf_check_tx_fifo(void);
 
 
-/**@brief
+/**@brief Main housekeeping routine function
+ *
+ * This is the main housekeeping routine used to perform checks for needed actions that operate the layer 2 protocol. The
+ * actions perform include checking FIFO's for waiting data to be retrieved and performed actions accordingly.
  *
  */
 void rf_housekeeping(void);
 
 
-/**@brief
+/**@brief Fill rf_datalink_packet_tx_struct with data to create a layer 2 transmit packet
+ *
+ *	This function is used to build a layer 2 transmit packet using the packet structure (rf_datalink_packet_tx_struct). Supplied information in the
+ *	function arguments provide the data to fill the packet fields as defined.
+ *
+ *	@param src_callsign A pointer to the packet's source callsign characters
+ *	@param src_callsign_len Source callsign length in bytes
+ *	@param src_callsign_id Source callsign ID number
+ *	@param dest_callsign A pointer to the packet's destination callsign characters
+ *	@param dest_callsign_len Destination callsign length in bytes
+ *	@param dest_callsign_id Destination callsign ID number
+ *	@param packet_type A byte that describes the packet type to allow multuple packet types to be supported
+ *	@param packet_config A bitmask that allows packet and protocol configuration settings/flags
+ *	@param payload_len Length in bytes of the supplied payload data
+ *
+ *	@retval Returns 1 if packet creation was successful and 0 if not (due to payload/callsign size too large)
  *
  */
 unsigned char rf_tx_datalink_packet(char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id, unsigned char packet_type, unsigned char packet_config, unsigned char payload_len, unsigned char *payload);
@@ -233,22 +258,38 @@ unsigned char rf_tx_datalink_packet(char *src_callsign, unsigned char src_callsi
 /**@brief
  *
  */
-void rf_send_test_rf_1(void);
+//void rf_send_test_rf_1(void);
 
 
-/**@brief
+/**@brief Abstraction function used to place a transmit packet into the transmit FIFO
+ *
+ *  Abstraction function used to place a transmit packet into the transmit FIFO.
+ *
+ *  @param packet_data_pointer A pointer to a structure variable of type RF_DATALINK_PACKET_STRUCT that contains the defined and filled packet data
  *
  */
 void rf_rawpacket_tx(RF_DATALINK_PACKET_STRUCT *packet_data_pointer); // 2/23/2016 - BSALMI - I think this is how we should move to passing structs!
 
 
-/**@brief
+/**@brief Parse a received layer 2 packet
+ *
+ * This function is used to parse a supplied raw layer 2 packet as received into a structure defined with
+ * fields expected for the received packet type.
+ *
+ * @param packet A pointer to the received raw packet bytearray to be parsed.
  *
  */
 void rf_datalink_parse(unsigned char *packet);
 
 
-/**@brief
+/**@brief Update the current RF frequency
+ *
+ *  This function is used to update the current CC430 radio module frequency.
+ *  Reference the CC430 users guide for more information about the CC430 radio registers.
+ *
+ *  @param freq2 MSB index of the 3 byte radio module register
+ *  @param freq1 Index [1] of the 3 byte radio module register
+ *  @param freq0 LSB index of the 3 byte radio module register
  *
  */
 void CC430_Program_Freq(unsigned char freq2, unsigned char freq1, unsigned char freq0);
