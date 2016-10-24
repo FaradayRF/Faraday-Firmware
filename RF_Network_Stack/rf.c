@@ -37,43 +37,66 @@
 #include "../Applications/Device_Config/Device_Config.h"
 
 
+/** @name External Variables
+* 	@brief Declare external variables
+*
+*	Declare external variables for use in the source file.
+*
+@{**/
+extern RF_SETTINGS rfSettings; /**< CC430 radio module rf settings definitions */
+/** @}*/
 
 
-extern RF_SETTINGS rfSettings;
-
-unsigned char RxBufferLength = 0;
-unsigned int i = 0; // This is terrible!!!
-
-unsigned char transmitting_flag = 0;
-unsigned char receiving_flag = 0;
-
-volatile unsigned char rf_tx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]; //Is this too long? BSALMI 5-3-2016
-volatile unsigned char rf_rx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN];
-
-
-volatile unsigned char tx_buffer[62];
-
-/////////////////////////////////////////
-// RF FIFO UART DEFINITIONS
-/////////////////////////////////////////
+/** @name Radio Operation Flags
+* 	@brief Flag bytes used to cordinate radio operations
+*
+*	Flag bytes used to cordinate radio operations, especially the transmit and receive functionality.
+*
+@{**/
+unsigned char transmitting_flag = 0; /**< Transmit enabled flag */
+unsigned char receiving_flag = 0; /**< Receive enabled flag */
+/** @}*/
 
 
-//Telemetry Application FIFO Packet Buffers
-volatile fifo_state_machine rf_datalink_tx_fifo_state_machine;
-volatile unsigned char rf_datalink_tx_fifo_buffer[RF_DATALINK_PACKET_PAYLOAD_LEN*RF_DATALINK_PACKET_FIFO_COUNT];
+/** @name Transmit/Receive Bytearray Buffers
+* 	@brief Buffers used to temporarally hold RX/TX data
+*
+*	Buffers used to temporarally hold RX/TX data
+*
+*	@bug Are these better suited for local function variables?
+*
+@{**/
+volatile unsigned char rf_tx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]; /**< Transmit packet buffer */
+volatile unsigned char rf_rx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]; /**< Receive packet buffer  */
+/** @}*/
 
-volatile fifo_state_machine rf_datalink_rx_fifo_state_machine;
-volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN)*RF_DATALINK_PACKET_FIFO_COUNT];
+
+/** @name Layer 2 protocol FIFO Variables
+* 	@brief Variables used to control and hold information for the RF layer 2 FIFO operations
+*
+*	Variables used to control and hold information for the RF layer 2 FIFO operations.
+*
+*
+@{**/
+volatile fifo_state_machine rf_datalink_tx_fifo_state_machine; /**< Structure for the transmit FIFO state machine */
+volatile unsigned char rf_datalink_tx_fifo_buffer[RF_DATALINK_PACKET_PAYLOAD_LEN*RF_DATALINK_PACKET_FIFO_COUNT]; /**< Transmit FIFO buffer */
+volatile fifo_state_machine rf_datalink_rx_fifo_state_machine; /**< Structure for the receive FIFO state machine */
+volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN)*RF_DATALINK_PACKET_FIFO_COUNT]; /**< Transmit FIFO buffer */
+/** @}*/
 
 
-///////
+/** @name Layer 2 Packet Structures
+* 	@brief Structures used to build and parse layer 2 protocol packets
+*
+*	Structures used to build and parse layer 2 protocol packets.
+*
+*
+@{**/
+volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_tx_struct; /**< Transmit packet structure */
+volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_rx_struct; /**< Receive packet structure */
+/** @}*/
 
-volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_tx_struct;
-volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_rx_struct;
 
-/////////////////////////////////////////
-// END RF FIFO UART DEFINITIONS
-/////////////////////////////////////////
 void init_radio_faraday(void){
 	// Increase PMMCOREV level to 2 for proper radio operation
 	ResetRadioCore();
@@ -203,6 +226,8 @@ void ReceiveOff(void)
 void radio_isr(void){
 	if(receiving_flag)			    // RX end of packet
 	  {
+		unsigned char RxBufferLength = 0;
+
 		// Read the length byte from the FIFO
 		RxBufferLength = ReadSingleReg( RXBYTES ); // WARNING: If this ever becomes variable length you MUST check it's validity or risk buffer overrun!
 		ReadBurstReg(RF_RXFIFORD, rf_rx_datalink_buffer, RxBufferLength);
@@ -256,7 +281,7 @@ void radio_isr(void){
 }
 
 void radio_tx(unsigned char *buffer, unsigned char buffer_len){
-	__no_operation();
+	unsigned char tx_buffer[62];
 	unsigned char i;
 	//BUG: Doesn't check for buffer size too long...
 	for(i=0;i<buffer_len;i++){
@@ -271,7 +296,6 @@ void radio_tx(unsigned char *buffer, unsigned char buffer_len){
 }
 
 void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length){
-	//put_char_packet_ring_buffer_64(&rf_tx_packet_ring_buffer_64_struct, packet_data_pointer,length);
 	put_fifo(&rf_datalink_tx_fifo_state_machine, &rf_datalink_tx_fifo_buffer, packet_data_pointer);
 }
 
@@ -338,6 +362,8 @@ unsigned char rf_tx_datalink_packet(
 	unsigned char packet_config,
 	unsigned char payload_len,
 	unsigned char *payload){
+
+	unsigned int i = 0;
 
 	__no_operation();
 	//Check if any field is too large and return 0 if it is to indicate a failed input to developer
@@ -427,20 +453,7 @@ void rf_datalink_parse(unsigned char *packet){
 	__no_operation();
 }
 
-/************************************************************
-* Function: CC430_Program_Freq(char freq2, char freq1, char freq0)
-*
-* Description: This function accepts the frequency byte configuration
-* that represent a specific frequncy for the radio to operate on and
-* updates current operating frequency to the new values. Simply,
-* if you want to change the radios frequency this is the
-* function to achieve that.
-*
-* Inputs: char freq2, char freq1, char freq0
-*
-* Outputs: None
-*
-*************************************************************/
+
 void CC430_Program_Freq(unsigned char freq2, unsigned char freq1, unsigned char freq0){
 	//Radio core must be in IDLE state to change frequency
 	Strobe(RF_SIDLE);

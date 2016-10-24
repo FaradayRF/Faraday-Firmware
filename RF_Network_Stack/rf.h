@@ -159,18 +159,6 @@ void ReceiveOff(void);
 void radio_isr(void);
 
 
-/**@brief
- *
- */
-//void radio_housekeeping(void);
-
-
-/**@brief
- *
- */
-//void radio_tx(unsigned char *buffer, unsigned char buffer_len);
-
-
 /**@brief Function used to place data to be transmitted into the transmit FIFO buffer
  *
  * This function is used to put data into the layer 2 transmit FIFO buffer for transmission.
@@ -180,30 +168,6 @@ void radio_isr(void);
  *
  */
 void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
-
-
-/**@brief
- *
- */
-//unsigned char rf_tx_inwait_packet_buffer(void);
-
-
-/**@brief
- *
- */
-//unsigned char rf_tx_get_packet_buffer(unsigned char *buffer);
-
-
-/**@brief
- *
- */
-//void rf_rx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
-
-
-/**@brief
- *
- */
-//unsigned char rf_rx_get_packet_buffer(unsigned char *buffer);
 
 
 /**@brief Gets the next packet in the transmit FIFO and transmits it
