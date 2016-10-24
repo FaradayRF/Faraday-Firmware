@@ -105,8 +105,7 @@ void init_radio_faraday(void){
 }
 
 // radio_load_defaults overwrites the RFSettings structure with the default RF frequency for boot writting the entire radio settings
-void radio_load_defaults(unsigned char freq2, unsigned char freq1, unsigned char freq0){
-	//unsigned char * flash_ptr;
+void radio_load_default_frequency(unsigned char freq2, unsigned char freq1, unsigned char freq0){
 	rfSettings.freq2 = freq2;
 	rfSettings.freq1 = freq1;
 	rfSettings.freq0 = freq0;

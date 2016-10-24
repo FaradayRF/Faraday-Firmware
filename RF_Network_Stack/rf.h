@@ -73,61 +73,87 @@ typedef struct RF_L2_PACKET {
 
 
 
-/**@brief
+/**@brief Initialize the CC430 radio to default operation
+ *
+ *	Initialize the CC430 radio to default operation.
  *
  */
 void init_radio_faraday(void);
 
 
-/**@brief
+/**@brief Load default CC430 frequency
+ *  Load default CC430 frequency into frequency registers from the device configuration variables.
+ *  Reference the CC430 users guide for more information about the CC430 radio registers.
  *
+ *  @param freq2 MSB index of the 3 byte radio module register
+ *  @param freq1 Index [1] of the 3 byte radio module register
+ *  @param freq0 LSB index of the 3 byte radio module register
  */
-void radio_load_defaults(unsigned char freq2, unsigned char freq1, unsigned char freq0);
+void radio_load_default_frequency(unsigned char freq2, unsigned char freq1, unsigned char freq0);
 
 
-/**@brief
+/**@brief Initialize layer 2 radio FIFO buffers
+ *
+ *	Initialize layer 2 radio FIFO buffers used for both transmit and receive.
  *
  */
 void init_rf_fifo(void);
 
 
-/**@brief
- *
+/**@brief Perform CC430 radio module manual calibration
+ *  Perform CC430 radio module manual calibration routine that re-calibrates the PLL. This is only needed
+ *  in specific situations and if not used correctly can cause the radio to miss packets or otherwise error.
  */
 void radio_manual_calibration_idle(void);
 
 
-/**@brief
+/**@brief Place CC430 radio into IDLE state
+ *
+ *	Place CC430 radio into IDLE state.
  *
  */
 void radio_manual_idle(void);
 
 
-/**@brief
+/**@brief Perform routine to enable both CC430 and external amplifier for transmit operation
+ *
+ *  Perform routine to enable both CC430 and external amplifier for transmit operation.
  *
  */
 void TransmitOn(void);
 
 
-/**@brief
+/**@brief Place data into the CC430 packet handling hardware and transmit the data
+ *
+ *	Place data into the CC430 packet handling hardware and transmit the data.
+ *
+ *	@param buffer A pointer to the data to be transmitted
+ *	@param Length in bytes of the data to be transmitted
  *
  */
 void Transmit(unsigned char *buffer, unsigned char length);
 
 
-/**@brief
+/**@brief Perform routine routine to enable both CC430 and external amplifier for receive opertion
+ *
+ * Perform routine routine to enable both CC430 and external amplifier for receive opertion.
  *
  */
 void ReceiveOn(void);
 
 
-/**@brief
+/**@brief Perform routine routine to disable both CC430 and external amplifier for receive opertion
+ *
+ *	Perform routine routine to disable both CC430 and external amplifier for receive opertion
  *
  */
 void ReceiveOff(void);
 
 
-/**@brief
+/**@brief A function that holds the routines needed to operation the ISR
+ *
+ *	This function performs the needed checks and routines to operate the CC430 layer 2 operations that
+ *	must be performed on the interrupt serive routine interrupts.
  *
  */
 void radio_isr(void);
@@ -136,16 +162,21 @@ void radio_isr(void);
 /**@brief
  *
  */
-void radio_housekeeping(void);
+//void radio_housekeeping(void);
 
 
 /**@brief
  *
  */
-void radio_tx(unsigned char *buffer, unsigned char buffer_len);
+//void radio_tx(unsigned char *buffer, unsigned char buffer_len);
 
 
-/**@brief
+/**@brief Function used to place data to be transmitted into the transmit FIFO buffer
+ *
+ * This function is used to put data into the layer 2 transmit FIFO buffer for transmission.
+ *
+ * @param packet_data_pointer Pointer to the data to be transmitted
+ * @param length Length in bytes of the data to be transmitted
  *
  */
 void rf_tx_put_packet_buffer(unsigned char *packet_data_pointer, unsigned char length);
