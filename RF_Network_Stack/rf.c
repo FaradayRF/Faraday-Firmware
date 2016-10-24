@@ -37,17 +37,15 @@
 #include "../Applications/Device_Config/Device_Config.h"
 
 
-#define TX_PACKET_LEN 61 // 61+ 2(PKT Handle LQI/RSSI) = 63
-#define RX_PACKET_LEN 61 // 61+ 2(PKT Handle LQI/RSSI) = 63
-#define RX_PKT_HANDLE_APPEND_LEN 2
+
 
 extern RF_SETTINGS rfSettings;
 
 unsigned char RxBufferLength = 0;
 unsigned int i = 0; // This is terrible!!!
 
-unsigned char transmitting = 0; // Name flag
-unsigned char receiving = 0; // Name flag
+unsigned char transmitting_flag = 0;
+unsigned char receiving_flag = 0;
 
 volatile unsigned char rf_tx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]; //Is this too long? BSALMI 5-3-2016
 volatile unsigned char rf_rx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN];
@@ -58,9 +56,7 @@ volatile unsigned char tx_buffer[62];
 /////////////////////////////////////////
 // RF FIFO UART DEFINITIONS
 /////////////////////////////////////////
-#define RF_DATALINK_PACKET_PAYLOAD_LEN 62
-#define RF_DATALINK_PACKET_FIFO_COUNT 5
-#define RF_DATALINK_PACKET_RX_FOOTER_LEN 2
+
 
 //Telemetry Application FIFO Packet Buffers
 volatile fifo_state_machine rf_datalink_tx_fifo_state_machine;
@@ -69,13 +65,19 @@ volatile unsigned char rf_datalink_tx_fifo_buffer[RF_DATALINK_PACKET_PAYLOAD_LEN
 volatile fifo_state_machine rf_datalink_rx_fifo_state_machine;
 volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN)*RF_DATALINK_PACKET_FIFO_COUNT];
 
+
+///////
+
+volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_tx_struct;
+volatile RF_DATALINK_PACKET_STRUCT rf_datalink_packet_rx_struct;
+
 /////////////////////////////////////////
 // END RF FIFO UART DEFINITIONS
 /////////////////////////////////////////
 void init_radio_faraday(void){
 	// Increase PMMCOREV level to 2 for proper radio operation
 	ResetRadioCore();
-	receiving = 1;
+	receiving_flag = 1;
 
 	// Set the High-Power Mode Request Enable bit so LPM3 can be entered
 	// with active radio enabled
@@ -165,8 +167,8 @@ void TransmitOn(void)
 	CC1190_LNA_Disable();
 	CC1190_PA_Enable();
 	CC1190_HGM_Enable();
-	receiving = 0;
-	transmitting = 1;
+	receiving_flag = 0;
+	transmitting_flag = 1;
 }
 
 void ReceiveOn(void)
@@ -180,8 +182,8 @@ void ReceiveOn(void)
 	RF1AIES |= BIT9;                          // Falling edge of RFIFG9
 	RF1AIFG &= ~BIT9;                         // Clear a pending interrupt
 	RF1AIE  |= BIT9;                          // Enable the interrupt
-	transmitting = 0;
-	receiving = 1;
+	transmitting_flag = 0;
+	receiving_flag = 1;
 
 	// Radio is in IDLE following a TX, so strobe SRX to enter Receive Mode
 	Strobe( RF_SRX );
@@ -200,7 +202,7 @@ void ReceiveOff(void)
 }
 
 void radio_isr(void){
-	if(receiving)			    // RX end of packet
+	if(receiving_flag)			    // RX end of packet
 	  {
 		// Read the length byte from the FIFO
 		RxBufferLength = ReadSingleReg( RXBYTES ); // WARNING: If this ever becomes variable length you MUST check it's validity or risk buffer overrun!
@@ -229,7 +231,7 @@ void radio_isr(void){
 		}
 		ReceiveOn();
 	  }
-	  else if(transmitting)		    // TX end of packet
+	  else if(transmitting_flag)		    // TX end of packet
 	  {
 		if(rf_check_tx_fifo()){
 			//Packet waiting to be transmitted
@@ -247,8 +249,8 @@ void radio_isr(void){
 	  }
 	  else{
 		  //Default to Receive
-		  receiving = 1;
-		  transmitting = 0;
+		  receiving_flag = 1;
+		  transmitting_flag = 0;
 
 		  //TO-DO: Add flash statistical save function to save error log counts
 	  }
@@ -294,7 +296,7 @@ unsigned char rf_check_tx_fifo(void){
 void rf_housekeeping(void){
 	__no_operation();
 	unsigned char status;
-	if(rf_check_tx_fifo() && !transmitting){
+	if(rf_check_tx_fifo() && !transmitting_flag){
 		ReceiveOff();
 		rf_get_next_tx_fifo();
 		}
