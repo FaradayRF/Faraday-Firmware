@@ -37,11 +37,11 @@
 #include "../Applications/Device_Config/Device_Config.h"
 
 
-#define  PACKET_LEN         (0x05)			// PACKET_LEN <= 61
-#define  RSSI_IDX           (PACKET_LEN)    // Index of appended RSSI
-#define  CRC_LQI_IDX        (PACKET_LEN+1)  // Index of appended LQI, checksum
-#define  CRC_OK             (BIT7)          // CRC_OK bit
-#define  PATABLE_VAL        (0x51)          // 0 dBm output
+//#define  PACKET_LEN         (0x05)			// PACKET_LEN <= 61
+//#define  RSSI_IDX           (PACKET_LEN)    // Index of appended RSSI
+//#define  CRC_LQI_IDX        (PACKET_LEN+1)  // Index of appended LQI, checksum
+//#define  CRC_OK             (BIT7)          // CRC_OK bit
+//#define  PATABLE_VAL        (0x51)          // 0 dBm output
 
 #define TX_PACKET_LEN 61 // 61+ 2(PKT Handle LQI/RSSI) = 63
 #define RX_PACKET_LEN 61 // 61+ 2(PKT Handle LQI/RSSI) = 63
@@ -49,21 +49,16 @@
 
 extern RF_SETTINGS rfSettings;
 
-unsigned char packetReceived;
-unsigned char packetTransmit;
-
-unsigned char RxBuffer[PACKET_LEN+2];
 unsigned char RxBufferLength = 0;
-const unsigned char TxBuffer[PACKET_LEN]= {0xAA, 0xBB, 0xCC, 0xDD, 0xEE};
-unsigned char buttonPressed;
-unsigned int i = 0;
+unsigned char buttonPressed; // Why is this is RF???
+unsigned int i = 0; // This is terrible!!!
 
-unsigned char transmitting = 0;
-unsigned char receiving = 0;
+unsigned char transmitting = 0; // Name flag
+unsigned char receiving = 0; // Name flag
 
 volatile unsigned char rf_tx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]; //Is this too long? BSALMI 5-3-2016
 volatile unsigned char rf_rx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN];
-unsigned char status;
+
 
 volatile unsigned char tx_buffer[62];
 
@@ -305,6 +300,7 @@ unsigned char rf_check_tx_fifo(void){
 
 void rf_housekeeping(void){
 	__no_operation();
+	unsigned char status;
 	if(rf_check_tx_fifo() && !transmitting){
 		ReceiveOff();
 		rf_get_next_tx_fifo();
