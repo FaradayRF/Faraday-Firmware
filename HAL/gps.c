@@ -1,10 +1,21 @@
+/** @file gps.c
+ *  @brief Hardware abstraction for the Faraday GPS module
+ *
+ *  These functions provide hardware abstraction for the onboard
+ *  GPS.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
 #include "gps.h"
 #include <string.h>
 #include <stdio.h>
-#include "cc430f6137.h"
+
 
 void initialize_GPS_structs(void){
-
 	memset((void *)GGA.Sync,'0',sizeof(GGA.Sync));
 	memset((void *)GGA.Time,'0',sizeof(GGA.Time));
 	memset((void *)GGA.Lat,'0',sizeof(GGA.Lat));
@@ -38,16 +49,7 @@ void initialize_GPS_structs(void){
 
 }
 
-/************************************************************
-* Function: gps_get_nmea_string
-*
-* Description: Detects the start of a NMEA string and builds a char array with each byte received
-*
-* Inputs: unsigned char byte
-*
-* Outputs: Nothing
-*
-*************************************************************/
+
 void gps_get_nmea_string(volatile unsigned char *byte){
 	if(*byte == 0x24){ //("$")
 		NMEA.string[0] = *byte;
@@ -202,16 +204,6 @@ void Parse_GGA(volatile unsigned char *string){
 }
 
 
-/************************************************************
-* Function: Parse_RMC
-*
-* Description: Parses a RMC NMEA string
-*
-* Inputs: unsigned char string[]
-*
-* Outputs: Nothing
-*
-*************************************************************/
 void Parse_RMC(volatile unsigned char *string){
 	unsigned char i;
 	unsigned char j;
@@ -287,16 +279,7 @@ void Parse_RMC(volatile unsigned char *string){
 	}
 }
 
-/************************************************************
-* Function: Save_GPS_string
-*
-* Description: Determines what type of NMEA string was received and parses it
-*
-* Inputs: unsigned char string[]
-*
-* Outputs: Nothing
-*
-*************************************************************/
+
 void Save_GPS_string_2(volatile unsigned char *string){
 	if(*strstr((char *)string, (char *)"GGA")){
 		Parse_GGA(string);

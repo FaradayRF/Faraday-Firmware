@@ -9,9 +9,9 @@
 
 
 #include "scratch_flash.h"
-#include "FLASH/FLASH.h"
 #include "Faraday_HAL/SPI.h"
 #include "cc430f6137.h"
+#include "FLASH/SPI_FLASH.h"
 
 void flash_test(void){
 

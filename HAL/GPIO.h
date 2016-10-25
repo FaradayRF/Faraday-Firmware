@@ -1,45 +1,108 @@
+/** @file GPIO.h
+ * 	@brief Hardware abstraction for the GPIO
+ *
+ * 	These functions provide a hardware abstraction for the general purpose
+ * 	input/output peripheral on the CC430.
+ *
+ */
+
 #ifndef HAL_GPIO_H_
 #define HAL_GPIO_H_
 
 
-#define GPIO_UCB0CS1 0
-#define GPIO_PORT_UCB0CS1 P1OUT
-#define GPIO_UCB0_SIMO_SDA 0x01 //0b0000000000000001
-#define GPIO_PORT_SIMO_SDA P1OUT
-#define GPIO_UCB0CLK 0x02 //0b0000000000000010
-#define GPIO_PORT_UCB0CLK P1OUT
-#define GPIO_UCA0TXD  0x04//0b0000000000000100
-#define GPIO_PORT_UCA0TXD P1OUT
-#define GPIO_PA_ENABLE 0x08 //0b0000000000001000
-#define GPIO_PORT_PA_ENABLE P3OUT
-#define GPIO_LNA_ENABLE 0x10 //b0000000000010000
-#define GPIO_PORT_LNA_ENABLE P3OUT
-#define GPIO_HGM_SELECT 0x20 //0b0000000000100000
-#define GPIO_PORT_HGM_SELECT P3OUT
-#define GPIO_GPS_RESET 0x40 //0b0000000001000000
-#define GPIO_PORT_GPS_RESET P3OUT
-#define GPIO_GPS_STANDBY 0x80 //0b0000000010000000
-#define GPIO_PORT_GPS_STANDBY P3OUT
-#define GPIO_LED_1 0x100 //0b0000000100000000
-#define GPIO_PORT_LED_1 P3OUT
-#define GPIO_LED_2 0x200 //b0000001000000000
-#define GPIO_PORT_LED_2 P3OUT
-#define GPIO_MOSFET_CNTL 0x400 //0b000001000000000
-#define GPIO_PORT_MOSFET_CNTL P5OUT
-#define GPIO_SRAM_CS 0x800 //0b000010000000000
-#define GPIO_PORT_SRAM_CS P5OUT
-#define GPIO_SRAM_HOLD 0x1000 //0b000100000000000
-#define GPIO_PORT_SRAM_HOLD P5OUT
-
-
+/**@brief Update a GPIO Port using a command bitmask
+ *
+ *  Update a GPIO Port using a command bitmask supplied to indicated pins and a command to indicate action. This function
+ *  is primarly used to verify allowed actions on GPIO ports and call teh gpio_command_update() routine to perform
+ *  updates as needed.
+ *
+ *  Ports Supported:
+ *  - Ports 3, 4, 5
+ *
+ *  Commands
+ *  - 0 = Bitmasked HIGH pins OFF
+ *  - 1 = Bitmasked HIGH pins ON
+ *
+ *  @param port The GPIO port
+ *  @param pins Bitmask for the port pins intended to be updated
+ *  @param command to supply the gpio_command_update() function that determines if the pins bitmasked are enabled or disabled
+ *
+ */
 void gpio_update(unsigned char port, unsigned char pins, unsigned char command);
+
+
+/**@brief Update GPIO port and pins
+ *
+ * Using a supplied port number and supplied pins bitmask GPIO pins can be updated to enabled or disabled.
+ *
+ *
+ *  @param port A pointer to the GPIO port number
+ *  @param pins Bitmask for the port pins intended to be updated
+ *  @param command to supply the gpio_command_update() function that determines if the pins bitmasked are enabled or disabled
+ *
+ *	@bug Does port variable really need to be a pointer?
+ *
+ */
 void gpio_command_update(unsigned char *port, unsigned char channel, unsigned char command);
 
+
+/**@brief Enable the CC1190 RF power amplifier
+ *
+ * Enable the CC1190 RF power amplifier GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_PA_Enable(void);
+
+
+/**@brief Disable the CC1190 RF power amplifier
+ *
+ * Disable the CC1190 RF power amplifier GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_PA_Disable(void);
+
+
+/**@brief Enable the CC1190 RF low noise amplifier
+ *
+ * Enable the CC1190 RF low noise amplifier GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_LNA_Enable(void);
+
+
+/**@brief Disable the CC1190 RF low noise amplifier
+ *
+ * Disable the CC1190 RF low noise amplifier GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_LNA_Disable(void);
+
+
+/**@brief Enable the CC1190 High Gain Mode (HGM)
+ *
+ * Enable the CC1190 High Gain Mode (HGM) GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_HGM_Enable(void);
+
+
+/**@brief Disable the CC1190 High Gain Mode (HGM)
+ *
+ * Disable the CC1190 High Gain Mode (HGM) GPIO.
+ *
+ * @todo This should be moved into Faraday_HAL.c
+ *
+ */
 void CC1190_HGM_Disable(void);
 
 #endif /* HAL_GPIO_H_ */

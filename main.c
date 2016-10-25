@@ -98,7 +98,7 @@ int main(void) {
 
 
     //Scratch testing
-    flash_test(); // FLASH
+    //flash_test(); // FLASH
 
     //Note: Per Errata bug the LPM iterrupt return will corrupt the PC, disable LPM when debugging and let the loop loose!
      while(1){

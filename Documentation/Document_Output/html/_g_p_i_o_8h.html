@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/GPIO.h File Reference</title>
+<title>Faraday-Firmware: HAL/GPIO.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,487 +82,48 @@ $(document).ready(function(){initNavTree('_g_p_i_o_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GPIO.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Hardware abstraction for the GPIO.  
+<a href="#details">More...</a></p>
+
 <p><a href="_g_p_i_o_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:abb4362a4eeec29d705de4cf572c7d642"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#abb4362a4eeec29d705de4cf572c7d642">GPIO_UCB0CS1</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:abb4362a4eeec29d705de4cf572c7d642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaeb9e286166887aef9ab4ed07fa80f7f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#aaeb9e286166887aef9ab4ed07fa80f7f">GPIO_PORT_UCB0CS1</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td></tr>
-<tr class="separator:aaeb9e286166887aef9ab4ed07fa80f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b2e19ae8a1d65ad3e1beefaa4e4c1fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a2b2e19ae8a1d65ad3e1beefaa4e4c1fa">GPIO_UCB0_SIMO_SDA</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="separator:a2b2e19ae8a1d65ad3e1beefaa4e4c1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2224a4b96e89f8f188f0786ca8c290a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a2224a4b96e89f8f188f0786ca8c290a5">GPIO_PORT_SIMO_SDA</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td></tr>
-<tr class="separator:a2224a4b96e89f8f188f0786ca8c290a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a734362cd811ed424f10e2c61a60f1144"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a734362cd811ed424f10e2c61a60f1144">GPIO_UCB0CLK</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="separator:a734362cd811ed424f10e2c61a60f1144"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a611ec95c95aa990bb0722d33e6da391b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a611ec95c95aa990bb0722d33e6da391b">GPIO_PORT_UCB0CLK</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td></tr>
-<tr class="separator:a611ec95c95aa990bb0722d33e6da391b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a022ca7d258e5fb9882fc31ee92a7d2ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a022ca7d258e5fb9882fc31ee92a7d2ac">GPIO_UCA0TXD</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a022ca7d258e5fb9882fc31ee92a7d2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabe97a7d9da10ff2c638b2cf2a407c26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#aabe97a7d9da10ff2c638b2cf2a407c26">GPIO_PORT_UCA0TXD</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td></tr>
-<tr class="separator:aabe97a7d9da10ff2c638b2cf2a407c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f8749ac4b9cbddc24560b80b220b7a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a1f8749ac4b9cbddc24560b80b220b7a7">GPIO_PA_ENABLE</a>&#160;&#160;&#160;0x08</td></tr>
-<tr class="separator:a1f8749ac4b9cbddc24560b80b220b7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a901e9ee3eca7e2ee24037103e4e85d2f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a901e9ee3eca7e2ee24037103e4e85d2f">GPIO_PORT_PA_ENABLE</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a901e9ee3eca7e2ee24037103e4e85d2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab226114c8ca3ea53a2359c4b85705267"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ab226114c8ca3ea53a2359c4b85705267">GPIO_LNA_ENABLE</a>&#160;&#160;&#160;0x10</td></tr>
-<tr class="separator:ab226114c8ca3ea53a2359c4b85705267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98846c185ec4df3f2dd7aa1f98aa7f4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a98846c185ec4df3f2dd7aa1f98aa7f4a">GPIO_PORT_LNA_ENABLE</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a98846c185ec4df3f2dd7aa1f98aa7f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfba3121a54caa888aae454b372d3d3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#acfba3121a54caa888aae454b372d3d3f">GPIO_HGM_SELECT</a>&#160;&#160;&#160;0x20</td></tr>
-<tr class="separator:acfba3121a54caa888aae454b372d3d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d7ef830dfb198f475fc87370caf81f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a0d7ef830dfb198f475fc87370caf81f6">GPIO_PORT_HGM_SELECT</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a0d7ef830dfb198f475fc87370caf81f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1289c819dd6968e882d10a5b292f1d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ab1289c819dd6968e882d10a5b292f1d9">GPIO_GPS_RESET</a>&#160;&#160;&#160;0x40</td></tr>
-<tr class="separator:ab1289c819dd6968e882d10a5b292f1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24bfb344856c29b4f9974b2aa7135906"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a24bfb344856c29b4f9974b2aa7135906">GPIO_PORT_GPS_RESET</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a24bfb344856c29b4f9974b2aa7135906"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37917c41b3df85a9df29412031bfd7a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a37917c41b3df85a9df29412031bfd7a5">GPIO_GPS_STANDBY</a>&#160;&#160;&#160;0x80</td></tr>
-<tr class="separator:a37917c41b3df85a9df29412031bfd7a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1814aced2f42a012b0cfd702dd017ccf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a1814aced2f42a012b0cfd702dd017ccf">GPIO_PORT_GPS_STANDBY</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a1814aced2f42a012b0cfd702dd017ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afecfdbc595e8e209d80d63e9fed7f7ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#afecfdbc595e8e209d80d63e9fed7f7ce">GPIO_LED_1</a>&#160;&#160;&#160;0x100</td></tr>
-<tr class="separator:afecfdbc595e8e209d80d63e9fed7f7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a1a5988f2afc8eace0733c09e9acbfa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a1a1a5988f2afc8eace0733c09e9acbfa">GPIO_PORT_LED_1</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:a1a1a5988f2afc8eace0733c09e9acbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d0dfd2d44be4dfe0f0ccacf436ab71a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a8d0dfd2d44be4dfe0f0ccacf436ab71a">GPIO_LED_2</a>&#160;&#160;&#160;0x200</td></tr>
-<tr class="separator:a8d0dfd2d44be4dfe0f0ccacf436ab71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac439a0587359bac135dd63df2e50d944"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ac439a0587359bac135dd63df2e50d944">GPIO_PORT_LED_2</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td></tr>
-<tr class="separator:ac439a0587359bac135dd63df2e50d944"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a118c6574fee104498f2fd032b9ac8632"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a118c6574fee104498f2fd032b9ac8632">GPIO_MOSFET_CNTL</a>&#160;&#160;&#160;0x400</td></tr>
-<tr class="separator:a118c6574fee104498f2fd032b9ac8632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c87318e643534dc673f382045813d7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a82c87318e643534dc673f382045813d7">GPIO_PORT_MOSFET_CNTL</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td></tr>
-<tr class="separator:a82c87318e643534dc673f382045813d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b140d2600f7dda577277db892b134b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a1b140d2600f7dda577277db892b134b2">GPIO_SRAM_CS</a>&#160;&#160;&#160;0x800</td></tr>
-<tr class="separator:a1b140d2600f7dda577277db892b134b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3816ff0c5e03e7b40bd0400174b3a488"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a3816ff0c5e03e7b40bd0400174b3a488">GPIO_PORT_SRAM_CS</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td></tr>
-<tr class="separator:a3816ff0c5e03e7b40bd0400174b3a488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83a212a525124a17074d291f2fc8d941"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a83a212a525124a17074d291f2fc8d941">GPIO_SRAM_HOLD</a>&#160;&#160;&#160;0x1000</td></tr>
-<tr class="separator:a83a212a525124a17074d291f2fc8d941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b5859e70c87017ba808972239ebb41a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a5b5859e70c87017ba808972239ebb41a">GPIO_PORT_SRAM_HOLD</a>&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td></tr>
-<tr class="separator:a5b5859e70c87017ba808972239ebb41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af2b7665de8d82182bdba8d58382120f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#af2b7665de8d82182bdba8d58382120f3">gpio_update</a> (unsigned char port, unsigned char pins, unsigned char command)</td></tr>
+<tr class="memdesc:af2b7665de8d82182bdba8d58382120f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a GPIO Port using a command bitmask.  <a href="#af2b7665de8d82182bdba8d58382120f3">More...</a><br /></td></tr>
 <tr class="separator:af2b7665de8d82182bdba8d58382120f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85">gpio_command_update</a> (unsigned char *port, unsigned char channel, unsigned char command)</td></tr>
+<tr class="memdesc:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update GPIO port and pins.  <a href="#ac6ab7ef793656b22e7b990f4d4d24b85">More...</a><br /></td></tr>
 <tr class="separator:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c710428c54264b145e3e882e9d9a68c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a1c710428c54264b145e3e882e9d9a68c">CC1190_PA_Enable</a> (void)</td></tr>
+<tr class="memdesc:a1c710428c54264b145e3e882e9d9a68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 RF power amplifier.  <a href="#a1c710428c54264b145e3e882e9d9a68c">More...</a><br /></td></tr>
 <tr class="separator:a1c710428c54264b145e3e882e9d9a68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88456595f737c712110db9256dc0ee10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a88456595f737c712110db9256dc0ee10">CC1190_PA_Disable</a> (void)</td></tr>
+<tr class="memdesc:a88456595f737c712110db9256dc0ee10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 RF power amplifier.  <a href="#a88456595f737c712110db9256dc0ee10">More...</a><br /></td></tr>
 <tr class="separator:a88456595f737c712110db9256dc0ee10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59d5b8e5ca63651e66800f84343ebdbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a59d5b8e5ca63651e66800f84343ebdbd">CC1190_LNA_Enable</a> (void)</td></tr>
+<tr class="memdesc:a59d5b8e5ca63651e66800f84343ebdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 RF low noise amplifier.  <a href="#a59d5b8e5ca63651e66800f84343ebdbd">More...</a><br /></td></tr>
 <tr class="separator:a59d5b8e5ca63651e66800f84343ebdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac48dbb7818766a92a3a0673bae5857e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ac48dbb7818766a92a3a0673bae5857e9">CC1190_LNA_Disable</a> (void)</td></tr>
+<tr class="memdesc:ac48dbb7818766a92a3a0673bae5857e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 RF low noise amplifier.  <a href="#ac48dbb7818766a92a3a0673bae5857e9">More...</a><br /></td></tr>
 <tr class="separator:ac48dbb7818766a92a3a0673bae5857e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a545ea83f8a685827185473e35809c251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#a545ea83f8a685827185473e35809c251">CC1190_HGM_Enable</a> (void)</td></tr>
+<tr class="memdesc:a545ea83f8a685827185473e35809c251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 High Gain Mode (HGM)  <a href="#a545ea83f8a685827185473e35809c251">More...</a><br /></td></tr>
 <tr class="separator:a545ea83f8a685827185473e35809c251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1b71702e8c20bf21701338331e059cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8h.html#ab1b71702e8c20bf21701338331e059cf">CC1190_HGM_Disable</a> (void)</td></tr>
+<tr class="memdesc:ab1b71702e8c20bf21701338331e059cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 High Gain Mode (HGM)  <a href="#ab1b71702e8c20bf21701338331e059cf">More...</a><br /></td></tr>
 <tr class="separator:ab1b71702e8c20bf21701338331e059cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ab1289c819dd6968e882d10a5b292f1d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1289c819dd6968e882d10a5b292f1d9">&sect;&nbsp;</a></span>GPIO_GPS_RESET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_GPS_RESET&#160;&#160;&#160;0x40</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a37917c41b3df85a9df29412031bfd7a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37917c41b3df85a9df29412031bfd7a5">&sect;&nbsp;</a></span>GPIO_GPS_STANDBY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_GPS_STANDBY&#160;&#160;&#160;0x80</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acfba3121a54caa888aae454b372d3d3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfba3121a54caa888aae454b372d3d3f">&sect;&nbsp;</a></span>GPIO_HGM_SELECT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_HGM_SELECT&#160;&#160;&#160;0x20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afecfdbc595e8e209d80d63e9fed7f7ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afecfdbc595e8e209d80d63e9fed7f7ce">&sect;&nbsp;</a></span>GPIO_LED_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_LED_1&#160;&#160;&#160;0x100</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8d0dfd2d44be4dfe0f0ccacf436ab71a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d0dfd2d44be4dfe0f0ccacf436ab71a">&sect;&nbsp;</a></span>GPIO_LED_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_LED_2&#160;&#160;&#160;0x200</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab226114c8ca3ea53a2359c4b85705267"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab226114c8ca3ea53a2359c4b85705267">&sect;&nbsp;</a></span>GPIO_LNA_ENABLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_LNA_ENABLE&#160;&#160;&#160;0x10</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a118c6574fee104498f2fd032b9ac8632"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a118c6574fee104498f2fd032b9ac8632">&sect;&nbsp;</a></span>GPIO_MOSFET_CNTL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_MOSFET_CNTL&#160;&#160;&#160;0x400</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1f8749ac4b9cbddc24560b80b220b7a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f8749ac4b9cbddc24560b80b220b7a7">&sect;&nbsp;</a></span>GPIO_PA_ENABLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PA_ENABLE&#160;&#160;&#160;0x08</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a24bfb344856c29b4f9974b2aa7135906"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24bfb344856c29b4f9974b2aa7135906">&sect;&nbsp;</a></span>GPIO_PORT_GPS_RESET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_GPS_RESET&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1814aced2f42a012b0cfd702dd017ccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1814aced2f42a012b0cfd702dd017ccf">&sect;&nbsp;</a></span>GPIO_PORT_GPS_STANDBY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_GPS_STANDBY&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0d7ef830dfb198f475fc87370caf81f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d7ef830dfb198f475fc87370caf81f6">&sect;&nbsp;</a></span>GPIO_PORT_HGM_SELECT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_HGM_SELECT&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1a1a5988f2afc8eace0733c09e9acbfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a1a5988f2afc8eace0733c09e9acbfa">&sect;&nbsp;</a></span>GPIO_PORT_LED_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_LED_1&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac439a0587359bac135dd63df2e50d944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac439a0587359bac135dd63df2e50d944">&sect;&nbsp;</a></span>GPIO_PORT_LED_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_LED_2&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a98846c185ec4df3f2dd7aa1f98aa7f4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98846c185ec4df3f2dd7aa1f98aa7f4a">&sect;&nbsp;</a></span>GPIO_PORT_LNA_ENABLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_LNA_ENABLE&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a82c87318e643534dc673f382045813d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c87318e643534dc673f382045813d7">&sect;&nbsp;</a></span>GPIO_PORT_MOSFET_CNTL</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_MOSFET_CNTL&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a901e9ee3eca7e2ee24037103e4e85d2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a901e9ee3eca7e2ee24037103e4e85d2f">&sect;&nbsp;</a></span>GPIO_PORT_PA_ENABLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_PA_ENABLE&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a2eeb082ad0e00bfd26acf2ea0ff37ab1">P3OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2224a4b96e89f8f188f0786ca8c290a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2224a4b96e89f8f188f0786ca8c290a5">&sect;&nbsp;</a></span>GPIO_PORT_SIMO_SDA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_SIMO_SDA&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3816ff0c5e03e7b40bd0400174b3a488"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3816ff0c5e03e7b40bd0400174b3a488">&sect;&nbsp;</a></span>GPIO_PORT_SRAM_CS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_SRAM_CS&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5b5859e70c87017ba808972239ebb41a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b5859e70c87017ba808972239ebb41a">&sect;&nbsp;</a></span>GPIO_PORT_SRAM_HOLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_SRAM_HOLD&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#af1256047ebde7d26caebe0573f6c353e">P5OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aabe97a7d9da10ff2c638b2cf2a407c26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabe97a7d9da10ff2c638b2cf2a407c26">&sect;&nbsp;</a></span>GPIO_PORT_UCA0TXD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_UCA0TXD&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a611ec95c95aa990bb0722d33e6da391b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a611ec95c95aa990bb0722d33e6da391b">&sect;&nbsp;</a></span>GPIO_PORT_UCB0CLK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_UCB0CLK&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaeb9e286166887aef9ab4ed07fa80f7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeb9e286166887aef9ab4ed07fa80f7f">&sect;&nbsp;</a></span>GPIO_PORT_UCB0CS1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_PORT_UCB0CS1&#160;&#160;&#160;<a class="el" href="cc430f6137_8h.html#a88b9d8da66f5f1eff1d08025754cda85">P1OUT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1b140d2600f7dda577277db892b134b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b140d2600f7dda577277db892b134b2">&sect;&nbsp;</a></span>GPIO_SRAM_CS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_SRAM_CS&#160;&#160;&#160;0x800</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a83a212a525124a17074d291f2fc8d941"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83a212a525124a17074d291f2fc8d941">&sect;&nbsp;</a></span>GPIO_SRAM_HOLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_SRAM_HOLD&#160;&#160;&#160;0x1000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a022ca7d258e5fb9882fc31ee92a7d2ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a022ca7d258e5fb9882fc31ee92a7d2ac">&sect;&nbsp;</a></span>GPIO_UCA0TXD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_UCA0TXD&#160;&#160;&#160;0x04</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2b2e19ae8a1d65ad3e1beefaa4e4c1fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b2e19ae8a1d65ad3e1beefaa4e4c1fa">&sect;&nbsp;</a></span>GPIO_UCB0_SIMO_SDA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_UCB0_SIMO_SDA&#160;&#160;&#160;0x01</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a734362cd811ed424f10e2c61a60f1144"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a734362cd811ed424f10e2c61a60f1144">&sect;&nbsp;</a></span>GPIO_UCB0CLK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_UCB0CLK&#160;&#160;&#160;0x02</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abb4362a4eeec29d705de4cf572c7d642"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb4362a4eeec29d705de4cf572c7d642">&sect;&nbsp;</a></span>GPIO_UCB0CS1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_UCB0CS1&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction for the GPIO. </p>
+<p>These functions provide a hardware abstraction for the general purpose input/output peripheral on the CC430. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab1b71702e8c20bf21701338331e059cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1b71702e8c20bf21701338331e059cf">&sect;&nbsp;</a></span>CC1190_HGM_Disable()</h2>
 
@@ -578,6 +139,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disable the CC1190 High Gain Mode (HGM) </p>
+<p>Disable the CC1190 High Gain Mode (HGM) GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
 
 </div>
 </div>
@@ -597,6 +162,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable the CC1190 High Gain Mode (HGM) </p>
+<p>Enable the CC1190 High Gain Mode (HGM) GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
+
 </div>
 </div>
 <a id="ac48dbb7818766a92a3a0673bae5857e9"></a>
@@ -614,6 +183,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disable the CC1190 RF low noise amplifier. </p>
+<p>Disable the CC1190 RF low noise amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
 
 </div>
 </div>
@@ -633,6 +206,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable the CC1190 RF low noise amplifier. </p>
+<p>Enable the CC1190 RF low noise amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
+
 </div>
 </div>
 <a id="a88456595f737c712110db9256dc0ee10"></a>
@@ -651,6 +228,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Disable the CC1190 RF power amplifier. </p>
+<p>Disable the CC1190 RF power amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
+
 </div>
 </div>
 <a id="a1c710428c54264b145e3e882e9d9a68c"></a>
@@ -668,6 +249,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable the CC1190 RF power amplifier. </p>
+<p>Enable the CC1190 RF power amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>This should be moved into <a class="el" href="_faraday___h_a_l_8c.html" title="Hardware abstraction for Faraday. ">Faraday_HAL.c</a></dd></dl>
 
 </div>
 </div>
@@ -703,6 +288,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update GPIO port and pins. </p>
+<p>Using a supplied port number and supplied pins bitmask GPIO pins can be updated to enabled or disabled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>A pointer to the GPIO port number </td></tr>
+    <tr><td class="paramname">pins</td><td>Bitmask for the port pins intended to be updated </td></tr>
+    <tr><td class="paramname">command</td><td>to supply the <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> function that determines if the pins bitmasked are enabled or disabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>Does port variable really need to be a pointer?</dd></dl>
+
 </div>
 </div>
 <a id="af2b7665de8d82182bdba8d58382120f3"></a>
@@ -736,6 +333,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update a GPIO Port using a command bitmask. </p>
+<p>Update a GPIO Port using a command bitmask supplied to indicated pins and a command to indicate action. This function is primarly used to verify allowed actions on GPIO ports and call teh <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> routine to perform updates as needed.</p>
+<p>Ports Supported:</p><ul>
+<li>Ports 3, 4, 5</li>
+</ul>
+<p>Commands</p><ul>
+<li>0 = Bitmasked HIGH pins OFF</li>
+<li>1 = Bitmasked HIGH pins ON</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>The GPIO port </td></tr>
+    <tr><td class="paramname">pins</td><td>Bitmask for the port pins intended to be updated </td></tr>
+    <tr><td class="paramname">command</td><td>to supply the <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> function that determines if the pins bitmasked are enabled or disabled </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

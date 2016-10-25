@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Faraday_HAL/SPI.c File Reference</title>
+<title>Faraday-Firmware: Faraday_HAL/SPI.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,15 +87,22 @@ $(document).ready(function(){initNavTree('_s_p_i_8c.html','');});
 <div class="title">SPI.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+
+<p>Hardware abstraction functions for SPI.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_p_i_8h_source.html">SPI.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a72d04c3c57e69a104cb9249da45f46f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i_8c.html#a72d04c3c57e69a104cb9249da45f46f5">spi_tx</a> (unsigned char tx)</td></tr>
+<tr class="memdesc:a72d04c3c57e69a104cb9249da45f46f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a byte into the SPI transmit register (polling)  <a href="#a72d04c3c57e69a104cb9249da45f46f5">More...</a><br /></td></tr>
 <tr class="separator:a72d04c3c57e69a104cb9249da45f46f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction functions for SPI. </p>
+<p>These functions provide an abstraction layer for the CC430 SPI peripheral. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a72d04c3c57e69a104cb9249da45f46f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a72d04c3c57e69a104cb9249da45f46f5">&sect;&nbsp;</a></span>spi_tx()</h2>
 
@@ -111,6 +118,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Shift a byte into the SPI transmit register (polling) </p>
+<p>This is the main function used to directly shift a byte into the SPI transmit register to transmit the byte over SPI.</p>
+<dl class="section note"><dt>Note</dt><dd>This routine is a polling method SPI interaction. </dd></dl>
 
 </div>
 </div>

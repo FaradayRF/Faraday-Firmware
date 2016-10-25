@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/ref.h File Reference</title>
+<title>Faraday-Firmware: HAL/ref.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,18 +88,27 @@ $(document).ready(function(){initNavTree('ref_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Hardware abstraction for the CC430 internal voltage reference.  
+<a href="#details">More...</a></p>
+
 <p><a href="ref_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7eed19d1aa791bc5d0a20f92597d15b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ref_8h.html#a7eed19d1aa791bc5d0a20f92597d15b9">Enable_Reference</a> (unsigned char set)</td></tr>
+<tr class="memdesc:a7eed19d1aa791bc5d0a20f92597d15b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/Disable the internal voltage reference.  <a href="#a7eed19d1aa791bc5d0a20f92597d15b9">More...</a><br /></td></tr>
 <tr class="separator:a7eed19d1aa791bc5d0a20f92597d15b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11bb3c72f5e896ccd99d3399797c6778"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ref_8h.html#a11bb3c72f5e896ccd99d3399797c6778">Enable_Reference_External_Output</a> (unsigned char set)</td></tr>
+<tr class="memdesc:a11bb3c72f5e896ccd99d3399797c6778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/Disable the provision of the internal voltage reference to an external pin.  <a href="#a11bb3c72f5e896ccd99d3399797c6778">More...</a><br /></td></tr>
 <tr class="separator:a11bb3c72f5e896ccd99d3399797c6778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb3303f160bd02133377fc0c1fa5516a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ref_8h.html#aeb3303f160bd02133377fc0c1fa5516a">Set_Reference</a> (unsigned char set)</td></tr>
+<tr class="memdesc:aeb3303f160bd02133377fc0c1fa5516a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the internal voltage reference voltage.  <a href="#aeb3303f160bd02133377fc0c1fa5516a">More...</a><br /></td></tr>
 <tr class="separator:aeb3303f160bd02133377fc0c1fa5516a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction for the CC430 internal voltage reference. </p>
+<p>Hardware abstraction for the CC430 internal voltage reference peripheral. This voltage reference is used by primarally the ADC. This HAL also allows for enabling the internal reference to be provided externally through a GPIO pin. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a7eed19d1aa791bc5d0a20f92597d15b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7eed19d1aa791bc5d0a20f92597d15b9">&sect;&nbsp;</a></span>Enable_Reference()</h2>
 
@@ -115,6 +124,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable/Disable the internal voltage reference. </p>
+<p>Enable/Disable the CC430 internal voltage reference peripheral.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>If 0 then REFON is OFF and if 1 then REFON is ON</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>This is a confusing function name. It should be split in the future to a specific enable/disable function with no function argument.</dd></dl>
 
 </div>
 </div>
@@ -134,6 +153,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable/Disable the provision of the internal voltage reference to an external pin. </p>
+<p>Enable/Disable the provision of the internal voltage reference to an external pin</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>If 0 then REFOUT is OFF and if 1 then REFOUT is ON</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>This is a confusing function name. It should be split in the future to a specific enable/disable function with no function argument.</dd></dl>
+
 </div>
 </div>
 <a id="aeb3303f160bd02133377fc0c1fa5516a"></a>
@@ -151,6 +180,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the internal voltage reference voltage. </p>
+<p>This function is used to set the internal voltage reference operating voltage. This is used to determine ADC full scale voltage.</p>
+<p>Set Modes</p><ul>
+<li>0 = 1.5V</li>
+<li>1 = 2.0V</li>
+<li>2 = 2.5V</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>The mode number which determines the voltage reference voltage </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

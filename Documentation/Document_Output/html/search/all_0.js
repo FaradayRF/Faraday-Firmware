@@ -1,5 +1,10 @@
 var searchData=
 [
+  ['adc_2ec',['adc.c',['../adc_8c.html',1,'']]],
+  ['adc_2eh',['adc.h',['../adc_8h.html',1,'']]],
+  ['adc_5fcorrected_5fcalibration_5ftemp_5fc_5fint',['adc_corrected_calibration_temp_C_int',['../adc_8c.html#a752f1c469994ba01fd884b37f2f56a78',1,'adc_corrected_calibration_temp_C_int(int uInt_Raw_Temp):&#160;adc.c'],['../adc_8h.html#a752f1c469994ba01fd884b37f2f56a78',1,'adc_corrected_calibration_temp_C_int(int uInt_Raw_Temp):&#160;adc.c']]],
+  ['alt_5funits',['Alt_Units',['../struct_g_g_a___data.html#a5318c5b6b1e1f6f8802011debd09c987',1,'GGA_Data']]],
+  ['altitude',['Altitude',['../struct_g_g_a___data.html#a0c0906c5e89414f1d68617b53c9dd175',1,'GGA_Data']]],
   ['app_5fcommand_5fpacket_5fconfig',['APP_COMMAND_PACKET_CONFIG',['../struct_a_p_p___c_o_m_m_a_n_d___p_a_c_k_e_t___c_o_n_f_i_g.html',1,'']]],
   ['app_5fcommand_5frf_5fpacket',['APP_COMMAND_RF_PACKET',['../struct_a_p_p___c_o_m_m_a_n_d___r_f___p_a_c_k_e_t.html',1,'']]],
   ['app_5fhab_2ec',['App_HAB.c',['../_app___h_a_b_8c.html',1,'']]],

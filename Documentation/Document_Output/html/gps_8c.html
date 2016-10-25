@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/gps.c File Reference</title>
+<title>Faraday-Firmware: HAL/gps.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,25 +87,36 @@ $(document).ready(function(){initNavTree('gps_8c.html','');});
 <div class="title">gps.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="gps_8h_source.html">gps.h</a>&quot;</code><br />
+
+<p>Hardware abstraction for the Faraday GPS module.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="gps_8h_source.html">gps.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8c.html#af34b9153ae0d5a43a1e3ed80ada3e3ce">initialize_GPS_structs</a> (void)</td></tr>
+<tr class="memdesc:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all needed GPS structures.  <a href="#af34b9153ae0d5a43a1e3ed80ada3e3ce">More...</a><br /></td></tr>
 <tr class="separator:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af568234a9b236524942a5f8a725e15f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8c.html#af568234a9b236524942a5f8a725e15f3">gps_get_nmea_string</a> (volatile unsigned char *byte)</td></tr>
+<tr class="memdesc:af568234a9b236524942a5f8a725e15f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse GPS NMEA bytestream.  <a href="#af568234a9b236524942a5f8a725e15f3">More...</a><br /></td></tr>
 <tr class="separator:af568234a9b236524942a5f8a725e15f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e0af7226bf00217bb1ba27431456fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8c.html#a42e0af7226bf00217bb1ba27431456fa">Parse_GGA</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:a42e0af7226bf00217bb1ba27431456fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse NMEA GGA sentence.  <a href="#a42e0af7226bf00217bb1ba27431456fa">More...</a><br /></td></tr>
 <tr class="separator:a42e0af7226bf00217bb1ba27431456fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a568485fe8add01b7bb95c22e949c20fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8c.html#a568485fe8add01b7bb95c22e949c20fd">Parse_RMC</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:a568485fe8add01b7bb95c22e949c20fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse NMEA RMC sentence.  <a href="#a568485fe8add01b7bb95c22e949c20fd">More...</a><br /></td></tr>
 <tr class="separator:a568485fe8add01b7bb95c22e949c20fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8c.html#ac856ae7bccd9c7d4166b1a651f1aa345">Save_GPS_string_2</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses GPS sentence.  <a href="#ac856ae7bccd9c7d4166b1a651f1aa345">More...</a><br /></td></tr>
 <tr class="separator:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction for the Faraday GPS module. </p>
+<p>These functions provide hardware abstraction for the onboard GPS. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="af568234a9b236524942a5f8a725e15f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af568234a9b236524942a5f8a725e15f3">&sect;&nbsp;</a></span>gps_get_nmea_string()</h2>
 
@@ -121,6 +132,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parse GPS NMEA bytestream. </p>
+<p>Detects the start of a NMEA string and builds a char array with each byte received until a full sentence is received.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>A pointer to the byte from the GPS NMEA bytestream to be parsed (framing) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -140,6 +160,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize all needed GPS structures. </p>
+<p>Initialize needed GPS structures for proper default operation. </p>
+
 </div>
 </div>
 <a id="a42e0af7226bf00217bb1ba27431456fa"></a>
@@ -157,6 +180,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parse NMEA GGA sentence. </p>
+<p>This function parses the NMEA GGA sentence into the GPS global structure that is used to hold the parsed GGA fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -176,6 +208,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parse NMEA RMC sentence. </p>
+<p>This function parses the NMEA RMC sentence into the GPS global structure that is used to hold the parsed RMC fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac856ae7bccd9c7d4166b1a651f1aa345"></a>
@@ -193,6 +234,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parses GPS sentence. </p>
+<p>Determines what type of NMEA string was received and parses it using the expected packet fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Only a select few GPS sentences are supported! </dd></dl>
 
 </div>
 </div>

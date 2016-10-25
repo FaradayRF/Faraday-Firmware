@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['hal_5fmacros_2eh',['hal_macros.h',['../hal__macros_8h.html',1,'']]],
-  ['hal_5fpmm_2ec',['hal_pmm.c',['../hal__pmm_8c.html',1,'']]],
-  ['hal_5fpmm_2eh',['hal_pmm.h',['../hal__pmm_8h.html',1,'']]],
-  ['hal_5fucs_2ec',['hal_UCS.c',['../hal___u_c_s_8c.html',1,'']]],
-  ['hal_5fucs_2eh',['hal_UCS.h',['../hal___u_c_s_8h.html',1,'']]],
-  ['housekeeping_2ec',['housekeeping.c',['../housekeeping_8c.html',1,'']]],
-  ['housekeeping_2eh',['housekeeping.h',['../housekeeping_8h.html',1,'']]]
+  ['spi_2ec',['SPI.c',['../_s_p_i_8c.html',1,'']]],
+  ['spi_2eh',['SPI.h',['../_s_p_i_8h.html',1,'']]],
+  ['spi_5fflash_2ec',['SPI_FLASH.c',['../_s_p_i___f_l_a_s_h_8c.html',1,'']]],
+  ['spi_5fflash_2eh',['SPI_FLASH.h',['../_s_p_i___f_l_a_s_h_8h.html',1,'']]],
+  ['sram_2ec',['SRAM.c',['../_s_r_a_m_8c.html',1,'']]],
+  ['sram_2eh',['SRAM.h',['../_s_r_a_m_8h.html',1,'']]]
 ];

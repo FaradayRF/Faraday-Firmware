@@ -88,8 +88,24 @@ $(document).ready(function(){initNavTree('bug.html','');});
 <div class="textblock"><dl class="reflist">
 <dt><a class="anchor" id="_bug000001"></a>File <a class="el" href="_app___h_a_b_8h.html">App_HAB.h</a>  </dt>
 <dd><a class="el" href="_app___h_a_b_8c.html#ae358153620f0f472332e39f8db1cdda7" title="Gather information about the HAB functions for telemetry. ">application_hab_create_telem_3_pkt()</a> function doesn't actually return anything! </dd>
-<dt><a class="anchor" id="_bug000002"></a>Global <a class="el" href="rf__transport_8h.html#a35176a5270dfcea1b086af5845de60ad">rf_service_tx</a>  (unsigned char *L4_payload_buffer, unsigned char L4_payload_len, unsigned char L4_service_number, char *L2_src_callsign, unsigned char L2_src_callsign_len, unsigned char L2_src_callsign_id, char *L2_dest_callsign, unsigned char L2_dest_callsign_len, unsigned char L2_dest_callsign_id, unsigned char L2_packet_type, unsigned char L2_packet_config)</dt>
-<dd>This should be simplified in the layer 4 source and service moved to the service source file. Layer isolation should be improved.</dd>
+<dt><a class="anchor" id="_bug000002"></a>Global <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85">gpio_command_update</a>  (unsigned char *port, unsigned char channel, unsigned char command)</dt>
+<dd>Does port variable really need to be a pointer? </dd>
+<dt><a class="anchor" id="_bug000004"></a>Module <a class="el" href="rf_8h.html#amgrpc0f1abc2f8eb56911c50d99754a847af">RF Layer 2 FIFO Definitions</a>  </dt>
+<dd><p class="startdd">Why is RF_DATALINK_PACKET_PAYLOAD_LEN 62 bytes instead of 61? RX extra footer bytes? </p>
+<p class="enddd">All of this should be updated to be in the main definitions and not FIFO specific! </p>
+</dd>
+<dt><a class="anchor" id="_bug000005"></a>Module <a class="el" href="rf_8h.html#amgrpcabcaa0f4584f5acf5089902a685c922">RF Layer 2 Packet Parsing Definitions</a>  </dt>
+<dd><p class="startdd">Layer 2 is the only layer with a callsign length of 6 bytes instead of 9! </p>
+<p class="enddd">Is RF_DATALINK_PKT_PKT_LEN_LOC really needed??? </p>
+</dd>
+<dt><a class="anchor" id="_bug000006"></a>Global <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>  </dt>
+<dd>44 instead of 45 due to UART transport layer limitation of 63 payload bytes... </dd>
+<dt><a class="anchor" id="_bug000006"></a>Global <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>  </dt>
+<dd>44 instead of 45 due to UART transport layer limitation of 63 payload bytes... </dd>
+<dt><a class="anchor" id="_bug000007"></a>Global <a class="el" href="rf__transport_8h.html#a35176a5270dfcea1b086af5845de60ad">rf_service_tx</a>  (unsigned char *L4_payload_buffer, unsigned char L4_payload_len, unsigned char L4_service_number, char *L2_src_callsign, unsigned char L2_src_callsign_len, unsigned char L2_src_callsign_id, char *L2_dest_callsign, unsigned char L2_dest_callsign_len, unsigned char L2_dest_callsign_id, unsigned char L2_packet_type, unsigned char L2_packet_config)</dt>
+<dd>This should be simplified in the layer 4 source and service moved to the service source file. Layer isolation should be improved. </dd>
+<dt><a class="anchor" id="_bug000003"></a>Module <a class="el" href="rf_8c.html#amgrpc655292f3bef6ea27b478ca89c72ed6b">Transmit/Receive Bytearray Buffers</a>  </dt>
+<dd>Are these better suited for local function variables?</dd>
 </dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->

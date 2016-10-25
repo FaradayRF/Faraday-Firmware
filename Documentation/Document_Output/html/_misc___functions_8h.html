@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/Faraday_HAL/Misc_Functions.h File Reference</title>
+<title>Faraday-Firmware: Faraday_HAL/Misc_Functions.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,38 +88,27 @@ $(document).ready(function(){initNavTree('_misc___functions_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Miscellaneous faraday functions.  
+<a href="#details">More...</a></p>
+
 <p><a href="_misc___functions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af142d80d9ae3da41efa8a42b802fb6f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_misc___functions_8h.html#af142d80d9ae3da41efa8a42b802fb6f0">Basic_Delay</a> (unsigned long count)</td></tr>
-<tr class="separator:af142d80d9ae3da41efa8a42b802fb6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebdc279812fbb373dea1fd09ed7fd7ad"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_misc___functions_8h.html#aebdc279812fbb373dea1fd09ed7fd7ad">check_bitmask</a> (unsigned char bitmask_byte, unsigned char bit_location)</td></tr>
+<tr class="memdesc:aebdc279812fbb373dea1fd09ed7fd7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a bitmask for current bit state.  <a href="#aebdc279812fbb373dea1fd09ed7fd7ad">More...</a><br /></td></tr>
 <tr class="separator:aebdc279812fbb373dea1fd09ed7fd7ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdd47bbebcaa4c0c9e767400f2c521b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_misc___functions_8h.html#acdd47bbebcaa4c0c9e767400f2c521b6">int_to_byte_array</a> (unsigned char *byte_array, int integer)</td></tr>
+<tr class="memdesc:acdd47bbebcaa4c0c9e767400f2c521b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer to byte array function.  <a href="#acdd47bbebcaa4c0c9e767400f2c521b6">More...</a><br /></td></tr>
 <tr class="separator:acdd47bbebcaa4c0c9e767400f2c521b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38edc3ee8221327d8dbc64b5f437c24d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_misc___functions_8h.html#a38edc3ee8221327d8dbc64b5f437c24d">compute_checksum_16</a> (int buffer_size, unsigned char *buffer)</td></tr>
+<tr class="memdesc:a38edc3ee8221327d8dbc64b5f437c24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute 16 bit checksum.  <a href="#a38edc3ee8221327d8dbc64b5f437c24d">More...</a><br /></td></tr>
 <tr class="separator:a38edc3ee8221327d8dbc64b5f437c24d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="af142d80d9ae3da41efa8a42b802fb6f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af142d80d9ae3da41efa8a42b802fb6f0">&sect;&nbsp;</a></span>Basic_Delay()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Basic_Delay </td>
-          <td>(</td>
-          <td class="paramtype">unsigned long&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Miscellaneous faraday functions. </p>
+<p>The functions are miscellaneous functions used to perform common functions. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="aebdc279812fbb373dea1fd09ed7fd7ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebdc279812fbb373dea1fd09ed7fd7ad">&sect;&nbsp;</a></span>check_bitmask()</h2>
 
@@ -145,6 +134,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Check a bitmask for current bit state. </p>
+<p>This function accepts a bitmask byte and a bit location in the byte and returns a value based on whether the bit in the bitmask is HIGH.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitmask_byte</td><td>The bitmask byte to check </td></tr>
+    <tr><td class="paramname">bit_location</td><td>The bit location in the bitmask to check</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the result of (bitmask_byte &amp; bit_location) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -174,6 +179,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Compute 16 bit checksum. </p>
+<p>This function computes the supplied byte(s) 16 bit checksum value. This is used around Faraday for error detection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer_size</td><td>Size in bytes of the byte/bytearray that will be computed </td></tr>
+    <tr><td class="paramname">buffer</td><td>A pointer to the data (byte/bytearray) that the 16 bit checksum will be computed from</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>the 16 bit checksum as an integer </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acdd47bbebcaa4c0c9e767400f2c521b6"></a>
@@ -201,6 +222,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Integer to byte array function. </p>
+<p>This function accepts an integer and shifts the integer into a byte array. This function is useful for converting integers such as ADC values into 2-byte unsigned char array values.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte_array</td><td>A pointer to the byte array that the integer supplied will be shifted into (expect size of 2 bytes) </td></tr>
+    <tr><td class="paramname">integer</td><td>The integer to be shifted in to the byte array </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

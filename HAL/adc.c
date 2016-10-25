@@ -1,17 +1,24 @@
-#include "../Faraday_Globals.h"
-#include "../REVA_Faraday.h"
-#include "cc430f6137.h"
+/** @file adc.c
+ *  @brief ADC Hardware Abstraction Functions
+ *
+ *  These funcitons abstract interacts with the ADC peripheral on the
+ *  CC430.
+ *
+ */
 
-/************************************************************
-* Function: Clear ADC12 Memory Control Register
-*
-* Description: Clear the ADC12CTL2 memory register passed to the function
-*
-* Inputs: unsigned char MemoryChannel
-*
-* Outputs: Nothing
-*
-*************************************************************/
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
+#include "adc.h"
+
+/* hardware abstraction/allocation */
+#include "../REVA_Faraday.h"
+
+/* faraday global variables */
+#include "../Faraday_Globals.h"
+
+
 void Clear_ADC12_Memory_Control_Register(unsigned char MemoryChannel){
 switch(MemoryChannel)
 	{
@@ -69,114 +76,7 @@ switch(MemoryChannel)
 	}
 }
 
-/************************************************************
-* Function: Enable ADC12 Channel Interrupt
-*
-* Description: Enable the interrupt for an ADC12 channel interrupt
-*
-* Inputs: unsigned char set
-*
-* Outputs: nothing
-*
-*************************************************************/
-void Enable_ADC12_Channel_Interrupt(unsigned char set)
-{
-	switch(set)
-	{
-	case 0:
-		ADC12IE |= ADC12IE0;		// ADC12 Channel 0 Interrupt Enable
-		break;
-	case 1:
-		ADC12IE |= ADC12IE1;		// ADC12 Channel 1 Interrupt Enable
-		break;
-	case 2:
-		ADC12IE |= ADC12IE2;		// ADC12 Channel 2 Interrupt Enable
-		break;
-	case 3:
-		ADC12IE |= ADC12IE3;		// ADC12 Channel 3 Interrupt Enable
-		break;
-	case 4:
-		ADC12IE |= ADC12IE4;		// ADC12 Channel 4 Interrupt Enable
-		break;
-	case 5:
-		ADC12IE |= ADC12IE5;		// ADC12 Channel 5 Interrupt Enable
-		break;
-	case 6:
-		ADC12IE |= ADC12IE6;		// ADC12 Channel 6 Interrupt Enable
-		break;
-	case 7:
-		ADC12IE |= ADC12IE7;		// ADC12 Channel 7 Interrupt Enable
-		break;
-	case 8:
-		ADC12IE |= ADC12IE8;		// ADC12 Channel 8 Interrupt Enable
-		break;
-	case 9:
-		ADC12IE |= ADC12IE9;		// ADC12 Channel 9 Interrupt Enable
-		break;
-	case 10:
-		ADC12IE |= ADC12IE10;		// ADC12 Channel 10 Interrupt Enable
-		break;
-	case 11:
-		ADC12IE |= ADC12IE11;		// ADC12 Channel 11 Interrupt Enable
-		break;
-	case 12:
-		ADC12IE |= ADC12IE12;		// ADC12 Channel 12 Interrupt Enable
-		break;
-	case 13:
-		ADC12IE |= ADC12IE13;		// ADC12 Channel 13 Interrupt Enable
-		break;
-	case 14:
-		ADC12IE |= ADC12IE14;		// ADC12 Channel 14 Interrupt Enable
-		break;
-	case 15:
-		ADC12IE |= ADC12IE15;		// ADC12 Channel 15 Interrupt Enable
-		break;
-	default:
-		__no_operation();
-		break;
-	}
-}
 
-/************************************************************
-* Function: Set ADC12 Conversion Mode
-*
-* Description: Set ADC12 conversion mode
-*
-* Inputs: unsigned char set
-*
-* Outputs: nothing
-*
-*************************************************************/
-void Set_ADC12_Conversion_Mode(unsigned char set){
-	switch(set){
-		case 0:
-			ADC12CTL1 |= ADC12CONSEQ_0;		// Set ADC12 to single channel, single conversion mode
-			break;
-		case 1:
-			ADC12CTL1 |= ADC12CONSEQ_1;		// Set ADC12 to sequence of channels conversion mode
-			break;
-		case 2:
-			ADC12CTL1 |= ADC12CONSEQ_2;		// Set ADC12 to repeated single channel conversion mode
-			break;
-		case 3:
-			ADC12CTL1 |= ADC12CONSEQ_3;		// Set ADC12 to repeated sequence of channels conversion mode
-			break;
-		default:
-			__no_operation();
-			break;
-	}
-}
-
-/************************************************************
-* Function: Enable ADC12 Memory Channel Interrupt
-*
-* Description: Sets the selected ADC12MEMX Channel to cause and interrupt
-*
-* Inputs: unsigned char set
-*
-* Outputs: nothing
-*
-*************************************************************/
 void Enable_ADC12_Memory_Channel_Interrupt(unsigned char set){
 	switch(set)
 	{
@@ -233,6 +133,7 @@ void Enable_ADC12_Memory_Channel_Interrupt(unsigned char set){
 		break;
 	}
 }
+
 
 unsigned int adc_corrected_calibration_temp_C_int(int uInt_Raw_Temp){
 	//Get the TI supplied flash calibration values from Faraday definitions

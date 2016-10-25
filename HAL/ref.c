@@ -1,4 +1,17 @@
+/** @file ref.c
+ * 	@brief Hardware abstraction for the CC430 internal voltage reference
+ *
+ * 	Hardware abstraction for the CC430 internal voltage reference peripheral. This voltage reference
+ * 	is used by primarally the ADC. This HAL also allows for enabling the internal reference to be provided
+ * 	externally through a GPIO pin.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
+#include "ref.h"
 
 void Enable_Reference(unsigned char set){
 	switch(set)

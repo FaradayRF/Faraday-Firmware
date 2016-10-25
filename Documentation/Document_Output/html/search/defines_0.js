@@ -1,14 +1,17 @@
 var searchData=
 [
-  ['hab_5fauto_5fcutdown_5fstate_5f0',['HAB_AUTO_CUTDOWN_STATE_0',['../_app___h_a_b_8h.html#a2917413fb370719ef6c07bc587d076ce',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f1',['HAB_AUTO_CUTDOWN_STATE_1',['../_app___h_a_b_8h.html#a23bd887a3cce01cf6bf344db0e8158e4',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f2',['HAB_AUTO_CUTDOWN_STATE_2',['../_app___h_a_b_8h.html#a57f4270ddd200f13b654d7c2e5a37a93',1,'App_HAB.h']]],
-  ['hab_5fauto_5fcutdown_5fstate_5f3',['HAB_AUTO_CUTDOWN_STATE_3',['../_app___h_a_b_8h.html#a9996f0594778f22e8630565b3d563d4d',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f0',['HAB_CUTDOWN_EVENT_STATE_0',['../_app___h_a_b_8h.html#a11547ecff2e96e53f97621a1626a8949',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f1',['HAB_CUTDOWN_EVENT_STATE_1',['../_app___h_a_b_8h.html#a099023609d292b07a386cc4e98c5bd53',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f2',['HAB_CUTDOWN_EVENT_STATE_2',['../_app___h_a_b_8h.html#a8b720feea0c88957e5a0d4ab8c82d154',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f255',['HAB_CUTDOWN_EVENT_STATE_255',['../_app___h_a_b_8h.html#ad490472e16ddd8a2c4b476bf18ce1c37',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5fstate_5f3',['HAB_CUTDOWN_EVENT_STATE_3',['../_app___h_a_b_8h.html#a82bf4e9c46eabe2893a78c4341b03f9a',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5fevent_5ftimer_5fcount_5fseconds',['HAB_CUTDOWN_EVENT_TIMER_COUNT_SECONDS',['../_app___h_a_b_8h.html#adda9f897d33e223d29aab682ee590179',1,'App_HAB.h']]],
-  ['hab_5fcutdown_5ftimer_5fcount_5fseconds',['HAB_CUTDOWN_TIMER_COUNT_SECONDS',['../_app___h_a_b_8h.html#a648c1c67f180e3ec86bcc3378fc2f9d4',1,'App_HAB.h']]]
+  ['flash_5fmem_5fadr_5fdevice_5fdescriptor_5fa',['FLASH_MEM_ADR_DEVICE_DESCRIPTOR_A',['../flash_8h.html#ab9ff1d155dbd30f39dd0b05ff308eae2',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fdevice_5fdescriptor_5fsegment_5fsize',['FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE',['../flash_8h.html#acb392ece7b2ba0463ec18089c31eeecb',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5finfo_5fa',['FLASH_MEM_ADR_INFO_A',['../flash_8h.html#ab02f15ef63e5948d17642acc31a2ebeb',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5finfo_5fb',['FLASH_MEM_ADR_INFO_B',['../flash_8h.html#aa9f6cf4f9e7f971bd32f29d0c7178806',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5finfo_5fc',['FLASH_MEM_ADR_INFO_C',['../flash_8h.html#a9d1bed1f4b7f2d373d020205f810be31',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5finfo_5fd',['FLASH_MEM_ADR_INFO_D',['../flash_8h.html#a10ba959b12ad575fdbed5838fde72f10',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fmain_5finterrupt_5fvector_5fstart',['FLASH_MEM_ADR_MAIN_INTERRUPT_VECTOR_START',['../flash_8h.html#a2771b36863ac51cc924cc9313534a5a5',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fmain_5finterrupt_5fvector_5fstop',['FLASH_MEM_ADR_MAIN_INTERRUPT_VECTOR_STOP',['../flash_8h.html#a3e12d6d8d0d7d59962cf8f8ed28681fe',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fmain_5fstart',['FLASH_MEM_ADR_MAIN_START',['../flash_8h.html#a380a9a394a0e5bc887269700a3ea7e28',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fmain_5fstop',['FLASH_MEM_ADR_MAIN_STOP',['../flash_8h.html#aa2cd12a18484b43c8729d5beefe3087f',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fperipheral_5fstart',['FLASH_MEM_ADR_PERIPHERAL_START',['../flash_8h.html#a3a03c57ec0931cd2b8434fa337106b9d',1,'flash.h']]],
+  ['flash_5fmem_5fadr_5fperipheral_5fstop',['FLASH_MEM_ADR_PERIPHERAL_STOP',['../flash_8h.html#ad637b56462fefbdf0557b0a0146f1b5c',1,'flash.h']]],
+  ['flash_5fmem_5finfo_5fsegment_5fsize',['FLASH_MEM_INFO_SEGMENT_SIZE',['../flash_8h.html#a892c20af3717c0b8194db943108e8b4b',1,'flash.h']]],
+  ['flash_5fmem_5fmain_5fsegment_5fsize',['FLASH_MEM_MAIN_SEGMENT_SIZE',['../flash_8h.html#a820445c8a6d2653a51360c1e110d1ff1',1,'flash.h']]]
 ];

@@ -892,7 +892,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Update this interface with a function pointer based interface that can be dynamically "registered" like the UART Layer 4 service ports. This will remove the need to include layer 4 header files and function calls.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Update this interface with a function pointer based interface that can be dynamically "registered" like the UART Layer 4 service ports. This will remove the need to include layer 4 header files and function calls.</dd></dl>
 
 </div>
 </div>
@@ -941,7 +941,7 @@ Functions</h2></td></tr>
 
 <p>UART layer 2 transmit housekeeping. </p>
 <p>UART layer 2 transmit housekeeping routine that performs actions needed on a reoccuring basis to enable the layer 2 protocol functionality. Actions such a checking for new data waiting to be transmitted are performed.</p>
-<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The hal_uart_set_uctxifg() function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
+<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The <a class="el" href="_faraday___h_a_l_8c.html#afd8af7f055c15f75feddf75285d664ec" title="Enable the UART UCA0IFG transmitter &quot;UCTXIFG&quot; flag. ">hal_uart_set_uctxifg()</a> function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
 <p>If data is continuously loaded into the buffer the transmissions will continously occure until new data is no longer placed into the buffer and the buffer empties. </p>
 
 </div>
