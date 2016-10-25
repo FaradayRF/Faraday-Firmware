@@ -4,6 +4,7 @@ var searchData=
   ['radio_5fload_5fdefault_5ffrequency',['radio_load_default_frequency',['../rf_8c.html#a8cc560dfe983937d7aa2f05080040a07',1,'radio_load_default_frequency(unsigned char freq2, unsigned char freq1, unsigned char freq0):&#160;rf.c'],['../rf_8h.html#a8cc560dfe983937d7aa2f05080040a07',1,'radio_load_default_frequency(unsigned char freq2, unsigned char freq1, unsigned char freq0):&#160;rf.c']]],
   ['radio_5fmanual_5fcalibration_5fidle',['radio_manual_calibration_idle',['../rf_8c.html#a5e5481c3eefc3a661d7b0c0393de05bd',1,'radio_manual_calibration_idle(void):&#160;rf.c'],['../rf_8h.html#a5e5481c3eefc3a661d7b0c0393de05bd',1,'radio_manual_calibration_idle(void):&#160;rf.c']]],
   ['radio_5fmanual_5fidle',['radio_manual_idle',['../rf_8c.html#a59792c6361b90d6430934955c3b39f45',1,'radio_manual_idle(void):&#160;rf.c'],['../rf_8h.html#a59792c6361b90d6430934955c3b39f45',1,'radio_manual_idle(void):&#160;rf.c']]],
+  ['read_5frtca_5fcalender',['Read_RTCA_Calender',['../_r_t_c_8c.html#a3b522da52f3c580c5f925079a790eff3',1,'Read_RTCA_Calender(unsigned char *DateArray):&#160;RTC.c'],['../_r_t_c_8h.html#a3b522da52f3c580c5f925079a790eff3',1,'Read_RTCA_Calender(unsigned char *DateArray):&#160;RTC.c']]],
   ['receiveoff',['ReceiveOff',['../rf_8c.html#a0cc0d5e5853672c1dad2de570e667c40',1,'ReceiveOff(void):&#160;rf.c'],['../rf_8h.html#a0cc0d5e5853672c1dad2de570e667c40',1,'ReceiveOff(void):&#160;rf.c']]],
   ['receiveon',['ReceiveOn',['../rf_8c.html#a6016f0e70f4b3cd74db476e3bd55189e',1,'ReceiveOn(void):&#160;rf.c'],['../rf_8h.html#a6016f0e70f4b3cd74db476e3bd55189e',1,'ReceiveOn(void):&#160;rf.c']]],
   ['receiving_5fflag',['receiving_flag',['../rf_8c.html#aa06198c0ecbace8a19136d7e33cb16cc',1,'rf.c']]],
@@ -76,6 +77,8 @@ var searchData=
   ['rfsettings',['rfSettings',['../rf_8c.html#a4ee926b45ad1f575c5db4f6d5df5c078',1,'rfregsettings.h']]],
   ['rmc_5fdata',['RMC_Data',['../struct_r_m_c___data.html',1,'']]],
   ['rssi',['rssi',['../struct_r_f___l2___p_a_c_k_e_t.html#abe6df2db257c56411dfaa06c284ab140',1,'RF_L2_PACKET']]],
+  ['rtc_2ec',['RTC.c',['../_r_t_c_8c.html',1,'']]],
+  ['rtc_2eh',['RTC.h',['../_r_t_c_8h.html',1,'']]],
   ['rtc_5fa',['RTC_A',['../struct_r_t_c___a.html',1,'']]],
   ['rx_5fpacket_5flen',['RX_PACKET_LEN',['../rf_8h.html#aea235bffdae511bee6b73edb73252f8f',1,'rf.h']]],
   ['rx_5fpkt_5fhandle_5fappend_5flen',['RX_PKT_HANDLE_APPEND_LEN',['../rf_8h.html#a0d0257a1204cc0bf53ed170143863f99',1,'rf.h']]]

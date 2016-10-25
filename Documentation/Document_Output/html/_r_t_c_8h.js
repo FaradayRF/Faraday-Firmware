@@ -10,7 +10,6 @@ var _r_t_c_8h =
     [ "Enable_RTCA_Prescaler_1_Interrupt", "_r_t_c_8h.html#a2a99780f4faac761806da0bf9f8ec314", null ],
     [ "Enable_RTCA_Ready_Interrupt", "_r_t_c_8h.html#a657ab52b97d760dade5b47969aa12928", null ],
     [ "Enable_RTCA_Time_Event_Interrupt", "_r_t_c_8h.html#a629e87cc3ea16fddc1ba8c809d59a7e5", null ],
-    [ "GPS_Update_Calender_Time", "_r_t_c_8h.html#a4889f2880b857a06d259f8ffdb9eb39b", null ],
     [ "Read_RTCA_Calender", "_r_t_c_8h.html#a3b522da52f3c580c5f925079a790eff3", null ],
     [ "Set_RTCA_BCD_Mode", "_r_t_c_8h.html#a4a8403ca79dd192eccbae5d9d160e3d5", null ],
     [ "Set_RTCA_Calender_Alarm_Time", "_r_t_c_8h.html#a2678e75c831ff5f5b65d0852c3f2fdbb", null ],
