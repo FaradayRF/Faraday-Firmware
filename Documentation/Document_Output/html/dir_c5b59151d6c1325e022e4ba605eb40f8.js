@@ -2,7 +2,8 @@ var dir_c5b59151d6c1325e022e4ba605eb40f8 =
 [
     [ "adc.c", "adc_8c.html", "adc_8c" ],
     [ "adc.h", "adc_8h.html", "adc_8h" ],
-    [ "GPIO.h", "_g_p_i_o_8h_source.html", null ],
+    [ "GPIO.c", "_g_p_i_o_8c.html", "_g_p_i_o_8c" ],
+    [ "GPIO.h", "_g_p_i_o_8h.html", "_g_p_i_o_8h" ],
     [ "gps.h", "gps_8h_source.html", null ],
     [ "hal_macros.h", "hal__macros_8h_source.html", null ],
     [ "hal_pmm.h", "hal__pmm_8h_source.html", null ],

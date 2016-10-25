@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['head',['head',['../struct_f_i_f_o___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc',1,'FIFO_Buffer_State_Machine::head()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a6b5f81e4b50f03d8f0beae613d6c81dc',1,'FIFO_SRAM_Buffer_State_Machine::head()']]],
-  ['housekeeping_5fbitmask_5fchar',['housekeeping_bitmask_char',['../housekeeping_8h.html#a9160643f7969be217aa0b46e42ed7c21',1,'housekeeping.h']]],
-  ['housekeeping_5ftimer_5fcount_5f1hz',['housekeeping_timer_count_1hz',['../housekeeping_8h.html#afa50fb87b9a9aed935450e6871b0629e',1,'housekeeping.h']]]
+  ['gpio_5fp3_5fguard',['gpio_p3_guard',['../_g_p_i_o_8c.html#aa655e23d6fd171e8415270fbb07345df',1,'GPIO.c']]],
+  ['gpio_5fp4_5fguard',['gpio_p4_guard',['../_g_p_i_o_8c.html#abf82760865f7dfca708ab5437fbaa485',1,'GPIO.c']]],
+  ['gpio_5fp5_5fguard',['gpio_p5_guard',['../_g_p_i_o_8c.html#a462e0be55148ed2637185bb3ca28abd9',1,'GPIO.c']]]
 ];

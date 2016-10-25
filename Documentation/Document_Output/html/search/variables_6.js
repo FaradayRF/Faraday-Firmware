@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5finwait',['max_inwait',['../struct_f_i_f_o___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757',1,'FIFO_Buffer_State_Machine::max_inwait()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757',1,'FIFO_SRAM_Buffer_State_Machine::max_inwait()']]]
+  ['lqi',['lqi',['../struct_r_f___l2___p_a_c_k_e_t.html#a21036977cef7bf696438db4357c15424',1,'RF_L2_PACKET']]]
 ];

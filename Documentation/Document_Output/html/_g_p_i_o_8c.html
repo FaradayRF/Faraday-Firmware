@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/GPIO.c File Reference</title>
+<title>Faraday-Firmware: HAL/GPIO.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,45 +82,61 @@ $(document).ready(function(){initNavTree('_g_p_i_o_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">GPIO.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="cc430f6137_8h_source.html">cc430f6137.h</a>&quot;</code><br />
+
+<p>Hardware abstraction for the GPIO.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_g_p_i_o_8h_source.html">GPIO.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af2b7665de8d82182bdba8d58382120f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#af2b7665de8d82182bdba8d58382120f3">gpio_update</a> (unsigned char port, unsigned char pins, unsigned char command)</td></tr>
+<tr class="memdesc:af2b7665de8d82182bdba8d58382120f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update a GPIO Port using a command bitmask.  <a href="#af2b7665de8d82182bdba8d58382120f3">More...</a><br /></td></tr>
 <tr class="separator:af2b7665de8d82182bdba8d58382120f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#ac6ab7ef793656b22e7b990f4d4d24b85">gpio_command_update</a> (unsigned char *port, unsigned char channel, unsigned char command)</td></tr>
+<tr class="memdesc:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update GPIO port and pins.  <a href="#ac6ab7ef793656b22e7b990f4d4d24b85">More...</a><br /></td></tr>
 <tr class="separator:ac6ab7ef793656b22e7b990f4d4d24b85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c710428c54264b145e3e882e9d9a68c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a1c710428c54264b145e3e882e9d9a68c">CC1190_PA_Enable</a> (void)</td></tr>
+<tr class="memdesc:a1c710428c54264b145e3e882e9d9a68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 RF power amplifier.  <a href="#a1c710428c54264b145e3e882e9d9a68c">More...</a><br /></td></tr>
 <tr class="separator:a1c710428c54264b145e3e882e9d9a68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88456595f737c712110db9256dc0ee10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a88456595f737c712110db9256dc0ee10">CC1190_PA_Disable</a> (void)</td></tr>
+<tr class="memdesc:a88456595f737c712110db9256dc0ee10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 RF power amplifier.  <a href="#a88456595f737c712110db9256dc0ee10">More...</a><br /></td></tr>
 <tr class="separator:a88456595f737c712110db9256dc0ee10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59d5b8e5ca63651e66800f84343ebdbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a59d5b8e5ca63651e66800f84343ebdbd">CC1190_LNA_Enable</a> (void)</td></tr>
+<tr class="memdesc:a59d5b8e5ca63651e66800f84343ebdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 RF low noise amplifier.  <a href="#a59d5b8e5ca63651e66800f84343ebdbd">More...</a><br /></td></tr>
 <tr class="separator:a59d5b8e5ca63651e66800f84343ebdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac48dbb7818766a92a3a0673bae5857e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#ac48dbb7818766a92a3a0673bae5857e9">CC1190_LNA_Disable</a> (void)</td></tr>
+<tr class="memdesc:ac48dbb7818766a92a3a0673bae5857e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 RF low noise amplifier.  <a href="#ac48dbb7818766a92a3a0673bae5857e9">More...</a><br /></td></tr>
 <tr class="separator:ac48dbb7818766a92a3a0673bae5857e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a545ea83f8a685827185473e35809c251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a545ea83f8a685827185473e35809c251">CC1190_HGM_Enable</a> (void)</td></tr>
+<tr class="memdesc:a545ea83f8a685827185473e35809c251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the CC1190 High Gain Mode (HGM)  <a href="#a545ea83f8a685827185473e35809c251">More...</a><br /></td></tr>
 <tr class="separator:a545ea83f8a685827185473e35809c251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1b71702e8c20bf21701338331e059cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#ab1b71702e8c20bf21701338331e059cf">CC1190_HGM_Disable</a> (void)</td></tr>
+<tr class="memdesc:ab1b71702e8c20bf21701338331e059cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the CC1190 High Gain Mode (HGM)  <a href="#ab1b71702e8c20bf21701338331e059cf">More...</a><br /></td></tr>
 <tr class="separator:ab1b71702e8c20bf21701338331e059cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa655e23d6fd171e8415270fbb07345df"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#aa655e23d6fd171e8415270fbb07345df">gpio_p3_guard</a> = <a class="el" href="_r_e_v_a___faraday_8h.html#a79cf0509379071409bf7b9151a4b5320">GPS_RESET</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#aae0edf6e0d331aad63a2967023b45834">GPS_STANDBY</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#aaf81f5fa7d1e779f83e9bf4ce631a7b6">LED_1</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#ae60a8c1e03b38463f77d556a4a0a8a3b">LED_2</a></td></tr>
+<tr><td colspan="2"><div class="groupHeader">GPIO Guard Bitmask</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>The bitmask bytes defined in this group determine if a GPIO state is allowed to be updated using this GPIO hardware abstraction. Certain GPIO's may be dangerous to change such as hardware peripheral (GPS/LNA) and especially the MOSFET high current GPIO. GPIO's are "opt-in" to be updated and if the bitmask for that port is a HIGH bit then the corresponding pin for that port is alloed to be updated using this HAL. </p>
+</div></td></tr>
+<tr class="memitem:aa655e23d6fd171e8415270fbb07345df"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#aa655e23d6fd171e8415270fbb07345df">gpio_p3_guard</a> = GPS_RESET + GPS_STANDBY + LED_1 + LED_2</td></tr>
 <tr class="separator:aa655e23d6fd171e8415270fbb07345df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf82760865f7dfca708ab5437fbaa485"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#abf82760865f7dfca708ab5437fbaa485">gpio_p4_guard</a> = <a class="el" href="_r_e_v_a___faraday_8h.html#a195032917f4b8f4d11b6df67a20888ca">GPIO_0</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a32916a847090b087076a5bec92c78c33">GPIO_1</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#ae5b14b85fd16cf9cc9c37cecf533f83b">GPIO_2</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#abac2cd6960fc663d2e603e84947b685a">GPIO_3</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a60e0c1c2d4d967f07766822405733ead">GPIO_4</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a353aa68090892ddb605923082456976b">GPIO_5</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#afb5c669d89e2cf0f23270125666f5318">GPIO_6</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a1aa7614f3af0705a5d825f889f38559e">GPIO_7</a></td></tr>
+<tr class="memitem:abf82760865f7dfca708ab5437fbaa485"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#abf82760865f7dfca708ab5437fbaa485">gpio_p4_guard</a> = GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7</td></tr>
 <tr class="separator:abf82760865f7dfca708ab5437fbaa485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462e0be55148ed2637185bb3ca28abd9"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a462e0be55148ed2637185bb3ca28abd9">gpio_p5_guard</a> = <a class="el" href="_r_e_v_a___faraday_8h.html#a342114e35ef7af1f4f3eaeb205deb522">ARDUINO_IO_8</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a9c0b8aaaf4f760d6c443e21281d5bfd5">ARDUINO_IO_9</a></td></tr>
+<tr class="memitem:a462e0be55148ed2637185bb3ca28abd9"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_g_p_i_o_8c.html#a462e0be55148ed2637185bb3ca28abd9">gpio_p5_guard</a> = ARDUINO_IO_8 + ARDUINO_IO_9</td></tr>
 <tr class="separator:a462e0be55148ed2637185bb3ca28abd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction for the GPIO. </p>
+<p>These functions provide a hardware abstraction for the general purpose input/output peripheral on the CC430. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab1b71702e8c20bf21701338331e059cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1b71702e8c20bf21701338331e059cf">&sect;&nbsp;</a></span>CC1190_HGM_Disable()</h2>
 
@@ -136,6 +152,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disable the CC1190 High Gain Mode (HGM) </p>
+<p>Disable the CC1190 High Gain Mode (HGM) GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
 
 </div>
 </div>
@@ -155,6 +175,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable the CC1190 High Gain Mode (HGM) </p>
+<p>Enable the CC1190 High Gain Mode (HGM) GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
+
 </div>
 </div>
 <a id="ac48dbb7818766a92a3a0673bae5857e9"></a>
@@ -172,6 +196,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disable the CC1190 RF low noise amplifier. </p>
+<p>Disable the CC1190 RF low noise amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
 
 </div>
 </div>
@@ -191,6 +219,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Enable the CC1190 RF low noise amplifier. </p>
+<p>Enable the CC1190 RF low noise amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
+
 </div>
 </div>
 <a id="a88456595f737c712110db9256dc0ee10"></a>
@@ -209,6 +241,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Disable the CC1190 RF power amplifier. </p>
+<p>Disable the CC1190 RF power amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
+
 </div>
 </div>
 <a id="a1c710428c54264b145e3e882e9d9a68c"></a>
@@ -226,6 +262,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable the CC1190 RF power amplifier. </p>
+<p>Enable the CC1190 RF power amplifier GPIO.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>This should be moved into Faraday_HAL.c</dd></dl>
 
 </div>
 </div>
@@ -261,6 +301,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update GPIO port and pins. </p>
+<p>Using a supplied port number and supplied pins bitmask GPIO pins can be updated to enabled or disabled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>A pointer to the GPIO port number </td></tr>
+    <tr><td class="paramname">pins</td><td>Bitmask for the port pins intended to be updated </td></tr>
+    <tr><td class="paramname">command</td><td>to supply the <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> function that determines if the pins bitmasked are enabled or disabled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>Does port variable really need to be a pointer?</dd></dl>
+
 </div>
 </div>
 <a id="af2b7665de8d82182bdba8d58382120f3"></a>
@@ -295,6 +347,24 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update a GPIO Port using a command bitmask. </p>
+<p>Update a GPIO Port using a command bitmask supplied to indicated pins and a command to indicate action. This function is primarly used to verify allowed actions on GPIO ports and call teh <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> routine to perform updates as needed.</p>
+<p>Ports Supported:</p><ul>
+<li>Ports 3, 4, 5</li>
+</ul>
+<p>Commands</p><ul>
+<li>0 = Bitmasked HIGH pins OFF</li>
+<li>1 = Bitmasked HIGH pins ON</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>The GPIO port </td></tr>
+    <tr><td class="paramname">pins</td><td>Bitmask for the port pins intended to be updated </td></tr>
+    <tr><td class="paramname">command</td><td>to supply the <a class="el" href="_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85" title="Update GPIO port and pins. ">gpio_command_update()</a> function that determines if the pins bitmasked are enabled or disabled </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -305,10 +375,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char gpio_p3_guard = <a class="el" href="_r_e_v_a___faraday_8h.html#a79cf0509379071409bf7b9151a4b5320">GPS_RESET</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#aae0edf6e0d331aad63a2967023b45834">GPS_STANDBY</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#aaf81f5fa7d1e779f83e9bf4ce631a7b6">LED_1</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#ae60a8c1e03b38463f77d556a4a0a8a3b">LED_2</a></td>
+          <td class="memname">volatile unsigned char gpio_p3_guard = GPS_RESET + GPS_STANDBY + LED_1 + LED_2</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Guard bitmask for Port 3 </p>
 
 </div>
 </div>
@@ -319,10 +390,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char gpio_p4_guard = <a class="el" href="_r_e_v_a___faraday_8h.html#a195032917f4b8f4d11b6df67a20888ca">GPIO_0</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a32916a847090b087076a5bec92c78c33">GPIO_1</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#ae5b14b85fd16cf9cc9c37cecf533f83b">GPIO_2</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#abac2cd6960fc663d2e603e84947b685a">GPIO_3</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a60e0c1c2d4d967f07766822405733ead">GPIO_4</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a353aa68090892ddb605923082456976b">GPIO_5</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#afb5c669d89e2cf0f23270125666f5318">GPIO_6</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a1aa7614f3af0705a5d825f889f38559e">GPIO_7</a></td>
+          <td class="memname">volatile unsigned char gpio_p4_guard = GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Guard bitmask for Port 4 </p>
 
 </div>
 </div>
@@ -333,10 +405,11 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char gpio_p5_guard = <a class="el" href="_r_e_v_a___faraday_8h.html#a342114e35ef7af1f4f3eaeb205deb522">ARDUINO_IO_8</a> + <a class="el" href="_r_e_v_a___faraday_8h.html#a9c0b8aaaf4f760d6c443e21281d5bfd5">ARDUINO_IO_9</a></td>
+          <td class="memname">volatile unsigned char gpio_p5_guard = ARDUINO_IO_8 + ARDUINO_IO_9</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Guard bitmask for Port 3 </p>
 
 </div>
 </div>
