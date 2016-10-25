@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: Faraday_HAL/SPI.h Source File</title>
+<title>Faraday-Firmware: Faraday_HAL/SPI.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('_s_p_i_8h_source.html','');});
+$(document).ready(function(){initNavTree('_s_p_i_8c.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -81,17 +81,56 @@ $(document).ready(function(){initNavTree('_s_p_i_8h_source.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SPI.h</div>  </div>
+<div class="title">SPI.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_s_p_i_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef FARADAY_HAL_SPI_H_</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define FARADAY_HAL_SPI_H_</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_s_p_i_8h.html#a72d04c3c57e69a104cb9249da45f46f5">spi_tx</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> tx);</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FARADAY_HAL_SPI_H_ */</span><span class="preprocessor"></span></div><div class="ttc" id="_s_p_i_8h_html_a72d04c3c57e69a104cb9249da45f46f5"><div class="ttname"><a href="_s_p_i_8h.html#a72d04c3c57e69a104cb9249da45f46f5">spi_tx</a></div><div class="ttdeci">void spi_tx(unsigned char tx)</div><div class="ttdoc">Shift a byte into the SPI transmit register (polling) </div><div class="ttdef"><b>Definition:</b> SPI.c:14</div></div>
-</div><!-- fragment --></div><!-- contents -->
+
+<p>Hardware abstraction functions for SPI.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_p_i_8h_source.html">SPI.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a72d04c3c57e69a104cb9249da45f46f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_p_i_8c.html#a72d04c3c57e69a104cb9249da45f46f5">spi_tx</a> (unsigned char tx)</td></tr>
+<tr class="memdesc:a72d04c3c57e69a104cb9249da45f46f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shift a byte into the SPI transmit register (polling)  <a href="#a72d04c3c57e69a104cb9249da45f46f5">More...</a><br /></td></tr>
+<tr class="separator:a72d04c3c57e69a104cb9249da45f46f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction functions for SPI. </p>
+<p>These functions provide an abstraction layer for the CC430 SPI peripheral. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a72d04c3c57e69a104cb9249da45f46f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72d04c3c57e69a104cb9249da45f46f5">&sect;&nbsp;</a></span>spi_tx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void spi_tx </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>tx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shift a byte into the SPI transmit register (polling) </p>
+<p>This is the main function used to directly shift a byte into the SPI transmit register to transmit the byte over SPI.</p>
+<dl class="section note"><dt>Note</dt><dd>This routine is a polling method SPI interaction. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_b542889f9ea75b13211f998b94371744.html">Faraday_HAL</a></li><li class="navelem"><a class="el" href="_s_p_i_8h.html">SPI.h</a></li>
+    <li class="navelem"><a class="el" href="dir_b542889f9ea75b13211f998b94371744.html">Faraday_HAL</a></li><li class="navelem"><a class="el" href="_s_p_i_8c.html">SPI.c</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.12 </li>

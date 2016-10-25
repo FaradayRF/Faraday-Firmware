@@ -6,5 +6,6 @@ var dir_b542889f9ea75b13211f998b94371744 =
     [ "flash.h", "flash_8h.html", "flash_8h" ],
     [ "Misc_Functions.c", "_misc___functions_8c.html", "_misc___functions_8c" ],
     [ "Misc_Functions.h", "_misc___functions_8h.html", "_misc___functions_8h" ],
-    [ "SPI.h", "_s_p_i_8h_source.html", null ]
+    [ "SPI.c", "_s_p_i_8c.html", "_s_p_i_8c" ],
+    [ "SPI.h", "_s_p_i_8h.html", "_s_p_i_8h" ]
 ];
