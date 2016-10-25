@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['nmea',['NMEA',['../gps_8h.html#a615bbbd259272f06b27b1f52f9c22004',1,'gps.h']]],
-  ['nmea_5fcrc',['nmea_crc',['../struct_g_p_s__string.html#a4382cdf3db52472d2fb3afed29a96fac',1,'GPS_string']]],
-  ['nmea_5fcrc_5fval',['nmea_crc_val',['../struct_g_p_s__string.html#a46749e5273987938f55adce911f2edb7',1,'GPS_string']]]
+  ['uchar_5fstate',['uChar_state',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#a4e83bf1bf3fcb2ee6ff5397cc097e5ae',1,'HAB_AUTO_CUTDOWN_TIMER_SM']]],
+  ['uint_5fapp_5fhab_5ftimer',['uInt_app_hab_timer',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#ac9f87aad432b5c8b109d806a1263eefe',1,'HAB_AUTO_CUTDOWN_TIMER_SM']]]
 ];

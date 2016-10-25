@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/adc.h File Reference</title>
+<title>Faraday-Firmware: HAL/adc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,20 +88,27 @@ $(document).ready(function(){initNavTree('adc_8h.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>ADC Hardware Abstraction Functions.  
+<a href="#details">More...</a></p>
+
 <p><a href="adc_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa865709cfa5ff0dea0017d500bcd4e06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#aa865709cfa5ff0dea0017d500bcd4e06">Clear_ADC12_Memory_Control_Register</a> (unsigned char MemoryChannel)</td></tr>
+<tr class="memdesc:aa865709cfa5ff0dea0017d500bcd4e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the ADC12CTL2 memory register passed to the function.  <a href="#aa865709cfa5ff0dea0017d500bcd4e06">More...</a><br /></td></tr>
 <tr class="separator:aa865709cfa5ff0dea0017d500bcd4e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3f44acda5d64da0d2587f4da81853fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#ad3f44acda5d64da0d2587f4da81853fe">Enable_ADC12_Channel_Interrupt</a> (unsigned char set)</td></tr>
-<tr class="separator:ad3f44acda5d64da0d2587f4da81853fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa66fd24478e19f1849141ca6dd4224f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#afa66fd24478e19f1849141ca6dd4224f">Enable_ADC12_Memory_Channel_Interrupt</a> (unsigned char set)</td></tr>
+<tr class="memdesc:afa66fd24478e19f1849141ca6dd4224f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable ADC12 channel interrupt.  <a href="#afa66fd24478e19f1849141ca6dd4224f">More...</a><br /></td></tr>
 <tr class="separator:afa66fd24478e19f1849141ca6dd4224f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a752f1c469994ba01fd884b37f2f56a78"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="adc_8h.html#a752f1c469994ba01fd884b37f2f56a78">adc_corrected_calibration_temp_C_int</a> (int uInt_Raw_Temp)</td></tr>
+<tr class="memdesc:a752f1c469994ba01fd884b37f2f56a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calibrate the ADC temperature sensor.  <a href="#a752f1c469994ba01fd884b37f2f56a78">More...</a><br /></td></tr>
 <tr class="separator:a752f1c469994ba01fd884b37f2f56a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>ADC Hardware Abstraction Functions. </p>
+<p>These funcitons abstract interacts with the ADC peripheral on the CC430. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a752f1c469994ba01fd884b37f2f56a78"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a752f1c469994ba01fd884b37f2f56a78">&sect;&nbsp;</a></span>adc_corrected_calibration_temp_C_int()</h2>
 
@@ -117,6 +124,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calibrate the ADC temperature sensor. </p>
+<p>This function uses the factory supplied calibration constants saved in Flash memory to calibrate the onboard temperature sensor. </p>
 
 </div>
 </div>
@@ -136,23 +146,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ad3f44acda5d64da0d2587f4da81853fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3f44acda5d64da0d2587f4da81853fe">&sect;&nbsp;</a></span>Enable_ADC12_Channel_Interrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Enable_ADC12_Channel_Interrupt </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>set</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Clear the ADC12CTL2 memory register passed to the function. </p>
+<p>This function clears the contents of the memory registers for the ADC12 peripheral. Passing the correct number to the function clears the respective register for ADC 12.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MemoryChannel</td><td>The ADC 12 memory channel to clear 0-15. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -171,6 +172,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enable ADC12 channel interrupt. </p>
+<p>The function allows the ADC12 interrupts to be set given the supplied function argument channel number respectively.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">set</td><td>The ADC 12 memory channel to enable interrupt 0-15. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

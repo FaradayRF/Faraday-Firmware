@@ -7,6 +7,8 @@ var searchData=
   ['software_5fuart_5fhalf_5fbit_5ftime',['SOFTWARE_UART_HALF_BIT_TIME',['../_faraday___globals_8h.html#adc4d4ee74763e5105f7404bfbba73c72',1,'Faraday_Globals.h']]],
   ['software_5fuart_5fstartbit_5fmask',['SOFTWARE_UART_STARTBIT_MASK',['../_faraday___globals_8h.html#a8f23d1978a1e33a07510c3a580f5dc00',1,'Faraday_Globals.h']]],
   ['software_5fuart_5fstopbit_5fmask',['SOFTWARE_UART_STOPBIT_MASK',['../_faraday___globals_8h.html#ac3098fedadd9cfa676178293ac183fb1',1,'Faraday_Globals.h']]],
+  ['source_5fcallsign',['source_callsign',['../struct_r_f___l2___p_a_c_k_e_t.html#afe0ac1375d59bc70dae7f673c5e1e521',1,'RF_L2_PACKET']]],
+  ['source_5findetifier',['source_indetifier',['../struct_r_f___l2___p_a_c_k_e_t.html#acb3c612962896abd7cedb9e71bb1168b',1,'RF_L2_PACKET']]],
   ['sram_2ec',['SRAM.c',['../_s_r_a_m_8c.html',1,'']]],
   ['sram_2eh',['SRAM.h',['../_s_r_a_m_8h.html',1,'']]],
   ['sram_5fstart_5faddress',['sram_start_address',['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac7f8c18a2ee6290721f54434cff25d25',1,'FIFO_SRAM_Buffer_State_Machine']]],
