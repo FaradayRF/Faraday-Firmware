@@ -125,7 +125,7 @@ void app_device_config_load_default(void){
 	app_device_config_read_defaults();
 
 	//Set initial radio frequency on boot
-	radio_load_defaults(boot_freq[2], boot_freq[1], boot_freq[0]); //Update RFSettings struct for boot initialization. NOTE: This function follows standard CC430 library from MSB first, i.e [FREQ2, FREQ1, FREQ0]
+	radio_load_default_frequency(boot_freq[2], boot_freq[1], boot_freq[0]); //Update RFSettings struct for boot initialization. NOTE: This function follows standard CC430 library from MSB first, i.e [FREQ2, FREQ1, FREQ0]
 	CC430_Program_Freq(boot_freq[2], boot_freq[1], boot_freq[0]); // Program radio frequency (may not need if writing at boot prior to radio init)
 
 	//Update RF Power on configuration
