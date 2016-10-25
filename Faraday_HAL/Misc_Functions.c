@@ -1,11 +1,14 @@
-#include "Misc_Functions.h"
+/** @file Misc_Functions.c
+ * 	@brief Miscellaneous faraday functions
+ *
+ *	The functions are miscellaneous functions used to perform common functions.
+ *
+ */
 
-void Basic_Delay(unsigned long count){
-	unsigned long i;
-	for(i=0; i<count; i++){
-		__no_operation();
-	}
-}
+/* -- Includes -- */
+
+/* standard includes */
+#include "Misc_Functions.h"
 
 unsigned char check_bitmask(unsigned char bitmask_byte, unsigned char bit_location){
 	return bitmask_byte & bit_location;
