@@ -1,6 +1,8 @@
 var searchData=
 [
   ['faraday_5fglobals_2eh',['Faraday_Globals.h',['../_faraday___globals_8h.html',1,'']]],
+  ['faraday_5fhal_2ec',['Faraday_HAL.c',['../_faraday___h_a_l_8c.html',1,'']]],
+  ['faraday_5fhal_2eh',['Faraday_HAL.h',['../_faraday___h_a_l_8h.html',1,'']]],
   ['faraday_5finit_2ec',['Faraday_Init.c',['../_faraday___init_8c.html',1,'']]],
   ['fifo_2ec',['FIFO.c',['../_f_i_f_o_8c.html',1,'']]],
   ['fifo_2eh',['FIFO.h',['../_f_i_f_o_8h.html',1,'']]],

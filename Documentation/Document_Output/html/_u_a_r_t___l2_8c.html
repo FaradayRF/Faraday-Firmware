@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('_u_a_r_t___l2_8c.html','');});
 <div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___l2_8h_source.html">UART_L2.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_r_e_v_a___faraday_8h_source.html">../REVA_Faraday.h</a>&quot;</code><br />
-<code>#include &quot;../Faraday_HAL/Faraday_HAL.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_faraday___h_a_l_8h_source.html">../Faraday_HAL/Faraday_HAL.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___l4_8h_source.html">UART_L4.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_u_a_r_t___services_8h_source.html">UART_Services.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_f_i_f_o_8h_source.html">../Ring_Buffers/FIFO.h</a>&quot;</code><br />
@@ -695,7 +695,7 @@ volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><b>rx_
 
 <p>UART layer 2 transmit housekeeping. </p>
 <p>UART layer 2 transmit housekeeping routine that performs actions needed on a reoccuring basis to enable the layer 2 protocol functionality. Actions such a checking for new data waiting to be transmitted are performed.</p>
-<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The hal_uart_set_uctxifg() function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
+<p>The transmit UART houskeeping retrieves a waiting byte to be transmitted over UART into a global structure and intializes control flags used for transmission. The <a class="el" href="_faraday___h_a_l_8c.html#afd8af7f055c15f75feddf75285d664ec" title="Enable the UART UCA0IFG transmitter &quot;UCTXIFG&quot; flag. ">hal_uart_set_uctxifg()</a> function sets the UART controller transmit interrupt flag to 1 and begins the interrupt base UART transmissions. After each byte the interrupts will cause the next byte to be retrieved until the buffer is empty. An analogy can be made to "kicking" a wheel that keeps rolling until the bottom of the hill.</p>
 <p>If data is continuously loaded into the buffer the transmissions will continously occure until new data is no longer placed into the buffer and the buffer empties. </p>
 
 </div>
