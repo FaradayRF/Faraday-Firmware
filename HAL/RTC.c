@@ -18,7 +18,7 @@
 /************************************************************
 * Function: Enable RTCA Calender Alarm
 *
-* Description: Enables the RTCCTL0 RTC_A calender alarm interrupt enable bit
+* Description:
 *
 * Inputs: Nothing
 *
