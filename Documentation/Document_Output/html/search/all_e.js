@@ -4,6 +4,7 @@ var searchData=
   ['satellites',['Satellites',['../struct_g_g_a___data.html#a8c2c9309d515b8082b1832a7c9a21066',1,'GGA_Data']]],
   ['save_5fgps_5fstring_5f2',['Save_GPS_string_2',['../gps_8c.html#ac856ae7bccd9c7d4166b1a651f1aa345',1,'Save_GPS_string_2(volatile unsigned char *string):&#160;gps.c'],['../gps_8h.html#ac856ae7bccd9c7d4166b1a651f1aa345',1,'Save_GPS_string_2(volatile unsigned char *string):&#160;gps.c']]],
   ['service_5fnumber',['service_number',['../struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#a32e53686a2134d530a43104cde3208d0',1,'RF_TRANSPORT_PACKET']]],
+  ['set_5freference',['Set_Reference',['../ref_8c.html#aeb3303f160bd02133377fc0c1fa5516a',1,'Set_Reference(unsigned char set):&#160;ref.c'],['../ref_8h.html#aeb3303f160bd02133377fc0c1fa5516a',1,'Set_Reference(unsigned char set):&#160;ref.c']]],
   ['software_5fuart_5fbit_5fcount',['SOFTWARE_UART_BIT_COUNT',['../_faraday___globals_8h.html#ac90ced70de5d808fa137d76ac604214d',1,'Faraday_Globals.h']]],
   ['software_5fuart_5fbit_5ftime',['SOFTWARE_UART_BIT_TIME',['../_faraday___globals_8h.html#a1bc3b2bd1c8a5e7a6906d0b93606e129',1,'Faraday_Globals.h']]],
   ['software_5fuart_5fhalf_5fbit_5ftime',['SOFTWARE_UART_HALF_BIT_TIME',['../_faraday___globals_8h.html#adc4d4ee74763e5105f7404bfbba73c72',1,'Faraday_Globals.h']]],

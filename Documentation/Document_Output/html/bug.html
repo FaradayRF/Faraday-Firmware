@@ -98,7 +98,9 @@ $(document).ready(function(){initNavTree('bug.html','');});
 <dd><p class="startdd">Layer 2 is the only layer with a callsign length of 6 bytes instead of 9! </p>
 <p class="enddd">Is RF_DATALINK_PKT_PKT_LEN_LOC really needed??? </p>
 </dd>
-<dt><a class="anchor" id="_bug000006"></a>Class <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_L2_PACKET</a>  </dt>
+<dt><a class="anchor" id="_bug000006"></a>Global <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>  </dt>
+<dd>44 instead of 45 due to UART transport layer limitation of 63 payload bytes... </dd>
+<dt><a class="anchor" id="_bug000006"></a>Global <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>  </dt>
 <dd>44 instead of 45 due to UART transport layer limitation of 63 payload bytes... </dd>
 <dt><a class="anchor" id="_bug000007"></a>Global <a class="el" href="rf__transport_8h.html#a35176a5270dfcea1b086af5845de60ad">rf_service_tx</a>  (unsigned char *L4_payload_buffer, unsigned char L4_payload_len, unsigned char L4_service_number, char *L2_src_callsign, unsigned char L2_src_callsign_len, unsigned char L2_src_callsign_id, char *L2_dest_callsign, unsigned char L2_dest_callsign_len, unsigned char L2_dest_callsign_id, unsigned char L2_packet_type, unsigned char L2_packet_config)</dt>
 <dd>This should be simplified in the layer 4 source and service moved to the service source file. Layer isolation should be improved. </dd>

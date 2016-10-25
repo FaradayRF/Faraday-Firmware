@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/RF_Network_Stack/rf.h File Reference</title>
+<title>Faraday-Firmware: RF_Network_Stack/rf.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,25 +82,52 @@ $(document).ready(function(){initNavTree('rf_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Data Structures</a>  </div>
   <div class="headertitle">
 <div class="title">rf.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The layer 2 RF experimental protocol.  
+<a href="#details">More...</a></p>
 
 <p><a href="rf_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_L2_PACKET</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer 2 packet structure.  <a href="struct_r_f___l2___p_a_c_k_e_t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Radio Transmit/Receive Layer 2 Packet Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Basic low level packet definitions for Layer 2 (Datalink) </p>
+</div></td></tr>
+<tr class="memitem:adfacf11b3be128e414d637166fca7567"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#adfacf11b3be128e414d637166fca7567">TX_PACKET_LEN</a>&#160;&#160;&#160;61</td></tr>
+<tr class="separator:adfacf11b3be128e414d637166fca7567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea235bffdae511bee6b73edb73252f8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#aea235bffdae511bee6b73edb73252f8f">RX_PACKET_LEN</a>&#160;&#160;&#160;61</td></tr>
+<tr class="separator:aea235bffdae511bee6b73edb73252f8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0257a1204cc0bf53ed170143863f99"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a0d0257a1204cc0bf53ed170143863f99">RX_PKT_HANDLE_APPEND_LEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a0d0257a1204cc0bf53ed170143863f99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">RF Layer 2 FIFO Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Layer 2 definitions that support the FIFO buffers</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000004">Bug:</a></b></dt><dd><p class="startdd">Why is RF_DATALINK_PACKET_PAYLOAD_LEN 62 bytes instead of 61? RX extra footer bytes? </p>
+<p class="enddd">All of this should be updated to be in the main definitions and not FIFO specific!</p>
+</dd></dl>
+</div></td></tr>
+<tr class="memitem:a6fd80036879a765fd8556c7971656eeb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a6fd80036879a765fd8556c7971656eeb">RF_DATALINK_PACKET_PAYLOAD_LEN</a>&#160;&#160;&#160;62</td></tr>
+<tr class="separator:a6fd80036879a765fd8556c7971656eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1c747039731408e5511ebe7324c281c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#af1c747039731408e5511ebe7324c281c">RF_DATALINK_PACKET_FIFO_COUNT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:af1c747039731408e5511ebe7324c281c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270c74398a4371b42cf262a2c9f85212"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a270c74398a4371b42cf262a2c9f85212">RF_DATALINK_PACKET_RX_FOOTER_LEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a270c74398a4371b42cf262a2c9f85212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">RF Layer 2 Packet Parsing Definitions</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Layer 2 definitions that support the parsing of packets</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000005">Bug:</a></b></dt><dd><p class="startdd">Layer 2 is the only layer with a callsign length of 6 bytes instead of 9! </p>
+<p class="enddd">Is RF_DATALINK_PKT_PKT_LEN_LOC really needed???</p>
+</dd></dl>
+</div></td></tr>
 <tr class="memitem:a4ed8b16dab532682df572be27abc6f10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a4ed8b16dab532682df572be27abc6f10">RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a4ed8b16dab532682df572be27abc6f10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f2b5d5f4bdff2c0a073f4ad2e62f9e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a50f2b5d5f4bdff2c0a073f4ad2e62f9e">RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC_LEN</a>&#160;&#160;&#160;6</td></tr>
@@ -127,77 +154,115 @@ Macros</h2></td></tr>
 <tr class="separator:adfd54b86c3faba855ab0c16fa752e06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f1e1fe9b4358eaff447bd9099543aa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a2f1e1fe9b4358eaff447bd9099543aa9">RF_DATALINK_PKT_RSSI_LOC</a>&#160;&#160;&#160;62</td></tr>
 <tr class="separator:a2f1e1fe9b4358eaff447bd9099543aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
 <tr class="memitem:a35cca4d9b7aac8755a34f91bcac89139"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_L2_PACKET</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a></td></tr>
+<tr class="memdesc:a35cca4d9b7aac8755a34f91bcac89139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer 2 packet structure.  <a href="#a35cca4d9b7aac8755a34f91bcac89139">More...</a><br /></td></tr>
 <tr class="separator:a35cca4d9b7aac8755a34f91bcac89139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
 <tr class="memitem:a4ffcdc7ec9b5d850ad08052452aa826c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a4ffcdc7ec9b5d850ad08052452aa826c">init_radio_faraday</a> (void)</td></tr>
+<tr class="memdesc:a4ffcdc7ec9b5d850ad08052452aa826c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the CC430 radio to default operation.  <a href="#a4ffcdc7ec9b5d850ad08052452aa826c">More...</a><br /></td></tr>
 <tr class="separator:a4ffcdc7ec9b5d850ad08052452aa826c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a203430657d6e60136cccd7ed41b02891"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a203430657d6e60136cccd7ed41b02891">radio_load_defaults</a> (unsigned char freq2, unsigned char freq1, unsigned char freq0)</td></tr>
-<tr class="separator:a203430657d6e60136cccd7ed41b02891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cc560dfe983937d7aa2f05080040a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a8cc560dfe983937d7aa2f05080040a07">radio_load_default_frequency</a> (unsigned char freq2, unsigned char freq1, unsigned char freq0)</td></tr>
+<tr class="memdesc:a8cc560dfe983937d7aa2f05080040a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load default CC430 frequency Update the CC430 HAL "RfSettings" frequency registers definitions with supplied values. Reference the CC430 users guide for more information about the CC430 radio registers.  <a href="#a8cc560dfe983937d7aa2f05080040a07">More...</a><br /></td></tr>
+<tr class="separator:a8cc560dfe983937d7aa2f05080040a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23aaf193313164f03f3b2025a2d7e7cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a23aaf193313164f03f3b2025a2d7e7cd">init_rf_fifo</a> (void)</td></tr>
+<tr class="memdesc:a23aaf193313164f03f3b2025a2d7e7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize layer 2 radio FIFO buffers.  <a href="#a23aaf193313164f03f3b2025a2d7e7cd">More...</a><br /></td></tr>
 <tr class="separator:a23aaf193313164f03f3b2025a2d7e7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e5481c3eefc3a661d7b0c0393de05bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a5e5481c3eefc3a661d7b0c0393de05bd">radio_manual_calibration_idle</a> (void)</td></tr>
+<tr class="memitem:a5e5481c3eefc3a661d7b0c0393de05bd"><td class="memItemLeft" align="right" valign="top"><a id="a5e5481c3eefc3a661d7b0c0393de05bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a5e5481c3eefc3a661d7b0c0393de05bd">radio_manual_calibration_idle</a> (void)</td></tr>
+<tr class="memdesc:a5e5481c3eefc3a661d7b0c0393de05bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform CC430 radio module manual calibration Perform CC430 radio module manual calibration routine that re-calibrates the PLL. This is only needed in specific situations and if not used correctly can cause the radio to miss packets or otherwise error. <br /></td></tr>
 <tr class="separator:a5e5481c3eefc3a661d7b0c0393de05bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59792c6361b90d6430934955c3b39f45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a59792c6361b90d6430934955c3b39f45">radio_manual_idle</a> (void)</td></tr>
+<tr class="memdesc:a59792c6361b90d6430934955c3b39f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place CC430 radio into IDLE state.  <a href="#a59792c6361b90d6430934955c3b39f45">More...</a><br /></td></tr>
 <tr class="separator:a59792c6361b90d6430934955c3b39f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5745dbf0b29892d2ff4148e61b26ca71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a5745dbf0b29892d2ff4148e61b26ca71">TransmitOn</a> (void)</td></tr>
+<tr class="memdesc:a5745dbf0b29892d2ff4148e61b26ca71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform routine to enable both CC430 and external amplifier for transmit operation.  <a href="#a5745dbf0b29892d2ff4148e61b26ca71">More...</a><br /></td></tr>
 <tr class="separator:a5745dbf0b29892d2ff4148e61b26ca71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d4792ecc82c8946e81fb82db3f7be82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a1d4792ecc82c8946e81fb82db3f7be82">Transmit</a> (unsigned char *buffer, unsigned char length)</td></tr>
+<tr class="memdesc:a1d4792ecc82c8946e81fb82db3f7be82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place data into the CC430 packet handling hardware and transmit the data.  <a href="#a1d4792ecc82c8946e81fb82db3f7be82">More...</a><br /></td></tr>
 <tr class="separator:a1d4792ecc82c8946e81fb82db3f7be82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6016f0e70f4b3cd74db476e3bd55189e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a6016f0e70f4b3cd74db476e3bd55189e">ReceiveOn</a> (void)</td></tr>
+<tr class="memdesc:a6016f0e70f4b3cd74db476e3bd55189e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform routine routine to enable both CC430 and external amplifier for receive opertion.  <a href="#a6016f0e70f4b3cd74db476e3bd55189e">More...</a><br /></td></tr>
 <tr class="separator:a6016f0e70f4b3cd74db476e3bd55189e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc0d5e5853672c1dad2de570e667c40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a0cc0d5e5853672c1dad2de570e667c40">ReceiveOff</a> (void)</td></tr>
+<tr class="memdesc:a0cc0d5e5853672c1dad2de570e667c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform routine routine to disable both CC430 and external amplifier for receive opertion.  <a href="#a0cc0d5e5853672c1dad2de570e667c40">More...</a><br /></td></tr>
 <tr class="separator:a0cc0d5e5853672c1dad2de570e667c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af01546119618d41972550782b7966087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#af01546119618d41972550782b7966087">radio_isr</a> (void)</td></tr>
+<tr class="memdesc:af01546119618d41972550782b7966087"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that holds the routines needed to operation the ISR.  <a href="#af01546119618d41972550782b7966087">More...</a><br /></td></tr>
 <tr class="separator:af01546119618d41972550782b7966087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a532a220533ed58b8f7dc483d305cc48b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a532a220533ed58b8f7dc483d305cc48b">radio_housekeeping</a> (void)</td></tr>
-<tr class="separator:a532a220533ed58b8f7dc483d305cc48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e1fa5f90d6e821fd0d2a02bf37cbca5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a5e1fa5f90d6e821fd0d2a02bf37cbca5">radio_tx</a> (unsigned char *buffer, unsigned char buffer_len)</td></tr>
-<tr class="separator:a5e1fa5f90d6e821fd0d2a02bf37cbca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f0f691b3602da77a99b896b04c595ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a0f0f691b3602da77a99b896b04c595ef">rf_tx_put_packet_buffer</a> (unsigned char *packet_data_pointer, unsigned char length)</td></tr>
+<tr class="memdesc:a0f0f691b3602da77a99b896b04c595ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to place data to be transmitted into the transmit FIFO buffer.  <a href="#a0f0f691b3602da77a99b896b04c595ef">More...</a><br /></td></tr>
 <tr class="separator:a0f0f691b3602da77a99b896b04c595ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1102c31a9b1b44d298aa2fa95d464527"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a1102c31a9b1b44d298aa2fa95d464527">rf_tx_inwait_packet_buffer</a> (void)</td></tr>
-<tr class="separator:a1102c31a9b1b44d298aa2fa95d464527"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7d3e9bcb72697310d3f21babe3f577"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a5a7d3e9bcb72697310d3f21babe3f577">rf_tx_get_packet_buffer</a> (unsigned char *buffer)</td></tr>
-<tr class="separator:a5a7d3e9bcb72697310d3f21babe3f577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab25f41f6f473aa6e1571bd0b1cf48efc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#ab25f41f6f473aa6e1571bd0b1cf48efc">rf_rx_put_packet_buffer</a> (unsigned char *packet_data_pointer, unsigned char length)</td></tr>
-<tr class="separator:ab25f41f6f473aa6e1571bd0b1cf48efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43c66d4a4b1adf659d880885fe2e8d9e"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a43c66d4a4b1adf659d880885fe2e8d9e">rf_rx_get_packet_buffer</a> (unsigned char *buffer)</td></tr>
-<tr class="separator:a43c66d4a4b1adf659d880885fe2e8d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfb42fbc4d7d5dcb68b5ffd51ebb7c77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#acfb42fbc4d7d5dcb68b5ffd51ebb7c77">rf_get_next_tx_fifo</a> (void)</td></tr>
+<tr class="memdesc:acfb42fbc4d7d5dcb68b5ffd51ebb7c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the next packet in the transmit FIFO and transmits it.  <a href="#acfb42fbc4d7d5dcb68b5ffd51ebb7c77">More...</a><br /></td></tr>
 <tr class="separator:acfb42fbc4d7d5dcb68b5ffd51ebb7c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71bf2ac560942d4d24679117f870ad18"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a71bf2ac560942d4d24679117f870ad18">rf_check_tx_fifo</a> (void)</td></tr>
+<tr class="memdesc:a71bf2ac560942d4d24679117f870ad18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a packet is waiting in the transmit FIFO.  <a href="#a71bf2ac560942d4d24679117f870ad18">More...</a><br /></td></tr>
 <tr class="separator:a71bf2ac560942d4d24679117f870ad18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96a68ee87e7d09faf730a2b2c4592445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a96a68ee87e7d09faf730a2b2c4592445">rf_housekeeping</a> (void)</td></tr>
+<tr class="memdesc:a96a68ee87e7d09faf730a2b2c4592445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main housekeeping routine function.  <a href="#a96a68ee87e7d09faf730a2b2c4592445">More...</a><br /></td></tr>
 <tr class="separator:a96a68ee87e7d09faf730a2b2c4592445"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#abcc24ad8b2820c3b67da03b6a0bed6f9">rf_tx_datalink_packet</a> (char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id, unsigned char packet_type, unsigned char packet_config, unsigned char payload_len, unsigned char *payload)</td></tr>
+<tr class="memdesc:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill rf_datalink_packet_tx_struct with data to create a layer 2 transmit packet.  <a href="#abcc24ad8b2820c3b67da03b6a0bed6f9">More...</a><br /></td></tr>
 <tr class="separator:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ed01b9ab9f9198d3c398274a634b29"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a48ed01b9ab9f9198d3c398274a634b29">rf_send_test_rf_1</a> (void)</td></tr>
-<tr class="separator:a48ed01b9ab9f9198d3c398274a634b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a664363319e5af4971ddbc90101fa9dca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a664363319e5af4971ddbc90101fa9dca">rf_rawpacket_tx</a> (<a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> *packet_data_pointer)</td></tr>
+<tr class="memdesc:a664363319e5af4971ddbc90101fa9dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction function used to place a transmit packet into the transmit FIFO.  <a href="#a664363319e5af4971ddbc90101fa9dca">More...</a><br /></td></tr>
 <tr class="separator:a664363319e5af4971ddbc90101fa9dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41c522c3862f140d95ebf47fc276daea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a41c522c3862f140d95ebf47fc276daea">rf_datalink_parse</a> (unsigned char *packet)</td></tr>
+<tr class="memdesc:a41c522c3862f140d95ebf47fc276daea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a received layer 2 packet.  <a href="#a41c522c3862f140d95ebf47fc276daea">More...</a><br /></td></tr>
 <tr class="separator:a41c522c3862f140d95ebf47fc276daea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65b1f6e58bc730f0ac8f5f6b8800b92b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a65b1f6e58bc730f0ac8f5f6b8800b92b">CC430_Program_Freq</a> (unsigned char freq2, unsigned char freq1, unsigned char freq0)</td></tr>
+<tr class="memdesc:a65b1f6e58bc730f0ac8f5f6b8800b92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the current RF frequency.  <a href="#a65b1f6e58bc730f0ac8f5f6b8800b92b">More...</a><br /></td></tr>
 <tr class="separator:a65b1f6e58bc730f0ac8f5f6b8800b92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a47fca45236208a3a62b4776fc60465cf"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a47fca45236208a3a62b4776fc60465cf">mycall</a> [6]</td></tr>
-<tr class="separator:a47fca45236208a3a62b4776fc60465cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab5fdecc9b8caa545e5ac425a99e8b2c"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#aab5fdecc9b8caa545e5ac425a99e8b2c">cqcall</a> [6]</td></tr>
-<tr class="separator:aab5fdecc9b8caa545e5ac425a99e8b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa730c96e9a50fabe2cdc7fc7bd1c4af4"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#aa730c96e9a50fabe2cdc7fc7bd1c4af4">rf_datalink_packet_tx_struct</a></td></tr>
-<tr class="separator:aa730c96e9a50fabe2cdc7fc7bd1c4af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5de7440d119bf93e0917aaa38012ad"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8h.html#a4b5de7440d119bf93e0917aaa38012ad">rf_datalink_packet_rx_struct</a></td></tr>
-<tr class="separator:a4b5de7440d119bf93e0917aaa38012ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The layer 2 RF experimental protocol. </p>
+<p>These functions create the experimental RF layer 2 (datalink) protocol. The protocol is a fixed length protocol and provides no error detection. Packet fragmentation is not supported.</p>
+<p>The current implementation of the protocol utilizes the CC430 packet handling hardware that limits the packet to 64 bytes. Updates are known through CC430 application notes that all unlimited packet size as well as handling all packet functions in firmware for maximum flexability. These updates would greatly increase throughput. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af1c747039731408e5511ebe7324c281c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1c747039731408e5511ebe7324c281c">&sect;&nbsp;</a></span>RF_DATALINK_PACKET_FIFO_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RF_DATALINK_PACKET_FIFO_COUNT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>FIFO definition for max number of packets to hold in a FIFO </p>
+
+</div>
+</div>
+<a id="a6fd80036879a765fd8556c7971656eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd80036879a765fd8556c7971656eeb">&sect;&nbsp;</a></span>RF_DATALINK_PACKET_PAYLOAD_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RF_DATALINK_PACKET_PAYLOAD_LEN&#160;&#160;&#160;62</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>FIFO definition for packet length </p>
+
+</div>
+</div>
+<a id="a270c74398a4371b42cf262a2c9f85212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270c74398a4371b42cf262a2c9f85212">&sect;&nbsp;</a></span>RF_DATALINK_PACKET_RX_FOOTER_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RF_DATALINK_PACKET_RX_FOOTER_LEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>FIFO definition for receive footer byte count </p>
+
+</div>
+</div>
 <a id="a97d84502db3e60cd048c4fdfee45f1f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97d84502db3e60cd048c4fdfee45f1f7">&sect;&nbsp;</a></span>RF_DATALINK_PKT_DESTINATION_CALLSIGN_ID_LOC</h2>
 
@@ -209,6 +274,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Destination callsign ID number packet index location </p>
 
 </div>
 </div>
@@ -223,6 +289,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Destination callsign packet index location </p>
 
 </div>
 </div>
@@ -237,6 +304,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Destination callsign length packet index location </p>
 
 </div>
 </div>
@@ -251,6 +319,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>CC430 Layer 2 receive appended Link Quality Indicator byte packet index location </p>
 
 </div>
 </div>
@@ -265,6 +334,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Layer 2 payload length byte packet index location </p>
 
 </div>
 </div>
@@ -279,6 +349,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Layer 2 payload data packet index location </p>
 
 </div>
 </div>
@@ -293,6 +364,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Layer 2 packet configuration bitmask byte packet index location </p>
 
 </div>
 </div>
@@ -307,6 +379,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Layer 2 packet length byte packet index location </p>
 
 </div>
 </div>
@@ -321,6 +394,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Layer 2 packet type byte packet index location </p>
 
 </div>
 </div>
@@ -335,6 +409,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>CC430 Layer 2 receive appended receive signal strength indicator packet index location </p>
 
 </div>
 </div>
@@ -349,6 +424,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Source callsign ID number packet index location </p>
 
 </div>
 </div>
@@ -363,6 +439,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Source callsign packet index location </p>
 
 </div>
 </div>
@@ -377,6 +454,52 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Source callsign length packet index location </p>
+
+</div>
+</div>
+<a id="aea235bffdae511bee6b73edb73252f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea235bffdae511bee6b73edb73252f8f">&sect;&nbsp;</a></span>RX_PACKET_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RX_PACKET_LEN&#160;&#160;&#160;61</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Receive packet size </p>
+
+</div>
+</div>
+<a id="a0d0257a1204cc0bf53ed170143863f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0257a1204cc0bf53ed170143863f99">&sect;&nbsp;</a></span>RX_PKT_HANDLE_APPEND_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RX_PKT_HANDLE_APPEND_LEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Packet hardware receive append data byte size </p>
+
+</div>
+</div>
+<a id="adfacf11b3be128e414d637166fca7567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfacf11b3be128e414d637166fca7567">&sect;&nbsp;</a></span>TX_PACKET_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TX_PACKET_LEN&#160;&#160;&#160;61</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transmit packet size </p>
 
 </div>
 </div>
@@ -392,6 +515,10 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Layer 2 packet structure. </p>
+<p>This structure holds all of the layer 2 packet fields and is used to create/parse datalink layer packets.</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000006">Bug:</a></b></dt><dd>44 instead of 45 due to UART transport layer limitation of 63 payload bytes...</dd></dl>
 
 </div>
 </div>
@@ -428,6 +555,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update the current RF frequency. </p>
+<p>This function is used to update the current CC430 radio module frequency. Reference the CC430 users guide for more information about the CC430 radio registers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freq2</td><td>MSB index of the 3 byte radio module register </td></tr>
+    <tr><td class="paramname">freq1</td><td>Index [1] of the 3 byte radio module register </td></tr>
+    <tr><td class="paramname">freq0</td><td>LSB index of the 3 byte radio module register </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4ffcdc7ec9b5d850ad08052452aa826c"></a>
@@ -445,6 +583,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize the CC430 radio to default operation. </p>
+<p>Initialize the CC430 radio to default operation. </p>
 
 </div>
 </div>
@@ -464,23 +605,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a532a220533ed58b8f7dc483d305cc48b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a532a220533ed58b8f7dc483d305cc48b">&sect;&nbsp;</a></span>radio_housekeeping()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radio_housekeeping </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Initialize layer 2 radio FIFO buffers. </p>
+<p>Initialize layer 2 radio FIFO buffers used for both transmit and receive. </p>
 
 </div>
 </div>
@@ -500,16 +626,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A function that holds the routines needed to operation the ISR. </p>
+<p>This function performs the needed checks and routines to operate the CC430 layer 2 operations that must be performed on the interrupt serive routine interrupts. </p>
+
 </div>
 </div>
-<a id="a203430657d6e60136cccd7ed41b02891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a203430657d6e60136cccd7ed41b02891">&sect;&nbsp;</a></span>radio_load_defaults()</h2>
+<a id="a8cc560dfe983937d7aa2f05080040a07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cc560dfe983937d7aa2f05080040a07">&sect;&nbsp;</a></span>radio_load_default_frequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void radio_load_defaults </td>
+          <td class="memname">void radio_load_default_frequency </td>
           <td>(</td>
           <td class="paramtype">unsigned char&#160;</td>
           <td class="paramname"><em>freq2</em>, </td>
@@ -534,23 +663,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a5e5481c3eefc3a661d7b0c0393de05bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e5481c3eefc3a661d7b0c0393de05bd">&sect;&nbsp;</a></span>radio_manual_calibration_idle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radio_manual_calibration_idle </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Load default CC430 frequency Update the CC430 HAL "RfSettings" frequency registers definitions with supplied values. Reference the CC430 users guide for more information about the CC430 radio registers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freq2</td><td>MSB index of the 3 byte radio module register </td></tr>
+    <tr><td class="paramname">freq1</td><td>Index [1] of the 3 byte radio module register </td></tr>
+    <tr><td class="paramname">freq0</td><td>LSB index of the 3 byte radio module register </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -570,33 +691,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a5e1fa5f90d6e821fd0d2a02bf37cbca5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e1fa5f90d6e821fd0d2a02bf37cbca5">&sect;&nbsp;</a></span>radio_tx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void radio_tx </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>buffer_len</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Place CC430 radio into IDLE state. </p>
+<p>Place CC430 radio into IDLE state. </p>
 
 </div>
 </div>
@@ -616,6 +712,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Perform routine routine to disable both CC430 and external amplifier for receive opertion. </p>
+<p>Perform routine routine to disable both CC430 and external amplifier for receive opertion </p>
+
 </div>
 </div>
 <a id="a6016f0e70f4b3cd74db476e3bd55189e"></a>
@@ -633,6 +732,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Perform routine routine to enable both CC430 and external amplifier for receive opertion. </p>
+<p>Perform routine routine to enable both CC430 and external amplifier for receive opertion. </p>
 
 </div>
 </div>
@@ -652,6 +754,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Check if a packet is waiting in the transmit FIFO. </p>
+<p>Check if a packet is waiting in the transmit FIFO to be transmited.</p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>1 if 1 or more packets are waiting in the FIFO to be transmitted. Returns 0 if no packets are waiting. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a41c522c3862f140d95ebf47fc276daea"></a>
@@ -669,6 +780,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parse a received layer 2 packet. </p>
+<p>This function is used to parse a supplied raw layer 2 packet as received into a structure defined with fields expected for the received packet type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>A pointer to the received raw packet bytearray to be parsed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -688,6 +808,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the next packet in the transmit FIFO and transmits it. </p>
+<p>This function is used to retrieve a waiting packet from the transmit FIFO buffer and transmit it using the CC430 packet handling hardware. </p>
+
 </div>
 </div>
 <a id="a96a68ee87e7d09faf730a2b2c4592445"></a>
@@ -705,6 +828,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Main housekeeping routine function. </p>
+<p>This is the main housekeeping routine used to perform checks for needed actions that operate the layer 2 protocol. The actions perform include checking FIFO's for waiting data to be retrieved and performed actions accordingly. </p>
 
 </div>
 </div>
@@ -724,69 +850,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a43c66d4a4b1adf659d880885fe2e8d9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43c66d4a4b1adf659d880885fe2e8d9e">&sect;&nbsp;</a></span>rf_rx_get_packet_buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char rf_rx_get_packet_buffer </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab25f41f6f473aa6e1571bd0b1cf48efc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab25f41f6f473aa6e1571bd0b1cf48efc">&sect;&nbsp;</a></span>rf_rx_put_packet_buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void rf_rx_put_packet_buffer </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>packet_data_pointer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned char&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a48ed01b9ab9f9198d3c398274a634b29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ed01b9ab9f9198d3c398274a634b29">&sect;&nbsp;</a></span>rf_send_test_rf_1()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void rf_send_test_rf_1 </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Abstraction function used to place a transmit packet into the transmit FIFO. </p>
+<p>Abstraction function used to place a transmit packet into the transmit FIFO.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet_data_pointer</td><td>A pointer to a structure variable of type RF_DATALINK_PACKET_STRUCT that contains the defined and filled packet data </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -864,41 +935,28 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a5a7d3e9bcb72697310d3f21babe3f577"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a7d3e9bcb72697310d3f21babe3f577">&sect;&nbsp;</a></span>rf_tx_get_packet_buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char rf_tx_get_packet_buffer </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1102c31a9b1b44d298aa2fa95d464527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1102c31a9b1b44d298aa2fa95d464527">&sect;&nbsp;</a></span>rf_tx_inwait_packet_buffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char rf_tx_inwait_packet_buffer </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Fill rf_datalink_packet_tx_struct with data to create a layer 2 transmit packet. </p>
+<p>This function is used to build a layer 2 transmit packet using the packet structure (rf_datalink_packet_tx_struct). Supplied information in the function arguments provide the data to fill the packet fields as defined.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src_callsign</td><td>A pointer to the packet's source callsign characters </td></tr>
+    <tr><td class="paramname">src_callsign_len</td><td>Source callsign length in bytes </td></tr>
+    <tr><td class="paramname">src_callsign_id</td><td>Source callsign ID number </td></tr>
+    <tr><td class="paramname">dest_callsign</td><td>A pointer to the packet's destination callsign characters </td></tr>
+    <tr><td class="paramname">dest_callsign_len</td><td>Destination callsign length in bytes </td></tr>
+    <tr><td class="paramname">dest_callsign_id</td><td>Destination callsign ID number </td></tr>
+    <tr><td class="paramname">packet_type</td><td>A byte that describes the packet type to allow multuple packet types to be supported </td></tr>
+    <tr><td class="paramname">packet_config</td><td>A bitmask that allows packet and protocol configuration settings/flags </td></tr>
+    <tr><td class="paramname">payload_len</td><td>Length in bytes of the supplied payload data</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">Returns</td><td>1 if packet creation was successful and 0 if not (due to payload/callsign size too large) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -928,6 +986,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Function used to place data to be transmitted into the transmit FIFO buffer. </p>
+<p>This function is used to put data into the layer 2 transmit FIFO buffer for transmission.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet_data_pointer</td><td>Pointer to the data to be transmitted </td></tr>
+    <tr><td class="paramname">length</td><td>Length in bytes of the data to be transmitted </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a1d4792ecc82c8946e81fb82db3f7be82"></a>
@@ -956,6 +1024,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Place data into the CC430 packet handling hardware and transmit the data. </p>
+<p>Place data into the CC430 packet handling hardware and transmit the data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>A pointer to the data to be transmitted </td></tr>
+    <tr><td class="paramname">Length</td><td>in bytes of the data to be transmitted </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a5745dbf0b29892d2ff4148e61b26ca71"></a>
@@ -974,62 +1052,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="aab5fdecc9b8caa545e5ac425a99e8b2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab5fdecc9b8caa545e5ac425a99e8b2c">&sect;&nbsp;</a></span>cqcall</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char cqcall[6]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a47fca45236208a3a62b4776fc60465cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47fca45236208a3a62b4776fc60465cf">&sect;&nbsp;</a></span>mycall</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char mycall[6]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4b5de7440d119bf93e0917aaa38012ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b5de7440d119bf93e0917aaa38012ad">&sect;&nbsp;</a></span>rf_datalink_packet_rx_struct</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_rx_struct</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa730c96e9a50fabe2cdc7fc7bd1c4af4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa730c96e9a50fabe2cdc7fc7bd1c4af4">&sect;&nbsp;</a></span>rf_datalink_packet_tx_struct</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_tx_struct</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Perform routine to enable both CC430 and external amplifier for transmit operation. </p>
+<p>Perform routine to enable both CC430 and external amplifier for transmit operation. </p>
 
 </div>
 </div>

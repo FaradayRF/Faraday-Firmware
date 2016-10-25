@@ -1,3 +1,15 @@
+/** @file rf.h
+ * 	@brief The layer 2 RF experimental protocol
+ *
+ * 	These functions create the experimental RF layer 2 (datalink) protocol. The protocol is a fixed length protocol and provides
+ * 	no error detection. Packet fragmentation is not supported.
+ *
+ * 	The current implementation of the protocol utilizes the CC430 packet handling hardware that limits the packet to 64 bytes. Updates
+ * 	are known through CC430 application notes that all unlimited packet size as well as handling all packet functions in firmware for
+ * 	maximum flexability. These updates would greatly increase throughput.
+ *
+ */
+
 #ifndef RF_NETWORK_STACK_RF_H_
 #define RF_NETWORK_STACK_RF_H_
 

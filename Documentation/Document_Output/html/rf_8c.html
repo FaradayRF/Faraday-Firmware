@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('rf_8c.html','');});
 <p>The layer 2 RF experimental protocol.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;cc430f6137.h&quot;</code><br />
-<code>#include &quot;rf.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="rf_8h_source.html">rf.h</a>&quot;</code><br />
 <code>#include &quot;string.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="rf__transport_8h_source.html">rf_transport.h</a>&quot;</code><br />
 <code>#include &quot;../HAL/RF1A.h&quot;</code><br />
@@ -152,7 +152,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>radio_tx</b> (unsigne
 <tr class="memitem:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#abcc24ad8b2820c3b67da03b6a0bed6f9">rf_tx_datalink_packet</a> (char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id, unsigned char packet_type, unsigned char packet_config, unsigned char payload_len, unsigned char *payload)</td></tr>
 <tr class="memdesc:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill rf_datalink_packet_tx_struct with data to create a layer 2 transmit packet.  <a href="#abcc24ad8b2820c3b67da03b6a0bed6f9">More...</a><br /></td></tr>
 <tr class="separator:abcc24ad8b2820c3b67da03b6a0bed6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a664363319e5af4971ddbc90101fa9dca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a664363319e5af4971ddbc90101fa9dca">rf_rawpacket_tx</a> (<a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a> *packet_data_pointer)</td></tr>
+<tr class="memitem:a664363319e5af4971ddbc90101fa9dca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a664363319e5af4971ddbc90101fa9dca">rf_rawpacket_tx</a> (<a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> *packet_data_pointer)</td></tr>
 <tr class="memdesc:a664363319e5af4971ddbc90101fa9dca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction function used to place a transmit packet into the transmit FIFO.  <a href="#a664363319e5af4971ddbc90101fa9dca">More...</a><br /></td></tr>
 <tr class="separator:a664363319e5af4971ddbc90101fa9dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41c522c3862f140d95ebf47fc276daea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a41c522c3862f140d95ebf47fc276daea">rf_datalink_parse</a> (unsigned char *packet)</td></tr>
@@ -183,9 +183,9 @@ Variables</h2></td></tr>
 <p>Buffers used to temporarally hold RX/TX data</p>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>Are these better suited for local function variables?</dd></dl>
 </div></td></tr>
-<tr class="memitem:ab95d530564871e6fdb897d9c5af13833"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#ab95d530564871e6fdb897d9c5af13833">rf_tx_datalink_buffer</a> [RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]</td></tr>
+<tr class="memitem:ab95d530564871e6fdb897d9c5af13833"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#ab95d530564871e6fdb897d9c5af13833">rf_tx_datalink_buffer</a> [<a class="el" href="rf_8h.html#aea235bffdae511bee6b73edb73252f8f">RX_PACKET_LEN</a>+<a class="el" href="rf_8h.html#a0d0257a1204cc0bf53ed170143863f99">RX_PKT_HANDLE_APPEND_LEN</a>]</td></tr>
 <tr class="separator:ab95d530564871e6fdb897d9c5af13833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af866cc272b36d95d4058aabbefdd855b"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#af866cc272b36d95d4058aabbefdd855b">rf_rx_datalink_buffer</a> [RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]</td></tr>
+<tr class="memitem:af866cc272b36d95d4058aabbefdd855b"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#af866cc272b36d95d4058aabbefdd855b">rf_rx_datalink_buffer</a> [<a class="el" href="rf_8h.html#aea235bffdae511bee6b73edb73252f8f">RX_PACKET_LEN</a>+<a class="el" href="rf_8h.html#a0d0257a1204cc0bf53ed170143863f99">RX_PKT_HANDLE_APPEND_LEN</a>]</td></tr>
 <tr class="separator:af866cc272b36d95d4058aabbefdd855b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Layer 2 protocol FIFO Variables</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Variables used to control and hold information for the RF layer 2 FIFO operations</p>
@@ -193,19 +193,19 @@ Variables</h2></td></tr>
 </div></td></tr>
 <tr class="memitem:a0a48d433c1e1d51acd6ba07becdab3be"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a0a48d433c1e1d51acd6ba07becdab3be">rf_datalink_tx_fifo_state_machine</a></td></tr>
 <tr class="separator:a0a48d433c1e1d51acd6ba07becdab3be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98941ca68206f4cf809972ef8239c0e8"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a98941ca68206f4cf809972ef8239c0e8">rf_datalink_tx_fifo_buffer</a> [RF_DATALINK_PACKET_PAYLOAD_LEN *RF_DATALINK_PACKET_FIFO_COUNT]</td></tr>
+<tr class="memitem:a98941ca68206f4cf809972ef8239c0e8"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a98941ca68206f4cf809972ef8239c0e8">rf_datalink_tx_fifo_buffer</a> [<a class="el" href="rf_8h.html#a6fd80036879a765fd8556c7971656eeb">RF_DATALINK_PACKET_PAYLOAD_LEN</a> *<a class="el" href="rf_8h.html#af1c747039731408e5511ebe7324c281c">RF_DATALINK_PACKET_FIFO_COUNT</a>]</td></tr>
 <tr class="separator:a98941ca68206f4cf809972ef8239c0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fa98d3966b3748750361f25738fc587"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_f_i_f_o___buffer___state___machine.html">fifo_state_machine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a3fa98d3966b3748750361f25738fc587">rf_datalink_rx_fifo_state_machine</a></td></tr>
 <tr class="separator:a3fa98d3966b3748750361f25738fc587"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a815ce3b36ba85d75a5340c83cc6645bc"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a815ce3b36ba85d75a5340c83cc6645bc">rf_datalink_rx_fifo_buffer</a> [(RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN) *RF_DATALINK_PACKET_FIFO_COUNT]</td></tr>
+<tr class="memitem:a815ce3b36ba85d75a5340c83cc6645bc"><td class="memItemLeft" align="right" valign="top">volatile unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a815ce3b36ba85d75a5340c83cc6645bc">rf_datalink_rx_fifo_buffer</a> [(<a class="el" href="rf_8h.html#a6fd80036879a765fd8556c7971656eeb">RF_DATALINK_PACKET_PAYLOAD_LEN</a>+<a class="el" href="rf_8h.html#a270c74398a4371b42cf262a2c9f85212">RF_DATALINK_PACKET_RX_FOOTER_LEN</a>) *<a class="el" href="rf_8h.html#af1c747039731408e5511ebe7324c281c">RF_DATALINK_PACKET_FIFO_COUNT</a>]</td></tr>
 <tr class="separator:a815ce3b36ba85d75a5340c83cc6645bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Layer 2 Packet Structures</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Structures used to build and parse layer 2 protocol packets</p>
 <p>Structures used to build and parse layer 2 protocol packets. </p>
 </div></td></tr>
-<tr class="memitem:aa730c96e9a50fabe2cdc7fc7bd1c4af4"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#aa730c96e9a50fabe2cdc7fc7bd1c4af4">rf_datalink_packet_tx_struct</a></td></tr>
+<tr class="memitem:aa730c96e9a50fabe2cdc7fc7bd1c4af4"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#aa730c96e9a50fabe2cdc7fc7bd1c4af4">rf_datalink_packet_tx_struct</a></td></tr>
 <tr class="separator:aa730c96e9a50fabe2cdc7fc7bd1c4af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5de7440d119bf93e0917aaa38012ad"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a4b5de7440d119bf93e0917aaa38012ad">rf_datalink_packet_rx_struct</a></td></tr>
+<tr class="memitem:a4b5de7440d119bf93e0917aaa38012ad"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rf_8c.html#a4b5de7440d119bf93e0917aaa38012ad">rf_datalink_packet_rx_struct</a></td></tr>
 <tr class="separator:a4b5de7440d119bf93e0917aaa38012ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -533,7 +533,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void rf_rawpacket_tx </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> *&#160;</td>
           <td class="paramname"><em>packet_data_pointer</em></td><td>)</td>
           <td></td>
         </tr>
@@ -770,7 +770,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_rx_struct</td>
+          <td class="memname">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_rx_struct</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -785,7 +785,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_tx_struct</td>
+          <td class="memname">volatile <a class="el" href="rf_8h.html#a35cca4d9b7aac8755a34f91bcac89139">RF_DATALINK_PACKET_STRUCT</a> rf_datalink_packet_tx_struct</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -800,7 +800,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char rf_datalink_rx_fifo_buffer[(RF_DATALINK_PACKET_PAYLOAD_LEN+RF_DATALINK_PACKET_RX_FOOTER_LEN) *RF_DATALINK_PACKET_FIFO_COUNT]</td>
+          <td class="memname">volatile unsigned char rf_datalink_rx_fifo_buffer[(<a class="el" href="rf_8h.html#a6fd80036879a765fd8556c7971656eeb">RF_DATALINK_PACKET_PAYLOAD_LEN</a>+<a class="el" href="rf_8h.html#a270c74398a4371b42cf262a2c9f85212">RF_DATALINK_PACKET_RX_FOOTER_LEN</a>) *<a class="el" href="rf_8h.html#af1c747039731408e5511ebe7324c281c">RF_DATALINK_PACKET_FIFO_COUNT</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -830,7 +830,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char rf_datalink_tx_fifo_buffer[RF_DATALINK_PACKET_PAYLOAD_LEN *RF_DATALINK_PACKET_FIFO_COUNT]</td>
+          <td class="memname">volatile unsigned char rf_datalink_tx_fifo_buffer[<a class="el" href="rf_8h.html#a6fd80036879a765fd8556c7971656eeb">RF_DATALINK_PACKET_PAYLOAD_LEN</a> *<a class="el" href="rf_8h.html#af1c747039731408e5511ebe7324c281c">RF_DATALINK_PACKET_FIFO_COUNT</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -860,7 +860,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char rf_rx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]</td>
+          <td class="memname">volatile unsigned char rf_rx_datalink_buffer[<a class="el" href="rf_8h.html#aea235bffdae511bee6b73edb73252f8f">RX_PACKET_LEN</a>+<a class="el" href="rf_8h.html#a0d0257a1204cc0bf53ed170143863f99">RX_PKT_HANDLE_APPEND_LEN</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -875,7 +875,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile unsigned char rf_tx_datalink_buffer[RX_PACKET_LEN+RX_PKT_HANDLE_APPEND_LEN]</td>
+          <td class="memname">volatile unsigned char rf_tx_datalink_buffer[<a class="el" href="rf_8h.html#aea235bffdae511bee6b73edb73252f8f">RX_PACKET_LEN</a>+<a class="el" href="rf_8h.html#a0d0257a1204cc0bf53ed170143863f99">RX_PKT_HANDLE_APPEND_LEN</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
