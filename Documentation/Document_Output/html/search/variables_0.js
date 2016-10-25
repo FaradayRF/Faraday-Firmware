@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['buffer_5fsize',['buffer_size',['../struct_f_i_f_o___buffer___state___machine.html#a2a0484a5686f3c473e720462aba197bb',1,'FIFO_Buffer_State_Machine::buffer_size()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a2a0484a5686f3c473e720462aba197bb',1,'FIFO_SRAM_Buffer_State_Machine::buffer_size()']]]
+  ['alt_5funits',['Alt_Units',['../struct_g_g_a___data.html#a5318c5b6b1e1f6f8802011debd09c987',1,'GGA_Data']]],
+  ['altitude',['Altitude',['../struct_g_g_a___data.html#a0c0906c5e89414f1d68617b53c9dd175',1,'GGA_Data']]]
 ];

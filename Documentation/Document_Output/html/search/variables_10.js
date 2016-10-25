@@ -1,22 +1,5 @@
 var searchData=
 [
-  ['uart_5fdata_5frx_5fraw_5fbytes',['uart_data_rx_raw_bytes',['../_u_a_r_t___l2_8c.html#a5f979812dea613dee0173576c35962f0',1,'UART_L2.c']]],
-  ['uart_5fdata_5ftx_5fbytes_5f256',['uart_data_tx_bytes_256',['../_u_a_r_t___l2_8c.html#a80ea969cd013f06134ea63f313eea350',1,'UART_L2.c']]],
-  ['uart_5fdatalink_5fframe_5frx_5fstate',['uart_datalink_frame_rx_state',['../_u_a_r_t___l2_8c.html#ac1247c865c4e1f79a6871e98a46939c5',1,'UART_L2.c']]],
-  ['uart_5fdatalink_5ftx_5frdy_5fflag',['uart_datalink_tx_rdy_flag',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#a1f23c73d633123cb28ad636c121be6d9',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatalink_5ftx_5ftx_5fpkt_5fbuffer',['uart_datalink_tx_tx_pkt_buffer',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#a44ae0ce9b487956fed9d34788bbe12eb',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatlink_5ftx_5fbyte_5fcurrent',['uart_datlink_tx_byte_current',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#ad4b991d245d9c3d091ac0343cd4af5ab',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatlink_5ftx_5fescape_5fbuffer',['uart_datlink_tx_escape_buffer',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#aa412d6e8929017111d20956181a972eb',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatlink_5ftx_5fescape_5fflag',['uart_datlink_tx_escape_flag',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#a328bd7e68b81431f0b68b0248a7519b2',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatlink_5ftx_5fstartbyte_5fflag',['uart_datlink_tx_startbyte_flag',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#af5bd74a3a36d1fd0e4274c9531dc08b7',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5fdatlink_5ftx_5fstopbyte_5fflag',['uart_datlink_tx_stopbyte_flag',['../struct_u_a_r_t___l2___p_a_c_k_e_t___m_s_p430___b_u_f_f_e_r.html#a07a9b53b7df76c507f598dcb8e776181',1,'UART_L2_PACKET_MSP430_BUFFER']]],
-  ['uart_5frx_5fraw_5fbytes_5fstate_5fmachine',['uart_rx_raw_bytes_state_machine',['../_u_a_r_t___l2_8c.html#a46e24cd10cce34b7779c5f3b2f242ddc',1,'UART_L2.c']]],
-  ['uart_5ftx_5fbytes_5fisr_5fbuffer_5fstruct',['uart_tx_bytes_isr_buffer_struct',['../_u_a_r_t___l2_8c.html#ac9afd4d4c944f4460af29b7cea9b6dba',1,'UART_L2.c']]],
-  ['uart_5ftx_5fbytes_5fstate_5fmachine',['uart_tx_bytes_state_machine',['../_u_a_r_t___l2_8c.html#a7fdc378de86e697af6d56eb31386e89c',1,'UART_L2.c']]],
-  ['uchar_5fauto_5fcutdown_5ftimer_5fstate_5fstatus',['uChar_auto_cutdown_timer_state_status',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html#a288360d4c81bb83993680644392b4e0e',1,'HAB_TELEMETRY_PACKET']]],
-  ['uchar_5fcutdown_5fevent_5fstate_5fstatus',['uChar_cutdown_event_state_status',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html#a1cc8ec2bd8931ab45704ef2b2fec575f',1,'HAB_TELEMETRY_PACKET']]],
-  ['uchar_5fstate',['uChar_state',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#a4e83bf1bf3fcb2ee6ff5397cc097e5ae',1,'HAB_AUTO_CUTDOWN_TIMER_SM::uChar_state()'],['../struct_h_a_b___c_u_t_d_o_w_n___e_v_e_n_t___t_i_m_e_r___s_m.html#a4e83bf1bf3fcb2ee6ff5397cc097e5ae',1,'HAB_CUTDOWN_EVENT_TIMER_SM::uChar_state()']]],
-  ['uint_5fapp_5fhab_5ftimer',['uInt_app_hab_timer',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#ac9f87aad432b5c8b109d806a1263eefe',1,'HAB_AUTO_CUTDOWN_TIMER_SM::uInt_app_hab_timer()'],['../struct_h_a_b___c_u_t_d_o_w_n___e_v_e_n_t___t_i_m_e_r___s_m.html#ac9f87aad432b5c8b109d806a1263eefe',1,'HAB_CUTDOWN_EVENT_TIMER_SM::uInt_app_hab_timer()']]],
-  ['uint_5ftimer_5fcurrent',['uInt_timer_current',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html#adaedbfe077d0e4d9b7af9e8f67b4995b',1,'HAB_TELEMETRY_PACKET']]],
-  ['uint_5ftimer_5fset',['uInt_timer_set',['../struct_h_a_b___t_e_l_e_m_e_t_r_y___p_a_c_k_e_t.html#a486e4da3411c19d67c155ce609f748cc',1,'HAB_TELEMETRY_PACKET']]]
+  ['uchar_5fstate',['uChar_state',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#a4e83bf1bf3fcb2ee6ff5397cc097e5ae',1,'HAB_AUTO_CUTDOWN_TIMER_SM']]],
+  ['uint_5fapp_5fhab_5ftimer',['uInt_app_hab_timer',['../struct_h_a_b___a_u_t_o___c_u_t_d_o_w_n___t_i_m_e_r___s_m.html#ac9f87aad432b5c8b109d806a1263eefe',1,'HAB_AUTO_CUTDOWN_TIMER_SM']]]
 ];

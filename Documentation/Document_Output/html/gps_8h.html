@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.12"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faraday-Firmware: C:/Users/Brent/Documents/Faraday_Github/Firmware-Master/Faraday-Firmware/HAL/gps.h File Reference</title>
+<title>Faraday-Firmware: HAL/gps.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,56 +84,79 @@ $(document).ready(function(){initNavTree('gps_8h.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">gps.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Hardware abstraction for the Faraday GPS module.  
+<a href="#details">More...</a></p>
 
 <p><a href="gps_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_p_s__string.html">GPS_string</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">General structure used to hold a GPS string recevied.  <a href="struct_g_p_s__string.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_g_a___data.html">GGA_Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining the expected NMEA "GGA" string packet type.  <a href="struct_g_g_a___data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_r_m_c___data.html">RMC_Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining the expected NMEA "RMC" string packet type.  <a href="struct_r_m_c___data.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a5a217ff4d1c68550da313ebe37f443db"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_p_s__string.html">GPS_string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a5a217ff4d1c68550da313ebe37f443db">GPSNMEA</a></td></tr>
+<tr class="memdesc:a5a217ff4d1c68550da313ebe37f443db"><td class="mdescLeft">&#160;</td><td class="mdescRight">General structure used to hold a GPS string recevied.  <a href="#a5a217ff4d1c68550da313ebe37f443db">More...</a><br /></td></tr>
 <tr class="separator:a5a217ff4d1c68550da313ebe37f443db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39a26c5cd6629d632dc8ceda3a815231"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_g_a___data.html">GGA_Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a39a26c5cd6629d632dc8ceda3a815231">GPSGGA</a></td></tr>
+<tr class="memdesc:a39a26c5cd6629d632dc8ceda3a815231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining the expected NMEA "GGA" string packet type.  <a href="#a39a26c5cd6629d632dc8ceda3a815231">More...</a><br /></td></tr>
 <tr class="separator:a39a26c5cd6629d632dc8ceda3a815231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc6faa1a1457a9b750c6f3a158057cf9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_r_m_c___data.html">RMC_Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#afc6faa1a1457a9b750c6f3a158057cf9">GPSRMC</a></td></tr>
+<tr class="memdesc:afc6faa1a1457a9b750c6f3a158057cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure defining the expected NMEA "RMC" string packet type.  <a href="#afc6faa1a1457a9b750c6f3a158057cf9">More...</a><br /></td></tr>
 <tr class="separator:afc6faa1a1457a9b750c6f3a158057cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#af34b9153ae0d5a43a1e3ed80ada3e3ce">initialize_GPS_structs</a> (void)</td></tr>
+<tr class="memdesc:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all needed GPS structures.  <a href="#af34b9153ae0d5a43a1e3ed80ada3e3ce">More...</a><br /></td></tr>
 <tr class="separator:af34b9153ae0d5a43a1e3ed80ada3e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af568234a9b236524942a5f8a725e15f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#af568234a9b236524942a5f8a725e15f3">gps_get_nmea_string</a> (volatile unsigned char *byte)</td></tr>
+<tr class="memdesc:af568234a9b236524942a5f8a725e15f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse GPS NMEA bytestream.  <a href="#af568234a9b236524942a5f8a725e15f3">More...</a><br /></td></tr>
 <tr class="separator:af568234a9b236524942a5f8a725e15f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#ac856ae7bccd9c7d4166b1a651f1aa345">Save_GPS_string_2</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses GPS sentence.  <a href="#ac856ae7bccd9c7d4166b1a651f1aa345">More...</a><br /></td></tr>
 <tr class="separator:ac856ae7bccd9c7d4166b1a651f1aa345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42e0af7226bf00217bb1ba27431456fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a42e0af7226bf00217bb1ba27431456fa">Parse_GGA</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:a42e0af7226bf00217bb1ba27431456fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse NMEA GGA sentence.  <a href="#a42e0af7226bf00217bb1ba27431456fa">More...</a><br /></td></tr>
 <tr class="separator:a42e0af7226bf00217bb1ba27431456fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a568485fe8add01b7bb95c22e949c20fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a568485fe8add01b7bb95c22e949c20fd">Parse_RMC</a> (volatile unsigned char *string)</td></tr>
+<tr class="memdesc:a568485fe8add01b7bb95c22e949c20fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse NMEA RMC sentence.  <a href="#a568485fe8add01b7bb95c22e949c20fd">More...</a><br /></td></tr>
 <tr class="separator:a568485fe8add01b7bb95c22e949c20fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a49118da06ce24da693426c63a668883b"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="gps_8h.html#a39a26c5cd6629d632dc8ceda3a815231">GPSGGA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a49118da06ce24da693426c63a668883b">GGA</a></td></tr>
+<tr><td colspan="2"><div class="groupHeader">GPS Structures</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>structures that are used to parse GPS sentences</p>
+<p>These structures are global and allow the GPS parsing routines a common location to parse GPS sentences into thier respective fields. </p>
+</div></td></tr>
+<tr class="memitem:a49118da06ce24da693426c63a668883b"><td class="memItemLeft" align="right" valign="top"><a id="a49118da06ce24da693426c63a668883b"></a>
+volatile <a class="el" href="gps_8h.html#a39a26c5cd6629d632dc8ceda3a815231">GPSGGA</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GGA</b></td></tr>
 <tr class="separator:a49118da06ce24da693426c63a668883b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50e687c0ddfe664dc18be18289ee1eed"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="gps_8h.html#afc6faa1a1457a9b750c6f3a158057cf9">GPSRMC</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a50e687c0ddfe664dc18be18289ee1eed">RMC</a></td></tr>
+<tr class="memitem:a50e687c0ddfe664dc18be18289ee1eed"><td class="memItemLeft" align="right" valign="top"><a id="a50e687c0ddfe664dc18be18289ee1eed"></a>
+volatile <a class="el" href="gps_8h.html#afc6faa1a1457a9b750c6f3a158057cf9">GPSRMC</a>&#160;</td><td class="memItemRight" valign="bottom"><b>RMC</b></td></tr>
 <tr class="separator:a50e687c0ddfe664dc18be18289ee1eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a615bbbd259272f06b27b1f52f9c22004"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="gps_8h.html#a5a217ff4d1c68550da313ebe37f443db">GPSNMEA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gps_8h.html#a615bbbd259272f06b27b1f52f9c22004">NMEA</a></td></tr>
+<tr class="memitem:a615bbbd259272f06b27b1f52f9c22004"><td class="memItemLeft" align="right" valign="top"><a id="a615bbbd259272f06b27b1f52f9c22004"></a>
+volatile <a class="el" href="gps_8h.html#a5a217ff4d1c68550da313ebe37f443db">GPSNMEA</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NMEA</b></td></tr>
 <tr class="separator:a615bbbd259272f06b27b1f52f9c22004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hardware abstraction for the Faraday GPS module. </p>
+<p>These functions provide hardware abstraction for the onboard GPS. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a39a26c5cd6629d632dc8ceda3a815231"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39a26c5cd6629d632dc8ceda3a815231">&sect;&nbsp;</a></span>GPSGGA</h2>
 
@@ -145,6 +168,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Structure defining the expected NMEA "GGA" string packet type. </p>
+<p>Structure defining the expected NMEA "GGA" string packet type. This structure is used to hold the parsed information from the received GGA packet. </p>
 
 </div>
 </div>
@@ -160,6 +186,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>General structure used to hold a GPS string recevied. </p>
+<p>General structure used to hold a GPS string recevied and contain basic validity information regarding the received string.</p>
+<p>GPS String Flags</p>
+<ul>
+<li>BIT0 = nmea string flag</li>
+<li>BIT1 = CRC valid flag</li>
+</ul>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>Are all these structure fields really needed / used? Bryce?</dd></dl>
+
 </div>
 </div>
 <a id="afc6faa1a1457a9b750c6f3a158057cf9"></a>
@@ -173,6 +208,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Structure defining the expected NMEA "RMC" string packet type. </p>
+<p>Structure defining the expected NMEA "RMC" string packet type. This structure is used to hold the parsed information from the received RMC packet. </p>
 
 </div>
 </div>
@@ -193,6 +231,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parse GPS NMEA bytestream. </p>
+<p>Detects the start of a NMEA string and builds a char array with each byte received until a full sentence is received.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>A pointer to the byte from the GPS NMEA bytestream to be parsed (framing) </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af34b9153ae0d5a43a1e3ed80ada3e3ce"></a>
@@ -210,6 +257,9 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initialize all needed GPS structures. </p>
+<p>Initialize needed GPS structures for proper default operation. </p>
 
 </div>
 </div>
@@ -229,6 +279,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Parse NMEA GGA sentence. </p>
+<p>This function parses the NMEA GGA sentence into the GPS global structure that is used to hold the parsed GGA fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a568485fe8add01b7bb95c22e949c20fd"></a>
@@ -246,6 +305,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Parse NMEA RMC sentence. </p>
+<p>This function parses the NMEA RMC sentence into the GPS global structure that is used to hold the parsed RMC fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -265,48 +333,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a49118da06ce24da693426c63a668883b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49118da06ce24da693426c63a668883b">&sect;&nbsp;</a></span>GGA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="gps_8h.html#a39a26c5cd6629d632dc8ceda3a815231">GPSGGA</a> GGA</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a615bbbd259272f06b27b1f52f9c22004"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a615bbbd259272f06b27b1f52f9c22004">&sect;&nbsp;</a></span>NMEA</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="gps_8h.html#a5a217ff4d1c68550da313ebe37f443db">GPSNMEA</a> NMEA</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a50e687c0ddfe664dc18be18289ee1eed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50e687c0ddfe664dc18be18289ee1eed">&sect;&nbsp;</a></span>RMC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile <a class="el" href="gps_8h.html#afc6faa1a1457a9b750c6f3a158057cf9">GPSRMC</a> RMC</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Parses GPS sentence. </p>
+<p>Determines what type of NMEA string was received and parses it using the expected packet fields.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>A pointer to the GPS NMEA string sentence to be parsed</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Only a select few GPS sentences are supported! </dd></dl>
 
 </div>
 </div>

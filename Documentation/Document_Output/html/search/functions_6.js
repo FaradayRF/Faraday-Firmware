@@ -15,5 +15,6 @@ var searchData=
   ['init_5ftimer_5fa1',['init_timer_A1',['../_faraday___init_8c.html#a0999882823a66543c08ae0c8429b30b5',1,'Faraday_Init.c']]],
   ['init_5fuart',['init_uart',['../_u_a_r_t___l2_8c.html#ac7b3df0fa68526d64c732d5f916e34b1',1,'init_uart(void):&#160;UART_L2.c'],['../_u_a_r_t___l2_8h.html#ac7b3df0fa68526d64c732d5f916e34b1',1,'init_uart(void):&#160;UART_L2.c']]],
   ['init_5fucs',['init_UCS',['../_faraday___init_8c.html#a5d7763ace1ada6ee2aa1cd78e0959e28',1,'Faraday_Init.c']]],
-  ['init_5fusci_5fa0_5fuart',['init_usci_A0_UART',['../_faraday___init_8c.html#a23c31f0be7a2e76b374bcb1691df9b26',1,'Faraday_Init.c']]]
+  ['init_5fusci_5fa0_5fuart',['init_usci_A0_UART',['../_faraday___init_8c.html#a23c31f0be7a2e76b374bcb1691df9b26',1,'Faraday_Init.c']]],
+  ['initialize_5fgps_5fstructs',['initialize_GPS_structs',['../gps_8c.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c'],['../gps_8h.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c']]]
 ];

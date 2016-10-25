@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['service_5fnumber',['service_number',['../struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#a32e53686a2134d530a43104cde3208d0',1,'RF_TRANSPORT_PACKET']]],
-  ['source_5fcallsign',['source_callsign',['../struct_r_f___l2___p_a_c_k_e_t.html#afe0ac1375d59bc70dae7f673c5e1e521',1,'RF_L2_PACKET']]],
-  ['source_5findetifier',['source_indetifier',['../struct_r_f___l2___p_a_c_k_e_t.html#acb3c612962896abd7cedb9e71bb1168b',1,'RF_L2_PACKET']]],
-  ['sram_5fstart_5faddress',['sram_start_address',['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac7f8c18a2ee6290721f54434cff25d25',1,'FIFO_SRAM_Buffer_State_Machine']]],
-  ['srvc_5fopen_5ffunc_5fptrs',['srvc_open_func_ptrs',['../_u_a_r_t___services_8c.html#a0d630b625198aeaa78ea7a63ec72f4b3',1,'UART_Services.c']]]
+  ['mag_5fdir',['Mag_Dir',['../struct_r_m_c___data.html#a5da0bb0c4ff5a37a15dd512b66d0faf6',1,'RMC_Data']]],
+  ['magnetic',['Magnetic',['../struct_r_m_c___data.html#a6adb20dfb0e914fa83c936a97a1c44f3',1,'RMC_Data']]],
+  ['max_5finwait',['max_inwait',['../struct_f_i_f_o___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757',1,'FIFO_Buffer_State_Machine::max_inwait()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757',1,'FIFO_SRAM_Buffer_State_Machine::max_inwait()']]],
+  ['mode',['Mode',['../struct_r_m_c___data.html#ab4b0142476ae886d68b8a7352da785bf',1,'RMC_Data']]]
 ];

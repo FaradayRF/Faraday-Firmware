@@ -25,5 +25,7 @@ var searchData=
   ['fifo_5fsram_5fbuffer_5fstate_5fmachine',['FIFO_SRAM_Buffer_State_Machine',['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html',1,'']]],
   ['fifo_5fsram_5finit',['fifo_sram_init',['../_f_i_f_o___s_r_a_m_8c.html#a23748a514440d2028fbef02cad52c06e',1,'fifo_sram_init(fifo_sram_state_machine *buffer_struct, const unsigned int sram_address, const unsigned int element_size, const unsigned char element_count):&#160;FIFO_SRAM.c'],['../_f_i_f_o___s_r_a_m_8h.html#a23748a514440d2028fbef02cad52c06e',1,'fifo_sram_init(fifo_sram_state_machine *buffer_struct, const unsigned int sram_address, const unsigned int element_size, const unsigned char element_count):&#160;FIFO_SRAM.c']]],
   ['fifo_5fsram_5fstate_5fmachine',['fifo_sram_state_machine',['../_f_i_f_o___s_r_a_m_8h.html#a2b243c99b78f32a05aa87dc93f773026',1,'FIFO_SRAM.h']]],
+  ['fix_5fquality',['Fix_Quality',['../struct_g_g_a___data.html#a8594d8aa5a79cbb5d778666404fbdce0',1,'GGA_Data']]],
+  ['flags',['flags',['../struct_g_p_s__string.html#a639870aa0bd3049b341f02dd37e02f1f',1,'GPS_string']]],
   ['faraday_20firmware',['Faraday Firmware',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

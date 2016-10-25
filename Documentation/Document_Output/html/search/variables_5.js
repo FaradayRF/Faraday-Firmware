@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['inwaiting',['inwaiting',['../struct_f_i_f_o___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_Buffer_State_Machine::inwaiting()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_SRAM_Buffer_State_Machine::inwaiting()']]]
+  ['fix_5fquality',['Fix_Quality',['../struct_g_g_a___data.html#a8594d8aa5a79cbb5d778666404fbdce0',1,'GGA_Data']]],
+  ['flags',['flags',['../struct_g_p_s__string.html#a639870aa0bd3049b341f02dd37e02f1f',1,'GPS_string']]]
 ];
