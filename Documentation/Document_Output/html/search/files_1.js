@@ -7,5 +7,7 @@ var searchData=
   ['fifo_2ec',['FIFO.c',['../_f_i_f_o_8c.html',1,'']]],
   ['fifo_2eh',['FIFO.h',['../_f_i_f_o_8h.html',1,'']]],
   ['fifo_5fsram_2ec',['FIFO_SRAM.c',['../_f_i_f_o___s_r_a_m_8c.html',1,'']]],
-  ['fifo_5fsram_2eh',['FIFO_SRAM.h',['../_f_i_f_o___s_r_a_m_8h.html',1,'']]]
+  ['fifo_5fsram_2eh',['FIFO_SRAM.h',['../_f_i_f_o___s_r_a_m_8h.html',1,'']]],
+  ['flash_2ec',['flash.c',['../flash_8c.html',1,'']]],
+  ['flash_2eh',['flash.h',['../flash_8h.html',1,'']]]
 ];

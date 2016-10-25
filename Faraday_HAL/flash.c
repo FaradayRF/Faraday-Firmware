@@ -1,41 +1,22 @@
+/** @file flash.c
+ * 	@brief CC430 flash memory functionallity
+ *
+ * 	These functions provide access to the internal CC430 flash memory modification.
+ *
+ * 	Memory Segments:
+ * 	- Information segments are 128 bytes long
+ *  - Main memory segments are 512 bytes long
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
 #include "flash.h"
 #include "string.h"
 
-/*
- * NOTES:
- * Information segments are 128 bytes long
- * Main memory segments are 512 bytes long
- *
- * Locations:
- * Information segments:
- * A-
- * B-
- * C-
- * D-
- *
- * Main Memory:
- * Note - Program code lives here...
 
- */
-
-
-
-
-/************************************************************
-* Function: flash_erase_info_seg(long memory_loc)
-*
-* Description: This function is intended to erase a memory locations
-* segment in FLASH, specifically the info segments.
-* NOTE: Interrupts must be disabled when writing to FLASH. If
-* they are not and an interrupt occurs the interrupt will not
-* return correctly and will lock the CC430 until it is power cycled.
-*
-* Inputs: long memory_loc
-*
-* Outputs: None
-*
-*************************************************************/
 void flash_erase_segment(long memory_loc){
 	//INFO segments are defined as 128 Bytes
 	unsigned int i;
@@ -55,6 +36,7 @@ void flash_erase_segment(long memory_loc){
 	//Re-initialize the interrupts
 	__bis_SR_register(GIE);       //Interrupts enabled BUG: This should be a higher level call otherwise it'll be a pain to update to LPM
 	}
+
 
 void flash_write_char(unsigned int address, unsigned char byte){
 	unsigned char * Flash_ptr;                         // Initialize Flash pointer
