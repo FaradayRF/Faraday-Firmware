@@ -1,12 +1,10 @@
 var annotated_dup =
 [
-    [ "APP_COMMAND_PACKET_CONFIG", "struct_a_p_p___c_o_m_m_a_n_d___p_a_c_k_e_t___c_o_n_f_i_g.html", "struct_a_p_p___c_o_m_m_a_n_d___p_a_c_k_e_t___c_o_n_f_i_g" ],
+    [ "APP_COMMAND_RF_CONFIG", "struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html", "struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g" ],
     [ "APP_COMMAND_RF_PACKET", "struct_a_p_p___c_o_m_m_a_n_d___r_f___p_a_c_k_e_t.html", "struct_a_p_p___c_o_m_m_a_n_d___r_f___p_a_c_k_e_t" ],
     [ "APP_MSG_RF_PKT", "struct_a_p_p___m_s_g___r_f___p_k_t.html", "struct_a_p_p___m_s_g___r_f___p_k_t" ],
     [ "APP_MSG_UART_PKT", "struct_a_p_p___m_s_g___u_a_r_t___p_k_t.html", "struct_a_p_p___m_s_g___u_a_r_t___p_k_t" ],
     [ "COMMAND_PACKET", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t" ],
-    [ "COMMAND_PACKET_ECHO", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___e_c_h_o.html", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___e_c_h_o" ],
-    [ "COMMAND_PACKET_READ_MEMORY_GET", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___g_e_t.html", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___g_e_t" ],
     [ "COMMAND_PACKET_READ_MEMORY_SEND", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d.html", "struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d" ],
     [ "default_config", "structdefault__config.html", "structdefault__config" ],
     [ "FIFO_Buffer_State_Machine", "struct_f_i_f_o___buffer___state___machine.html", "struct_f_i_f_o___buffer___state___machine" ],

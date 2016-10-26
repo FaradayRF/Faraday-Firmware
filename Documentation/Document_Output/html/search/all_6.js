@@ -8,6 +8,7 @@ var searchData=
   ['gpio_2ec',['GPIO.c',['../_g_p_i_o_8c.html',1,'']]],
   ['gpio_2eh',['GPIO.h',['../_g_p_i_o_8h.html',1,'']]],
   ['gpio_5fcommand_5fpacket',['GPIO_COMMAND_PACKET',['../struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html',1,'']]],
+  ['gpio_5fcommand_5fpacket_5fstruct',['GPIO_COMMAND_PACKET_STRUCT',['../command_8h.html#adb5367050832b135011ca15e260cf5ec',1,'command.h']]],
   ['gpio_5fcommand_5fupdate',['gpio_command_update',['../_g_p_i_o_8c.html#ac6ab7ef793656b22e7b990f4d4d24b85',1,'gpio_command_update(unsigned char *port, unsigned char channel, unsigned char command):&#160;GPIO.c'],['../_g_p_i_o_8h.html#ac6ab7ef793656b22e7b990f4d4d24b85',1,'gpio_command_update(unsigned char *port, unsigned char channel, unsigned char command):&#160;GPIO.c']]],
   ['gpio_5fp3_5fguard',['gpio_p3_guard',['../_g_p_i_o_8c.html#aa655e23d6fd171e8415270fbb07345df',1,'GPIO.c']]],
   ['gpio_5fp4_5fguard',['gpio_p4_guard',['../_g_p_i_o_8c.html#abf82760865f7dfca708ab5437fbaa485',1,'GPIO.c']]],

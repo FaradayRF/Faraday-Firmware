@@ -111,6 +111,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>Checksum
 : <a class="el" href="struct_r_m_c___data.html#a7460e8c8955e1209dbe869b6390f10e6">RMC_Data</a>
 </li>
+<li>checksum_16
+: <a class="el" href="struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a79532d566100010004304fe6a7976ca3">RF_COMMAND_PACKET</a>
+</li>
+<li>cmd_app_datagram_remote
+: <a class="el" href="struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a1d4548ccd75673ceaedafbdfcb45ef5a">RF_COMMAND_PACKET</a>
+</li>
+<li>command
+: <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html#af48e0311746bc01574a90f142220e748">COMMAND_PACKET</a>
+</li>
 <li>Course
 : <a class="el" href="struct_r_m_c___data.html#ae62ad6657b2ecd367ebfd569331b32c9">RMC_Data</a>
 </li>
@@ -131,6 +140,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="struct_f_i_f_o___buffer___state___machine.html#a2f21f083d8c37b64239a4b20903ad74c">FIFO_Buffer_State_Machine</a>
 , <a class="el" href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a2f21f083d8c37b64239a4b20903ad74c">FIFO_SRAM_Buffer_State_Machine</a>
 </li>
+<li>dest_callsign
+: <a class="el" href="struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a3e159e84ef4a327bdda792e6ebe6b8be">RF_COMMAND_PACKET</a>
+</li>
+<li>dest_callsign_len
+: <a class="el" href="struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a2e653ae78add4566204c1c3527bffae2">RF_COMMAND_PACKET</a>
+</li>
+<li>dest_device_id
+: <a class="el" href="struct_r_f___c_o_m_m_a_n_d___p_a_c_k_e_t.html#af3595c65ace8a82c4c9c914246e2cf78">RF_COMMAND_PACKET</a>
+</li>
 <li>destination_callsign
 : <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#a1e8031a98811768b4efefc24fa2c3c2b">RF_L2_PACKET</a>
 </li>
@@ -150,6 +168,9 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>element_size
 : <a class="el" href="struct_f_i_f_o___buffer___state___machine.html#ae4d21d9bcec7a17129ac21131eda7f4b">FIFO_Buffer_State_Machine</a>
 , <a class="el" href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ae4d21d9bcec7a17129ac21131eda7f4b">FIFO_SRAM_Buffer_State_Machine</a>
+</li>
+<li>error_detection_16
+: <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html#a7180396264ee84dae4ab5a34a5b4901a">COMMAND_PACKET</a>
 </li>
 </ul>
 
@@ -230,6 +251,12 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="struct_f_i_f_o___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757">FIFO_Buffer_State_Machine</a>
 , <a class="el" href="struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#ac5403a92c9c40dcf0ae228f499d20757">FIFO_SRAM_Buffer_State_Machine</a>
 </li>
+<li>memory_address_h
+: <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d.html#aae25bf005003b61a037d965db655c63e">COMMAND_PACKET_READ_MEMORY_SEND</a>
+</li>
+<li>memory_address_l
+: <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d.html#a8b750a4542771d5122bc0aaa188d0ed7">COMMAND_PACKET_READ_MEMORY_SEND</a>
+</li>
 <li>Mode
 : <a class="el" href="struct_r_m_c___data.html#ab4b0142476ae886d68b8a7352da785bf">RMC_Data</a>
 </li>
@@ -254,17 +281,69 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#aa37c21a668f2ff9e21989b8c16e90b60">RF_L2_PACKET</a>
 </li>
 <li>payload
-: <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#aed43a81e0ce9760eef9ff1443db6242d">RF_L2_PACKET</a>
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___p_a_c_k_e_t.html#a57fde56fb73c36984671b1da2ebe0e69">APP_COMMAND_RF_PACKET</a>
+, <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html#a180d5a3c6624069850939512cdafb47e">COMMAND_PACKET</a>
+, <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t___r_e_a_d___m_e_m_o_r_y___s_e_n_d.html#a24f14a6e7fcafc097069627fbce3b30d">COMMAND_PACKET_READ_MEMORY_SEND</a>
+, <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#aed43a81e0ce9760eef9ff1443db6242d">RF_L2_PACKET</a>
 , <a class="el" href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#a64631e73380bc62145283befd759032a">RF_TRANSPORT_PACKET</a>
 </li>
+<li>payload_len
+: <a class="el" href="struct_c_o_m_m_a_n_d___p_a_c_k_e_t.html#a914183726647677c9a3126c774da102b">COMMAND_PACKET</a>
+</li>
 <li>payload_length
-: <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#afb70208d345a35655a0e9afcbfd1321d">RF_L2_PACKET</a>
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___p_a_c_k_e_t.html#afb70208d345a35655a0e9afcbfd1321d">APP_COMMAND_RF_PACKET</a>
+, <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#afb70208d345a35655a0e9afcbfd1321d">RF_L2_PACKET</a>
 , <a class="el" href="struct_r_f___t_r_a_n_s_p_o_r_t___p_a_c_k_e_t.html#afb70208d345a35655a0e9afcbfd1321d">RF_TRANSPORT_PACKET</a>
+</li>
+<li>port_3_off
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a8cd9c4387a2278ad20567729261057e4">GPIO_COMMAND_PACKET</a>
+</li>
+<li>port_3_on
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a591ebc2f3e5af82a4414e9044a6eb0fd">GPIO_COMMAND_PACKET</a>
+</li>
+<li>port_4_off
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#ae5ad88541cb411074ba0d0878a8fde98">GPIO_COMMAND_PACKET</a>
+</li>
+<li>port_4_on
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a9ee64926296653ee0bcf5ac134be80fa">GPIO_COMMAND_PACKET</a>
+</li>
+<li>port_5_off
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#ad3eb372bdff99d2658ac2e559fb34787">GPIO_COMMAND_PACKET</a>
+</li>
+<li>port_5_on
+: <a class="el" href="struct_g_p_i_o___c_o_m_m_a_n_d___p_a_c_k_e_t.html#a834a8529e6c3ca2797fabf3699591ba0">GPIO_COMMAND_PACKET</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>RF_L2_destination_callsign
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#a9e6ecc8b98aaadfb2e72505d2e07fbec">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_destination_callsign_len
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#ad54d2701bdf7d2b171840689b6b61772">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_destination_identifier
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#ac20d9f6e1b4da49fc0812b69fa97972c">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_packet_config
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#a09f63972e8a09252378dea4d9b5180f0">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_packet_type
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#a7b7bf1e8fde5066e26d00358986244d6">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_source_callsign
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#a73c94f5b3e6ba106aa5f07c32f099ebb">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_source_callsign_len
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#a479305eea66b54254b47c13bc6f4c471">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L2_source_indetifier
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#adefd3456f8dd53501328e23b98881116">APP_COMMAND_RF_CONFIG</a>
+</li>
+<li>RF_L4_service_number
+: <a class="el" href="struct_a_p_p___c_o_m_m_a_n_d___r_f___c_o_n_f_i_g.html#ae9d3617e30459075a1a1f94efb6fe9ef">APP_COMMAND_RF_CONFIG</a>
+</li>
 <li>rssi
 : <a class="el" href="struct_r_f___l2___p_a_c_k_e_t.html#abe6df2db257c56411dfaa06c284ab140">RF_L2_PACKET</a>
 </li>

@@ -1,89 +1,80 @@
-#include "command.h"
-#include "../../UART/UART_Services.h"
-#include "../../Ring_Buffers/FIFO_SRAM.h"
-#include "string.h"
-#include "../../REVA_Faraday.h"
-#include "../Device_Config/Device_Config.h"
+/** @file command.c
+ * 	@brief Firmware application that performs command and control
+ *
+ * 	This program performs general command and control for Faraday. Toggling GPIO and
+ * 	initiating specific program/functions are some of the use-cases of this program.
+ * 	The command program has its own defined packet protocol that resides at Layer 7
+ * 	(Application) that is used to filter and parse commands and respective data.
+ *
+ * 	@todo Update MAX_CONFIGURATION_UPDATE_PACKET_LEN to implement Device_Configuration application
+ * 	or layer 4 UART transport MTU definitions.
+ *
+ * 	@todo Update APP_COMMAND_PAYLOAD_MAX_LEN to implement RF network stack definitions instead of implementing
+ * 	a seperate definition.
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
 #include "cc430f6137.h"
-#include "../Telemetry/Telemetry.h"
-#include "../Telemetry/Telem_RF.h"
+#include "command.h"
+#include "string.h"
+
+/* uart includes */
+#include "../../UART/UART_Services.h"
+
+/* rf includes */
 #include "../../RF_Network_Stack/rf.h"
 #include "../../RF_Network_Stack/rf_transport.h"
+
+/* telemetry application includes */
+#include "../Telemetry/Telemetry.h"
+#include "../Telemetry/Telem_RF.h"
+
+/* FIFO includes */
+#include "../../Ring_Buffers/FIFO_SRAM.h"
+
+/* device configuration includes */
+#include "../Device_Config/Device_Config.h"
+
+/* faraday hardware abstraction layer includes */
 #include "../../HAL/GPIO.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
+#include "../../REVA_Faraday.h"
+
+/* high altitude balloon application includes */
 #include "../HAB/App_HAB.h"
+
+/* message application includes */
 #include "../MSG/MSG.h"
 
-/////////////////////////////////////////
-// UART Service FIFO DEFINITIONS
-/////////////////////////////////////////
-#define CMD_FIFO_SIZE 123
-#define CMD_FIFO_ELEMENT_CNT 1
 
-//Telemetry Application FIFO Packet Buffers
-volatile fifo_sram_state_machine command_state_machine;
+/** @name Command application FIFO state machines
+* 	@brief State machine variables for the command application.
+*
+*	State machine variables for the command application.
+*
+@{**/
+volatile fifo_sram_state_machine command_state_machine; /**< Command application FIFO state machine structure */
+/** @}*/
 
-#define APP_COMMAND_RF_PACKET_PAYLOAD_LEN 42
-#define APP_COMMAND_RF_PACKET_FIFO_COUNT 2
 
-#define APP_CMD_SOURCE_LOCAL 0
-#define APP_CMD_SOURCE_RF 1
-
-unsigned char app_packet_buf_rx[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
-
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine app_command_rf_tx_fifo_state_machine;
-
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine app_command_rf_tx_rfconfig_fifo_state_machine;
-
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine app_command_rx_fifo_state_machine;
-
-//Application RF FIFO Buffer - RX
-volatile fifo_sram_state_machine app_command_rx_rf_fifo_state_machine;
-
-/////////////////////////////////////////
-// RF Command Definitions
-/////////////////////////////////////////
-#define RF_PAYLOAD_MAX_LEN 42
-
-/////////////////////////////////////////
-// Command Packet Definitions
-/////////////////////////////////////////
-#define CMD_DATAGRAM_COMMAND_PKT_LEN 123
-#define CMD_DATAGRAM_COMMAND_LEN 1
-#define CMD_DATAGRAM_COMMAND_LOC 0
+/** @name RF Command Application FIFO Structures
+* 	@brief Structure variables used in the RF command functionality
+*
+*	Structure variables used in the RF command functionality.
+*
+@{**/
+volatile fifo_sram_state_machine app_command_rf_tx_fifo_state_machine; /**< RF command transmit FIFO state machine */
+volatile fifo_sram_state_machine app_command_rf_tx_rfconfig_fifo_state_machine; /**< RF command transmit configuration FIFO state machine */
+volatile fifo_sram_state_machine app_command_rx_fifo_state_machine; /**< RF command receive FIFO state machine */
+volatile fifo_sram_state_machine app_command_rx_rf_fifo_state_machine; /**< RF command receive configuration FIFO state machine */
+/** @}*/
 
 
 
-#define CMD_DATAGRAM_COMMAND_PAYLOAD_LEN_LEN 1
-#define CMD_DATAGRAM_COMMAND_PAYLOAD_LEN_LOC 1
-#define CMD_DATAGRAM_PAYLOAD_LEN 119
-#define CMD_DATAGRAM_PAYLOAD_LOC 2
-#define CMD_DATAGRAM_ERRORDETECTION_LEN 2
-#define CMD_DATAGRAM_ERRORDETECTION_LOC 121
 
-#define CMD_DATAGRAM_COMMAND_CALLSIGN_LEN 9
-#define CMD_DATAGRAM_COMMAND_CALLSIGN_LOC 0
-#define CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LEN 1
-#define CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LOC 9
-#define CMD_DATAGRAM_COMMAND_DEVICE_ID_LEN 1
-#define CMD_DATAGRAM_COMMAND_DEVICE_ID_LOC 10
-#define CMD_DATAGRAM_COMMAND_DATAGRAM_LEN 32
-#define CMD_DATAGRAM_COMMAND_DATAGRAM_LOC 11
-#define CMD_DATAGRAM_COMMAND_CHK16_LEN 2
-#define CMD_DATAGRAM_COMMAND_CHK16_LOC 40
-
-#define CMD_DATAGRAM_COMMAND_PKT_RF_LEN 29
-#define CMD_DATAGRAM_COMMAND_LOC_RF 0
-#define CMD_DATAGRAM_COMMAND_PAYLOAD_LEN_LOC_RF 1
-#define CMD_DATAGRAM_PAYLOAD_LOC_RF 2
-#define CMD_DATAGRAM_ERRORDETECTION_LOC_RF 27
-
-/*
- * This funciton initializes any variables, structs, FIFO's, or hardware needed for operation
- */
 void app_init_command(void){
 	//Application FIFO
 	fifo_sram_init(&command_state_machine, 5000, CMD_FIFO_SIZE, CMD_FIFO_ELEMENT_CNT);
@@ -99,24 +90,13 @@ void init_app_command_rf_fifo(void){
 	fifo_sram_init(&app_command_rx_fifo_state_machine, 5407, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
 }
 
-/*
- * This is the standard FIFO put() command required by the function pointer architecture of the FIFO inteface to devices
- * such as UART or RF. This funciton is called by those service routines when needing to interact with the application.
- */
+
 void app_command_put(unsigned char *data_pointer, unsigned char length){
 	put_fifo_sram(&command_state_machine, data_pointer);
 	__no_operation();
 }
 
 
-/////////////////////////////////////////
-// Application Functions
-/////////////////////////////////////////
-
-/*
- * Housekeeping functions that are called to perform routine actions needed for program execution.
- * i.e. Check FIFO buffers and process data.
- */
 void app_command_housekeep(void){
 	if(command_state_machine.inwaiting>0){
 		static unsigned char temp_buffer[CMD_FIFO_SIZE];
@@ -126,9 +106,7 @@ void app_command_housekeep(void){
 	app_command_rf_housekeeping();
 }
 
-/*
- * This function is used to parse a recieved packet from the device FIFO.
- */
+
 void app_command_parse(unsigned char *packet, unsigned char source){
 	volatile unsigned int chksum = 0;
 	volatile unsigned int chksum_rx = 0;
@@ -279,10 +257,6 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 }
 
 
-void app_command_led_toggle_test(void){
-	P3OUT ^= LED_2;
-}
-
 void app_cmd_gpio(unsigned char *cmd_gpio_packet){
 	GPIO_COMMAND_PACKET_STRUCT gpio_packet;
 	gpio_packet.port_3_on = cmd_gpio_packet[0];
@@ -298,46 +272,6 @@ void app_cmd_gpio(unsigned char *cmd_gpio_packet){
 	gpio_update(3, gpio_packet.port_3_off, 0);
 	gpio_update(4, gpio_packet.port_4_off, 0);
 	gpio_update(5, gpio_packet.port_5_off, 0);
-}
-
-
-void app_command_send_rf_packet(unsigned char *payload_buffer,	unsigned char payload_len,	unsigned char RF_L4_service_number,	char RF_L2_source_callsign[6], unsigned char RF_L2_source_callsign_len,	unsigned char RF_L2_source_indetifier,	char RF_L2_destination_callsign[6],unsigned char RF_L2_destination_callsign_len,	unsigned char RF_L2_destination_identifier,	unsigned char RF_L2_packet_type,	unsigned char RF_L2_packet_config){
-	unsigned char i;
-	APP_COMMAND_RF_PACKET_STRUCT packet_struct_app_command;
-	APP_COMMAND_RF_CONFIG_STRUCT packet_struct_app_command_config;
-
-	//Place destination callsign into packet struct
-	for(i=0; i<6; i++){
-		packet_struct_app_command_config.RF_L2_destination_callsign[i] = RF_L2_destination_callsign[i];
-	}
-	packet_struct_app_command_config.RF_L2_destination_callsign_len = RF_L2_destination_callsign_len;
-	packet_struct_app_command_config.RF_L2_source_callsign_len = RF_L2_source_callsign_len;
-	packet_struct_app_command_config.RF_L2_destination_identifier = RF_L2_destination_identifier;
-	packet_struct_app_command_config.RF_L2_packet_config = RF_L2_packet_config;
-	packet_struct_app_command_config.RF_L2_packet_type = RF_L2_packet_type;
-
-	//Place source callsign into packet struct
-	for(i=0; i<6; i++){
-		packet_struct_app_command_config.RF_L2_source_callsign[i] = RF_L2_source_callsign[i];
-	}
-	packet_struct_app_command_config.RF_L2_source_indetifier = RF_L2_source_indetifier;
-	packet_struct_app_command_config.RF_L4_service_number = RF_L4_service_number;
-
-	packet_struct_app_command.payload_length = payload_len;
-
-	//Place destination callsign into packet struct
-	for(i=0; i<RF_TRANPORT_PAYLOAD_MAX_LEN; i++){
-		packet_struct_app_command.payload[i] = payload_buffer[i];
-	}
-
-	//Pad destination callsign
-	for(i=payload_len; i<RF_TRANPORT_PAYLOAD_MAX_LEN; i++){
-		packet_struct_app_command.payload[i] = 0xFF; //Padding
-	}
-
-	__no_operation();
-	put_fifo_sram(&app_command_rf_tx_fifo_state_machine, &packet_struct_app_command);
-	put_fifo_sram(&app_command_rf_tx_rfconfig_fifo_state_machine, &packet_struct_app_command_config);
 }
 
 void app_command_rf_housekeeping(void){
@@ -388,10 +322,12 @@ void app_command_rf_housekeeping(void){
 	}
 }
 
+
 void app_command_rf_rx_put(unsigned char *packet){
 	//Put into the same local command queue
 	put_fifo_sram(&app_command_rx_fifo_state_machine, packet);
 }
+
 
 void app_cmd_rf_single_pkt(unsigned char *packet){
 	RF_COMMAND_PACKET_STRUCT rf_cmd_pkt;
@@ -401,5 +337,5 @@ void app_cmd_rf_single_pkt(unsigned char *packet){
 	memcpy(&rf_cmd_pkt.dest_device_id, &packet[CMD_DATAGRAM_COMMAND_DEVICE_ID_LOC], CMD_DATAGRAM_COMMAND_DEVICE_ID_LEN);
 	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
 
-	rf_service_tx(&rf_cmd_pkt.cmd_app_datagram_remote, RF_PAYLOAD_MAX_LEN, 2, &local_callsign , local_callsign_len, local_device_id, rf_cmd_pkt.dest_callsign, 6, rf_cmd_pkt.dest_device_id, 0, 0);
+	rf_service_tx(&rf_cmd_pkt.cmd_app_datagram_remote, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, 2, &local_callsign , local_callsign_len, local_device_id, rf_cmd_pkt.dest_callsign, 6, rf_cmd_pkt.dest_device_id, 0, 0);
 }
