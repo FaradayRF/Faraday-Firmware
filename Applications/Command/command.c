@@ -304,7 +304,7 @@ void app_cmd_gpio(unsigned char *cmd_gpio_packet){
 void app_command_send_rf_packet(unsigned char *payload_buffer,	unsigned char payload_len,	unsigned char RF_L4_service_number,	char RF_L2_source_callsign[6], unsigned char RF_L2_source_callsign_len,	unsigned char RF_L2_source_indetifier,	char RF_L2_destination_callsign[6],unsigned char RF_L2_destination_callsign_len,	unsigned char RF_L2_destination_identifier,	unsigned char RF_L2_packet_type,	unsigned char RF_L2_packet_config){
 	unsigned char i;
 	APP_COMMAND_RF_PACKET_STRUCT packet_struct_app_command;
-	APP_COMMAND_PACKET_CONFIG_STRUCT packet_struct_app_command_config;
+	APP_COMMAND_RF_CONFIG_STRUCT packet_struct_app_command_config;
 
 	//Place destination callsign into packet struct
 	for(i=0; i<6; i++){
@@ -348,7 +348,7 @@ void app_command_rf_housekeeping(void){
 		//Create temporary array to store packet from APPLICATION
 		unsigned char app_packet_buf[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
 		unsigned char app_packet_rf_config_buf[APP_COMMAND_RF_CONFIG_LEN];
-		APP_COMMAND_PACKET_CONFIG_STRUCT test_struct;
+		APP_COMMAND_RF_CONFIG_STRUCT test_struct;
 
 		//GET() APPLICATION packet from APPLICATION UART FIFO
 		get_fifo_sram(&app_command_rf_tx_fifo_state_machine, app_packet_buf);
