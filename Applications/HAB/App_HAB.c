@@ -23,8 +23,8 @@
 *
 *
 @{**/
-volatile HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT struct_hab_auto_cutdown_state;
-volatile HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT struct_hab_cutdown_event_state;
+volatile HAB_AUTO_CUTDOWN_TIMER_SM_STRUCT struct_hab_auto_cutdown_state; /**< High altitude balloon application automatic timer cutdown state machine structure */
+volatile HAB_CUTDOWN_EVENT_TIMER_SM_STRUCT struct_hab_cutdown_event_state; /**< High altitude balloon application cutdown event state machine strucuture */
 /** @}*/
 
 void application_hab_housekeeping_interval(void){

@@ -1,76 +1,86 @@
+/** @file Telem_RF.c
+ *  @brief CC430 radio module telemetry application
+ *
+ *  The CC430 radio module telemetry appliation provides faraday telemetry functionality over the
+ *  CC430 radio module. The main reason for splitting UART and RF telemetry is due to the needs
+ *  to fragment telemetry going over RF due to smalle MTU size. The telemetry packets are
+ *  identical between local and RF.
+ *
+ *  @todo Increase MTU size for RF functionality
+ *
+ */
+
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
 #include "Telem_RF.h"
+#include "string.h"
+
+/* telemetry application includes */
 #include "telemetry.h"
+
+/* faraday rf network stack includes */
 #include "../../RF_Network_Stack/rf_transport.h"
 #include "../../RF_Network_Stack/rf.h"
+
+/* fifo includes */
 #include "../../Ring_Buffers/FIFO_SRAM.h"
-#include "string.h"
+
+
+/* faraday uart network stack includes */
 #include "../../UART/UART_L4.h"
+
+/* faraday global variables includes */
 #include "../../Faraday_Globals.h"
-#include "../../HAL/gps.h"
+
+/* device configuratino application includes */
 #include "../Device_Config/Device_Config.h"
+
+/* faraday hardware abstraction includes */
+#include "../../HAL/gps.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
-#include "msp430.h"
 #include "../../REVA_Faraday.h"
 #include "../../HAL/GPIO.h"
 
 /////////////////////////////////////////
 // RF TEST FIFO UART DEFINITIONS
 /////////////////////////////////////////
-#define TELEM_RF_PACKET_PAYLOAD_LEN 42
-#define TELEM_RF_PACKET_FIFO_COUNT 8
 
-//unsigned char app_packet_buf_rx[TELEM_RF_PACKET_PAYLOAD_LEN];
 
-//volatile unsigned char app_packet_buf_rx2[TELEM_RF_PACKET_PAYLOAD_LEN];
-//volatile RF_TELEMETRY_PACKET_DATAGRAM_STRUCT rf_telem_pkt_datagram;
-//volatile RF_TELEMETRY_PACKET_1_STRUCT rf_telem_pkt_1;
-//volatile RF_TELEMETRY_PACKET_2_STRUCT rf_telem_pkt_2;
-//volatile RF_TELEMETRY_PACKET_3_STRUCT rf_telem_pkt_3;
-//volatile rf_telem_state_cnt = 0;
+/** @name SRAM FIFO State Machine Structure Variables
+* 	@brief Structures that contain the needed members that operate the SRAM FIFO state machine operations
+*
+* 	Structures that contain the needed members that operate the SRAM FIFO state machine operations
+*
+@{**/
+volatile fifo_sram_state_machine telem_rf_tx_fifo_state_machine; /**< RF telemetry transmit SRAM fifo state machine structure */
+volatile fifo_sram_state_machine telem_rf_tx_rfconfig_fifo_state_machine; /**< RF telemetry transmit RF network stack packet configuration fifo state machine structure */
+volatile fifo_sram_state_machine telem_rf_rx_fifo_state_machine; /**< RF telemetry receive SRAM fifo state machine structure */
+volatile fifo_sram_state_machine app_telem_rf_uart_state_machine; /**< RF telemetrr RF to UART receive bring SRAM FIFO state machine structure */
+/** @}*/
 
-//volatile TELEMETRY_PACKET_0_STRUCT rf_uart_telem_0;
-//volatile TELEMETRY_PACKET_1_STRUCT rf_uart_telem_1;
 
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine telem_rf_tx_fifo_state_machine;
-//volatile unsigned char telem_rf_tx_fifo_buffer[TELEM_RF_PACKET_PAYLOAD_LEN*TELEM_RF_PACKET_FIFO_COUNT];
 
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine telem_rf_tx_rfconfig_fifo_state_machine;
-//volatile unsigned char telem_rf_tx_rfconfig_fifo_buffer[telem_rf_RF_CONFIG_LEN*TELEM_RF_PACKET_FIFO_COUNT];
-
-//Application FIFO Packet Buffers
-volatile fifo_sram_state_machine telem_rf_rx_fifo_state_machine;
-//volatile unsigned char telem_rf_rx_fifo_buffer[TELEM_RF_PACKET_PAYLOAD_LEN*TELEM_RF_PACKET_FIFO_COUNT];
-
-/////////////////////////////////////////
-// END TEST RF FIFO UART DEFINITIONS
-/////////////////////////////////////////
-
-/////////////////////////////////////////
-// APPLICATION FIFO UART DEFINITIONS
-/////////////////////////////////////////
-//#define APP_TELEM_RF_PACKET_PAYLOAD_LEN 8
-#define APP_TELEM_RF_PACKET_FIFO_COUNT 1
-
-volatile fifo_sram_state_machine app_telem_rf_uart_state_machine;
-
-/////////////////////////////////////////
-// END APPLICATION FIFO UART DEFINITIONS
-/////////////////////////////////////////
-volatile unsigned char app_packet_buf_rx2[TELEM_RF_PACKET_PAYLOAD_LEN];
-
+/** @name Globals Misc.
+* 	@brief Variables that are global in this source file
+*
+* 	@todo These should all be moved and optimized out of global!
+*
+@{**/
+volatile unsigned char app_packet_buf_rx2[TELEM_RF_PACKET_PAYLOAD_LEN]; /**< Telemetry application receive buffer (this should be function local!)*/
+/** @}*/
 /////////////////////
 // Packet 1 - State Machine
 /////////////////////
-volatile TELEMETRY_RF_PACKET_STATE_MACHINE_STRUCT telem_rf_pkt_1_state_machine_struct;
-volatile unsigned char telem_rf_pkt_1_state_machine_data[TELEM_RF_PACKET_1_LEN];
+//volatile TELEMETRY_RF_PACKET_STATE_MACHINE_STRUCT telem_rf_pkt_1_state_machine_struct; /**< RF telemetry state machine structure */
+volatile unsigned char telem_rf_pkt_1_state_machine_data[TELEM_RF_PACKET_1_LEN]; /**< RF Telemetry data bytearray for use by the rf telemetry state machine */
 
 ///////////////////
 
 
 //UART Beacon interval timer counter
-volatile unsigned int rf_telemetry_interval_counter_int = 0;
+volatile unsigned int rf_telemetry_interval_counter_int = 0; /**<  */
 
 void application_telem_rf_telemetry_initialize(void){
 	//initialize FIFO's

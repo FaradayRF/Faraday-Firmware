@@ -6,6 +6,9 @@
 #define TELEM_RF_PACKET_1_FRAG_END_LEN 6 //Hardcoded to avoid packet overruns in noisy environments due to simple stack design
 #define TELEM_RF_FRAGMENT_MAX_LEN 39
 
+#define TELEM_RF_PACKET_PAYLOAD_LEN 42
+#define TELEM_RF_PACKET_FIFO_COUNT 8
+
 
 typedef struct telem_rf_PACKET_CONFIG {
 	unsigned char RF_L4_service_number;
