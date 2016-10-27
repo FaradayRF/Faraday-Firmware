@@ -242,9 +242,20 @@ void app_device_config_device_debug_reset(void);
 void app_device_config_device_debug_update(unsigned char param, unsigned char command);
 
 
-/**@brief Increment a device debug value
+/**@brief Increment a device debug integer value
  *
- *	This is a quick function that increments a counter in the device debug memory location
+ *	This is a quick function that increments an integer counter in the device debug memory location
+ *	of the respective parameter whos memory offest is supplied as a function argument.
+ *
+ *	@param offset The memory location offset from the beginning of the device debug memory location
+ *
+ */
+void app_device_config_device_debug_increment_int(unsigned char offset);
+
+
+/**@brief Increment a device debug byte value
+ *
+ *	This is a quick function that increments a byte counter in the device debug memory location
  *	of the respective parameter whos memory offest is supplied as a function argument.
  *
  *	@param offset The memory location offset from the beginning of the device debug memory location

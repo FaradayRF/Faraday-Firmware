@@ -7,41 +7,57 @@
  *
  */
 
+
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
 #include "Device_Config.h"
+
+/* faraday hardware abstraction includes */
 #include "../../Faraday_HAL/flash.h"
-#include "../../RF_Network_Stack/rf.h"
-#include "../Telemetry/Telemetry.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
-#include "msp430.h"
 #include "../../Faraday_HAL/Faraday_HAL.h"
 
-#define CONFIG_CALLSIGN_OFFSET 0
+/* faraday radio includes */
+#include "../../RF_Network_Stack/rf.h"
 
-volatile unsigned char config_bitmask;
-volatile unsigned char local_callsign_len;
-volatile char local_callsign[MAX_CALLSIGN_LENGTH];
-volatile unsigned char local_device_id;
-volatile unsigned char default_gpio_p3_bitmask;
-volatile unsigned char default_gpio_p4_bitmask;
+/* telemetry application includes */
+#include "../Telemetry/Telemetry.h"
+
+/** @name Device Configuration RAM Variables
+* 	@brief RAM variables to hold the current state of configuration
+*
+*	RAM variables to hold the current state of configuration of the Faraday device. At boot
+*	these are equal to the device configuration flash memory values but during runtime they
+*	can be updated. This allows easy modification of values during runtime as needed.
+*
+@{**/
+volatile unsigned char config_bitmask; /**< Configuration bitmask RAM variable */
+volatile unsigned char local_callsign_len; /**< Device callsign length RAM variable */
+volatile char local_callsign[MAX_CALLSIGN_LENGTH]; /**< Device callsign RAM variable */
+volatile unsigned char local_device_id; /**< Device callsign ID number RAM variable */
+volatile unsigned char default_gpio_p3_bitmask; /**< Default GPIO port 3 settings RAM variable */
+volatile unsigned char default_gpio_p4_bitmask; /**< Default GPIO port 4 settings RAM variable */
 
 //RF
-volatile unsigned char boot_freq[RF_FREQ_LEN];
-volatile unsigned char boot_rf_PATABLE;
-
+volatile unsigned char boot_freq[RF_FREQ_LEN]; /**< RF boot frequency RAM variable */
+volatile unsigned char boot_rf_PATABLE; /**< RF power amplifier RAM variable*/
 
 //GPS
-volatile char default_lattitde[GPS_LATTITUDE_LEN];
-volatile char default_lattitude_dir;
-volatile char default_longitude[GPS_LONGITUDE_LEN];
-volatile char default_longitude_dir;
-volatile char default_altitude[GPS_ALTITUDE_LEN];
-volatile char default_altitude_units;
-volatile unsigned char gps_boot_bitmask;
+volatile char default_lattitde[GPS_LATTITUDE_LEN]; /**< Default GPS lattitude RAM variable */
+volatile char default_lattitude_dir; /**< Default GPS lattitude direction RAM variable */
+volatile char default_longitude[GPS_LONGITUDE_LEN]; /**< Default GPS longitude RAM variable */
+volatile char default_longitude_dir; /**< Default GPS longitude direction RAM variable */
+volatile char default_altitude[GPS_ALTITUDE_LEN]; /**< Default GPS altitude RAM variable */
+volatile char default_altitude_units; /**< Default GPS altitude units RAM variable */
+volatile unsigned char gps_boot_bitmask; /**< Default GPS boot bitmask RAM variable */
 
 //Telemetry
-volatile unsigned char telem_boot_bitmask;
-volatile unsigned int telem_default_uart_interval;
-volatile unsigned int telem_default_rf_interval;
+volatile unsigned char telem_boot_bitmask; /**< Telemetry application boot bitmask RAM variable */
+volatile unsigned int telem_default_uart_interval; /**< Telemetry application default UART beacon interval RAM variable */
+volatile unsigned int telem_default_rf_interval; /**< Telemetry application default RF beacon interval RAM variable */
+/** @}*/
 
 
 
