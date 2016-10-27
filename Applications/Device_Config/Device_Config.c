@@ -1,3 +1,12 @@
+/** @file Device_Config.c
+ * 	@brief Application that controls the non-volatile device configuration
+ *
+ *	This application provides Faraday with a device configuration functionality. Device
+ *	configuration allows non-volatile device information to be kept on the Faraday
+ *	digital radio.
+ *
+ */
+
 #include "Device_Config.h"
 #include "../../Faraday_HAL/flash.h"
 #include "../../RF_Network_Stack/rf.h"
@@ -34,36 +43,7 @@ volatile unsigned char telem_boot_bitmask;
 volatile unsigned int telem_default_uart_interval;
 volatile unsigned int telem_default_rf_interval;
 
-void app_device_config_write(void){
-	unsigned char mem_buf[FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE];
 
-	//Read configuration memory in for editing
-	memcpy(&mem_buf, FLASH_MEM_ADR_INFO_D, FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE);
-
-	__no_operation();
-}
-
-void app_device_config_write_callsign(unsigned char *callsign){
-	//Callsign field is 6 characters all the time, pad as neccessary
-	unsigned char mem_buf[FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE];
-	const unsigned char callsign_len = 6;
-
-
-	//Read configuration memory in for editing
-	memcpy(&mem_buf, FLASH_MEM_ADR_INFO_D, FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE);
-	memcpy(&mem_buf, callsign, callsign_len);
-
-	flash_erase_segment(FLASH_MEM_ADR_INFO_D);
-
-
-	//////
-
-	flash_write_buffer(FLASH_MEM_ADR_INFO_D, &mem_buf, 128);
-
-	//////
-
-	__no_operation();
-}
 
 void app_device_config_write_buffer(unsigned char *data, unsigned char len){
 	//Callsign field is 6 characters all the time, pad as neccessary
@@ -161,37 +141,6 @@ void app_device_config_read_defaults(void){
 	memcpy(&telem_default_rf_interval,CONFIG_TELEMETRY_RF_INTERVAL_ADDR,2);
 }
 
-void app_device_config_update_ram_parameter(unsigned char parameter, unsigned char *payload){
-	switch(parameter){
-	case 0: //Callsign
-		memcpy(&local_callsign_len, &payload[0], 1);
-		memcpy(&local_callsign, &payload[1], MAX_CALLSIGN_LENGTH);
-		memcpy(&local_device_id, &payload[10], 1);
-		break;
-
-	case 1: //
-		break;
-
-	case 2: //GPIO
-		break;
-
-	case 3: //GPS Location Data
-		break;
-
-	case 4: //GPS Boot Bitmask
-		break;
-
-	case 5: //Telemetry Bitmask
-		break;
-
-	case 6: //Telemetry Interval
-		break;
-
-	default:
-		break;
-
-	}
-}
 
 void app_device_config_device_debug_reset(void){
 	unsigned char buf_info_c[128]; //Reset to all zeros

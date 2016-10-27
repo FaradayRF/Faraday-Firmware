@@ -170,9 +170,8 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 				}
 				break;
 
-			//Command = UPDATE RAM DEVICE PARAMETERS
+				//
 			case 4:
-				app_device_config_update_ram_parameter(packet_parsed.payload[0], &packet_parsed.payload[1]);
 				break;
 
 			case 5:
