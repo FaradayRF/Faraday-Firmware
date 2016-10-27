@@ -1,69 +1,65 @@
+/** @file Device_Config.c
+ * 	@brief Application that controls the non-volatile device configuration
+ *
+ *	This application provides Faraday with a device configuration functionality. Device
+ *	configuration allows non-volatile device information to be kept on the Faraday
+ *	digital radio.
+ *
+ */
+
+
+/* -- Includes -- */
+
+/* standard includes */
+#include "cc430f6137.h"
 #include "Device_Config.h"
+
+/* faraday hardware abstraction includes */
 #include "../../Faraday_HAL/flash.h"
-#include "../../RF_Network_Stack/rf.h"
-#include "../Telemetry/Telemetry.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
-#include "msp430.h"
 #include "../../Faraday_HAL/Faraday_HAL.h"
 
-#define CONFIG_CALLSIGN_OFFSET 0
+/* faraday radio includes */
+#include "../../RF_Network_Stack/rf.h"
 
-volatile unsigned char config_bitmask;
-volatile unsigned char local_callsign_len;
-volatile char local_callsign[MAX_CALLSIGN_LENGTH];
-volatile unsigned char local_device_id;
-volatile unsigned char default_gpio_p3_bitmask;
-volatile unsigned char default_gpio_p4_bitmask;
+/* telemetry application includes */
+#include "../Telemetry/Telemetry.h"
+
+/** @name Device Configuration RAM Variables
+* 	@brief RAM variables to hold the current state of configuration
+*
+*	RAM variables to hold the current state of configuration of the Faraday device. At boot
+*	these are equal to the device configuration flash memory values but during runtime they
+*	can be updated. This allows easy modification of values during runtime as needed.
+*
+@{**/
+volatile unsigned char config_bitmask; /**< Configuration bitmask RAM variable */
+volatile unsigned char local_callsign_len; /**< Device callsign length RAM variable */
+volatile char local_callsign[MAX_CALLSIGN_LENGTH]; /**< Device callsign RAM variable */
+volatile unsigned char local_device_id; /**< Device callsign ID number RAM variable */
+volatile unsigned char default_gpio_p3_bitmask; /**< Default GPIO port 3 settings RAM variable */
+volatile unsigned char default_gpio_p4_bitmask; /**< Default GPIO port 4 settings RAM variable */
 
 //RF
-volatile unsigned char boot_freq[RF_FREQ_LEN];
-volatile unsigned char boot_rf_PATABLE;
-
+volatile unsigned char boot_freq[RF_FREQ_LEN]; /**< RF boot frequency RAM variable */
+volatile unsigned char boot_rf_PATABLE; /**< RF power amplifier RAM variable*/
 
 //GPS
-volatile char default_lattitde[GPS_LATTITUDE_LEN];
-volatile char default_lattitude_dir;
-volatile char default_longitude[GPS_LONGITUDE_LEN];
-volatile char default_longitude_dir;
-volatile char default_altitude[GPS_ALTITUDE_LEN];
-volatile char default_altitude_units;
-volatile unsigned char gps_boot_bitmask;
+volatile char default_lattitde[GPS_LATTITUDE_LEN]; /**< Default GPS lattitude RAM variable */
+volatile char default_lattitude_dir; /**< Default GPS lattitude direction RAM variable */
+volatile char default_longitude[GPS_LONGITUDE_LEN]; /**< Default GPS longitude RAM variable */
+volatile char default_longitude_dir; /**< Default GPS longitude direction RAM variable */
+volatile char default_altitude[GPS_ALTITUDE_LEN]; /**< Default GPS altitude RAM variable */
+volatile char default_altitude_units; /**< Default GPS altitude units RAM variable */
+volatile unsigned char gps_boot_bitmask; /**< Default GPS boot bitmask RAM variable */
 
 //Telemetry
-volatile unsigned char telem_boot_bitmask;
-volatile unsigned int telem_default_uart_interval;
-volatile unsigned int telem_default_rf_interval;
-
-void app_device_config_write(void){
-	unsigned char mem_buf[FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE];
-
-	//Read configuration memory in for editing
-	memcpy(&mem_buf, FLASH_MEM_ADR_INFO_D, FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE);
-
-	__no_operation();
-}
-
-void app_device_config_write_callsign(unsigned char *callsign){
-	//Callsign field is 6 characters all the time, pad as neccessary
-	unsigned char mem_buf[FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE];
-	const unsigned char callsign_len = 6;
+volatile unsigned char telem_boot_bitmask; /**< Telemetry application boot bitmask RAM variable */
+volatile unsigned int telem_default_uart_interval; /**< Telemetry application default UART beacon interval RAM variable */
+volatile unsigned int telem_default_rf_interval; /**< Telemetry application default RF beacon interval RAM variable */
+/** @}*/
 
 
-	//Read configuration memory in for editing
-	memcpy(&mem_buf, FLASH_MEM_ADR_INFO_D, FLASH_MEM_ADR_DEVICE_DESCRIPTOR_SEGMENT_SIZE);
-	memcpy(&mem_buf, callsign, callsign_len);
-
-	flash_erase_segment(FLASH_MEM_ADR_INFO_D);
-
-
-	//////
-
-	flash_write_buffer(FLASH_MEM_ADR_INFO_D, &mem_buf, 128);
-
-	//////
-
-	__no_operation();
-}
 
 void app_device_config_write_buffer(unsigned char *data, unsigned char len){
 	//Callsign field is 6 characters all the time, pad as neccessary
@@ -161,37 +157,6 @@ void app_device_config_read_defaults(void){
 	memcpy(&telem_default_rf_interval,CONFIG_TELEMETRY_RF_INTERVAL_ADDR,2);
 }
 
-void app_device_config_update_ram_parameter(unsigned char parameter, unsigned char *payload){
-	switch(parameter){
-	case 0: //Callsign
-		memcpy(&local_callsign_len, &payload[0], 1);
-		memcpy(&local_callsign, &payload[1], MAX_CALLSIGN_LENGTH);
-		memcpy(&local_device_id, &payload[10], 1);
-		break;
-
-	case 1: //
-		break;
-
-	case 2: //GPIO
-		break;
-
-	case 3: //GPS Location Data
-		break;
-
-	case 4: //GPS Boot Bitmask
-		break;
-
-	case 5: //Telemetry Bitmask
-		break;
-
-	case 6: //Telemetry Interval
-		break;
-
-	default:
-		break;
-
-	}
-}
 
 void app_device_config_device_debug_reset(void){
 	unsigned char buf_info_c[128]; //Reset to all zeros
