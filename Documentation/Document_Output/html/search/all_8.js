@@ -2,6 +2,7 @@ var searchData=
 [
   ['init_5fadc',['init_ADC',['../_faraday___init_8c.html#a02abbc989354bd33cece255dc3452b8c',1,'Faraday_Init.c']]],
   ['init_5fapp_5fcommand_5frf_5ffifo',['init_app_command_rf_fifo',['../command_8c.html#abe063c7b55d3e63df052bae98a023429',1,'init_app_command_rf_fifo(void):&#160;command.c'],['../command_8h.html#abe063c7b55d3e63df052bae98a023429',1,'init_app_command_rf_fifo(void):&#160;command.c']]],
+  ['init_5fapp_5ftelem_5frf_5ffifo',['init_app_telem_rf_fifo',['../_telem___r_f_8c.html#a77db7bad65a438953b1c41dabd6e6804',1,'init_app_telem_rf_fifo(void):&#160;Telem_RF.c'],['../_telem___r_f_8h.html#a77db7bad65a438953b1c41dabd6e6804',1,'init_app_telem_rf_fifo(void):&#160;Telem_RF.c']]],
   ['init_5fdma',['init_DMA',['../_faraday___init_8c.html#aad553401ae5a4618bb84e35590f609d4',1,'Faraday_Init.c']]],
   ['init_5fgpio',['init_GPIO',['../_faraday___init_8c.html#a92da5727d9a24141d77c8acb1fc776d0',1,'Faraday_Init.c']]],
   ['init_5fgps',['init_GPS',['../_faraday___init_8c.html#a4150bc034dbbc255a40a3c476f6dc0bd',1,'Faraday_Init.c']]],
