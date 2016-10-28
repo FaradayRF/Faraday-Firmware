@@ -1,3 +1,11 @@
+/** @file Telemetry.h
+ * 	@brief Faraday telemetry application
+ *
+ * 	This application provides the telemetry data application functions for Faraday. Sensors and other
+ * 	data are gathered, packetized, and transfered to the intended path for telemetry purposes.
+ *
+ */
+
 #ifndef APPLICATIONS_TELEMETRY_H_
 #define APPLICATIONS_TELEMETRY_H_
 

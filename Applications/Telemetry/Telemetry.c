@@ -1,24 +1,49 @@
+/** @file Telemetry.c
+ * 	@brief Faraday telemetry application
+ *
+ * 	This application provides the telemetry data application functions for Faraday. Sensors and other
+ * 	data are gathered, packetized, and transfered to the intended path for telemetry purposes.
+ *
+ */
+
+
 #ifndef APPLICATIONS_APPLICATIONS_C_
 #define APPLICATIONS_APPLICATIONS_C_
 
+/* -- Includes -- */
+
+/* standard includes */
 #include "Telemetry.h"
 #include "cc430f6137.h"
+#include <time.h> //Needed?
+#include <stdlib.h> // Needed?
+
+/* faraday glocal variable includes */
 #include "../../Faraday_Globals.h"
+
+/* faraday hardware abstraction includes */
 #include "../../Faraday_HAL/Faraday_HAL.h"
 #include "../../HAL/gps.h"
-#include "../../RF_Network_Stack/rf.h"
 #include "../../REVA_Faraday.h"
-#include "../../RF_Network_Stack/rf_transport.h"
-#include "../../Ring_Buffers/FIFO_SRAM.h"
-#include "../../UART/UART_Services.h"
-#include "../Device_Config/Device_Config.h"
 #include "../../Faraday_HAL/Misc_Functions.h"
 #include "../../Faraday_HAL/flash.h"
 #include "../../HAL/RF1A.h"
 #include "../HAB/App_HAB.h"
 #include "../../HAL/adc.h"
-#include <time.h>
-#include <stdlib.h>
+
+/* faraday rf network stack includes */
+#include "../../RF_Network_Stack/rf.h"
+#include "../../RF_Network_Stack/rf_transport.h"
+
+/* fifo buffer includes */
+#include "../../Ring_Buffers/FIFO_SRAM.h"
+
+/* faraday uart network stack includes */
+#include "../../UART/UART_Services.h"
+
+/* device configuration application includes */
+#include "../Device_Config/Device_Config.h"
+
 
 /*
  * External Variables
