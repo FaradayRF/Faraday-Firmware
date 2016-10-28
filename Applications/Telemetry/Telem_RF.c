@@ -65,35 +65,32 @@ volatile fifo_sram_state_machine app_telem_rf_uart_state_machine; /**< RF teleme
 /** @name Globals Misc.
 * 	@brief Variables that are global in this source file
 *
-* 	@todo These should all be moved and optimized out of global!
+* 	@todo These should all be moved and optimized out of global if possible!
 *
 @{**/
 volatile unsigned char app_packet_buf_rx2[TELEM_RF_PACKET_PAYLOAD_LEN]; /**< Telemetry application receive buffer (this should be function local!)*/
+volatile unsigned int rf_telemetry_interval_counter_int = 0; /**< RF beacon telemetry transmission interval counter variable */
 /** @}*/
-/////////////////////
-// Packet 1 - State Machine
-/////////////////////
-//volatile TELEMETRY_RF_PACKET_STATE_MACHINE_STRUCT telem_rf_pkt_1_state_machine_struct; /**< RF telemetry state machine structure */
+
+/** @name RF Telemetry Packet Fragmentation Variables
+* 	@brief Variables for the fragmentation and resassembly of telemetry packets over RF
+*
+* 	These variables(s) are used to fragment and reassemble the fragmented telemetry packets as transfered over the RF telemetry packet protocol.
+*
+@{**/
 volatile unsigned char telem_rf_pkt_1_state_machine_data[TELEM_RF_PACKET_1_LEN]; /**< RF Telemetry data bytearray for use by the rf telemetry state machine */
+/** @}*/
 
-///////////////////
 
-
-//UART Beacon interval timer counter
-volatile unsigned int rf_telemetry_interval_counter_int = 0; /**<  */
-
-void application_telem_rf_telemetry_initialize(void){
-	//initialize FIFO's
-	init_app_telem_rf_fifo();
-}
 void init_app_telem_rf_fifo(void){
-
 	fifo_sram_init(&telem_rf_tx_fifo_state_machine, 378, TELEM_RF_PACKET_PAYLOAD_LEN ,TELEM_RF_PACKET_FIFO_COUNT);
 	fifo_sram_init(&telem_rf_tx_rfconfig_fifo_state_machine, 714, telem_rf_RF_CONFIG_LEN ,TELEM_RF_PACKET_FIFO_COUNT);
 	fifo_sram_init(&telem_rf_rx_fifo_state_machine, 866, TELEM_RF_PACKET_PAYLOAD_LEN ,TELEM_RF_PACKET_FIFO_COUNT);
 	fifo_sram_init(&app_telem_rf_uart_state_machine, 1202, TELEM_RF_PACKET_PAYLOAD_LEN ,TELEM_RF_PACKET_FIFO_COUNT);
 
 }
+
+
 void telem_rf_send_rf_packet(unsigned char *payload_buffer,	unsigned char payload_len,	unsigned char RF_L4_service_number,	char RF_L2_source_callsign[6], unsigned char RF_L2_source_callsign_len,	unsigned char RF_L2_source_indetifier,	char RF_L2_destination_callsign[6],unsigned char RF_L2_destination_callsign_len,	unsigned char RF_L2_destination_identifier,	unsigned char RF_L2_packet_type,	unsigned char RF_L2_packet_config){
 
 	unsigned char i;
@@ -172,8 +169,8 @@ void app_telem_rf_rx_put(unsigned char *packet){
 	put_fifo_sram(&telem_rf_rx_fifo_state_machine, packet);
 }
 
-void app_telem_rf_housekeeping(void){
 
+void app_telem_rf_housekeeping(void){
 	//Check if RF->UART fifo ready to place data into UART stack
 	if(app_telem_rf_uart_state_machine.inwaiting>0){
 		//unsigned char app_packet_buf_rx2[TELEM_RF_PACKET_PAYLOAD_LEN];
@@ -243,6 +240,7 @@ void app_telem_rf_housekeeping(void){
 	}
 }
 
+
 void app_telem_rf_pkt_1_state_machine(unsigned char *packet){
 	unsigned char pkt_type = packet[0];
 	unsigned char pkt_seq = packet[1];
@@ -299,6 +297,7 @@ void app_telem_rf_pkt_1_state_machine(unsigned char *packet){
 		}
 
 }
+
 
 void app_telem_rf_housekeeping_interval(void){
 	if((check_bitmask(telem_boot_bitmask,RF_BEACON_BOOT_ENABLE)) && ((rf_telemetry_interval_counter_int>=telem_default_rf_interval) || telem_default_rf_interval == 1) && (telem_default_rf_interval != 0)){
