@@ -2,6 +2,7 @@ var searchData=
 [
   ['init_5fadc',['init_ADC',['../_faraday___init_8c.html#a02abbc989354bd33cece255dc3452b8c',1,'Faraday_Init.c']]],
   ['init_5fapp_5fcommand_5frf_5ffifo',['init_app_command_rf_fifo',['../command_8c.html#abe063c7b55d3e63df052bae98a023429',1,'init_app_command_rf_fifo(void):&#160;command.c'],['../command_8h.html#abe063c7b55d3e63df052bae98a023429',1,'init_app_command_rf_fifo(void):&#160;command.c']]],
+  ['init_5fapp_5ftelem_5ffifo',['init_app_telem_fifo',['../_telemetry_8c.html#a072f51dc3e9d5db5c1a1024933e063aa',1,'init_app_telem_fifo(void):&#160;Telemetry.c'],['../_telemetry_8h.html#a072f51dc3e9d5db5c1a1024933e063aa',1,'init_app_telem_fifo(void):&#160;Telemetry.c']]],
   ['init_5fapp_5ftelem_5frf_5ffifo',['init_app_telem_rf_fifo',['../_telem___r_f_8c.html#a77db7bad65a438953b1c41dabd6e6804',1,'init_app_telem_rf_fifo(void):&#160;Telem_RF.c'],['../_telem___r_f_8h.html#a77db7bad65a438953b1c41dabd6e6804',1,'init_app_telem_rf_fifo(void):&#160;Telem_RF.c']]],
   ['init_5fdma',['init_DMA',['../_faraday___init_8c.html#aad553401ae5a4618bb84e35590f609d4',1,'Faraday_Init.c']]],
   ['init_5fgpio',['init_GPIO',['../_faraday___init_8c.html#a92da5727d9a24141d77c8acb1fc776d0',1,'Faraday_Init.c']]],
@@ -20,5 +21,6 @@ var searchData=
   ['init_5fusci_5fa0_5fuart',['init_usci_A0_UART',['../_faraday___init_8c.html#a23c31f0be7a2e76b374bcb1691df9b26',1,'Faraday_Init.c']]],
   ['initialize_5fgps_5fstructs',['initialize_GPS_structs',['../gps_8c.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c'],['../gps_8h.html#af34b9153ae0d5a43a1e3ed80ada3e3ce',1,'initialize_GPS_structs(void):&#160;gps.c']]],
   ['int_5fto_5fbyte_5farray',['int_to_byte_array',['../_misc___functions_8c.html#acdd47bbebcaa4c0c9e767400f2c521b6',1,'int_to_byte_array(unsigned char *byte_array, int integer):&#160;Misc_Functions.c'],['../_misc___functions_8h.html#acdd47bbebcaa4c0c9e767400f2c521b6',1,'int_to_byte_array(unsigned char *byte_array, int integer):&#160;Misc_Functions.c']]],
-  ['inwaiting',['inwaiting',['../struct_f_i_f_o___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_Buffer_State_Machine::inwaiting()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_SRAM_Buffer_State_Machine::inwaiting()']]]
+  ['inwaiting',['inwaiting',['../struct_f_i_f_o___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_Buffer_State_Machine::inwaiting()'],['../struct_f_i_f_o___s_r_a_m___buffer___state___machine.html#a338cfd257b0b6e79781d087449761e93',1,'FIFO_SRAM_Buffer_State_Machine::inwaiting()']]],
+  ['io_5fstate',['IO_State',['../struct_t_e_l_e_m_e_t_r_y.html#a90ee86bbe1bf3712972d1f26761fa261',1,'TELEMETRY']]]
 ];

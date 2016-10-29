@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['charsize',['CHARSIZE',['../_telemetry_8h.html#afe8a67d6bd55544cdad43570b9516939',1,'Telemetry.h']]],
   ['cmd_5fdatagram_5fcommand_5fcallsign_5flen',['CMD_DATAGRAM_COMMAND_CALLSIGN_LEN',['../command_8h.html#a1354a8ca66f334f71c6e3fcda3ff69a2',1,'command.h']]],
   ['cmd_5fdatagram_5fcommand_5fcallsign_5flen_5flen',['CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LEN',['../command_8h.html#afbb023b64cd670ac26833fee98513a87',1,'command.h']]],
   ['cmd_5fdatagram_5fcommand_5fcallsign_5flen_5floc',['CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LOC',['../command_8h.html#a4bf9a42dafbc76c9d3fd2ed3ca1bf639',1,'command.h']]],

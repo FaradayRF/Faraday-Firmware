@@ -7,5 +7,6 @@ var searchData=
   ['telem_5frf_5fpacket_5fpacket_5fid_5floc',['TELEM_RF_PACKET_PACKET_ID_LOC',['../_telem___r_f_8h.html#af06521d665bfa36134596bb39c768b06',1,'Telem_RF.h']]],
   ['telem_5frf_5fpacket_5fpayload_5flen',['TELEM_RF_PACKET_PAYLOAD_LEN',['../_telem___r_f_8h.html#a5308c15d60286e389892618844c9a9a8',1,'Telem_RF.h']]],
   ['telem_5frf_5frf_5fconfig_5flen',['telem_rf_RF_CONFIG_LEN',['../_telem___r_f_8h.html#aa107d08af3a2df2de42665a2c8346658',1,'Telem_RF.h']]],
+  ['telem_5fuart_5fservice_5fnumber',['TELEM_UART_SERVICE_NUMBER',['../_telemetry_8h.html#a4a9681f5c9febd432688d5489a962055',1,'Telemetry.h']]],
   ['tx_5fpacket_5flen',['TX_PACKET_LEN',['../rf_8h.html#adfacf11b3be128e414d637166fca7567',1,'rf.h']]]
 ];

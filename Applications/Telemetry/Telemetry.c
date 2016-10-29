@@ -45,74 +45,34 @@
 #include "../Device_Config/Device_Config.h"
 
 
-/*
- * External Variables
- */
-
-#define TELEM_UART_SERVICE_NUMBER 5
-
-/////////////////////////////////////////
-// APPLICATION FIFO UART DEFINITIONS
-/////////////////////////////////////////
-
-//Telemetry Application FIFO Packet Buffers
-volatile fifo_sram_state_machine app_telem_state_machine;
-
-volatile fifo_sram_state_machine app_telem_uart_state_machine;
-
-/////////////////////////////////////////
-// END APPLICATION FIFO UART DEFINITIONS
-/////////////////////////////////////////
-
-/////////////////////////////////////////
-// RF Service FIFO DEFINITIONS
-/////////////////////////////////////////
-#define TELEM_FIFO_SIZE 63
-#define TELEM_FIFO_ELEMENT_CNT 3
-
-//Telemetry Application FIFO Packet Buffers
-volatile fifo_sram_state_machine rf_rx_telem_state_machine;
 
 
-/////////////////////////////////////////
-// RF Service FIFO  Functions
-/////////////////////////////////////////
+/** @name Telemetry Application FIFO Variables
+*
+* 	These variables define the FIFO buffers to be used to enable the telemetry application
+* 	functionality. 
+*
+*
+@{**/
+volatile fifo_sram_state_machine app_telem_uart_flow_buffer_state_machine; /**< FIFO buffer used to flow control the applications access to the UART network stack transmit FIFO */
+volatile fifo_sram_state_machine app_telem_uart_state_machine; /**< FIFO buffer used to place telemetry application packets into the UART transmit FIFO buffer */
+/** @}*/
 
 
 //UART Beacon interval timer counter
-volatile unsigned int telemetry_interval_counter_int = 0;
-
-
-/*
- * This is the standard FIFO put() command required by the function pointer architecture of the FIFO inteface to devices
- * such as UART or RF. This funciton is called by those service routines when needing to interact with the application.
- */
-void app_telem_rf_rx_command_put(unsigned char *data_pointer, unsigned char length){
-	put_fifo_sram(&rf_rx_telem_state_machine, data_pointer);
-	__no_operation();
-}
-
-void app_telem_rf_rx_housekeep(void){
-	if(rf_rx_telem_state_machine.inwaiting>0){
-		__no_operation();
-	}
-}
-
-void app_telem_rx_remote_telem(unsigned char *data){
-	__no_operation();
-}
+volatile unsigned int telemetry_interval_counter_int = 0; /**< Telemetry application beacon interval counter in seconds */
 
 
 void app_telem_housekeeping(void){
 	/*
 	 * Move APPLICATION packets into the APPLICATION UART FIFO
 	 */
-	if((app_telem_state_machine.inwaiting>0) && (app_telem_uart_state_machine.inwaiting == 0)){
+	if((app_telem_uart_flow_buffer_state_machine.inwaiting>0) && (app_telem_uart_state_machine.inwaiting == 0)){
 		//Create temporary array to store packet from APPLICATION
 		volatile unsigned char app_packet_buf[APP_TELEM_PACKET_LEN];
 
 		//GET() APPLICATION packet from FIFO
-		get_fifo_sram(&app_telem_state_machine, app_packet_buf);
+		get_fifo_sram(&app_telem_uart_flow_buffer_state_machine, app_packet_buf);
 
 		//PUT() APPLICATION packet into APPLICATION UART FIFO
 		put_fifo_sram(&app_telem_uart_state_machine, app_packet_buf);
@@ -169,7 +129,6 @@ void application_telem_create_pkt_1(unsigned char *packet){
 
 void application_telem_create_pkt_2(unsigned char *packet){
 	//Create temporary structs for packets
-	TELEMETRYDATA telem;
 	TELEMETRY_PACKET_DATAGRAM_STRUCT telem_datagram;
 
 	//Copy device config memory into buffer
@@ -190,7 +149,7 @@ void application_telem_create_pkt_2(unsigned char *packet){
 }
 
 
-void application_telem_create_pkt(unsigned char *packet, char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id){
+void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id){
 	//Create temporary structs for packets
 		TELEMETRYDATA telem;
 		TELEMETRY_PACKET_DATAGRAM_STRUCT telem_datagram;
@@ -298,9 +257,9 @@ void application_send_telemetry_device_debug(void){
 	application_send_uart_packet(&telem_packet_buffer);
 }
 
-void application_send_telemetry_3(char *string, unsigned char callsignlength, unsigned char ID){
+void application_send_telemetry_3(void){
 	unsigned char telem_packet_buffer[123]; //It is very important that this is the correct size, if too small the buffer write will overflow and be upredicatable to system performance
-	application_telem_create_pkt(telem_packet_buffer, local_callsign, local_callsign_len, local_device_id, local_callsign, local_callsign_len, local_device_id);
+	application_telem_create_rf_pkt(telem_packet_buffer, local_callsign, local_callsign_len, local_device_id, local_callsign, local_callsign_len, local_device_id);
 	application_send_uart_packet(&telem_packet_buffer);
 }
 
@@ -343,17 +302,6 @@ void application_update_RTC_calender_gps(void){
 	RTCDOW = timeinfo.tm_wday;
 }
 
-void rf_application_tx_rf(unsigned char count){
-
-	test_structtx.payload_length = 28;
-	test_structtx.service_number = 5;
-	unsigned char i;
-	unsigned char testpkt[28] = "This is a test of Message #";
-	testpkt[27] = count;
-	for(i=0;i<28;i++){
-		test_structtx.payload[i]= testpkt[i];
-	}
-}
 
 void application_telemetry_initialize(void){
 	//initialize FIFO's
@@ -362,25 +310,18 @@ void application_telemetry_initialize(void){
 
 
 void init_app_telem_fifo(void){
-	fifo_sram_init(&app_telem_state_machine, 0, APP_TELEM_PACKET_LEN, APP_TELEM_PACKET_FIFO_COUNT);
+	fifo_sram_init(&app_telem_uart_flow_buffer_state_machine, 0, APP_TELEM_PACKET_LEN, APP_TELEM_PACKET_FIFO_COUNT);
 	fifo_sram_init(&app_telem_uart_state_machine, 126, APP_TELEM_PACKET_LEN, 1);
-	fifo_sram_init(&rf_rx_telem_state_machine, 189, TELEM_FIFO_SIZE, TELEM_FIFO_ELEMENT_CNT);
 }
 
 
 void application_send_uart_packet(unsigned char *packet){
-	put_fifo_sram(&app_telem_state_machine, packet);
-}
-
-
-void application_load_defaults(void){
-	unsigned char * flash_ptr;
-	flash_ptr = (unsigned char *) 0x1821;
+	put_fifo_sram(&app_telem_uart_flow_buffer_state_machine, packet);
 }
 
 
 void application_telemetry_send_self(void){
-	application_send_telemetry_3(local_callsign, local_callsign_len, local_device_id); // Send Faraday callsign and unit ID metadata
+	application_send_telemetry_3();
 }
 
 
@@ -389,7 +330,7 @@ void application_telemetry_send_device_debug_telem(void){
 }
 
 
-void application_telemetry_uart_housekeeping_interval(void){
+void application_telemetry_uart_housekeeping_1hz_interval(void){
 	//Check if bitmask allows UART telemetry OR if telemetry interval == 0 (if 0 then disable telemetry UART actions)
 	if(check_bitmask(telem_boot_bitmask,UART_BEACON_BOOT_ENABLE) && (telem_default_uart_interval != 0)){
 

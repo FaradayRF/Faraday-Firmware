@@ -131,7 +131,7 @@ void telem_rf_send_rf_packet(unsigned char *payload_buffer,	unsigned char payloa
 
 void telem_rf(void){
 	unsigned char telem_packet_buffer[TELEM_RF_PACKET_1_LEN]; //It is very important that this is the correct size, if too small the buffer write will overflow and be upredicatable to system performance
-	application_telem_create_pkt(telem_packet_buffer, local_callsign, local_callsign_len, local_device_id, local_callsign, local_callsign_len, local_device_id);
+	application_telem_create_rf_pkt(telem_packet_buffer, local_callsign, local_callsign_len, local_device_id, local_callsign, local_callsign_len, local_device_id);
 	unsigned char telem_packet_buffer2[TELEM_RF_PACKET_1_LEN];
 	unsigned char i2;
 	for (i2=0; i2<TELEM_RF_PACKET_1_LEN; i2++){
