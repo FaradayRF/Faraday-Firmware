@@ -71,7 +71,6 @@ void housekeeping_check_raw(){
 	app_telem_housekeeping();
 	app_telem_rf_housekeeping();
 	app_command_housekeep();
-	app_telem_rf_rx_housekeep();
 	app_msg_housekeeping();
 
 	if(housekeeping_bitmask_char & BIT1){
@@ -88,7 +87,7 @@ void housekeeping_check_1hz(){
 		// Clear housekeeping 1 second timer count
 		housekeeping_timer_count_1hz=0;
 
-		application_telemetry_uart_housekeeping_interval();
+		application_telemetry_uart_housekeeping_1hz_interval();
 		app_telem_rf_housekeeping_interval();
 
 		//HAB Application
