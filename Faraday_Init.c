@@ -175,23 +175,13 @@ void init_GPIO(void){
 *
 *************************************************************/
 void init_UCS(void){
-	//Set Vcore for intended operating range
+	//Set Vcore for intended operating range | VCORE = 2 needed for RF module boot
 	SetVCoreUp(2);
 
-	/* ** OSC FAULT - Can't boot up!**/
 	// Initialize LFXT1
 	P5SEL |= 0x03;                            // Select XT1
-	UCSCTL6 |= XCAP_0;                        // Internal load cap
+	UCSCTL6 |= XCAP_3;                        // Internal load cap
 
-	// Loop until XT1 fault flag is cleared
-	/* ** OSC FAULT - Can't boot up!**/
-	do
-	{
-	UCSCTL7 &= ~XT1LFOFFG;                  // Clear XT1 fault flags
-	}while (UCSCTL7&XT1LFOFFG);               // Test XT1 fault flag
-
-
-	//UCSCTL4 |= SELA__XT1CLK ;              // Set ACLK = VLFO (**OSC Xt1 FAULT CANNOT BOOT!**)
 
 	__bis_SR_register(SCG0);			// Disable the FLL control loop
 	UCSCTL0 = 0x0000;                   // Set lowest possible DCOx, MODx
@@ -219,8 +209,16 @@ void init_UCS(void){
 	 * SMCLK = DCOCLKDIV (8MHz FLL controlled)
 	 * MCLK = DCOCLK (16MHz)
 	*/
-	UCSCTL4 = 0;
-	UCSCTL4 |= SELA__XT1CLK + SELS__DCOCLKDIV + SELM__DCOCLK;
+	UCSCTL4 |= SELA__XT1CLK + SELS__DCOCLKDIV + SELM__DCOCLK; // ACLK = LFXTAL1, SMCLK = DCOCLKDIV, MCLK = DCOCLK
+
+  // Loop until XT1,XT2 & DCO stabilizes
+  do
+  {
+	UCSCTL7 &= ~(XT2OFFG + XT1LFOFFG + XT1HFOFFG + DCOFFG);
+											// Clear XT2,XT1,DCO fault flags
+	SFRIFG1 &= ~OFIFG;                      // Clear fault flags
+  }while (SFRIFG1&OFIFG);                   // Test oscillator fault flag
+
 }
 
 
