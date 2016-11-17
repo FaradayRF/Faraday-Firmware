@@ -115,6 +115,7 @@ int main(void) {
     	if(test_tx_constant && BIT1){
     		__no_operation();
     		unsigned char testbuf[62];
+    		memcpy(&testbuf, local_callsign, local_callsign_len);
     		rf_tx_put_packet_buffer(testbuf, 62);
     	}
     	if(test_tx_constant){
