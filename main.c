@@ -117,6 +117,12 @@ int main(void) {
     		unsigned char testbuf[62];
     		rf_tx_put_packet_buffer(testbuf, 62);
     	}
+    	if(test_tx_constant){
+    		P3OUT |= LED_2;
+    	}
+    	else{
+    		P3OUT &= ~LED_2;
+    	}
     }
 
 }//END MAIN
