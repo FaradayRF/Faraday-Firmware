@@ -11,6 +11,9 @@
 #ifndef HOUSEKEEPING_H_
 #define HOUSEKEEPING_H_
 
+// DELETE ME
+volatile unsigned char test_tx_constant;
+
 /** @name Housekeeping Timing Definitions
 * 	@brief Definitions for the timing of the housekeeping loop routines.
 @{**/

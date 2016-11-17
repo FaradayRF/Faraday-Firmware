@@ -110,7 +110,13 @@ int main(void) {
 			{
 				//Test the radio during manual push button operation
 				buttonPressed = 0;                    // Re-enable button press
+				test_tx_constant ^= BIT1;
 			}
+    	if(test_tx_constant && BIT1){
+    		__no_operation();
+    		unsigned char testbuf[62];
+    		rf_tx_put_packet_buffer(testbuf, 62);
+    	}
     }
 
 }//END MAIN
