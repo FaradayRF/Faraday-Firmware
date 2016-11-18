@@ -270,4 +270,14 @@ void rf_datalink_parse(unsigned char *packet);
  */
 void CC430_Program_Freq(unsigned char freq2, unsigned char freq1, unsigned char freq0);
 
+/**@brief Check the RF layer 2 transmitting flag byte
+ *
+ *  This function returns the current layer 2 RF network stack transmitting flag. This is useful
+ *  to query whether Faraday is current in RF transission mode or not.
+ *
+ *	@retval transmitting_flag
+ *
+ */
+unsigned char CC430_Check_Transmitting_Flag(void);
+
 #endif /* RF_NETWORK_STACK_RF_H_ */
