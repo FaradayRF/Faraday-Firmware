@@ -467,3 +467,6 @@ void CC430_Program_Freq(unsigned char freq2, unsigned char freq1, unsigned char 
 	Strobe(RF_SNOP);
 }
 
+unsigned char CC430_Check_Transmitting_Flag(void){
+	return transmitting_flag;
+}
