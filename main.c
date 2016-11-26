@@ -77,6 +77,8 @@ int main(void) {
 	Set_RTCA_Calender_Alarm_Time((unsigned char *)RTC.alarm);
 	Enable_RTCA_Calender_Alarm();
 
+	Faraday_GPS_Reset_Enable();
+	Faraday_GPS_Standby_Enable();
 
 	//Check for RESET Faults on boot (Leave commented by default)
     //reset_identification();
@@ -114,7 +116,8 @@ int main(void) {
 			}
     	if(test_tx_constant && BIT1){
     		__no_operation();
-    		unsigned char testbuf[62];
+    		unsigned char testbuf[62] = {0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1};
+    		//memcpy(&testbuf, local_callsign, local_callsign_len);
     		memcpy(&testbuf, local_callsign, local_callsign_len);
     		rf_tx_put_packet_buffer(testbuf, 62);
     	}
@@ -124,6 +127,11 @@ int main(void) {
     	else{
     		P3OUT &= ~LED_2;
     	}
+
+    	//Read RSSI
+    	//volatile unsigned char rssi_value;
+    	//rssi_value = ReadSingleReg(RSSI);
+    	//__no_operation();
     }
 
 }//END MAIN

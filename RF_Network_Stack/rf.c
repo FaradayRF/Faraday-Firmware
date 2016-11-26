@@ -188,6 +188,7 @@ void TransmitOn(void)
 	//Setup CC1190 to LNA
 	CC1190_LNA_Disable();
 	CC1190_PA_Enable();
+	//CC1190_HGM_Enable();
 	CC1190_HGM_Enable();
 	receiving_flag = 0;
 	transmitting_flag = 1;
