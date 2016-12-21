@@ -236,6 +236,10 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 				AppMessageExperimentalPut(packet_parsed.payload, packet_parsed.payload_len);
 				break;
 
+			case 254:
+				//Factory Reset device configuration
+				app_device_config_load_default();
+
 			case 255:
 				//Device Configuration
 				if(packet_parsed.payload_len <= MAX_CONFIGURATION_UPDATE_PACKET_LEN){

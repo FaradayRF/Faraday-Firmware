@@ -95,7 +95,7 @@ void app_device_config_load_default(void){
 		program_config_boot_struct.boot_freq[2] = 0x23; //FREQ MSB
 		program_config_boot_struct.boot_freq[1] = 0x2c;
 		program_config_boot_struct.boot_freq[0] = 0x4e; //FREQ LSB
-		program_config_boot_struct.PATable = 20;
+		program_config_boot_struct.PATable = 15;
 
 		//GPS
 		//Leave default location if not set yet to 0's. Or we could put it somewhere... funny...
@@ -112,7 +112,7 @@ void app_device_config_load_default(void){
 		//int_to_byte_array(&program_config_boot_struct.telem_default_uart_interval, 10);
 		program_config_boot_struct.telem_default_uart_interval = 5;
 		//int_to_byte_array(&program_config_boot_struct.telem_default_rf_interval, 5);
-		program_config_boot_struct.telem_default_rf_interval = 0; //Default RF OFF since invalid callsign
+		program_config_boot_struct.telem_default_rf_interval = 60; //Default RF OFF since invalid callsign
 
 		app_device_config_write_buffer(&program_config_boot_struct.flash_config_bitmask, CONFIG_PACKET_LEN);
 	}
