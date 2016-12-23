@@ -75,25 +75,25 @@ void gpio_command_update(unsigned char *port, unsigned char channel, unsigned ch
 
 
 void CC1190_PA_Enable(void){
-	P3OUT |= PA_ENABLE;
+	P4OUT |= PA_ENABLE;
 }
 
 void CC1190_PA_Disable(void){
-	P3OUT &= ~PA_ENABLE;
+	P4OUT &= ~PA_ENABLE;
 }
 
 void CC1190_LNA_Enable(void){
-	P3OUT |= LNA_ENABLE;
+	P4OUT |= LNA_ENABLE;
 }
 
 void CC1190_LNA_Disable(void){
-	P3OUT &= ~LNA_ENABLE;
+	P4OUT &= ~LNA_ENABLE;
 }
 
 void CC1190_HGM_Enable(void){
-	P3OUT |= HGM_SELECT;
+	P4OUT |= HGM_SELECT;
 }
 
 void CC1190_HGM_Disable(void){
-	P3OUT &= ~HGM_SELECT;
+	P4OUT &= ~HGM_SELECT;
 }
