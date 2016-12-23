@@ -379,7 +379,7 @@ unsigned char rf_tx_datalink_packet(
 		}
 
 		//Source callsign identifier
-		rf_datalink_packet_tx_struct.source_indetifier = src_callsign_id;
+		rf_datalink_packet_tx_struct.source_identifier = src_callsign_id;
 
 		//Place destination callsign into packet struct
 		for(i=0; i<RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC_LEN; i++){
@@ -433,7 +433,7 @@ void rf_datalink_parse(unsigned char *packet){
 	for(i=RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC; i<RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC_LEN; i++){
 		rf_datalink_packet_rx_struct.source_callsign[(i-RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC)] = packet[i];
 	}
-	rf_datalink_packet_rx_struct.source_indetifier = packet[RF_DATALINK_PKT_SOURCE_CALLSIGN_ID_LOC];
+	rf_datalink_packet_rx_struct.source_identifier = packet[RF_DATALINK_PKT_SOURCE_CALLSIGN_ID_LOC];
 	for(i=RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC; i<(RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC+RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC_LEN); i++){
 		rf_datalink_packet_rx_struct.destination_callsign[(i-RF_DATALINK_PKT_DESTINATION_CALLSIGN_LOC)] = packet[i];
 	}
