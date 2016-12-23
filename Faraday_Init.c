@@ -106,7 +106,9 @@ void init_GPIO(void){
 	P4OUT	&= ~GPIO_6;
 	P4OUT	&= ~GPIO_7;
 
-	P4DIR	|= GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7;
+	P3DIR   |= GPIO_0 + GPIO_1 + GPIO_2;
+	P4DIR	|= GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7;
+
 
 	P5OUT	&= ~ARDUINO_IO_8;
 	P5OUT	&= ~ARDUINO_IO_9;
@@ -117,9 +119,9 @@ void init_GPIO(void){
 	////////////////////////////////////
 
 	//Setup CC1190
-	P3DIR |= PA_ENABLE + LNA_ENABLE + HGM_SELECT;
-	P3OUT |= PA_ENABLE; //Testing
-	P3OUT &= ~LNA_ENABLE | ~HGM_SELECT; //Testing
+	P4DIR |= PA_ENABLE + LNA_ENABLE + HGM_SELECT;
+	P4OUT |= PA_ENABLE; //Testing
+	P4OUT &= ~LNA_ENABLE | ~HGM_SELECT; //Testing
 
 	// Setup GPS GPIO pins
 	P1DIR	&= ~GPS_PPS;				// GPS Pulse Per Second P1.0 as input

@@ -74,9 +74,9 @@
 *   - P3.6	LED_1	Indicator
 *   - P3.7	LED_2	Indicator
 @{**/
-#define PA_ENABLE BIT0
-#define LNA_ENABLE BIT1
-#define HGM_SELECT BIT2
+#define GPIO_2 BIT0
+#define GPIO_1 BIT1
+#define GPIO_0 BIT2
 #define GPS_RESET BIT3
 #define GPS_STANDBY BIT4
 #define FLASH_SPI_CS BIT5
@@ -102,9 +102,9 @@
 #define GPIO_5 BIT2
 #define GPIO_4 BIT3
 #define GPIO_3 BIT4
-#define GPIO_2 BIT5
-#define GPIO_1 BIT6
-#define GPIO_0 BIT7
+#define PA_ENABLE BIT5
+#define LNA_ENABLE BIT6
+#define HGM_SELECT BIT7
 /** @}*/
 
 
