@@ -72,7 +72,7 @@
 @{**/
 typedef struct RF_L2_PACKET {
 	char source_callsign[RF_DATALINK_PKT_SOURCE_CALLSIGN_LOC_LEN]; /**< Source callsign char array */
-	unsigned char source_indetifier; /**< source callsign ID number */
+	unsigned char source_identifier; /**< source callsign ID number */
 	char destination_callsign[6]; /**< Destination callsign char array */
 	unsigned char destination_identifier; /**< Destination callsign ID number */
 	unsigned char packet_type; /**< Packet type byte */
