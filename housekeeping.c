@@ -80,12 +80,12 @@ void housekeeping_check_raw(){
 		housekeeping_timer_count_1hz++;
 	}
 
-	if(CC430_Check_Transmitting_Flag()){
-		P3OUT |= LED_2;
-	}
-	else{
-		P3OUT &= ~LED_2;
-	}
+//	if(CC430_Check_Transmitting_Flag()){
+//		P3OUT |= LED_2;
+//	}
+//	else{
+//		P3OUT &= ~LED_2;
+//	}
 }
 
 

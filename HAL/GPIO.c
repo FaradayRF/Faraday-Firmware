@@ -24,10 +24,9 @@
 *
 @{**/
 volatile unsigned char gpio_p3_guard = GPS_RESET + GPS_STANDBY + LED_1 + LED_2; /**< Guard bitmask for Port 3 */
-volatile unsigned char gpio_p4_guard = GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7; /**< Guard bitmask for Port 4 */
+volatile unsigned char gpio_p4_guard = PA_ENABLE + LNA_ENABLE + HGM_SELECT + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7; /**< Guard bitmask for Port 4 */
 volatile unsigned char gpio_p5_guard = ARDUINO_IO_8 + ARDUINO_IO_9; /**< Guard bitmask for Port 3 */
 /** @}*/
-
 
 void gpio_update(unsigned char port, unsigned char pins, unsigned char command){
 	switch(port){
