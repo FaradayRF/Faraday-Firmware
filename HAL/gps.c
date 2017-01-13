@@ -212,13 +212,16 @@ void Parse_GGA(volatile unsigned char *string){
 	// Valid is Fix_Quality of ASCII > 0, this means hex 0x31 or higher is a locked signal
 	gpsTest = GGA.Fix_Quality[0];
 	__no_operation();
-	if(gpsTest > 0x30){
+	/*if(gpsTest > 0x30){
 		__no_operation();
 		P3OUT |= LED_1;
+		P3OUT &= ~LED_2;
 	}
 	else if (gpsTest <= 0x30){
 		P3OUT &= ~LED_1;
+		P3OUT |= LED_2;
 	}
+	*/
 }
 
 

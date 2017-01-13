@@ -43,8 +43,16 @@ int main(void) {
 	app_device_config_load_default(); //Load defaults from flash
 	faraday_main_intialize();
 	init_GPS();
+	Faraday_GPS_Reset_Disable(); //DEBUG!
+	Faraday_GPS_Standby_Disable(); //DEBUG!
 	initialize_GPS_structs();
 	init_timer_A0(); //Enable main housekeeping timer
+
+	//Test GPIO
+	P3OUT |= LED_1 | LED_2;
+	__delay_cycles(1500000);
+	P3OUT &= ~LED_1;
+	P3OUT &= ~LED_2;
 
 
     //Applications

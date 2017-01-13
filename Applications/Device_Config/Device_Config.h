@@ -263,4 +263,6 @@ void app_device_config_device_debug_increment_int(unsigned char offset);
  */
 void app_device_config_device_debug_increment_char(unsigned char offset);
 
+void reset_hard();
+
 #endif /* APPLICATIONS_DEVICE_CONFIG_DEVICE_CONFIG_H_ */

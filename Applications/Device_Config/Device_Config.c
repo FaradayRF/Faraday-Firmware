@@ -247,3 +247,7 @@ void app_device_config_device_debug_increment_char(unsigned char offset){
 	//Save incremented bootup counter
 	flash_write_info_c_segment_char(offset, buf_value);
 }
+
+void reset_hard(){
+	flash_erase_segment(FLASH_MEM_ADR_INFO_D);
+}
