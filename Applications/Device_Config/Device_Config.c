@@ -134,6 +134,13 @@ void app_device_config_read_defaults(void){
 	memcpy(&config_bitmask,CONFIG_BASIC_FLASH_CONFIG_BITMASK_ADDR,1);
 	memcpy(&local_callsign_len,CONFIG_BASIC_LOCAL_CALLSIGN_LEN_ADDR,1);
 	memcpy(&local_callsign,CONFIG_BASIC_LOCAL_CALLSIGN_ADDR,MAX_CALLSIGN_LENGTH);
+
+	//Set unused callsign bytes to 0x00 to maintain clean string checking
+	unsigned char i;
+	for(i=local_callsign_len;i<MAX_CALLSIGN_LENGTH; i++){
+		local_callsign[i] = 0x00;
+	}
+
 	memcpy(&local_device_id,CONFIG_BASIC_LOCAL_CALLSIGN_ID_ADDR,1);
 	memcpy(&default_gpio_p3_bitmask,CONFIG_BASIC_P3_GPIO_ADDR,1);
 	memcpy(&default_gpio_p4_bitmask,CONFIG_BASIC_P4_GPIO_ADDR,1);
