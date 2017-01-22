@@ -64,29 +64,13 @@ typedef struct telem_rf_PACKET_CONFIG {
 } telem_rf_PACKET_CONFIG_STRUCT;
 
 
-
-/** @brief RF telemetry packet container
- *
- *	This simple structure is used to build an RF telemetry packet fragment packet and simple holds and entire packet in
- *	its payload member.
- *
- */
-typedef struct telem_rf_PACKET {
-	unsigned char payload_length; /**< Payload length in bytes */
-	unsigned char payload[TELEM_RF_PACKET_PAYLOAD_LEN]; /**< Payload data byte array */
-} telem_rf_PACKET_STRUCT;
-
-
-
-
-
-
 /** @brief RF telemetry packet structure
  *
  *	This structure defines the RF telemetry fragmentation packet. This packet is used to define the packet type, fragmentation
  *	sequence, and contain the fragmented telemetry packet as payload.
  *
  */
+
 typedef struct TELEMETRY_RF_PACKET_DATAGRAM {
 	unsigned char packet_type; /**< Packet type field */
 	unsigned char sequence; /**< Packet (fragmentation) sequence number */
