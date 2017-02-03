@@ -111,9 +111,7 @@ int main(void) {
 	gpio_update(3, LED_1 | LED_2, 0); // Turn both LED's OFF
 	__delay_cycles(1500000); // Delay OFF
 
-
-    //Scratch testing
-    //flash_test(); // FLASH
+	/* Begin main loop */
 
     //Note: Per Errata bug the LPM iterrupt return will corrupt the PC, disable LPM when debugging and let the loop loose!
      while(1){
