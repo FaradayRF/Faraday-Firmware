@@ -48,19 +48,6 @@ void main_housekeeping_routine(void){
 		//Check housekeeping functions
 		check_housekeeping();
 
-		if(gpsTest > 0x30){
-				__no_operation();
-				P3OUT |= LED_1;
-				P3OUT &= ~LED_2;
-			}
-			else if (gpsTest <= 0x30){
-				P3OUT &= ~LED_1;
-				P3OUT |= LED_2;
-			}
-
-
-
-
 	}
 }
 
