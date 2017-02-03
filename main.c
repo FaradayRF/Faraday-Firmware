@@ -48,12 +48,6 @@ int main(void) {
 	initialize_GPS_structs();
 	init_timer_A0(); //Enable main housekeeping timer
 
-	//Test GPIO
-	P3OUT |= LED_1 | LED_2;
-	__delay_cycles(1500000);
-	P3OUT &= ~LED_1;
-	P3OUT &= ~LED_2;
-
 
     //Applications
 	application_telemetry_initialize();
@@ -103,6 +97,19 @@ int main(void) {
     //Or enable Housekeeping flag, disable LPM, run through while(1) loop
     //and then reenable LPM?
 	///////////////////////////////////////////
+
+    /* Visual Boot GPIO Flash Sequence */
+    // Blink 1
+    gpio_update(3, LED_1 | LED_2, 1); // Turn both LED's ON
+	__delay_cycles(1000000); // Delay ON
+	gpio_update(3, LED_1 | LED_2, 0); // Turn both LED's OFF
+	__delay_cycles(1500000); // Delay OFF
+
+	//Blink 2
+	gpio_update(3, LED_1 | LED_2, 1); // Turn both LED's ON
+	__delay_cycles(1000000); // Delay ON
+	gpio_update(3, LED_1 | LED_2, 0); // Turn both LED's OFF
+	__delay_cycles(1500000); // Delay OFF
 
 
     //Scratch testing
