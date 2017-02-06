@@ -199,11 +199,11 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 			memcpy(&telem_packet_3_struct.gps_longitude_dir,(char *)&default_longitude_dir,1);
 			memcpy(&telem_packet_3_struct.gps_altitude,(char *)default_altitude,8);
 			memcpy(&telem_packet_3_struct.gps_altitude_units,(char *)&default_altitude_units,1);
-			unsigned char speed[5] = {0,0,0,0,0};
+			unsigned char speed[5] = {0x30,0x30,0x30,0x30,0x30}; //0x30 is ASCII '0'
 			memcpy(&telem_packet_3_struct.gps_speed,speed,5);
-			unsigned char fix_quality[1] = {30}; //30 is ASCII '0' which matches a GPS NO FIX
+			unsigned char fix_quality[1] = {0x30}; //0x30 is ASCII '0' which matches a GPS NO FIX
 			memcpy(&telem_packet_3_struct.gps_fix,(char *)&fix_quality,1);
-			unsigned char hdop[4] = {0,0,0,0};
+			unsigned char hdop[4] = {0x30,0x30,0x30,0x30}; //0x30 is ASCII '0'
 			memcpy(&telem_packet_3_struct.gps_hdop,(char *)hdop,4);
 		}
 
