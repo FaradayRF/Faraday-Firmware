@@ -16,9 +16,6 @@
 #include <stdio.h>
 
 
-
-
-
 void initialize_GPS_structs(void){
 	memset((void *)GGA.Sync,'0',sizeof(GGA.Sync));
 	memset((void *)GGA.Time,'0',sizeof(GGA.Time));
