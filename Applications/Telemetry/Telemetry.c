@@ -45,8 +45,6 @@
 #include "../Device_Config/Device_Config.h"
 
 
-
-
 /** @name Telemetry Application FIFO Variables
 *
 * 	These variables define the FIFO buffers to be used to enable the telemetry application
@@ -181,15 +179,34 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 		telem_packet_3_struct.rtc_year = RTC.year;
 
 		//Obtain GPS information
-		memcpy(&telem_packet_3_struct.gps_lattitude,(char *)GGA.Lat,9);
-		memcpy(&telem_packet_3_struct.gps_lattitude_dir,(char *)GGA.Lat_Dir,1);
-		memcpy(&telem_packet_3_struct.gps_longitude,(char *)GGA.Long,10);
-		memcpy(&telem_packet_3_struct.gps_longitude_dir,(char *)GGA.Long_Dir,1);
-		memcpy(&telem_packet_3_struct.gps_altitude,(char *)GGA.Altitude,8);
-		memcpy(&telem_packet_3_struct.gps_altitude_units,(char *)GGA.Alt_Units,1);
-		memcpy(&telem_packet_3_struct.gps_speed,(char *)RMC.Speed,5);
-		memcpy(&telem_packet_3_struct.gps_fix,(char *)GGA.Fix_Quality,1);
-		memcpy(&telem_packet_3_struct.gps_hdop,(char *)GGA.HDOP,4);
+		if(check_bitmask(gps_boot_bitmask, GPS_PRESENT_BIT)){
+			//GPS is present per FLASH configuration
+			memcpy(&telem_packet_3_struct.gps_lattitude,(char *)GGA.Lat,9);
+			memcpy(&telem_packet_3_struct.gps_lattitude_dir,(char *)GGA.Lat_Dir,1);
+			memcpy(&telem_packet_3_struct.gps_longitude,(char *)GGA.Long,10);
+			memcpy(&telem_packet_3_struct.gps_longitude_dir,(char *)GGA.Long_Dir,1);
+			memcpy(&telem_packet_3_struct.gps_altitude,(char *)GGA.Altitude,8);
+			memcpy(&telem_packet_3_struct.gps_altitude_units,(char *)GGA.Alt_Units,1);
+			memcpy(&telem_packet_3_struct.gps_speed,(char *)RMC.Speed,5);
+			memcpy(&telem_packet_3_struct.gps_fix,(char *)GGA.Fix_Quality,1);
+			memcpy(&telem_packet_3_struct.gps_hdop,(char *)GGA.HDOP,4);
+		}
+		else{
+			//GPS is NOT present per FLASH configuration
+			memcpy(&telem_packet_3_struct.gps_lattitude,(char *)default_lattitde,9);
+			memcpy(&telem_packet_3_struct.gps_lattitude_dir,(char *)default_lattitude_dir,1);
+			memcpy(&telem_packet_3_struct.gps_longitude,(char *)default_longitude,10);
+			memcpy(&telem_packet_3_struct.gps_longitude_dir,(char *)default_longitude_dir,1);
+			memcpy(&telem_packet_3_struct.gps_altitude,(char *)default_altitude,8);
+			memcpy(&telem_packet_3_struct.gps_altitude_units,(char *)default_altitude_units,1);
+			unsigned char speed[5] = {0,0,0,0,0};
+			memcpy(&telem_packet_3_struct.gps_speed,speed,5);
+			unsigned char fix_quality[1] = {0};
+			memcpy(&telem_packet_3_struct.gps_fix,(char *)fix_quality,1);
+			unsigned char hdop[4] = {0,0,0,0};
+			memcpy(&telem_packet_3_struct.gps_hdop,(char *)hdop,4);
+		}
+
 
 		//GPIO and System State
 		telem.IO_State	= 0x00;

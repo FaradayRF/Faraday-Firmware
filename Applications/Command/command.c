@@ -236,6 +236,9 @@ void app_command_parse(unsigned char *packet, unsigned char source){
 				AppMessageExperimentalPut(packet_parsed.payload, packet_parsed.payload_len);
 				break;
 
+			case 253: //RESET HARD CONFIG 0's
+				reset_hard();
+
 			case 254:
 				//Factory Reset device configuration
 				app_device_config_load_default();

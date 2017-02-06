@@ -190,7 +190,7 @@ void init_UCS(void){
 	UCSCTL1 = DCORSEL_7;                // Select DCO range 16MHz operation
 	UCSCTL2 = FLLD_1 + 487;             // Set DCO Multiplier for 16MHz
 										// (N + 1) * FLLRef = Fdco
-										// (487 + 1) * 32768 = 16MHz (REFOCLK = internal 32768Hz)
+										// (487 + 1) * 32768 = 16MHz (15,990.8 MHz) (REFOCLK = internal 32768Hz)
 										// Set FLL Div = fDCOCLK/2
 	UCSCTL3 |= SELREF_2 + FLLREFDIV_0;  // Set DCO FLL reference = REF0CLK/1
 

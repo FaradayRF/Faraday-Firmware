@@ -43,6 +43,8 @@ int main(void) {
 	app_device_config_load_default(); //Load defaults from flash
 	faraday_main_intialize();
 	init_GPS();
+	Faraday_GPS_Reset_Disable(); //DEBUG!
+	Faraday_GPS_Standby_Disable(); //DEBUG!
 	initialize_GPS_structs();
 	init_timer_A0(); //Enable main housekeeping timer
 
@@ -96,9 +98,20 @@ int main(void) {
     //and then reenable LPM?
 	///////////////////////////////////////////
 
+    /* Visual Boot GPIO Flash Sequence */
+    // Blink 1
+    gpio_update(3, LED_1 | LED_2, 1); // Turn both LED's ON
+	__delay_cycles(1000000); // Delay ON
+	gpio_update(3, LED_1 | LED_2, 0); // Turn both LED's OFF
+	__delay_cycles(1500000); // Delay OFF
 
-    //Scratch testing
-    //flash_test(); // FLASH
+	//Blink 2
+	gpio_update(3, LED_1 | LED_2, 1); // Turn both LED's ON
+	__delay_cycles(1000000); // Delay ON
+	gpio_update(3, LED_1 | LED_2, 0); // Turn both LED's OFF
+	__delay_cycles(1500000); // Delay OFF
+
+	/* Begin main loop */
 
     //Note: Per Errata bug the LPM iterrupt return will corrupt the PC, disable LPM when debugging and let the loop loose!
      while(1){

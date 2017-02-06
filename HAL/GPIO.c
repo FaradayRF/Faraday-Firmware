@@ -23,11 +23,10 @@
 *
 *
 @{**/
-volatile unsigned char gpio_p3_guard = GPS_RESET + GPS_STANDBY + LED_1 + LED_2; /**< Guard bitmask for Port 3 */
-volatile unsigned char gpio_p4_guard = GPIO_0 + GPIO_1 + GPIO_2 + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7; /**< Guard bitmask for Port 4 */
+volatile unsigned char gpio_p3_guard = GPIO_0 + GPIO_1 + GPIO_2 + GPS_RESET + GPS_STANDBY + LED_1 + LED_2; /**< Guard bitmask for Port 3 */
+volatile unsigned char gpio_p4_guard = PA_ENABLE + LNA_ENABLE + HGM_SELECT + GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7; /**< Guard bitmask for Port 4 */
 volatile unsigned char gpio_p5_guard = ARDUINO_IO_8 + ARDUINO_IO_9; /**< Guard bitmask for Port 3 */
 /** @}*/
-
 
 void gpio_update(unsigned char port, unsigned char pins, unsigned char command){
 	switch(port){
@@ -75,25 +74,25 @@ void gpio_command_update(unsigned char *port, unsigned char channel, unsigned ch
 
 
 void CC1190_PA_Enable(void){
-	P3OUT |= PA_ENABLE;
+	P4OUT |= PA_ENABLE;
 }
 
 void CC1190_PA_Disable(void){
-	P3OUT &= ~PA_ENABLE;
+	P4OUT &= ~PA_ENABLE;
 }
 
 void CC1190_LNA_Enable(void){
-	P3OUT |= LNA_ENABLE;
+	P4OUT |= LNA_ENABLE;
 }
 
 void CC1190_LNA_Disable(void){
-	P3OUT &= ~LNA_ENABLE;
+	P4OUT &= ~LNA_ENABLE;
 }
 
 void CC1190_HGM_Enable(void){
-	P3OUT |= HGM_SELECT;
+	P4OUT |= HGM_SELECT;
 }
 
 void CC1190_HGM_Disable(void){
-	P3OUT &= ~HGM_SELECT;
+	P4OUT &= ~HGM_SELECT;
 }

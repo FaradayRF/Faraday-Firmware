@@ -147,4 +147,7 @@ void Parse_GGA(volatile unsigned char *string);
  */
 void Parse_RMC(volatile unsigned char *string);
 
+
+volatile unsigned char gpsTest; //GPS Testing, DEBUG
+
 #endif /* FARADAY_REVA_RF_MERGE_HAL_GPS_H_ */

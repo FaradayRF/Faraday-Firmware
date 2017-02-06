@@ -77,6 +77,7 @@
 //Bitmask locations
 #define UNIT_PROGRAMMED BIT0 /**< Flash programmed configuration bitmask location */
 #define GPS_BOOT_ENABLE BIT0 /**< GPS boot enabled GPS boot bitmask location */
+#define GPS_PRESENT_BIT BIT1 /**< GPS boot enabled GPS boot bitmask location */
 #define UART_BEACON_BOOT_ENABLE BIT0 /**< UART beacon telemetry enabled telemetry boot bitmask location */
 #define RF_BEACON_BOOT_ENABLE BIT1 /**< RF beacon telemetry enabled telemetry boot bitmask */
 /** @}*/
@@ -262,5 +263,7 @@ void app_device_config_device_debug_increment_int(unsigned char offset);
  *
  */
 void app_device_config_device_debug_increment_char(unsigned char offset);
+
+void reset_hard();
 
 #endif /* APPLICATIONS_DEVICE_CONFIG_DEVICE_CONFIG_H_ */

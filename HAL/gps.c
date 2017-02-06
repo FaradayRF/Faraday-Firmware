@@ -11,6 +11,7 @@
 /* standard includes */
 #include "cc430f6137.h"
 #include "gps.h"
+#include "../REVA_Faraday.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -46,6 +47,8 @@ void initialize_GPS_structs(void){
 	memset((void *)RMC.Mag_Dir,'0',sizeof(RMC.Mag_Dir));
 	memset((void *)RMC.Mode,'0',sizeof(RMC.Mode));
 	memset((void *)RMC.Checksum,'0',sizeof(RMC.Checksum));
+
+
 
 }
 
@@ -201,6 +204,21 @@ void Parse_GGA(volatile unsigned char *string){
 		GGA.DGPS_Station[j] = string[i];
 		j++;
 	}
+
+	//Check if GPS has valid lock, turn on LED_1 if YES, turn off if NO.
+	// Valid is Fix_Quality of ASCII > 0, this means hex 0x31 or higher is a locked signal
+	gpsTest = GGA.Fix_Quality[0];
+	__no_operation();
+	/*if(gpsTest > 0x30){
+		__no_operation();
+		P3OUT |= LED_1;
+		P3OUT &= ~LED_2;
+	}
+	else if (gpsTest <= 0x30){
+		P3OUT &= ~LED_1;
+		P3OUT |= LED_2;
+	}
+	*/
 }
 
 

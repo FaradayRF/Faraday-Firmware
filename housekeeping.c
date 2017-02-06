@@ -40,6 +40,8 @@
 /* faraday application - high altitude balloon */
 #include "Applications/HAB/App_HAB.h"
 
+#include "HAL/gps.h"
+
 void main_housekeeping_routine(void){
 	if(housekeeping_bitmask_char & BIT0){
 		housekeeping_bitmask_char &= ~BIT0; //Disable general housekeeping bit
@@ -80,12 +82,12 @@ void housekeeping_check_raw(){
 		housekeeping_timer_count_1hz++;
 	}
 
-	if(CC430_Check_Transmitting_Flag()){
-		P3OUT |= LED_2;
-	}
-	else{
-		P3OUT &= ~LED_2;
-	}
+//	if(CC430_Check_Transmitting_Flag()){
+//		P3OUT |= LED_2;
+//	}
+//	else{
+//		P3OUT &= ~LED_2;
+//	}
 }
 
 
