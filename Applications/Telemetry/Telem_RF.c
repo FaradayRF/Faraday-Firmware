@@ -94,7 +94,7 @@ void init_app_telem_rf_fifo(void){
 void telem_rf_send_rf_packet(unsigned char *payload_buffer,	unsigned char payload_len,	unsigned char RF_L4_service_number,	char RF_L2_source_callsign[6], unsigned char RF_L2_source_callsign_len,	unsigned char RF_L2_source_indetifier,	char RF_L2_destination_callsign[6],unsigned char RF_L2_destination_callsign_len,	unsigned char RF_L2_destination_identifier,	unsigned char RF_L2_packet_type,	unsigned char RF_L2_packet_config){
 
 	unsigned char i;
-	telem_rf_PACKET_STRUCT packet_struct_telem_rf;
+	unsigned char telem_rf_packet_payload [TELEM_RF_PACKET_PAYLOAD_LEN];
 	telem_rf_PACKET_CONFIG_STRUCT packet_struct_telem_rf_config;
 
 	//Place destination callsign into packet struct
@@ -113,18 +113,16 @@ void telem_rf_send_rf_packet(unsigned char *payload_buffer,	unsigned char payloa
 	packet_struct_telem_rf_config.RF_L2_source_indetifier = RF_L2_source_indetifier;
 	packet_struct_telem_rf_config.RF_L4_service_number = RF_L4_service_number;
 
-	packet_struct_telem_rf.payload_length = payload_len;
-
 	//Place destination callsign into packet struct
 	for(i=0; i<RF_TRANPORT_PAYLOAD_MAX_LEN; i++){
-		packet_struct_telem_rf.payload[i] = payload_buffer[i];
+		telem_rf_packet_payload[i] = payload_buffer[i];
 	}
 
 	//Pad destination callsign
 	for(i=payload_len; i<RF_TRANPORT_PAYLOAD_MAX_LEN; i++){
-		packet_struct_telem_rf.payload[i] = 0xFF; //Padding
+		telem_rf_packet_payload[i] = 0xFF; //Padding
 	}
-	put_fifo_sram(&telem_rf_tx_fifo_state_machine, &packet_struct_telem_rf.payload[0]); //packet_struct_telem_rf needs &packet_struct_telem_rf due to direct struct not buffer array?
+	put_fifo_sram(&telem_rf_tx_fifo_state_machine, telem_rf_packet_payload); //packet_struct_telem_rf needs &packet_struct_telem_rf due to direct struct not buffer array?
 	put_fifo_sram(&telem_rf_tx_rfconfig_fifo_state_machine, &packet_struct_telem_rf_config);
 }
 
