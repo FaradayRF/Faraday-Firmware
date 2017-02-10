@@ -17,6 +17,6 @@
 #ifndef VERSION_H_
 #define VERSION_H_
 
-const unsigned long firmware_revision = 1; //
+const unsigned long firmware_revision = 5; //
 
 #endif /* VERSION_H_ */

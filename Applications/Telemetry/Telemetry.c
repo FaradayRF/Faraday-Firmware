@@ -136,7 +136,7 @@ void application_telem_create_pkt_2(unsigned char *packet){
 	memcpy(&telem_datagram.data, FLASH_MEM_ADR_INFO_C, APP_TELEM_PACKET_TYPE_2_LEN);
 
 	// Append firmware revision to end of FLASH_MEM_ADR_INFO_C portion of packet
-	memcpy(&telem_datagram.data[APP_TELEM_PACKET_TYPE_2_LEN], firmware_revision, FIRMWARE_REVISION_SIZE); // Revision is type long = 4 bytes
+	memcpy(&telem_datagram.data[APP_TELEM_PACKET_TYPE_2_LEN], &firmware_revision, FIRMWARE_REVISION_SIZE); // Revision is type long = 4 bytes
 
 	unsigned char telem_packet_length = APP_TELEM_PACKET_TYPE_2_LEN;//sizeof(telem_packet_3_struct)-1; //-1 for end of struct character (off by one due to data alignmet in memory!)
 	telem_datagram.packet_type = 2;
