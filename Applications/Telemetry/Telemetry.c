@@ -44,6 +44,9 @@
 /* device configuration application includes */
 #include "../Device_Config/Device_Config.h"
 
+/* firmware revision includes */
+#include "../../Version.h"
+
 
 /** @name Telemetry Application FIFO Variables
 *
@@ -132,11 +135,13 @@ void application_telem_create_pkt_2(unsigned char *packet){
 	//Copy device config memory into buffer
 	memcpy(&telem_datagram.data, FLASH_MEM_ADR_INFO_C, APP_TELEM_PACKET_TYPE_2_LEN);
 
+	// Append firmware revision to end of FLASH_MEM_ADR_INFO_C portion of packet
+	memcpy(&telem_datagram.data[APP_TELEM_PACKET_TYPE_2_LEN], &firmware_revision, FIRMWARE_REVISION_SIZE); // Revision is type long = 4 bytes
 
 	unsigned char telem_packet_length = APP_TELEM_PACKET_TYPE_2_LEN;//sizeof(telem_packet_3_struct)-1; //-1 for end of struct character (off by one due to data alignmet in memory!)
 	telem_datagram.packet_type = 2;
 	telem_datagram.rf_source = 0;
-	telem_datagram.data_length = APP_TELEM_PACKET_TYPE_2_LEN;
+	telem_datagram.data_length = APP_TELEM_PACKET_TYPE_2_LEN + FIRMWARE_REVISION_SIZE;
 
 	//Error detection 16 bit calculation
 	int_to_byte_array(&telem_datagram.error_detection_16, compute_checksum_16(APP_TELEM_PACKET_LEN-2, &telem_datagram));
