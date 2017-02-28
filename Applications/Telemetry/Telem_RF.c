@@ -225,7 +225,7 @@ void app_telem_rf_housekeeping(void){
 			RF_L2_source_callsign[i] = app_packet_rf_config_buf[1+i];
 		}
 
-		for(i=0; i<RF_L2_source_callsign_len;i++){
+		for(i=0; i<RF_L2_destination_callsign_len;i++){
 			RF_L2_destination_callsign[i] = app_packet_rf_config_buf[9+i];
 		}
 
