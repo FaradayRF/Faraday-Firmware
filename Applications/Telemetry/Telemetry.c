@@ -154,7 +154,7 @@ void application_telem_create_pkt_2(unsigned char *packet){
 
 void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, unsigned char src_callsign_len, unsigned char src_callsign_id, char *dest_callsign, unsigned char dest_callsign_len, unsigned char dest_callsign_id){
 	//Create temporary structs for packets
-		TELEMETRYDATA telem;
+		//TELEMETRYDATA telem;
 		TELEMETRY_PACKET_DATAGRAM_STRUCT telem_datagram;
 		TELEMETRY_PACKET_3_STRUCT telem_packet_3_struct;
 
@@ -213,33 +213,33 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 		}
 
 		//GPIO and System State
-		telem.GPIO_State = 0x00;
-		telem.GPIO_State |= (P3OUT & GPIO_0) >> 2;// GPIO 0
-		telem.GPIO_State |= (P3OUT & GPIO_1) >> 0;// GPIO 1
-		telem.GPIO_State |= (P3OUT & GPIO_2) << 2;// GPIO 2
-		telem.GPIO_State |= (P4OUT & GPIO_3) >> 1;// GPIO 3
-		telem.GPIO_State |= (P4OUT & GPIO_4) << 1;// GPIO 4
-		telem.GPIO_State |= (P4OUT & GPIO_5) << 3;// GPIO 5
-		telem.GPIO_State |= (P4OUT & GPIO_6) << 5;// GPIO 6
-		telem.GPIO_State |= (P4OUT & GPIO_7) << 7;// GPIO 7
+		telem_packet_3_struct.gpio_state = 0x00;
+		telem_packet_3_struct.gpio_state |= (P3OUT & GPIO_0) >> 2;// GPIO 0
+		telem_packet_3_struct.gpio_state |= (P3OUT & GPIO_1) >> 0;// GPIO 1
+		telem_packet_3_struct.gpio_state |= (P3OUT & GPIO_2) << 2;// GPIO 2
+		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_3) >> 1;// GPIO 3
+		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_4) << 1;// GPIO 4
+		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_5) << 3;// GPIO 5
+		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_6) << 5;// GPIO 6
+		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_7) << 7;// GPIO 7
 
-		telem.IO_State	= 0x00;
-		telem.IO_State 	|= (P5IN & ARDUINO_IO_8) << 5;		// Grab IO 8 and shift left 5 to put into BIT 8 of IO_State
-		telem.IO_State 	|= (P5IN & ARDUINO_IO_9) << 3;		// Grab IO 9 and shift left 3 to put into BIT 7 of IO_State
-		telem.IO_State	|= (P5IN & MOSFET_CNTL) << 1;		// Grab MOSFET CNTL value and shift left 1 bit to put into BIT 6 of IO_State
-		telem.IO_State	|= (P3IN & LED_1) >> 2;				// Grab LED_1 value and shift right 2 bits to put into BIT 5 of IO_State
-		telem.IO_State	|= (P3IN & LED_2) >> 4;				// Grab LED_2 value and shift right 4 bits to put into BIT 4 of IO_State
-		telem.IO_State	|= (P3IN & GPS_RESET) >> 1;			// Grab GPS_RESET value and shift right 1 bits to put into BIT 3 of IO_State
-		telem.IO_State	|= (P3IN & GPS_STANDBY) >> 3;		// Grab GPS_STANDBY value and shift right 3 bits to put into BIT 2 of IO_State
-		telem.IO_State	|= (P1IN & BUTTON_1) >> 7;			// Grab BUTTON_1 value and shift right 7 bits to put into BIT 1 of IO_State
+		telem_packet_3_struct.io_state	= 0x00;
+		telem_packet_3_struct.io_state 	|= (P5IN & ARDUINO_IO_8) << 5;		// Grab IO 8 and shift left 5 to put into BIT 8 of IO_State
+		telem_packet_3_struct.io_state 	|= (P5IN & ARDUINO_IO_9) << 3;		// Grab IO 9 and shift left 3 to put into BIT 7 of IO_State
+		telem_packet_3_struct.io_state	|= (P5IN & MOSFET_CNTL) << 1;		// Grab MOSFET CNTL value and shift left 1 bit to put into BIT 6 of IO_State
+		telem_packet_3_struct.io_state	|= (P3IN & LED_1) >> 2;				// Grab LED_1 value and shift right 2 bits to put into BIT 5 of IO_State
+		telem_packet_3_struct.io_state	|= (P3IN & LED_2) >> 4;				// Grab LED_2 value and shift right 4 bits to put into BIT 4 of IO_State
+		telem_packet_3_struct.io_state	|= (P3IN & GPS_RESET) >> 1;			// Grab GPS_RESET value and shift right 1 bits to put into BIT 3 of IO_State
+		telem_packet_3_struct.io_state	|= (P3IN & GPS_STANDBY) >> 3;		// Grab GPS_STANDBY value and shift right 3 bits to put into BIT 2 of IO_State
+		telem_packet_3_struct.io_state	|= (P1IN & BUTTON_1) >> 7;			// Grab BUTTON_1 value and shift right 7 bits to put into BIT 1 of IO_State
 
-		telem.RF_State	= 0x00;
-		telem.RF_State	|= (P3IN & PA_ENABLE) << 7;			// Grab PA_ENABLE value and shift left 7 bits to put into BIT 8 of RF_State
-		telem.RF_State	|= (P3IN & LNA_ENABLE) << 5;		// Grab LNA_ENABLE value and shift left 5 bits to put into BIT 7 of RF_State
-		telem.RF_State	|= (P3IN & HGM_SELECT) << 3;		// Grab HGM_SELECT value and shift left 3 bits to put into BIT 6 of RF_State
+		telem_packet_3_struct.rf_state	= 0x00;
+		telem_packet_3_struct.rf_state	|= (P3IN & PA_ENABLE) << 7;			// Grab PA_ENABLE value and shift left 7 bits to put into BIT 8 of RF_State
+		telem_packet_3_struct.rf_state	|= (P3IN & LNA_ENABLE) << 5;		// Grab LNA_ENABLE value and shift left 5 bits to put into BIT 7 of RF_State
+		telem_packet_3_struct.rf_state	|= (P3IN & HGM_SELECT) << 3;		// Grab HGM_SELECT value and shift left 3 bits to put into BIT 6 of RF_State
 
-		telem_packet_3_struct.io_state = telem.IO_State;
-		telem_packet_3_struct.rf_state = telem.RF_State;
+		//telem_packet_3_struct.io_state = telem.IO_State;
+		//telem_packet_3_struct.rf_state = telem.RF_State;
 
 		//ADC Data
 		int_to_byte_array(&telem_packet_3_struct.adc_0, ADC_Data[0]);
