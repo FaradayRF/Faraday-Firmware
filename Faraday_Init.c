@@ -97,17 +97,17 @@ void init_GPIO(void){
 	// Setup external GPIO's
 	// Default to outputs with zero value
 
-	P4OUT	&= ~GPIO_0;
-	P4OUT	&= ~GPIO_1;
-	P4OUT	&= ~GPIO_2;
+	P3OUT	&= ~GPIO_0;
+	P3OUT	&= ~GPIO_1;
+	P3OUT	&= ~GPIO_2;
 	P4OUT	&= ~GPIO_3;
 	P4OUT	&= ~GPIO_4;
 	P4OUT	&= ~GPIO_5;
 	P4OUT	&= ~GPIO_6;
 	P4OUT	&= ~GPIO_7;
 
-	P3DIR   |= GPIO_0 + GPIO_1 + GPIO_2;
-	P4DIR	|= GPIO_3 + GPIO_4 + GPIO_5 + GPIO_6 + GPIO_7;
+	P3DIR   |= GPIO_0 | GPIO_1 | GPIO_2;
+	P4DIR	|= GPIO_3 | GPIO_4 | GPIO_5 | GPIO_6 | GPIO_7;
 
 
 	P5OUT	&= ~ARDUINO_IO_8;
@@ -135,8 +135,8 @@ void init_GPIO(void){
 	P2IFG	&= ~GPS_UART_TX;			// GPS TX UART IFG cleared
 
 	P3OUT	&= ~GPS_RESET + ~GPS_STANDBY; 	// GPS reset and standby default low
-	P3OUT	|= GPS_RESET + GPS_STANDBY; 	// GPS reset and standby default low
-	P3DIR	|= GPS_RESET + GPS_STANDBY;		// GPS reset P3.3 and GPS standby P3.4 set as outputs
+	P3OUT	|= GPS_RESET | GPS_STANDBY; 	// GPS reset and standby default low
+	P3DIR	|= GPS_RESET | GPS_STANDBY;		// GPS reset P3.3 and GPS standby P3.4 set as outputs
 
 	////////////////////////////////////
 	// SPI

@@ -212,8 +212,17 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 			memcpy(&telem_packet_3_struct.gps_hdop,(char *)hdop,4);
 		}
 
-
 		//GPIO and System State
+		telem.GPIO_State = 0x00;
+		telem.GPIO_State |= (P3OUT & GPIO_0) >> 2;// GPIO 0
+		telem.GPIO_State |= (P3OUT & GPIO_1) >> 0;// GPIO 1
+		telem.GPIO_State |= (P3OUT & GPIO_2) << 2;// GPIO 2
+		telem.GPIO_State |= (P4OUT & GPIO_3) >> 1;// GPIO 3
+		telem.GPIO_State |= (P4OUT & GPIO_4) << 1;// GPIO 4
+		telem.GPIO_State |= (P4OUT & GPIO_5) << 3;// GPIO 5
+		telem.GPIO_State |= (P4OUT & GPIO_6) << 5;// GPIO 6
+		telem.GPIO_State |= (P4OUT & GPIO_7) << 7;// GPIO 7
+
 		telem.IO_State	= 0x00;
 		telem.IO_State 	|= (P5IN & ARDUINO_IO_8) << 5;		// Grab IO 8 and shift left 5 to put into BIT 8 of IO_State
 		telem.IO_State 	|= (P5IN & ARDUINO_IO_9) << 3;		// Grab IO 9 and shift left 3 to put into BIT 7 of IO_State
@@ -229,7 +238,6 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 		telem.RF_State	|= (P3IN & LNA_ENABLE) << 5;		// Grab LNA_ENABLE value and shift left 5 bits to put into BIT 7 of RF_State
 		telem.RF_State	|= (P3IN & HGM_SELECT) << 3;		// Grab HGM_SELECT value and shift left 3 bits to put into BIT 6 of RF_State
 
-		telem_packet_3_struct.gpio_state = P4IN;
 		telem_packet_3_struct.io_state = telem.IO_State;
 		telem_packet_3_struct.rf_state = telem.RF_State;
 
