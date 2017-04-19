@@ -17,6 +17,6 @@
 #ifndef VERSION_H_
 #define VERSION_H_
 
-const unsigned long firmware_revision = 0xc1489a4; //
+const unsigned long firmware_revision = 0x1234567; //
 
 #endif /* VERSION_H_ */
