@@ -123,8 +123,8 @@
 @{**/
 #define CC430_WATCH_XTAL_0 BIT0
 #define CC430_WATCH_XTAL_1 BIT1
-#define ARDUINO_IO_8 BIT2
-#define ARDUINO_IO_9 BIT3
+#define DIGITAL_IO_8 BIT2
+#define GPS_RX BIT3
 #define MOSFET_CNTL BIT4
 #define SRAM_CS BIT5
 #define SRAM_HOLD BIT6

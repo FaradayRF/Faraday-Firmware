@@ -224,8 +224,8 @@ void application_telem_create_rf_pkt(unsigned char *packet, char *src_callsign, 
 		telem_packet_3_struct.gpio_state |= (P4OUT & GPIO_7) << 7;// GPIO 7
 
 		telem_packet_3_struct.io_state	= 0x00;
-		telem_packet_3_struct.io_state 	|= (P5IN & ARDUINO_IO_8) << 5;		// Grab IO 8 and shift left 5 to put into BIT 8 of IO_State
-		telem_packet_3_struct.io_state 	|= (P5IN & ARDUINO_IO_9) << 3;		// Grab IO 9 and shift left 3 to put into BIT 7 of IO_State
+		telem_packet_3_struct.io_state 	|= (P5IN & DIGITAL_IO_8) << 5;		// Grab IO 8 and shift left 5 to put into BIT 8 of IO_State
+		//telem_packet_3_struct.io_state 	|= (P5IN & DIGITAL_IO_9) << 3;		// (UNUSED) - shift left 3 to put into BIT 7 of IO_State
 		telem_packet_3_struct.io_state	|= (P5IN & MOSFET_CNTL) << 1;		// Grab MOSFET CNTL value and shift left 1 bit to put into BIT 6 of IO_State
 		telem_packet_3_struct.io_state	|= (P3IN & LED_1) >> 2;				// Grab LED_1 value and shift right 2 bits to put into BIT 5 of IO_State
 		telem_packet_3_struct.io_state	|= (P3IN & LED_2) >> 4;				// Grab LED_2 value and shift right 4 bits to put into BIT 4 of IO_State

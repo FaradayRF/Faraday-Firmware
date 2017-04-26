@@ -110,9 +110,8 @@ void init_GPIO(void){
 	P4DIR	|= GPIO_3 | GPIO_4 | GPIO_5 | GPIO_6 | GPIO_7;
 
 
-	P5OUT	&= ~ARDUINO_IO_8;
-	P5OUT	&= ~ARDUINO_IO_9;
-	P5DIR 	|= ARDUINO_IO_8 + ARDUINO_IO_9;
+	P5OUT	&= ~DIGITAL_IO_8;
+	P5DIR 	|= DIGITAL_IO_8;
 
 	////////////////////////////////////
 	// RF Amplifier
