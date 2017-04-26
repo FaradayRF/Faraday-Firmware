@@ -65,9 +65,9 @@
 /** @name PORT 3
 * 	@brief Definitions for the CC430 PORT 3
 *
-*   - P3.0	PA_ENABLE	RF
-*   - P3.1	LNA_ENABLE	RF
-*   - P3.2	HGM_SELECT	RF
+*   - P3.0	GPIO_2	IO
+*   - P3.1	GPIO_1	IO
+*   - P3.2	GPIO_0	IO
 *   - P3.3	GPS_RESET	GPS
 *   - P3.4	GPS_STANDBY	GPS
 *   - P3.5	FLASH_SPI_CS FLASH
@@ -88,14 +88,14 @@
 /** @name PORT 4
 * 	@brief Definitions for the CC430 PORT 4
 *
-*   - P4.0	GPIO_7	IO		3V3 to 5V
-*   - P4.1	GPIO_6	IO		3V3 to 5V
-*   - P4.2	GPIO_5	IO		3V3 to 5V
-*   - P4.3	GPIO_4	IO		3V3 to 5V
-*   - P4.4	GPIO_3	IO		3V3 to 5V
-*   - P4.5	GPIO_2	IO		3V3 to 5V
-*   - P4.6	GPIO_1	IO		3V3 to 5V
-*   - P4.7	GPIO_0	IO		3V3 to 5V
+*   - P4.0	GPIO_7	IO
+*   - P4.1	GPIO_6	IO
+*   - P4.2	GPIO_5	IO
+*   - P4.3	GPIO_4	IO
+*   - P4.4	GPIO_3	IO
+*   - P4.5	PA_ENABLE	RF
+*   - P4.6	LNA_ENABLE	RF
+*   - P4.7	HGM_SELECT	RF
 @{**/
 #define GPIO_7 BIT0
 #define GPIO_6 BIT1
@@ -123,8 +123,8 @@
 @{**/
 #define CC430_WATCH_XTAL_0 BIT0
 #define CC430_WATCH_XTAL_1 BIT1
-#define ARDUINO_IO_8 BIT2
-#define ARDUINO_IO_9 BIT3
+#define DIGITAL_IO_8 BIT2
+#define GPS_RX BIT3
 #define MOSFET_CNTL BIT4
 #define SRAM_CS BIT5
 #define SRAM_HOLD BIT6
