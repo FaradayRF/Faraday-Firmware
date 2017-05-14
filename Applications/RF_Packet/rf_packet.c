@@ -8,6 +8,10 @@
 /* FIFO includes */
 #include "../../Ring_Buffers/FIFO_SRAM.h"
 
+/* rf includes */
+#include "../../RF_Network_Stack/rf.h"
+#include "../../RF_Network_Stack/rf_transport.h"
+
 
 /** @name RF Packet application FIFO state machines
 * 	@brief State machine variables for the RF Packet application.
@@ -48,6 +52,21 @@ void app_rf_packet_housekeeping(void){
 		unsigned char app_packet_buf[APP_RF_PACKET_PAYLOAD_LEN];
 		get_fifo_sram(&rf_packet_app_uart_rx_state_machine, app_packet_buf);
 		__no_operation();
+		app_rf_packet_rf_tx(app_packet_buf);
 		//app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
 	}
 }
+
+
+void app_rf_packet_rf_tx(unsigned char *packet){
+	//RF_COMMAND_PACKET_STRUCT rf_cmd_pkt;
+	/*memcpy(&rf_cmd_pkt.checksum_16, &packet[CMD_DATAGRAM_COMMAND_CHK16_LOC], CMD_DATAGRAM_COMMAND_CHK16_LEN);
+	memcpy(&rf_cmd_pkt.dest_callsign, &packet[CMD_DATAGRAM_COMMAND_CALLSIGN_LOC], CMD_DATAGRAM_COMMAND_CALLSIGN_LEN);
+	memcpy(&rf_cmd_pkt.dest_callsign_len, &packet[CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LOC], CMD_DATAGRAM_COMMAND_CALLSIGN_LEN_LEN);
+	memcpy(&rf_cmd_pkt.dest_device_id, &packet[CMD_DATAGRAM_COMMAND_DEVICE_ID_LOC], CMD_DATAGRAM_COMMAND_DEVICE_ID_LEN);
+	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
+	*/
+
+	rf_service_tx(packet, 4, 1, 'KB1LQD' , 6, 1, 'CQCQCQ', 6, 0, 0, 0);
+}
+
