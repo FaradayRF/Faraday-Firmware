@@ -47,6 +47,7 @@ void app_rf_packet_housekeeping(void){
 	if(rf_packet_app_uart_rx_state_machine.inwaiting>0){
 		unsigned char app_packet_buf[APP_RF_PACKET_PAYLOAD_LEN];
 		get_fifo_sram(&rf_packet_app_uart_rx_state_machine, app_packet_buf);
+		__no_operation();
 		//app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
 	}
 }

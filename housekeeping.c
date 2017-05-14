@@ -40,6 +40,9 @@
 /* faraday application - high altitude balloon */
 #include "Applications/HAB/App_HAB.h"
 
+/* faraday application - rf packet */
+#include "Applications/RF_Packet/rf_packet.h"
+
 #include "HAL/gps.h"
 
 void main_housekeeping_routine(void){
@@ -74,6 +77,7 @@ void housekeeping_check_raw(){
 	app_telem_rf_housekeeping();
 	app_command_housekeep();
 	app_msg_housekeeping();
+	app_rf_packet_housekeeping();
 
 	if(housekeeping_bitmask_char & BIT1){
 		housekeeping_bitmask_char &= ~BIT1; //Disable general housekeeping bit
