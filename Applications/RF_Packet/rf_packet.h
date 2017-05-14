@@ -15,6 +15,7 @@
 void app_init_app_rf_packet(void);
 void app_rf_packet_uart_rx_put(unsigned char *data_pointer, unsigned char length);
 void app_rf_packet_rf_rx_put(unsigned char *packet);
+//void app_rf_packet_uart_tx_put(unsigned char *data_pointer, unsigned char length);
 void app_rf_packet_housekeeping(void);
 void app_rf_packet_rf_tx(unsigned char *packet);
 

@@ -12,6 +12,9 @@
 #include "../../RF_Network_Stack/rf.h"
 #include "../../RF_Network_Stack/rf_transport.h"
 
+/* faraday uart network stack includes */
+#include "../../UART/UART_Services.h"
+
 
 /** @name RF Packet application FIFO state machines
 * 	@brief State machine variables for the RF Packet application.
@@ -21,6 +24,8 @@
 @{**/
 volatile fifo_sram_state_machine rf_packet_app_uart_rx_state_machine; /**< Command application FIFO state machine structure */
 volatile fifo_sram_state_machine rf_packet_app_rf_rx_state_machine; /**< Command application FIFO state machine structure */
+volatile fifo_sram_state_machine rf_packet_app_uart_tx_state_machine; /**< FIFO buffer used to flow control the applications access to the UART network stack transmit FIFO */
+
 /** @}*/
 
 /** @name RF Packet Application Definitions
@@ -38,6 +43,7 @@ void app_init_app_rf_packet(void){
 	//Application FIFO
 	fifo_sram_init(&rf_packet_app_uart_rx_state_machine, 6000, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
 	fifo_sram_init(&rf_packet_app_rf_rx_state_machine, 6210, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
+	//fifo_sram_init(&rf_packet_app_uart_tx_state_machine, 6420, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
 }
 
 void app_rf_packet_uart_rx_put(unsigned char *data_pointer, unsigned char length){
@@ -49,6 +55,13 @@ void app_rf_packet_rf_rx_put(unsigned char *packet){
 	//put_fifo(&telem_rf_rx_fifo_state_machine, &telem_rf_rx_fifo_buffer, (unsigned char *)packet);
 	put_fifo_sram(&rf_packet_app_rf_rx_state_machine, packet);
 }
+
+//void app_rf_packet_uart_tx_put(unsigned char *data_pointer, unsigned char length){
+//	put_fifo_sram(&rf_packet_app_uart_tx_state_machine, data_pointer);
+//	__no_operation();
+//}
+
+
 
 
 void app_rf_packet_housekeeping(void){
@@ -69,9 +82,9 @@ void app_rf_packet_housekeeping(void){
 			__no_operation();
 			//app_rf_packet_rf_tx(app_packet_buf);
 			//app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
+			//Transmit APPLICATOIN UART FIFO packet into UART stack
+			uart_send(1, APP_RF_PACKET_PAYLOAD_LEN, app_packet_buf);
 		}
-
-
 }
 
 
