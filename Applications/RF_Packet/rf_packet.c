@@ -97,6 +97,6 @@ void app_rf_packet_rf_tx(unsigned char *packet){
 	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
 	*/
 
-	rf_service_tx(packet, 4, 1, "KB1LQD" , 6, 1, "CQCQCQ", 6, 0, 0, 0);
+	rf_service_tx(packet, APP_RF_PACKET_PAYLOAD_LEN, 1, "KB1LQD" , 6, 1, "CQCQCQ", 6, 0, 0, 0);
 }
 
