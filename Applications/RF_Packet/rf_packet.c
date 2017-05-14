@@ -20,6 +20,7 @@
 *
 @{**/
 volatile fifo_sram_state_machine rf_packet_app_uart_rx_state_machine; /**< Command application FIFO state machine structure */
+volatile fifo_sram_state_machine rf_packet_app_rf_rx_state_machine; /**< Command application FIFO state machine structure */
 /** @}*/
 
 /** @name RF Packet Application Definitions
@@ -36,11 +37,17 @@ volatile fifo_sram_state_machine rf_packet_app_uart_rx_state_machine; /**< Comma
 void app_init_app_rf_packet(void){
 	//Application FIFO
 	fifo_sram_init(&rf_packet_app_uart_rx_state_machine, 6000, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
+	fifo_sram_init(&rf_packet_app_rf_rx_state_machine, 6210, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
 }
 
 void app_rf_packet_uart_rx_put(unsigned char *data_pointer, unsigned char length){
 	put_fifo_sram(&rf_packet_app_uart_rx_state_machine, data_pointer);
 	__no_operation();
+}
+
+void app_rf_packet_rf_rx_put(unsigned char *packet){
+	//put_fifo(&telem_rf_rx_fifo_state_machine, &telem_rf_rx_fifo_buffer, (unsigned char *)packet);
+	put_fifo_sram(&rf_packet_app_rf_rx_state_machine, packet);
 }
 
 
@@ -55,6 +62,16 @@ void app_rf_packet_housekeeping(void){
 		app_rf_packet_rf_tx(app_packet_buf);
 		//app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
 	}
+
+	if(rf_packet_app_rf_rx_state_machine.inwaiting>0){
+			unsigned char app_packet_buf[APP_RF_PACKET_PAYLOAD_LEN];
+			get_fifo_sram(&rf_packet_app_rf_rx_state_machine, app_packet_buf);
+			__no_operation();
+			//app_rf_packet_rf_tx(app_packet_buf);
+			//app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
+		}
+
+
 }
 
 
@@ -67,6 +84,6 @@ void app_rf_packet_rf_tx(unsigned char *packet){
 	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
 	*/
 
-	rf_service_tx(packet, 4, 1, 'KB1LQD' , 6, 1, 'CQCQCQ', 6, 0, 0, 0);
+	rf_service_tx(packet, 4, 1, "KB1LQD" , 6, 1, "CQCQCQ", 6, 0, 0, 0);
 }
 

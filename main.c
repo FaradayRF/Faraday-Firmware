@@ -68,6 +68,8 @@ int main(void) {
 	uart_service_open(3, app_msg_put); //UART MSG App Link
 
 	//Open RX RF service ports (Transport Layer)
+
+	rf_rx_service_open(1, app_rf_packet_rf_rx_put, 1); // RF Command Link, safe for broadcast reception
 	rf_rx_service_open(2, app_command_rf_rx_put, 0); // RF Command Link, not safe for broadcast reception
 	rf_rx_service_open(5, app_telem_rf_rx_put, 1); //RF Telemetry RX, safe for broadcast reception
 	rf_rx_service_open(3, app_msg_rf_rx_put, 0); //RF MSG RX, not safe for broadcast reception
