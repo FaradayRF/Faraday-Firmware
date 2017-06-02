@@ -38,14 +38,14 @@ volatile fifo_sram_state_machine rf_packet_app_uart_tx_state_machine; /**< FIFO 
 *
 *
 @{**/
-#define APP_RF_PACKET_PAYLOAD_LEN 42 /**< Maximum RF packet length to determine maximum RF command command payload FIFO element size*/
+#define APP_RF_PACKET_PAYLOAD_LEN 41 /**< Maximum RF packet length to determine maximum RF command command payload FIFO element size*/
 #define APP_RF_PACKET_FIFO_COUNT 5 /**< RF command packet FIFO element count */
 /** @}*/
 
 void app_init_app_rf_packet(void){
 	//Application FIFO
 	fifo_sram_init(&rf_packet_app_uart_rx_state_machine, 6000, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
-	fifo_sram_init(&rf_packet_app_rf_rx_state_machine, 6210, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
+	fifo_sram_init(&rf_packet_app_rf_rx_state_machine, 6204, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
 	//fifo_sram_init(&rf_packet_app_uart_tx_state_machine, 6420, APP_RF_PACKET_PAYLOAD_LEN, APP_RF_PACKET_FIFO_COUNT);
 }
 
