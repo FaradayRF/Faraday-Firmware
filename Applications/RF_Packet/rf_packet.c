@@ -50,8 +50,15 @@ void app_init_app_rf_packet(void){
 }
 
 void app_rf_packet_uart_rx_put(unsigned char *data_pointer, unsigned char length){
-	put_fifo_sram(&rf_packet_app_uart_rx_state_machine, data_pointer);
 	__no_operation();
+	switch(app_rf_packet_parse(data_pointer)){
+		case 0: // Data Frame
+			put_fifo_sram(&rf_packet_app_uart_rx_state_machine, data_pointer);
+			break;
+		case 1: // Control Frame
+			__no_operation();
+			break;
+	}
 }
 
 void app_rf_packet_rf_rx_put(unsigned char *packet){
@@ -103,3 +110,6 @@ void app_rf_packet_rf_tx(unsigned char *packet){
 	rf_service_tx(packet, APP_RF_PACKET_PAYLOAD_LEN, 1, local_callsign, local_callsign_len, local_device_id, "CQCQCQ", 6, 0, 0, 0);
 }
 
+unsigned char app_rf_packet_parse(unsigned char *packet){
+	return packet[0];
+}
