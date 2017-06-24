@@ -82,7 +82,7 @@ void app_device_config_load_default(void){
 	if((!check_bitmask(flash_programmed_bit, BIT0)) | (device_callsign_len>MAX_CALLSIGN_LENGTH)){
 		//Basic Configuration
 		default_flash_config_struct program_config_boot_struct;
-		program_config_boot_struct.flash_config_bitmask = BIT0;
+		program_config_boot_struct.flash_config_bitmask = UNIT_PROGRAMMED | TX_RED_INDICATOR;
 		program_config_boot_struct.local_callsign_len = sizeof("NOCALL")-1; //-1 Because string contains \n as last byte
 		memcpy(program_config_boot_struct.local_callsign, "NOCALL", program_config_boot_struct.local_callsign_len);
 		program_config_boot_struct.local_device_id = 0;
