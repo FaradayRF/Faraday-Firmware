@@ -107,4 +107,5 @@ Each firmware "Tag" or "Release" has a corresponding version embedded in the uni
 * Place this value as HEX into the `version = HASH_IN_HEX` global variable of `version.h`
   * e.g. HASH = a825d82 would be saved in variable as `version = 0xa825d82`
 * Save and commit. Make sure to save with commit comment indicating version variable update.
+  * Please make this commit containing ONLY the version update and not combined with any prior updates.
 
