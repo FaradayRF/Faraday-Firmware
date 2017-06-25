@@ -21,6 +21,7 @@ This document contains information relavent to anyone wishing to contribute the 
 [Styleguides](#styleguides)
 
 * [C](#c_style)
+* [Firmware Version Guide](#firmware_version_guide)
 
 #What Should I Know Before I Get Started <a name="get_started"></a>
 ---
@@ -97,3 +98,14 @@ For now use:
 
 * [Basic C Style Using Doxygen](https://wiki.icinga.org/display/Dev/Coding+and+documenting+style+guide)
 * [Doxygen CheatSheet PDF](https://wiki.icinga.org/display/Dev/Coding+and+documenting+style+guide)
+
+## Firmware Version Guide <a name="firmware_version_guide"></a>
+Each firmware "Tag" or "Release" has a corresponding version embedded in the unit program that can be queried. This guide section shows how the current version is created. This should be done imediately prior to a pull request.
+
+* Ensure all commits are made
+* Obtain a shorten HASH of the HEAD commit: `git rev-list --max-count=1 --abbrev-commit --skip=# HEAD`
+* Place this value as HEX into the `version = HASH_IN_HEX` global variable of `version.h`
+  * e.g. HASH = a825d82 would be saved in variable as `version = 0xa825d82`
+* Save and commit. Make sure to save with commit comment indicating version variable update.
+  * Please make this commit containing ONLY the version update and not combined with any prior updates.
+

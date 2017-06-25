@@ -185,6 +185,11 @@ void Transmit(unsigned char *buffer, unsigned char length)
 void TransmitOn(void)
 {
 
+	//Turn on transmit LED indicator if configuration allows
+	if(config_bitmask & TX_RED_INDICATOR){
+		gpio_update(3, LED_2, 1);
+	}
+
 	//Setup CC1190 to LNA
 	CC1190_LNA_Disable();
 	CC1190_PA_Enable();
@@ -268,6 +273,11 @@ void radio_isr(void){
 			RF1AIE &= ~BIT9;                    // Disable TX end-of-packet interrupt
 			radio_manual_idle(); // Goto IDLE first to force self calibration
 			ReceiveOn();
+
+			//Turn off transmit LED indicator if configuration allows
+			if(config_bitmask & TX_RED_INDICATOR){
+				gpio_update(3, LED_2, 0);
+			}
 		}
 
 	  }
