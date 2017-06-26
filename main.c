@@ -22,6 +22,7 @@
 #include "Scratch/scratch_sram.h"
 #include "Faraday_HAL/Faraday_HAL.h"
 #include "Applications/HAB/App_HAB.h"
+#include "Applications/RF_Packet/rf_packet.h"
 
 //DELETE ME
 #include "scratch_flash.h"
@@ -50,6 +51,7 @@ int main(void) {
 
 
     //Applications
+	app_init_app_rf_packet();
 	application_telemetry_initialize();
 	app_init_command();
 	init_app_msg();
@@ -61,10 +63,13 @@ int main(void) {
 	app_device_config_device_debug_update(0, 0);
 
 	//Open RX UART service ports (Transport Layer)
+	uart_service_open(1, app_rf_packet_uart_rx_put); //UART RF Packet Link
 	uart_service_open(2, app_command_put); //UART Command Link
 	uart_service_open(3, app_msg_put); //UART MSG App Link
 
 	//Open RX RF service ports (Transport Layer)
+
+	rf_rx_service_open(1, app_rf_packet_rf_rx_put, 1); // RF Command Link, safe for broadcast reception
 	rf_rx_service_open(2, app_command_rf_rx_put, 0); // RF Command Link, not safe for broadcast reception
 	rf_rx_service_open(5, app_telem_rf_rx_put, 1); //RF Telemetry RX, safe for broadcast reception
 	rf_rx_service_open(3, app_msg_rf_rx_put, 0); //RF MSG RX, not safe for broadcast reception

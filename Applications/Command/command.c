@@ -80,14 +80,14 @@ void app_init_command(void){
 	fifo_sram_init(&command_state_machine, 5000, CMD_FIFO_SIZE, CMD_FIFO_ELEMENT_CNT);
 	fifo_sram_init(&app_command_rf_tx_rfconfig_fifo_state_machine, 5123, APP_COMMAND_RF_CONFIG_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
 
-	init_app_command_rf_fifo();
+	init_app_rf_packet_fifo();
 }
 
 
-void init_app_command_rf_fifo(void){
+void init_app_rf_packet_fifo(void){
 	//Application FIFO
-	fifo_sram_init(&app_command_rf_tx_fifo_state_machine, 5161, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
-	fifo_sram_init(&app_command_rx_fifo_state_machine, 5407, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
+	fifo_sram_init(&app_command_rf_tx_fifo_state_machine, 5161, APP_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
+	fifo_sram_init(&app_command_rx_fifo_state_machine, 5407, APP_RF_PACKET_PAYLOAD_LEN, APP_COMMAND_RF_PACKET_FIFO_COUNT);
 }
 
 
@@ -286,7 +286,7 @@ void app_command_rf_housekeeping(void){
 	 */
 	if(app_command_rf_tx_fifo_state_machine.inwaiting>0){
 		//Create temporary array to store packet from APPLICATION
-		unsigned char app_packet_buf[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
+		unsigned char app_packet_buf[APP_RF_PACKET_PAYLOAD_LEN];
 		unsigned char app_packet_rf_config_buf[APP_COMMAND_RF_CONFIG_LEN];
 		APP_COMMAND_RF_CONFIG_STRUCT test_struct;
 
@@ -315,14 +315,14 @@ void app_command_rf_housekeeping(void){
 		}
 
 		//Transmit APPLICATION FIFO packet into RF stack
-		rf_service_tx(&app_packet_buf, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, RF_L4_service_number, &RF_L2_source_callsign , RF_L2_source_callsign_len, RF_L2_source_indetifier, &RF_L2_destination_callsign, RF_L2_destination_callsign_len, RF_L2_destination_identifier, RF_L2_packet_type, RF_L2_packet_config);
+		rf_service_tx(&app_packet_buf, APP_RF_PACKET_PAYLOAD_LEN, RF_L4_service_number, &RF_L2_source_callsign , RF_L2_source_callsign_len, RF_L2_source_indetifier, &RF_L2_destination_callsign, RF_L2_destination_callsign_len, RF_L2_destination_identifier, RF_L2_packet_type, RF_L2_packet_config);
 	}
 	else{
 		//Nothing in FIFO
 	}
 
 	if(app_command_rx_fifo_state_machine.inwaiting>0){
-		unsigned char app_packet_buf[APP_COMMAND_RF_PACKET_PAYLOAD_LEN];
+		unsigned char app_packet_buf[APP_RF_PACKET_PAYLOAD_LEN];
 		get_fifo_sram(&app_command_rx_fifo_state_machine, app_packet_buf);
 		app_command_parse(app_packet_buf, APP_CMD_SOURCE_RF);
 	}
@@ -343,5 +343,5 @@ void app_cmd_rf_single_pkt(unsigned char *packet){
 	memcpy(&rf_cmd_pkt.dest_device_id, &packet[CMD_DATAGRAM_COMMAND_DEVICE_ID_LOC], CMD_DATAGRAM_COMMAND_DEVICE_ID_LEN);
 	memcpy(&rf_cmd_pkt.cmd_app_datagram_remote, &packet[CMD_DATAGRAM_COMMAND_DATAGRAM_LOC], CMD_DATAGRAM_COMMAND_DATAGRAM_LEN);
 
-	rf_service_tx(&rf_cmd_pkt.cmd_app_datagram_remote, APP_COMMAND_RF_PACKET_PAYLOAD_LEN, 2, &local_callsign , local_callsign_len, local_device_id, rf_cmd_pkt.dest_callsign, 6, rf_cmd_pkt.dest_device_id, 0, 0);
+	rf_service_tx(&rf_cmd_pkt.cmd_app_datagram_remote, APP_RF_PACKET_PAYLOAD_LEN, 2, &local_callsign , local_callsign_len, local_device_id, rf_cmd_pkt.dest_callsign, 6, rf_cmd_pkt.dest_device_id, 0, 0);
 }
