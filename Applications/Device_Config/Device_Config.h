@@ -76,8 +76,8 @@
 
 //Bitmask locations
 #define UNIT_PROGRAMMED BIT0 /**< Flash programmed configuration bitmask location */
-#define TX_RED_INDICATOR BIT1 /**< Flash programmed configuration bitmask location */
-#define RX_GREEN_INDICATOR BIT2 /**< Flash programmed configuration bitmask location */
+#define TX_RED_INDICATOR BIT1 /**< TX LED configuration bitmask location */
+#define RX_GREEN_INDICATOR BIT2 /**< RX LED configuration bitmask location */
 #define GPS_BOOT_ENABLE BIT0 /**< GPS boot enabled GPS boot bitmask location */
 #define GPS_PRESENT_BIT BIT1 /**< GPS boot enabled GPS boot bitmask location */
 #define UART_BEACON_BOOT_ENABLE BIT0 /**< UART beacon telemetry enabled telemetry boot bitmask location */
