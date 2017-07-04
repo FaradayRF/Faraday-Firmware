@@ -93,7 +93,7 @@ void rf_transport_parse(unsigned char *packet, unsigned char broadcast_status){
 		//Check if receive port is safe for broadcast reception
 		if((rf_rx_service_broadcast_rule_get(rf_transport_packet_rx_struct.service_number) != 0) && (broadcast_status == 1)){
 			//Turn on receive LED indicator if configuration allows
-			if(config_bitmask & TX_RED_INDICATOR){
+			if(config_bitmask & RX_GREEN_INDICATOR){
 				gpio_update(3, LED_1, 1);
 			}
 
@@ -102,13 +102,13 @@ void rf_transport_parse(unsigned char *packet, unsigned char broadcast_status){
 			__no_operation();
 
 			//Turn off receive LED indicator if configuration allows
-			if(config_bitmask & TX_RED_INDICATOR){
+			if(config_bitmask & RX_GREEN_INDICATOR){
 				gpio_update(3, LED_1, 0);
 			}
 		}
 		else if(broadcast_status != 1){
 			//Turn on receive LED indicator if configuration allows
-			if(config_bitmask & TX_RED_INDICATOR){
+			if(config_bitmask & RX_GREEN_INDICATOR){
 				gpio_update(3, LED_1, 1);
 			}
 
@@ -117,7 +117,7 @@ void rf_transport_parse(unsigned char *packet, unsigned char broadcast_status){
 			__no_operation();
 
 			//Turn off receive LED indicator if configuration allows
-			if(config_bitmask & TX_RED_INDICATOR){
+			if(config_bitmask & RX_GREEN_INDICATOR){
 				gpio_update(3, LED_1, 0);
 			}
 		}
