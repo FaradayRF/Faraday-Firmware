@@ -30,6 +30,9 @@
 /* faraday gpio hardware abstraction functions */
 #include "../HAL/GPIO.h"
 
+/* faraday device configuration application include */
+#include "../Applications/Device_Config/Device_Config.h"
+
 
 void rf_service_tx(unsigned char *L4_payload_buffer,
 		unsigned char L4_payload_len,
@@ -89,14 +92,34 @@ void rf_transport_parse(unsigned char *packet, unsigned char broadcast_status){
 		}
 		//Check if receive port is safe for broadcast reception
 		if((rf_rx_service_broadcast_rule_get(rf_transport_packet_rx_struct.service_number) != 0) && (broadcast_status == 1)){
+			//Turn on receive LED indicator if configuration allows
+			if(config_bitmask & RX_GREEN_INDICATOR){
+				gpio_update(3, LED_1, 1);
+			}
+
 			//Broadcast reception safe
 			rf_rx_stack_rx(rf_transport_packet_rx_struct.service_number, rf_transport_packet_rx_struct.payload, rf_transport_packet_rx_struct.payload_length);
 			__no_operation();
+
+			//Turn off receive LED indicator if configuration allows
+			if(config_bitmask & RX_GREEN_INDICATOR){
+				gpio_update(3, LED_1, 0);
+			}
 		}
 		else if(broadcast_status != 1){
+			//Turn on receive LED indicator if configuration allows
+			if(config_bitmask & RX_GREEN_INDICATOR){
+				gpio_update(3, LED_1, 1);
+			}
+
 			//Not a broadcast packet
 			rf_rx_stack_rx(rf_transport_packet_rx_struct.service_number, rf_transport_packet_rx_struct.payload, rf_transport_packet_rx_struct.payload_length);
 			__no_operation();
+
+			//Turn off receive LED indicator if configuration allows
+			if(config_bitmask & RX_GREEN_INDICATOR){
+				gpio_update(3, LED_1, 0);
+			}
 		}
 		else{
 			//Transport layer port not allowed with broadcast packet callsign! Discard packet.
