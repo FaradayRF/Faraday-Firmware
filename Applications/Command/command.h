@@ -56,7 +56,7 @@
 *	@todo APP_COMMAND_RF_PACKET_PAYLOAD_LEN should be updated to an RF network stack constant to consilidate.
 *
 @{**/
-#define APP_COMMAND_RF_PACKET_PAYLOAD_LEN 42 /**< Maximum RF packet length to determine maximum RF command command payload FIFO element size*/
+#define APP_RF_PACKET_PAYLOAD_LEN 42 /**< Maximum RF packet length to determine maximum RF command command payload FIFO element size*/
 #define APP_COMMAND_RF_PACKET_FIFO_COUNT 2 /**< RF command packet FIFO element count */
 /** @}*/
 
@@ -269,7 +269,7 @@ void app_cmd_rf_single_pkt(unsigned char *packet);
  *	incoming and outgoing RF commands between the RF network stack.
  *
  */
-void init_app_command_rf_fifo(void);
+void init_app_rf_packet_fifo(void);
 
 
 /**@brief Housekeeping routine for RF commanding
