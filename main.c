@@ -23,9 +23,11 @@
 #include "Faraday_HAL/Faraday_HAL.h"
 #include "Applications/HAB/App_HAB.h"
 #include "Applications/RF_Packet/rf_packet.h"
+#include "Faraday_HAL/SPI.h"
+
 
 //DELETE ME
-#include "scratch_flash.h"
+//#include "scratch_flash.h"
 
 #define TIMER_HOUSEKEEP_CCR0 65 //Housekeeping timer raw interrupt count value. 65 with 32768 clock is ~1.98ms
 #define TIMER_HOUSEKEEP_CCR1 8192
@@ -88,6 +90,12 @@ int main(void) {
 	//Check for RESET Faults on boot (Leave commented by default)
     //reset_identification();
     //reset_identification_2();
+
+	//SPI - Toggle SRAM (Prevent low MISO impedance Github firmware issue #80)
+	Faraday_SRAM_Toggle_CS();
+
+	//Ensure SPI configuration setup for SRAM operation
+	init_SPI_Clk_10();
 
 
     //Enable interrupts

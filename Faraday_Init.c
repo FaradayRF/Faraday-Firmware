@@ -20,6 +20,7 @@
 
 /* hardware abstraction */
 #include "Faraday_HAL/Faraday_HAL.h"
+#include "Faraday_HAL/SPI.h"
 #include "HAL/hal_pmm.h"
 #include "HAL/hal_pmm.h"
 #include "HAL/hal_UCS.h"
@@ -41,9 +42,12 @@
 
 /* faraday device configuration application */
 #include "Applications/Device_Config/Device_Config.h"
+#include "Faraday_HAL/cp2120.h"
 
 /* faraday miscellaneous functions */
 #include "Faraday_HAL/Misc_Functions.h"
+
+/* CP2120 SPI-I2C module functions */
 
 
 void faraday_main_intialize(void){
@@ -145,12 +149,19 @@ void init_GPIO(void){
 	P1DIR 	|= UCB0CS1;									// Set UCB0CS1 as output
 
 	// SRAM IC SPI configuration
-	P5OUT	&= ~SRAM_CS + ~SRAM_HOLD;					// Set default SRAM CS and SRAM Hold to 0
+	//P5OUT	&= ~SRAM_CS + ~SRAM_HOLD;					// Set default SRAM CS and SRAM Hold to 0
+	P5OUT	|= SRAM_CS + SRAM_HOLD;						// Set default SRAM CS and SRAM Hold to HIGH
 	P5DIR 	|= SRAM_CS + SRAM_HOLD;						// Set SRAm CS and SRAM Hold to output
 
 	//Flash IC SPI Configuration
 	P3DIR	|= FLASH_SPI_CS;							// FLASH_SPI_CS set as output
 	P5DIR   |= FLASH_HOLD;								// FLASH_HOLD set as output
+	P1DIR   &= ~UCB0_SOMI_SCL;							// SPI MISO INPUT
+	P1OUT   |= UCB0_SOMI_SCL;							// SPI MISO Pullup
+	P1REN   |= UCB0_SOMI_SCL;							// SPI MISO Pullup
+
+	P2DIR &= ~CP2120_SPI_I2C_INT;						// CP2120 INT Pin P2.5 Input
+
 
 	////////////////////////////////////
 	// UART
@@ -161,6 +172,12 @@ void init_GPIO(void){
 	P1DIR 	&= ~UCA0RXD;								// Set UCA0RXD P1.5 as input
 	P1OUT 	&= ~UCA0RXD;								// Set UCA0RXD P1.5 as OUTPUT for Pullup
 	P1REN 	&= ~UCA0RXD;								// Set UCA0RXD P1.5 REN as HIGH for pullup
+
+	// CP2120 SPI to I2C Converter Module (External)
+	P1OUT |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to HIGH (CS is active LOW)
+	P1DIR |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to OUTPUT
+
+
 }
 
 
@@ -508,11 +525,11 @@ void init_ADC(void){
 *************************************************************/
 void init_SPI(void){
 	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
-	UCB0CTL0 |= UCMST+UCSYNC+UCCKPH+UCMSB;    // 3-pin, 8-bit SPI master +UCCKPL
+	UCB0CTL0 |= UCMODE_0+UCMST+UCSYNC+UCCKPH+UCMSB;    // 3-pin, 8-bit SPI master, MODE 10| +UCCKPL
 											  // Clock polarity high, MSB
 	UCB0CTL1 |= UCSSEL_2;                     // SMCLK
-	UCB0BR0 = 0x02;                           // /2
-	UCB0BR1 = 0;                              //
+	UCB0BR0 = 2;                           // HIGH f/(H+L*256)
+	UCB0BR1 = 0x01;                           // LOW  f/(H+L*256)
 	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
 
 	//Disable HOLD (Active LOW)
@@ -520,6 +537,34 @@ void init_SPI(void){
 
 	//Disable Chip Select (CS) (Active Low)
 	Faraday_SRAM_CS_Disable();
+}
+
+void init_SPI_Clk_00(void){
+	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
+	UCB0CTL0 &= ~UCCKPH;
+	UCB0CTL0 &= ~UCCKPL;
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+}
+
+void init_SPI_Clk_01(void){
+	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
+	UCB0CTL0 &= ~UCCKPH;
+	UCB0CTL0 |= UCCKPL;
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+}
+
+void init_SPI_Clk_10(void){
+	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
+	UCB0CTL0 |= UCCKPH;
+	UCB0CTL0 &= ~UCCKPL;
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+}
+
+void init_SPI_Clk_11(void){
+	UCB0CTL1 |= UCSWRST;                      // **Put state machine in reset**
+	UCB0CTL0 |= UCCKPH;
+	UCB0CTL0 |= UCCKPL;
+	UCB0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
 }
 
 /************************************************************
