@@ -54,7 +54,7 @@ unsigned char spi_enable_chip_select(unsigned char SPI_HAL_CS){
 			Faraday_SRAM_CS_Enable();
 			break;
 		case SPI_HAL_CS_I2C: // SPI to I2C
-			Faraday_CP2120_CS_Enable();
+//			Faraday_CP2120_CS_Enable();
 			break;
 		default: //Default - Should NEVER get here
 			__no_operation();
