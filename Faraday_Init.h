@@ -144,6 +144,14 @@ void init_ADC(void);
 void init_SPI(void);
 
 
+void init_SPI_Clk_00(void);
+
+void init_SPI_Clk_01(void);
+
+void init_SPI_Clk_10(void);
+
+void init_SPI_Clk_11(void);
+
 /** @brief Initialize the software UART for GPS
 *
 *	This function intializes the onboard software UART used to interface with with the on-board GPS

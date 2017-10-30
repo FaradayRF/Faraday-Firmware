@@ -42,7 +42,7 @@
 
 /* faraday device configuration application */
 #include "Applications/Device_Config/Device_Config.h"
-#include "Faraday_HAL/cp2120.h"
+//#include "Faraday_HAL/cp2120.h"
 
 /* faraday miscellaneous functions */
 #include "Faraday_HAL/Misc_Functions.h"
@@ -160,7 +160,7 @@ void init_GPIO(void){
 	P1OUT   |= UCB0_SOMI_SCL;							// SPI MISO Pullup
 	P1REN   |= UCB0_SOMI_SCL;							// SPI MISO Pullup
 
-	P2DIR &= ~CP2120_SPI_I2C_INT;						// CP2120 INT Pin P2.5 Input
+//	P2DIR &= ~CP2120_SPI_I2C_INT;						// CP2120 INT Pin P2.5 Input
 
 
 	////////////////////////////////////
@@ -174,8 +174,8 @@ void init_GPIO(void){
 	P1REN 	&= ~UCA0RXD;								// Set UCA0RXD P1.5 REN as HIGH for pullup
 
 	// CP2120 SPI to I2C Converter Module (External)
-	P1OUT |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to HIGH (CS is active LOW)
-	P1DIR |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to OUTPUT
+//	P1OUT |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to HIGH (CS is active LOW)
+//	P1DIR |= CP2120_SPI_CS; // Set P1.1 (external CS2 pin) to OUTPUT
 
 
 }

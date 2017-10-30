@@ -24,6 +24,7 @@
 #include "Applications/HAB/App_HAB.h"
 #include "Applications/RF_Packet/rf_packet.h"
 #include "Faraday_HAL/SPI.h"
+#include "SRAM/SRAM.h"
 
 
 //DELETE ME
