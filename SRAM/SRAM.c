@@ -18,27 +18,6 @@
 /* spi driver*/
 #include "../Faraday_HAL/SPI.h"
 
-/*
-void Faraday_SRAM_CS_Enable(void){
-	//Active LOW
-	P5OUT &= ~SRAM_CS;
-}
-
-void Faraday_SRAM_CS_Disable(void){
-	//Active LOW
-	P5OUT |= SRAM_CS;
-}
-
-void Faraday_SRAM_Hold_Enable(void){
-	//Active LOW
-	P5OUT &= ~SRAM_HOLD;
-}
-
-void Faraday_SRAM_Hold_Disable(void){
-	//Active LOW
-	P5OUT |= SRAM_HOLD;
-}
-*/
 
 void Faraday_SRAM_Write_Byte(unsigned char byte, unsigned int address){
 	unsigned char address_h, address_l;
