@@ -97,6 +97,7 @@ int main(void) {
 
 	//Ensure SPI configuration setup for SRAM operation
 	init_SPI_Clk_10();
+	test_1();
 
 
     //Enable interrupts

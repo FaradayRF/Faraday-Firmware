@@ -51,15 +51,17 @@ unsigned char Faraday_SRAM_Read_Settings(void){
 
 	//Select the SRAM chip select
 	spi_enable_chip_select(SPI_HAL_CS_SRAM);
-	__delay_cycles(50); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
+	__delay_cycles(SPI_BYTE_CYCLES*5);
 
 	//Send the READ command
 	spi_tx(SRAM_RDSR);
+	__delay_cycles(SPI_BYTE_CYCLES*5);
 
 	//Send dummy byte to shift SPI registers out of SRAM into RX CC430
 	spi_tx(0x00); //dummy
+	__delay_cycles(SPI_BYTE_CYCLES*5);
 
-	__delay_cycles(SPI_BYTE_CYCLES*2); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
+	__delay_cycles(SPI_BYTE_CYCLES*5); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
 	spi_disable_chip_select(SPI_HAL_CS_SRAM);
 
 	unsigned char test2;
@@ -78,16 +80,16 @@ void Faraday_SRAM_Write_Settings(unsigned char mode){
 		//Select the SRAM chip select
 
 		spi_enable_chip_select(SPI_HAL_CS_SRAM);
-		__delay_cycles(50); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
+		__delay_cycles(SPI_BYTE_CYCLES*5);
 
 		//Send the READ command
 		spi_tx(SRAM_WRSR);
-		//__delay_cycles(50);
+		__delay_cycles(SPI_BYTE_CYCLES*5);
 
 		//Send dummy byte to shift SPI registers out of SRAM into RX CC430
 		spi_tx(mode2); //dummy
 
-		__delay_cycles(SPI_BYTE_CYCLES*2); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
+		__delay_cycles(SPI_BYTE_CYCLES*5); //Per datasheet at 3.0V CS delay is 25ns = @16MHz is 2.5 clock cycles
 		spi_disable_chip_select(SPI_HAL_CS_SRAM);
 	}
 	else{
