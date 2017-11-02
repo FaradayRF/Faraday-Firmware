@@ -88,7 +88,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="cc430f6137.cmd|Scratch|Ring_Buffers/Packet_Ring_Buffer.c|Applications/Test_RF|main - Copy.c|Faraday_Simple_Transport|Applications/TEST|UART_L2_Datalink|Applications/app_clean_uart_test.c|HAL/RfRegSettings.c|Applications/Test_RF/Test_RF2.c|Ring_Buffers/Ring_Buffer.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="cc430f6137.cmd|Ring_Buffers/Packet_Ring_Buffer.c|Applications/Test_RF|main - Copy.c|Faraday_Simple_Transport|Applications/TEST|UART_L2_Datalink|Applications/app_clean_uart_test.c|HAL/RfRegSettings.c|Applications/Test_RF/Test_RF2.c|Ring_Buffers/Ring_Buffer.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
